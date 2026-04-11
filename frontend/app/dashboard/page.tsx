@@ -316,7 +316,7 @@ function DashboardFooter() {
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-[10px] uppercase font-light" style={{ letterSpacing: '0.2em', color: '#525252' }}>
-          © 2024 Signals Zen Editorial. All rights reserved.
+          © 2024 Signals Editorial. All rights reserved.
         </div>
         <div className="flex gap-10">
           {['Privacy', 'Terms', 'API Docs', 'Changelog'].map((link) => (

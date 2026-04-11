@@ -111,6 +111,52 @@ export async function fetchTokenAnalysis(
 }
 
 /**
+ * Run comprehensive token scan for simulation.
+ * This is the main endpoint for the simulation workflow.
+ */
+export async function fetchTokenScan(
+  tokenAddress: string,
+  chain: string = 'sol',
+  includeSocial: boolean = false
+): Promise<{
+  token: {
+    name: string;
+    symbol: string;
+    address: string;
+    price: number;
+    volume_24h: number;
+    liquidity: number;
+    market_cap: number;
+    price_change_24h: number;
+  };
+  safety: {
+    overall_risk_score: number;
+    risk_level: string;
+    liquidity_locked: boolean;
+    holder_count: number;
+    top_10_holder_pct: number;
+  };
+  prediction: {
+    action: 'BUY' | 'SELL' | 'HOLD';
+    confidence: number;
+    reasoning: string;
+    price_target?: number;
+    stop_loss?: number;
+  };
+  data_status: Record<string, string>;
+}> {
+  return apiFetch<any>('/token-scan/analyze', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      token_address: tokenAddress,
+      chain,
+      include_social: includeSocial,
+    }),
+  });
+}
+
+/**
  * Fetch token stats (price, volume, etc.)
  */
 export async function fetchTokenStats(coinAddress: string, chain: string = 'sol') {

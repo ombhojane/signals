@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { SettingsProvider } from "@/lib/settings-context";
 import { ApiStatusProvider } from "@/lib/contexts/ApiStatusContext";
+import { UnifiedWalletProvider } from "@/lib/contexts/UnifiedWalletProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Signals Zen | Web3 Intelligence",
+  title: "Signals | Web3 Intelligence",
   description: "Quiet clarity in a noisy ecosystem. Distilling global on-chain complexity into actionable editorial intelligence for the discerning institution.",
 };
 
@@ -41,7 +42,9 @@ export default function RootLayout({
         >
           <SettingsProvider>
             <ApiStatusProvider>
-              {children}
+              <UnifiedWalletProvider>
+                {children}
+              </UnifiedWalletProvider>
             </ApiStatusProvider>
           </SettingsProvider>
         </ThemeProvider>

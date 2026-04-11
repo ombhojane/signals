@@ -28,6 +28,7 @@ import {
   fetchTokenAnalysis,
   fetchTwitterData as fetchTwitterDataAPI,
   fetchRLAgentAnalysis,
+  fetchTokenScan,
 } from "@/lib/api/client";
 import { SimulationEngine } from "@/lib/simulation/simulation-engine";
 import { SimulationStorage } from "@/lib/simulation/storage";
@@ -123,47 +124,108 @@ function SimulationContent() {
     setLiveSnapshot(null);
 
     try {
-      // Try real backend APIs first, fall back to mock data
+      // Try new token-scan endpoint first (comprehensive backend integration)
       let dexData, gmgnData, twitterData;
-      let tokenSymbol = '';
-
-      // Step 1: Token Analysis (DEX + Safety in one call)
-      try {
-        const analysis = await fetchTokenAnalysis(coinAddress);
-        dexData = analysis.dexData;
-        gmgnData = analysis.gmgnData;
-        tokenSymbol = analysis.symbol;
-      } catch {
-        console.warn("Backend Token Analysis unavailable, using mock data");
-        dexData = await generateDEXData(coinAddress);
-        gmgnData = await generateGMGNData(coinAddress);
-      }
-      setState((p) => ({ ...p, fetchProgress: ["dex", "gmgn"] }));
-
-      // Step 2: Twitter/Social data (pass symbol for better search)
-      try {
-        twitterData = await fetchTwitterDataAPI(coinAddress, tokenSymbol || undefined);
-      } catch {
-        console.warn("Backend Twitter API unavailable, using mock data");
-        twitterData = await generateTwitterData(coinAddress);
-      }
-      setState((p) => ({ ...p, fetchProgress: ["dex", "gmgn", "twitter"] }));
-
-      const snap = createTokenSnapshot(coinAddress, dexData, gmgnData, twitterData, 0);
-      setState((p) => ({ ...p, phase: "analyzing", dexData, gmgnData, twitterData, marketData: [snap] }));
-
-      // Try RL agent for prediction, fall back to local prediction service
       let prediction;
+      let tokenSymbol = '';
+      let useTokenScan = false;
+
+      // Use new token-scan endpoint for comprehensive analysis
       try {
-        const rlResult = await fetchRLAgentAnalysis(coinAddress);
-        prediction = rlResult.decision;
-      } catch {
-        console.warn("Backend RL agent unavailable, using local prediction");
+        setState((p) => ({ ...p, fetchProgress: ["token_scan"] }));
+        const scanResult = await fetchTokenScan(coinAddress, 'sol', false);
+        
+        if (scanResult.token && scanResult.token.price > 0) {
+          useTokenScan = true;
+          const token = scanResult.token;
+          const safety = scanResult.safety;
+          
+          tokenSymbol = token.symbol || '';
+          
+          // Convert token-scan result to our format
+          dexData = {
+            price: token.price || 0,
+            volume24h: token.volume_24h || 0,
+            liquidity: token.liquidity || 0,
+            marketCap: token.market_cap || 0,
+            priceHistory: [], // Will be populated from price data if available
+          };
+          
+          gmgnData = {
+            holderCount: safety.holder_count || 0,
+            top10HolderPct: safety.top_10_holder_pct || 0,
+            smartMoneyFlow: 'neutral' as const,
+            rugScore: safety.overall_risk_score || 50,
+            devWalletPct: 0,
+            liquidityLocked: safety.liquidity_locked || false,
+            lockDaysRemaining: 0,
+          };
+          
+          twitterData = {
+            mentions24h: 0,
+            sentimentScore: 50,
+            influencerMentions: 0,
+            trending: false,
+            communitySize: 0,
+          };
+          
+          prediction = scanResult.prediction;
+          
+          setState((p) => ({ ...p, fetchProgress: ["token_scan", "done"] }));
+        }
+      } catch (e) {
+        console.warn("Token-scan endpoint unavailable, falling back to individual endpoints", e);
+      }
+      
+      // Fallback: use individual endpoints if token-scan didn't work
+      if (!useTokenScan || !dexData) {
+        // Step 1: Token Analysis (DEX + Safety in one call)
+        try {
+          const analysis = await fetchTokenAnalysis(coinAddress);
+          dexData = analysis.dexData;
+          gmgnData = analysis.gmgnData;
+          tokenSymbol = analysis.symbol;
+        } catch {
+          console.warn("Backend Token Analysis unavailable, using mock data");
+          dexData = await generateDEXData(coinAddress);
+          gmgnData = await generateGMGNData(coinAddress);
+        }
+        setState((p) => ({ ...p, fetchProgress: ["dex", "gmgn"] }));
+        
+        // Step 2: Twitter/Social data (pass symbol for better search)
+        try {
+          twitterData = await fetchTwitterDataAPI(coinAddress, tokenSymbol || undefined);
+        } catch {
+          console.warn("Backend Twitter API unavailable, using mock data");
+          twitterData = await generateTwitterData(coinAddress);
+        }
+        
+        // Step 3: RL agent for prediction, fall back to local prediction service
+        try {
+          const rlResult = await fetchRLAgentAnalysis(coinAddress);
+          prediction = rlResult.decision;
+        } catch {
+          console.warn("Backend RL agent unavailable, using local prediction");
+          prediction = null;
+        }
+        
+        setState((p) => ({ ...p, fetchProgress: ["dex", "gmgn", "twitter"] }));
+      }
+
+      // Create snapshot from data
+      const snap = createTokenSnapshot(coinAddress, dexData!, gmgnData!, twitterData!, 0);
+      setState((p) => ({ ...p, phase: "analyzing", dexData: dexData!, gmgnData: gmgnData!, twitterData: twitterData!, marketData: [snap] }));
+
+      // Use prediction from token-scan or generate local prediction
+      if (!prediction) {
         prediction = await PredictionService.generatePrediction(snap, snap.price, state.duration);
       }
 
-      const historical = dexData.priceHistory.map((pt) => ({ time: pt.time, value: pt.price }));
-      historical.push({ time: Date.now(), value: snap.price });
+      // Build price history from DEX data
+      const historical = (dexData?.priceHistory || []).map((pt) => ({ time: pt.time, value: pt.price }));
+      if (historical.length === 0 || historical[historical.length - 1].value !== snap.price) {
+        historical.push({ time: Date.now(), value: snap.price });
+      }
 
       // Store for final save
       tickHistoryRef.current = historical;
