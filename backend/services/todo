@@ -1,0 +1,8 @@
+dex_api.py: Fetches pair-level DEX data (prices, liquidity, volumes, txns, marketCap) with base/quote tokens, reserves, and socials
+molarisapi.py: Fetches token + pair data (token metadata, swap stats, liquidity, price change, buyers/sellers) with exchange details
+social_api.py: Fetches Reddit sentiment data (total comments, submissions) with submission details
+gmgncrawler.py: Fetches GMGN.ai data (token metadata, swap stats, liquidity, price change, buyers/sellers) with exchange details
+gemini.py: Fetches Gemini data (token metadata, swap stats, liquidity, price change, buyers/sellers) with exchange details
+deepseek.py: Fetches DeepSeek data (token metadata, swap stats, liquidity, price change, buyers/sellers) with exchange details
+crewai.py: Fetches CrewAI data (token metadata, swap stats, liquidity, price change, buyers/sellers) with exchange details
+crewai_tools.py: Fetches CrewAI tools data (token metadata, swap stats, liquidity, price change, buyers/sellers) with exchange details
