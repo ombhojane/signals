@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { WalletModal } from "@/components/modals/WalletModal";
+import { useRouter } from "next/navigation";
 
 // ─── Navbar ────────────────────────────────────────────────────────────────
 function Navbar({ onConnectWallet }: { onConnectWallet: () => void }) {
@@ -41,6 +42,8 @@ function Navbar({ onConnectWallet }: { onConnectWallet: () => void }) {
 
 // ─── Hero ──────────────────────────────────────────────────────────────────
 function HeroSection({ onConnectWallet }: { onConnectWallet: () => void }) {
+  const router = useRouter();
+
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center" style={{ paddingTop: '8rem', paddingBottom: '4rem' }}>
       {/* Live badge */}
@@ -75,11 +78,11 @@ function HeroSection({ onConnectWallet }: { onConnectWallet: () => void }) {
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-3 items-center">
         <button
-          onClick={onConnectWallet}
+          onClick={() => router.push("/dashboard")}
           className="px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:opacity-90 transition-all active:scale-95"
           style={{ backgroundColor: 'white', color: 'black' }}
         >
-          Connect Wallet
+          Go to dashboard
         </button>
         <Link
           href="#intelligence"
