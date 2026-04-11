@@ -1,10 +1,17 @@
 """
-Token Analysis Agents - AI agents for cryptocurrency analysis with structured outputs.
+Token Analysis Agents — Gemini 2.5 Flash agents with native structured output.
+
+Step 1 of the v1 enhancement plan:
+- All agents upgraded from gemini-2.5-flash-lite to gemini-2.5-flash.
+- Uses LangChain's `with_structured_output(PydanticModel)` which under the hood
+  drives Gemini's native JSON-schema-constrained generation. No more regex
+  parsing, no more retry loops — the SDK returns a validated Pydantic object
+  or raises.
+- Return shape is preserved so existing callers (orchestrator, routers) don't
+  need to change in this step. Later steps (4, 7, 8) will split this class
+  into dedicated agent modules with FactBook inputs.
 """
 
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import HumanMessage
-import os
 import json
 from typing import Dict, Any, Optional
 from dotenv import load_dotenv
