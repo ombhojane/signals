@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { SettingsProvider } from "@/lib/settings-context";
 import { ApiStatusProvider } from "@/lib/contexts/ApiStatusContext";
 import { UnifiedWalletProvider } from "@/lib/contexts/UnifiedWalletProvider";
+import { WalletProvider } from "@/lib/contexts/WalletContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -43,7 +44,9 @@ export default function RootLayout({
           <SettingsProvider>
             <ApiStatusProvider>
               <UnifiedWalletProvider>
-                {children}
+                <WalletProvider>
+                  {children}
+                </WalletProvider>
               </UnifiedWalletProvider>
             </ApiStatusProvider>
           </SettingsProvider>
