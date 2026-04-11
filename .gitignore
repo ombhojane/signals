@@ -168,7 +168,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-
+.claude/
 .agent
 /.agent
 /.agent/*

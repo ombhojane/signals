@@ -2,87 +2,120 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { 
-  LayoutDashboard, 
-  Trophy, 
-  Settings, 
-  LineChart, 
-  Bot,
-  LogOut,
-  PlayCircle
-} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  {
-    title: "Dashboard",
-    href: "/",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "Scan",
-    href: "/simulation",
-    icon: PlayCircle,
-  },
-  {
-    title: "Leaderboard",
-    href: "/leaderboard",
-    icon: Trophy,
-  },
-  {
-    title: "Models",
-    href: "/models",
-    icon: Bot,
-  },
-  {
-    title: "Settings",
-    href: "/settings",
-    icon: Settings,
-  },
+  { title: "Intelligence", href: "/dashboard", icon: "insights" },
+  { title: "Portfolio", href: "/dashboard/portfolio", icon: "account_balance" },
+  { title: "Signals", href: "/dashboard/simulation", icon: "sensors" },
+  { title: "Market", href: "/dashboard/leaderboard", icon: "analytics" },
+  { title: "Curator", href: "/dashboard/models", icon: "auto_awesome" },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-screen w-64 flex-col border-r border-border bg-sidebar text-sidebar-foreground">
-      <div className="flex h-16 items-center border-b border-border px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight">
-          <LineChart className="h-6 w-6 text-primary" />
-          <span>Signals</span>
-        </Link>
-      </div>
-      
-      <div className="flex-1 overflow-y-auto py-6">
-        <nav className="grid gap-1 px-4">
+    <>
+      {/* Google Material Symbols font */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+      />
+
+      <aside className="hidden md:flex h-screen w-72 flex-col py-10 px-6 gap-8 shrink-0" style={{ backgroundColor: 'rgb(3, 7, 18)', borderRadius: '0 1.5rem 1.5rem 0' }}>
+        {/* Logo */}
+        <div className="flex items-center gap-3 px-2">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#254a65' }}>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: '#a7cbeb', fontVariationSettings: "'FILL' 1" }}
+            >
+              auto_awesome
+            </span>
+          </div>
+          <div>
+            <h1 className="text-lg font-black text-neutral-100 tracking-tighter">Signals Zen</h1>
+            <p className="text-[10px] uppercase tracking-widest font-medium" style={{ color: '#acabaa' }}>Web3 Intelligence</p>
+          </div>
+        </div>
+
+        {/* Main nav */}
+        <nav className="flex flex-col gap-1 mt-4">
           {NAV_ITEMS.map((item) => {
-            const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
-            
+            const isActive = pathname === item.href || (item.href !== "/dashboard" && pathname?.startsWith(item.href));
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors duration-150",
-                  isActive 
-                    ? "bg-sidebar-accent text-sidebar-accent-foreground border-l-2 border-primary" 
-                    : "text-muted-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground border-l-2 border-transparent"
+                  "rounded-full px-6 py-3 flex items-center gap-4 text-sm font-medium tracking-wide transition-all ease-in-out duration-200",
+                  isActive
+                    ? "text-[#b1d4f5]"
+                    : "text-neutral-500 hover:text-neutral-300 hover:bg-neutral-900"
                 )}
+                style={isActive ? { backgroundColor: 'rgb(38,38,38)' } : undefined}
               >
-                <item.icon className="h-4 w-4" />
+                <span className="material-symbols-outlined" style={{ fontSize: '1.25rem' }}>{item.icon}</span>
                 {item.title}
               </Link>
             );
           })}
         </nav>
-      </div>
-      
-      <div className="border-t border-border p-4">
-        <button className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground">
-          <LogOut className="h-4 w-4" />
-          Disconnect
-        </button>
-      </div>
-    </div>
+
+        {/* Bottom section */}
+        <div className="mt-auto flex flex-col gap-1">
+          <button
+            className="rounded-full px-6 py-4 font-bold text-sm tracking-tight mb-4 active:scale-95 duration-300 transition-all"
+            style={{ backgroundColor: '#a7cbeb', color: '#1e435e' }}
+          >
+            Connect Wallet
+          </button>
+          <Link
+            href="/dashboard/settings"
+            className="text-neutral-600 hover:text-neutral-300 hover:bg-neutral-900 rounded-full px-6 py-3 flex items-center gap-4 text-xs uppercase tracking-[0.2em] transition-all"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: '1.1rem' }}>settings</span>
+            Settings
+          </Link>
+          <Link
+            href="#"
+            className="text-neutral-600 hover:text-neutral-300 hover:bg-neutral-900 rounded-full px-6 py-3 flex items-center gap-4 text-xs uppercase tracking-[0.2em] transition-all"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: '1.1rem' }}>help_outline</span>
+            Support
+          </Link>
+        </div>
+      </aside>
+
+      {/* Mobile bottom nav */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 flex justify-around items-center px-4 z-[100]" style={{ backgroundColor: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(20px)' }}>
+        {NAV_ITEMS.slice(0, 4).map((item) => {
+          const isActive = pathname === item.href;
+          return (
+            <Link key={item.href} href={item.href} className="flex flex-col items-center gap-1">
+              <span
+                className="material-symbols-outlined"
+                style={{
+                  fontSize: '1.25rem',
+                  color: isActive ? '#b1d4f5' : '#737373',
+                  fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0",
+                }}
+              >
+                {item.icon}
+              </span>
+              <span className="text-[8px] font-bold uppercase" style={{ color: isActive ? '#b1d4f5' : '#737373' }}>
+                {item.title.slice(0, 4)}
+              </span>
+            </Link>
+          );
+        })}
+        <Link href="/dashboard/models" className="flex flex-col items-center gap-1">
+          <span className="material-symbols-outlined" style={{ fontSize: '1.25rem', color: '#737373' }}>auto_awesome</span>
+          <span className="text-[8px] font-bold uppercase text-neutral-500">Zen</span>
+        </Link>
+      </nav>
+    </>
   );
 }
