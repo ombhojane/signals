@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { Header } from "@/components/layout/Header";
 import { SettingsProvider } from "@/lib/settings-context";
 import { ApiStatusProvider } from "@/lib/contexts/ApiStatusContext";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -20,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Signals | AI Trading Arena",
-  description: "Watch AI agents compete in simulated trading markets",
+  title: "Signals Zen | Web3 Intelligence",
+  description: "Quiet clarity in a noisy ecosystem. Distilling global on-chain complexity into actionable editorial intelligence for the discerning institution.",
 };
 
 export default function RootLayout({
@@ -30,25 +28,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-sans bg-background text-foreground`}>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif", backgroundColor: "#0e0e0e", color: "#e7e5e5" }}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           <SettingsProvider>
             <ApiStatusProvider>
-              <div className="flex h-screen overflow-hidden">
-                <Sidebar />
-                <div className="flex flex-1 flex-col overflow-hidden">
-                  <Header />
-                  <main className="flex-1 overflow-y-auto bg-background p-6">
-                    {children}
-                  </main>
-                </div>
-              </div>
+              {children}
             </ApiStatusProvider>
           </SettingsProvider>
         </ThemeProvider>
