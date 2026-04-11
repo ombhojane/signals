@@ -1,6 +1,26 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { 
+  generateAgents, 
+  generatePortfolioHistory, 
+  generatePositions, 
+  generateDecisions, 
+  generateOrders, 
+  generateTrades,
+  getChartData
+} from "@/lib/mock-data";
+import { TimeRange } from "@/lib/types";
+import { PerformanceChart } from "@/components/charts/PerformanceChart";
+import { TimeRangeSelector } from "@/components/charts/TimeRangeSelector";
+import { AgentRankings } from "@/components/dashboard/AgentRankings";
+import { AgentDetails } from "@/components/dashboard/AgentDetails";
+import { ModelChat } from "@/components/dashboard/ModelChat";
+import { AddAgentModal } from "@/components/modals/AddAgentModal";
+import { QuickAnalysis } from "@/components/dashboard/QuickAnalysis";
+import { TrendingTokens } from "@/components/dashboard/TrendingTokens";
+import { Card } from "@/components/ui/card";
 
 // ── Hero Section ────────────────────────────────────────────────────────────
 function HeroSection() {
@@ -14,11 +34,16 @@ function HeroSection() {
         >
           Portfolio Intelligence
         </span>
-        <h2 className="text-5xl font-bold tracking-tight leading-tight" style={{ color: '#e7e5e5' }}>
-          Welcome back,{' '}
-          <br />
-          <span style={{ color: '#acabaa' }}>Curator Alpha</span>
-        </h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-5xl font-bold tracking-tight leading-tight" style={{ color: '#e7e5e5' }}>
+            Welcome back,{' '}
+            <br />
+            <span style={{ color: '#acabaa' }}>Curator Alpha</span>
+          </h2>
+          <div className="pb-4">
+             <AddAgentModal />
+          </div>
+        </div>
       </div>
 
       {/* Stats */}
@@ -97,72 +122,6 @@ function MarketSentimentCard() {
           Full Analysis{' '}
           <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>arrow_forward</span>
         </button>
-      </div>
-    </div>
-  );
-}
-
-// ── Performance Orbit Chart ─────────────────────────────────────────────────
-function PerformanceOrbitCard() {
-  const [activeRange, setActiveRange] = useState<'1W' | '1M' | '1Y'>('1M');
-  const barHeights = [40, 55, 48, 65, 80, 72, 90, 85, 70, 60, 65, 50];
-
-  return (
-    <div
-      className="md:col-span-8 rounded-xl p-8 flex flex-col"
-      style={{ backgroundColor: '#191a1a', height: '420px' }}
-    >
-      <div className="flex justify-between items-center mb-8">
-        <div className="flex gap-4 items-center">
-          <h3
-            className="text-sm font-bold uppercase"
-            style={{ letterSpacing: '0.2em', color: '#e7e5e5' }}
-          >
-            Performance Orbit
-          </h3>
-          <div className="flex gap-1">
-            {(['1W', '1M', '1Y'] as const).map((r) => (
-              <button
-                key={r}
-                onClick={() => setActiveRange(r)}
-                className="px-3 py-1 rounded-full text-[10px] font-bold transition-all"
-                style={
-                  activeRange === r
-                    ? { backgroundColor: '#a7cbeb', color: '#1e435e' }
-                    : { backgroundColor: '#252626', color: '#acabaa' }
-                }
-              >
-                {r}
-              </button>
-            ))}
-          </div>
-        </div>
-        <span className="text-sm font-medium" style={{ color: '#acabaa' }}>Asset Distribution</span>
-      </div>
-
-      {/* Bar chart */}
-      <div className="flex-1 flex items-end gap-1 px-4">
-        {barHeights.map((h, i) => (
-          <div
-            key={i}
-            className="flex-1 rounded-t-lg transition-colors hover:opacity-80 cursor-pointer"
-            style={{
-              height: `${h}%`,
-              backgroundColor: i === 6 ? 'rgba(167,203,235,0.4)' : '#252626',
-            }}
-          />
-        ))}
-      </div>
-
-      {/* X-axis labels */}
-      <div
-        className="flex justify-between mt-4 px-4 text-[10px] uppercase tracking-widest font-medium"
-        style={{ color: '#acabaa' }}
-      >
-        <span>Jan 12</span>
-        <span>Jan 19</span>
-        <span>Jan 26</span>
-        <span>Feb 02</span>
       </div>
     </div>
   );
@@ -311,7 +270,7 @@ function FeaturedDiscovery() {
 function DashboardFooter() {
   return (
     <footer
-      className="mt-auto py-12 px-12"
+      className="mt-6 py-12 px-12"
       style={{ backgroundColor: 'rgb(0,0,0)', borderTop: '1px solid rgba(72,72,72,0.1)' }}
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -339,6 +298,41 @@ function DashboardFooter() {
 
 // ── Main Page ───────────────────────────────────────────────────────────────
 function DashboardContent() {
+  const searchParams = useSearchParams();
+  const timeRange = (searchParams.get("range") as TimeRange) || "5m";
+  
+  const [mounted, setMounted] = useState(false);
+  
+  const { agents, snapshots, positions, decisions, orders, trades } = useMemo(() => {
+    const agents = generateAgents();
+    const snapshots = generatePortfolioHistory(agents, timeRange);
+    const allPositions = agents.flatMap(a => generatePositions(a.id));
+    const allDecisions = agents.flatMap(a => generateDecisions(a.id));
+    const allOrders = agents.flatMap(a => generateOrders(a.id));
+    const allTrades = agents.flatMap(a => generateTrades(a.id));
+    
+    return { 
+      agents, 
+      snapshots, 
+      positions: allPositions, 
+      decisions: allDecisions, 
+      orders: allOrders, 
+      trades: allTrades 
+    };
+  }, [timeRange]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const chartSeries = agents.map(agent => ({
+    name: agent.name,
+    color: agent.color,
+    data: getChartData(snapshots, agent.id)
+  }));
+
   return (
     <div className="flex flex-col gap-10">
       {/* Hero */}
@@ -347,9 +341,50 @@ function DashboardContent() {
       {/* Main Bento Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         <MarketSentimentCard />
-        <PerformanceOrbitCard />
+        
+        {/* Dynamic Performance Orbit Chart */}
+        <div className="md:col-span-8 rounded-xl p-8 flex flex-col" style={{ backgroundColor: '#191a1a', height: '420px', paddingBottom: '32px' }}>
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-sm font-bold uppercase" style={{ letterSpacing: '0.2em', color: '#e7e5e5' }}>
+              Performance Orbit
+            </h3>
+            <TimeRangeSelector value={timeRange} />
+          </div>
+          <div className="flex-1 w-full min-h-0">
+            <PerformanceChart series={chartSeries} height={320} />
+          </div>
+        </div>
+
         <TopAISignals />
         <FeaturedDiscovery />
+      </div>
+      
+      {/* Restored Components */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
+        {/* Left Column */}
+        <div className="lg:col-span-8 flex flex-col gap-8">
+          <AgentRankings agents={agents} />
+          
+          <div className="h-[500px]">
+            <AgentDetails 
+              agents={agents}
+              positions={positions}
+              decisions={decisions}
+              orders={orders}
+              trades={trades}
+            />
+          </div>
+        </div>
+        
+        {/* Right Column */}
+        <div className="lg:col-span-4 flex flex-col gap-8">
+          <QuickAnalysis />
+          <TrendingTokens />
+          
+          <div className="h-[432px]"> {/* Match rough height to align somewhat */}
+            <ModelChat />
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
@@ -364,7 +399,7 @@ export default function DashboardPage() {
       fallback={
         <div className="flex items-center justify-center h-64">
           <div className="flex flex-col items-center gap-4">
-            <div className="zen-pulse" />
+            <div className="zen-pulse" style={{ width: '10px', height: '10px' }} />
             <span className="text-xs uppercase tracking-widest" style={{ color: '#acabaa' }}>
               Loading intelligence...
             </span>
