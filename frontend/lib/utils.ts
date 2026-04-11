@@ -27,13 +27,13 @@ export function formatPercent(value: number): string {
   return `${value >= 0 ? "" : ""}${value.toFixed(2)}%`;
 }
 
-// Format P&L with color class (semantic tokens)
+// Format P&L with color class (Stitch design tokens: sapphire positive, muted-crimson negative)
 export function formatPnl(value: number): { text: string; className: string } {
   const formatted = formatCurrency(Math.abs(value));
   if (value >= 0) {
-    return { text: `+${formatted}`, className: "text-success" };
+    return { text: `+${formatted}`, className: "text-[#a7cbeb]" };
   }
-  return { text: `-${formatted}`, className: "text-destructive" };
+  return { text: `-${formatted}`, className: "text-[#ee7d77]" };
 }
 
 // Format relative time (e.g., "23H 32M")

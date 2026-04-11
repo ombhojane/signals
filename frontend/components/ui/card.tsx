@@ -12,11 +12,15 @@ function Card({ className, variant = "default", ...props }: CardProps) {
       data-slot="card"
       data-variant={variant}
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        variant === "glass" &&
-          "bg-card/80 dark:bg-card/60 backdrop-blur-md border-border/50 rounded-[var(--radius-glass)]",
+        "text-card-foreground flex flex-col gap-6 rounded-xl py-6",
+        variant === "default" && "border border-[rgba(72,72,72,0.18)]",
+        variant === "glass" && "border border-[rgba(255,255,255,0.04)]",
         className
       )}
+      style={{
+        backgroundColor: variant === "glass" ? "rgba(25,26,26,0.6)" : "#131313",
+        ...(variant === "glass" ? { backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)" } : {}),
+      }}
       {...props}
     />
   )
@@ -39,7 +43,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
+      className={cn("leading-none font-semibold tracking-tight", className)}
       {...props}
     />
   )
@@ -50,6 +54,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-description"
       className={cn("text-muted-foreground text-sm", className)}
+      style={{ fontFamily: 'var(--font-inter), sans-serif' }}
       {...props}
     />
   )

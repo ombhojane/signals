@@ -62,9 +62,9 @@ export function QuickAnalysis() {
   };
 
   const getRiskLevel = (score: number) => {
-    if (score <= 30) return { label: "Low Risk", color: "text-green-500" };
-    if (score <= 60) return { label: "Medium Risk", color: "text-yellow-500" };
-    return { label: "High Risk", color: "text-red-500" };
+    if (score <= 30) return { label: "Low Risk", color: "text-[#a7cbeb]" };
+    if (score <= 60) return { label: "Medium Risk", color: "text-[#acabaa]" };
+    return { label: "High Risk", color: "text-[#ee7d77]" };
   };
 
   const formatCompact = (n: number) => {
@@ -120,7 +120,7 @@ export function QuickAnalysis() {
               <div className="bg-muted/50 rounded-md p-2">
                 <div className="text-muted-foreground">Price</div>
                 <div className="font-mono font-bold">${result.price < 0.01 ? result.price.toFixed(8) : result.price.toFixed(4)}</div>
-                <div className={`font-mono text-[10px] flex items-center gap-0.5 ${result.priceChange24h >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                <div className={`font-mono text-[10px] flex items-center gap-0.5 ${result.priceChange24h >= 0 ? 'text-[#a7cbeb]' : 'text-[#ee7d77]'}`}>
                   {result.priceChange24h >= 0 ? <TrendingUp className="size-2.5" /> : <TrendingDown className="size-2.5" />}
                   {result.priceChange24h >= 0 ? '+' : ''}{result.priceChange24h.toFixed(2)}%
                 </div>

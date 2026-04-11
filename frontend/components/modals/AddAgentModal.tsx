@@ -58,7 +58,7 @@ export function AddAgentModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="gradient" className="gap-2">
+        <Button variant="default" className="gap-2">
           <Plus className="h-4 w-4" />
           Create Agent
         </Button>
@@ -181,7 +181,7 @@ export function AddAgentModal() {
         <DialogFooter className="gap-2 sm:gap-0">
           {showAddForm && (
             <Button 
-              variant="gradient"
+              variant="default"
               onClick={handleAddAccount} 
               disabled={loading || !accountName || !model}
             >
