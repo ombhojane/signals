@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Token Analysis CLI Tool (Orchestrated)
+Signals Token Analysis CLI Tool (Orchestrated)
 Usage: python run.py <token_id> <pair_id> <chain_id>
 Example: python run.py GNHW5JetZmW85vAU35KyoDcYoSd3sNWtx5RPMTDJpump 8uAAT95mo699fJ6CMpRw28DKfeVudGkonhEgmNPAEmCE solana
 """
@@ -24,7 +24,7 @@ async def main():
     pair_id = sys.argv[2]
     chain_id = sys.argv[3]
     
-    print("🚀 Token Analysis")
+    print("🚀 Signals Token Analysis")
     print(f"Analyzing Token: {token_id}")
     print(f"Chain: {chain_id.upper()}")
     print("")

@@ -1,5 +1,5 @@
 """
-Backend - FastAPI Application Entry Point
+Signals Backend - FastAPI Application Entry Point
 
 A clean, modular backend for cryptocurrency token analysis.
 """
@@ -14,7 +14,7 @@ from routers import dex_router, gmgn_router, ai_analysis_router, chat_router
 
 # Create FastAPI application
 app = FastAPI(
-    title="API",
+    title="Signals API",
     description="Cryptocurrency token analysis and AI-powered insights",
     version="2.0.0",
 )
@@ -40,7 +40,7 @@ async def root():
     """Health check endpoint."""
     return {
         "status": "healthy",
-        "service": "API",
+        "service": "Signals API",
         "version": "2.0.0"
     }
 
