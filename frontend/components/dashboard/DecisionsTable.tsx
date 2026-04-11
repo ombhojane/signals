@@ -45,9 +45,9 @@ export function DecisionsTable({ decisions }: { decisions: AIDecision[] }) {
                 <Badge 
                   variant="outline" 
                   className={
-                    decision.operation === "BUY" ? "border-green-500/30 text-green-500 bg-green-500/10" :
-                    decision.operation === "SELL" ? "border-red-500/30 text-red-500 bg-red-500/10" :
-                    "border-zinc-500/30 text-zinc-500 bg-zinc-500/10"
+                    decision.operation === "BUY" ? "border-[rgba(167,203,235,0.3)] text-[#a7cbeb] bg-[rgba(167,203,235,0.08)]" :
+                    decision.operation === "SELL" ? "border-[rgba(238,125,119,0.3)] text-[#ee7d77] bg-[rgba(238,125,119,0.08)]" :
+                    "border-[rgba(72,72,72,0.3)] text-[#acabaa] bg-[rgba(72,72,72,0.08)]"
                   }
                 >
                   {decision.operation}
