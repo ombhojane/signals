@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { WalletModal } from "@/components/modals/WalletModal";
 
 // ─── Navbar ────────────────────────────────────────────────────────────────
-function Navbar() {
+function Navbar({ onConnectWallet }: { onConnectWallet: () => void }) {
   return (
     <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 md:px-16 h-20 nav-glass">
       <div className="flex items-center gap-10">
         <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-          Signals Zen
+          Signals
         </Link>
         <div className="hidden md:flex gap-6 text-[11px] font-semibold tracking-[0.15em] uppercase">
           <Link href="#intelligence" className="text-white/90 transition-opacity hover:opacity-60">Intelligence</Link>
@@ -25,20 +27,20 @@ function Navbar() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
           </svg>
         </div>
-        <Link
-          href="/dashboard"
+        <button
+          onClick={onConnectWallet}
           className="px-5 py-2.5 rounded-full font-bold text-[11px] tracking-widest uppercase transition-all active:scale-95"
           style={{ backgroundColor: '#a7cbeb', color: '#1e435e' }}
         >
           Launch App
-        </Link>
+        </button>
       </div>
     </nav>
   );
 }
 
 // ─── Hero ──────────────────────────────────────────────────────────────────
-function HeroSection() {
+function HeroSection({ onConnectWallet }: { onConnectWallet: () => void }) {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center" style={{ paddingTop: '8rem', paddingBottom: '4rem' }}>
       {/* Live badge */}
@@ -72,13 +74,13 @@ function HeroSection() {
 
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-3 items-center">
-        <Link
-          href="/dashboard"
+        <button
+          onClick={onConnectWallet}
           className="px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:opacity-90 transition-all active:scale-95"
           style={{ backgroundColor: 'white', color: 'black' }}
         >
           Connect Wallet
-        </Link>
+        </button>
         <Link
           href="#intelligence"
           className="px-10 py-4 rounded-full font-semibold text-sm tracking-wide hover:bg-white/10 transition-all active:scale-95"
@@ -326,7 +328,7 @@ function PhilosophySection() {
           </div>
         </div>
         <p className="text-neutral-500 font-light max-w-lg text-sm leading-relaxed">
-          Signals Zen operates at the intersection of quantitative finance and editorial excellence. We distill complexity into clarity.
+          Signals operates at the intersection of quantitative finance and editorial excellence. We distill complexity into clarity.
         </p>
       </div>
     </section>
@@ -365,9 +367,9 @@ function Footer() {
     <footer style={{ backgroundColor: '#000', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
       <div className="max-w-7xl mx-auto px-8 md:px-16 py-16 flex flex-col md:flex-row justify-between items-center gap-10">
         <div className="space-y-2 text-center md:text-left">
-          <div className="text-base font-bold tracking-tighter text-white">Signals Zen</div>
+          <div className="text-base font-bold tracking-tighter text-white">Signals</div>
           <p className="text-[10px] uppercase tracking-[0.2em] font-light" style={{ color: '#404040' }}>
-            © 2024 Signals Zen Editorial. Crafted for the sovereign mind.
+            © 2024 Signals Editorial. Crafted for the sovereign mind.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold" style={{ color: '#404040' }}>
@@ -395,11 +397,13 @@ function Footer() {
 
 // ─── Page ──────────────────────────────────────────────────────────────────
 export default function LandingPage() {
+  const [walletModalOpen, setWalletModalOpen] = useState(false);
+
   return (
     <div style={{ backgroundColor: '#0e0e0e', color: '#e7e5e5' }}>
-      <Navbar />
+      <Navbar onConnectWallet={() => setWalletModalOpen(true)} />
       <main>
-        <HeroSection />
+        <HeroSection onConnectWallet={() => setWalletModalOpen(true)} />
         <ProvenSection />
         <TrustSection />
         <StatsSection />
@@ -407,6 +411,12 @@ export default function LandingPage() {
         <CTASection />
       </main>
       <Footer />
+      
+      {/* Wallet Modal */}
+      <WalletModal
+        isOpen={walletModalOpen}
+        onClose={() => setWalletModalOpen(false)}
+      />
     </div>
   );
 }

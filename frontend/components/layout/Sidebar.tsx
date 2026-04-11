@@ -35,7 +35,7 @@ export function Sidebar() {
             </span>
           </div>
           <div>
-            <h1 className="text-lg font-black text-neutral-100 tracking-tighter">Signals Zen</h1>
+            <h1 className="text-lg font-black text-neutral-100 tracking-tighter">Signals</h1>
             <p className="text-[10px] uppercase tracking-widest font-medium" style={{ color: '#acabaa' }}>Web3 Intelligence</p>
           </div>
         </div>

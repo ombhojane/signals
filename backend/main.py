@@ -16,6 +16,8 @@ from routers import (
     chat_router,
     vault_router,
     signal_router,
+    token_scan_router,
+    wallet_router,
 )
 from services.x402_middleware import X402Config, X402Middleware
 
@@ -62,6 +64,8 @@ app.include_router(ai_analysis_router)
 app.include_router(chat_router)
 app.include_router(vault_router)
 app.include_router(signal_router)
+app.include_router(token_scan_router)
+app.include_router(wallet_router)
 
 
 @app.get("/")

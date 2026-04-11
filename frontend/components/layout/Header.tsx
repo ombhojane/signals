@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useApiStatus } from "@/lib/contexts/ApiStatusContext";
+import { WalletConnectionButton } from "@/components/wallet/WalletConnectionButton";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
@@ -55,7 +56,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* Right: Status + Icons + Avatar */}
+        {/* Right: Status + Icons + Wallet */}
         <div className="flex items-center gap-6">
           {/* Live Network badge */}
           <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#131313' }}>
@@ -67,12 +68,8 @@ export function Header() {
 
           {/* Action icons */}
           <div className="flex items-center gap-3">
-            {/* Wallet icon */}
-            <button
-              className="cursor-pointer active:scale-95 duration-300 p-2 rounded-full text-neutral-400 hover:bg-neutral-800/50 hover:text-white transition-all"
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '1.25rem' }}>account_balance_wallet</span>
-            </button>
+            {/* Wallet Connection Button */}
+            <WalletConnectionButton />
 
             {/* Notifications */}
             <button
@@ -80,18 +77,6 @@ export function Header() {
             >
               <span className="material-symbols-outlined" style={{ fontSize: '1.25rem' }}>notifications</span>
             </button>
-
-            {/* Avatar */}
-            <div
-              className="w-10 h-10 rounded-full overflow-hidden ml-2 flex items-center justify-center text-xs font-bold"
-              style={{
-                backgroundColor: '#1f2020',
-                border: '1px solid rgba(72,72,72,0.2)',
-                color: '#a7cbeb',
-              }}
-            >
-              CA
-            </div>
           </div>
         </div>
       </header>
