@@ -9,7 +9,15 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 from core.config import settings
-from routers import dex_router, gmgn_router, ai_analysis_router, chat_router
+from routers import (
+    dex_router,
+    gmgn_router,
+    ai_analysis_router,
+    chat_router,
+    vault_router,
+    signal_router,
+)
+from services.x402_middleware import X402Config, X402Middleware
 
 
 # Create FastAPI application
@@ -26,13 +34,34 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=[
+        "X-Payment-Recipient",
+        "X-Payment-Asset",
+        "X-Payment-Amount",
+        "X-Payment-Network",
+        "X-Payment-Chain-Id",
+        "X-Payment-Verified",
+    ],
 )
+
+# x402 paywall — enabled only when X402_ENABLED=true in env
+_x402_config = X402Config.from_env()
+print(
+    f"[x402] enabled={_x402_config.enabled} "
+    f"recipient={_x402_config.recipient} "
+    f"protected={_x402_config.protected_prefixes} "
+    f"amount_wei={_x402_config.amount_wei}"
+)
+if _x402_config.enabled:
+    app.add_middleware(X402Middleware, config=_x402_config)
 
 # Include routers
 app.include_router(dex_router)
 app.include_router(gmgn_router)
 app.include_router(ai_analysis_router)
 app.include_router(chat_router)
+app.include_router(vault_router)
+app.include_router(signal_router)
 
 
 @app.get("/")
