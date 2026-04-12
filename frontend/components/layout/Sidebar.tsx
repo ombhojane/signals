@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ConnectWalletButton } from "@/components/web3/ConnectWalletButton";
 
 const NAV_ITEMS = [
   { title: "Intelligence", href: "/dashboard", icon: "insights" },
   { title: "Portfolio", href: "/dashboard/portfolio", icon: "account_balance" },
+  { title: "Vault", href: "/dashboard/vault", icon: "savings" },
   { title: "Signals", href: "/dashboard/simulation", icon: "sensors" },
   { title: "Market", href: "/dashboard/leaderboard", icon: "analytics" },
   { title: "Curator", href: "/dashboard/models", icon: "auto_awesome" },
@@ -66,12 +68,9 @@ export function Sidebar() {
 
         {/* Bottom section */}
         <div className="mt-auto flex flex-col gap-1">
-          <button
-            className="rounded-full px-6 py-4 font-bold text-sm tracking-tight mb-4 active:scale-95 duration-300 transition-all"
-            style={{ backgroundColor: '#a7cbeb', color: '#1e435e' }}
-          >
-            Connect Wallet
-          </button>
+          <div className="mb-4">
+            <ConnectWalletButton />
+          </div>
           <Link
             href="/dashboard/settings"
             className="text-neutral-600 hover:text-neutral-300 hover:bg-neutral-900 rounded-full px-6 py-3 flex items-center gap-4 text-xs uppercase tracking-[0.2em] transition-all"
