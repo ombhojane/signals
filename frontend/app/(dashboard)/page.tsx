@@ -97,12 +97,12 @@ function DashboardContent() {
           <MarketSentiment />
           
           {/* Performance Chart */}
-          <Card variant="glass" className="p-5 gap-4 py-5">
-            <div className="flex items-center justify-between mb-2">
+          <Card variant="glass" className="p-6 gap-4">
+            <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>Performance Orbit</span>
               <TimeRangeSelector value={timeRange} />
             </div>
-            <PerformanceChart series={chartSeries} height={320} />
+            <PerformanceChart series={chartSeries} height={360} />
           </Card>
           
           <AgentRankings agents={agents} />

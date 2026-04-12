@@ -404,6 +404,54 @@ class OrchestratorAgent:
             plan, pair_address
         )
 
+        return await self._run_from_raw(
+            plan=plan,
+            token_address=token_address,
+            chain=chain,
+            dex_data=dex_data,
+            gmgn_data=gmgn_data,
+            safety_data=safety_data,
+            twitter_data=twitter_data,
+        )
+
+    async def run_from_snapshot(
+        self,
+        *,
+        token_address: str,
+        chain: str,
+        dex_data: Dict[str, Any],
+        gmgn_data: Dict[str, Any],
+        safety_data: Dict[str, Any],
+        twitter_data: Dict[str, Any],
+    ) -> AnalysisResult:
+        """Execute the pipeline from pre-fetched raw data (no network).
+
+        Used by the eval harness for deterministic, free, reproducible runs.
+        """
+        logger.section("ORCHESTRATOR: SNAPSHOT REPLAY")
+        plan = self.think(token_address, chain)
+        return await self._run_from_raw(
+            plan=plan,
+            token_address=token_address,
+            chain=chain,
+            dex_data=dex_data,
+            gmgn_data=gmgn_data,
+            safety_data=safety_data,
+            twitter_data=twitter_data,
+        )
+
+    async def _run_from_raw(
+        self,
+        *,
+        plan: AnalysisPlan,
+        token_address: str,
+        chain: str,
+        dex_data: Dict[str, Any],
+        gmgn_data: Dict[str, Any],
+        safety_data: Dict[str, Any],
+        twitter_data: Dict[str, Any],
+    ) -> AnalysisResult:
+        """Run stages 2.5 through 5 on pre-fetched raw data."""
         # Legacy validations (for backwards-compatible AnalysisResult shape).
         validations = self._legacy_validations(
             dex_data, gmgn_data, safety_data, twitter_data
