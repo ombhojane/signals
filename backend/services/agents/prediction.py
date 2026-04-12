@@ -161,9 +161,18 @@ class PredictionAgent:
 
         signal_block = ""
         if signal_vector is not None:
+            hint = signal_vector.get("action_hint", "HOLD")
+            overall = signal_vector.get("overall", 0.5)
+            conf = signal_vector.get("confidence", 0.0)
             signal_block = (
                 "\nSCORING MODULE SIGNAL VECTOR (calibrated weighted aggregate):\n"
                 f"{json.dumps(signal_vector, separators=(',', ':'))}\n"
+                f"\nDETERMINISTIC BASELINE HINT: {hint} "
+                f"(overall={overall:.2f}, confidence={conf:.2f})\n"
+                "The action_hint is a deterministic mapping from the weighted score vector. "
+                "You may AGREE with it (matching its output) or OVERRIDE it, but if you override, "
+                "your reasoning must cite specific evidence from the worker outputs that the "
+                "deterministic scoring couldn't see.\n"
             )
 
         return (

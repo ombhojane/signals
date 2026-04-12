@@ -37,6 +37,7 @@ from core.factbook import TokenFactBook, build_token_factbook
 from core.killswitch import KillSwitchResult, check_killswitch
 from core.logging import logger
 from core.parallel import gather_with_results, make_async, run_parallel_agents
+from core.scoring import SignalVector, compute_signal_vector
 from services.agents import (
     AgentOutcome,
     MarketAgent,
@@ -142,7 +143,7 @@ class AnalysisResult:
     # New
     factbook: Optional[TokenFactBook] = None
     killswitch: Optional[KillSwitchResult] = None
-    signal_vector: Optional[Dict[str, Any]] = None
+    signal_vector: Optional[SignalVector] = None
 
 
 # ---------------------------------------------------------------------------
@@ -434,11 +435,26 @@ class OrchestratorAgent:
             factbook, killswitch.triggered
         )
 
-        # Stage 3: Scoring module is Step 7 — for now, pass worker outcomes
-        # through directly. The `signal_vector` field stays None until then.
-        signal_vector: Optional[Dict[str, Any]] = None
+        # Stage 3: Scoring module — weighted soft-voting ensemble.
+        # Uses the confirmed priors [market 0.35, rug 0.40, social 0.25]
+        # (or the calibrator-learned weights from data/scoring_weights.json).
+        logger.section("PHASE 4: SCORING")
+        signal_vector = compute_signal_vector(
+            market=market_outcome,
+            rug=rug_outcome,
+            social=social_outcome,
+            killswitch=killswitch,
+        )
+        logger.info(
+            f"SignalVector: overall={signal_vector.overall:.2f} "
+            f"conf={signal_vector.confidence:.2f} hint={signal_vector.action_hint} "
+            f"warnings={len(signal_vector.warnings)}"
+        )
 
-        # Stage 4: Prediction
+        # Stage 4: Prediction — the LLM sees the signal vector plus the raw
+        # worker outputs and makes the final call. The scoring module's
+        # `action_hint` is an explainable deterministic baseline; the LLM
+        # may override it based on the full context.
         logger.section("PHASE 5: PREDICTION")
         prediction_outcome = await self.prediction_agent.predict(
             factbook=factbook,
@@ -446,7 +462,7 @@ class OrchestratorAgent:
             market=market_outcome,
             rug=rug_outcome,
             social=social_outcome,
-            signal_vector=signal_vector,
+            signal_vector=signal_vector.to_dict(),
         )
 
         # Synthesis
