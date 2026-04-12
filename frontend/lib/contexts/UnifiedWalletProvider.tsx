@@ -28,6 +28,7 @@ import {
   arbitrumSepolia,
   optimism,
   optimismSepolia,
+  baseSepolia,
 } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@solana/wallet-adapter-react-ui/styles.css";
@@ -43,7 +44,7 @@ const solanaWallets = [
 
 // Wagmi configuration (no RainbowKit - using simple injected + walletconnect)
 const wagmiConfig = createConfig({
-  chains: [mainnet, sepolia, polygon, polygonMumbai, arbitrum, arbitrumSepolia, optimism, optimismSepolia],
+  chains: [mainnet, sepolia, polygon, polygonMumbai, arbitrum, arbitrumSepolia, optimism, optimismSepolia, baseSepolia],
   connectors: [
     injected(),
     walletConnect({
@@ -59,7 +60,9 @@ const wagmiConfig = createConfig({
     [arbitrumSepolia.id]: http(),
     [optimism.id]: http(),
     [optimismSepolia.id]: http(),
+    [baseSepolia.id]: http(process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC || "https://sepolia.base.org"),
   },
+  ssr: true,
 });
 
 interface UnifiedWalletProviderProps {
