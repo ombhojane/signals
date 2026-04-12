@@ -1,417 +1,471 @@
 """
-OrchestratorAgent - Intelligent analysis orchestration with ReAct pattern.
+Orchestrator Agent — the planner that drives the enhanced AI pipeline.
 
-This implements a lightweight ReAct (Reason + Act) orchestrator that:
-1. Plans which data sources to query based on chain
-2. Validates data before sending to AI agents  
-3. Adjusts confidence/weights based on data availability
-4. Synthesizes insights by analyzing cross-data patterns
+Flow:
+    1. THINK         — plan data sources based on chain capabilities
+    2. ACT (fetch)   — fetch DEX + GMGN + Safety + Twitter in parallel
+    3. STAGE 0       — build TokenFactBook from raw data (pure, no LLM)
+    4. STAGE 1       — deterministic kill-switch (no LLM, short-circuits on hard signals)
+    5. STAGE 2       — three FactBook-aware worker agents in parallel
+                       (Market / RugCheck / Social)
+    6. STAGE 3       — scoring module placeholder (Step 7 plugs in here)
+    7. STAGE 4       — prediction agent synthesizes everything
+    8. return AnalysisResult (same shape as before + new `factbook` /
+       `killswitch` / `signal_vector` fields)
+
+This rewrite removes the magic-number `reflect()` logic — cross-pattern
+checks now live in the scoring module (Step 7) and the Prediction agent's
+prompt rules. Reflection stays as a *data* synthesis summary, not a
+hard-coded penalty.
 """
 
-from typing import Dict, Any, List, Optional, Tuple
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from enum import Enum
-import asyncio
+from typing import Any, Dict, List, Optional, Tuple
 
-from core.logging import logger
+from core.constants import get_chain_id
 from core.data_validator import (
+    DataValidationResult,
     validate_dex_data,
     validate_gmgn_data,
-    validate_twitter_data,
     validate_safety_data,
-    DataValidationResult
+    validate_twitter_data,
 )
-from core.parallel import gather_with_results, run_parallel_agents, make_async
-from core.constants import get_chain_id
-
+from core.factbook import TokenFactBook, build_token_factbook
+from core.killswitch import KillSwitchResult, check_killswitch
+from core.logging import logger
+from core.parallel import gather_with_results, make_async, run_parallel_agents
+from services.agents import (
+    AgentOutcome,
+    MarketAgent,
+    PredictionAgent,
+    RugCheckAgent,
+    SocialAgent,
+    empty_outcome,
+    to_legacy_envelope,
+)
 from services.dex_api import get_dex_data
+from services.social_preprocessor import preprocess_twitter_payload
 from services.token_data_service import get_token_analysis
 from services.token_safety_service import get_safety_report
 from services.twitter_api_v2 import fetch_token_tweets
-from services.crewat import token_agents
+
+
+# ---------------------------------------------------------------------------
+# Planning primitives (preserved from legacy orchestrator)
+# ---------------------------------------------------------------------------
 
 
 class DataSource(str, Enum):
-    """Available data sources."""
     DEX = "dex"
-    GMGN = "gmgn"        # Now powered by DexScreener + GeckoTerminal
-    SAFETY = "safety"     # GoPlus + RugCheck
+    GMGN = "gmgn"
+    SAFETY = "safety"
     TWITTER = "twitter"
     MORALIS = "moralis"
 
 
 @dataclass
 class ChainCapabilities:
-    """What services are available for each chain."""
     supports_dex: bool = True
     supports_gmgn_stats: bool = True
-    supports_gmgn_trenches: bool = False  # Only sol/bsc
-    supports_moralis: bool = False  # Only base
+    supports_gmgn_trenches: bool = False
+    supports_moralis: bool = False
     supports_twitter: bool = True
 
 
-# Chain-specific capabilities
 CHAIN_CAPABILITIES: Dict[str, ChainCapabilities] = {
     "sol": ChainCapabilities(supports_gmgn_trenches=True),
     "solana": ChainCapabilities(supports_gmgn_trenches=True),
     "bsc": ChainCapabilities(supports_gmgn_trenches=True),
-    "base": ChainCapabilities(supports_moralis=True, supports_gmgn_trenches=False),
-    "eth": ChainCapabilities(supports_gmgn_trenches=False),
+    "base": ChainCapabilities(supports_moralis=True),
+    "eth": ChainCapabilities(),
 }
 
 
 @dataclass
 class AnalysisPlan:
-    """Execution plan for token analysis."""
     token_address: str
     chain: str
     capabilities: ChainCapabilities
     data_sources: List[DataSource] = field(default_factory=list)
     reasoning: str = ""
-    
-    def __post_init__(self):
-        """Auto-generate reasoning based on chain capabilities."""
-        self.reasoning = f"Analyzing {self.chain.upper()} token. "
 
-        # Always include DEX
+    def __post_init__(self) -> None:
+        self.reasoning = f"Analyzing {self.chain.upper()} token. "
         self.data_sources.append(DataSource.DEX)
         self.reasoning += "Will fetch DEX data. "
-
-        # Include token data (replaces GMGN, available for all chains)
         if self.capabilities.supports_gmgn_stats:
             self.data_sources.append(DataSource.GMGN)
-            self.reasoning += "Will fetch token data (DexScreener+GeckoTerminal). "
-
-        # Always include safety check
+            self.reasoning += "Will fetch token stats (DexScreener+GeckoTerminal). "
         self.data_sources.append(DataSource.SAFETY)
         self.reasoning += "Will run safety analysis (GoPlus+RugCheck). "
-
-        # Include Moralis for Base chain
         if self.capabilities.supports_moralis:
             self.data_sources.append(DataSource.MORALIS)
             self.reasoning += "Will fetch Moralis data (Base chain). "
-
-        # Always try Twitter
-        self.data_sources.append(DataSource.TWITTER)
-        self.reasoning += "Will attempt Twitter search."
+        if self.capabilities.supports_twitter:
+            self.data_sources.append(DataSource.TWITTER)
+            self.reasoning += "Will attempt Twitter search."
 
 
 @dataclass
 class AnalysisResult:
-    """Result of the orchestrated analysis."""
+    """Top-level result of an orchestrated token analysis.
+
+    Legacy fields (preserved for backwards compatibility with run.py and routers):
+        token_address, chain, plan, dex_data, gmgn_data, safety_data,
+        twitter_data, validations, ai_results, synthesis, confidence_adjustment,
+        warnings
+
+    New fields (v1 enhancement):
+        factbook          — the immutable TokenFactBook all agents used
+        killswitch        — KillSwitchResult (triggered or not)
+        signal_vector     — placeholder for Step 7 scoring module
+    """
+
     token_address: str
     chain: str
     plan: AnalysisPlan
-    
-    # Raw data
+
     dex_data: Optional[Dict[str, Any]] = None
     gmgn_data: Optional[Dict[str, Any]] = None
     safety_data: Optional[Dict[str, Any]] = None
     twitter_data: Optional[Dict[str, Any]] = None
-    
-    # Validation results
+
     validations: Dict[str, DataValidationResult] = field(default_factory=dict)
-    
-    # AI analysis results
     ai_results: Dict[str, Any] = field(default_factory=dict)
-    
-    # Synthesis
     synthesis: Optional[Dict[str, Any]] = None
     confidence_adjustment: float = 1.0
     warnings: List[str] = field(default_factory=list)
 
+    # New
+    factbook: Optional[TokenFactBook] = None
+    killswitch: Optional[KillSwitchResult] = None
+    signal_vector: Optional[Dict[str, Any]] = None
+
+
+# ---------------------------------------------------------------------------
+# Orchestrator
+# ---------------------------------------------------------------------------
+
 
 class OrchestratorAgent:
-    """
-    Intelligent orchestrator that plans and executes token analysis.
-    
-    Implements a simplified ReAct pattern:
-    1. THINK: Analyze the request and create a plan
-    2. ACT: Execute data fetching in parallel
-    3. OBSERVE: Validate results and adjust plan
-    4. ACT: Run AI analysis on valid data only
-    5. REFLECT: Synthesize insights and adjust confidence
-    """
-    
-    def __init__(self):
-        self.async_get_dex_data = make_async(get_dex_data)
-    
+    """Plans and executes the enhanced AI pipeline for a single token."""
+
+    def __init__(self) -> None:
+        self._async_dex = make_async(get_dex_data)
+        self.market_agent = MarketAgent()
+        self.rug_check_agent = RugCheckAgent()
+        self.social_agent = SocialAgent()
+        self.prediction_agent = PredictionAgent()
+
+    # ------------------------------------------------------------------ think
+
     def think(self, token_address: str, chain: str) -> AnalysisPlan:
-        """
-        THINK: Create an analysis plan based on chain capabilities.
-        """
         logger.info(f"Planning analysis for {chain} token...")
-        
-        # Get chain capabilities
-        capabilities = CHAIN_CAPABILITIES.get(
-            chain.lower(), 
-            ChainCapabilities()  # Default: basic capabilities
-        )
-        
+        capabilities = CHAIN_CAPABILITIES.get(chain.lower(), ChainCapabilities())
         plan = AnalysisPlan(
-            token_address=token_address,
-            chain=chain,
-            capabilities=capabilities
+            token_address=token_address, chain=chain, capabilities=capabilities
         )
-        
         logger.info(f"Plan: {plan.reasoning}")
         return plan
-    
-    async def act_fetch_data(
+
+    # ------------------------------------------------------------------ fetch
+
+    async def fetch_data(
         self,
         plan: AnalysisPlan,
-        pair_address: Optional[str] = None
+        pair_address: Optional[str] = None,
     ) -> Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
-        """
-        ACT: Fetch data from planned sources in parallel.
-        Returns (dex_data, gmgn_data, safety_data, twitter_data).
-        """
+        """Fetch all data sources in parallel. Returns raw blobs."""
         logger.section("PHASE 1: DATA FETCHING")
 
         dex_chain = get_chain_id(plan.chain, "dex")
         dex_address = pair_address if pair_address else plan.token_address
 
-        # Build tasks based on plan
-        data_tasks = {}
-
+        tasks: Dict[str, Any] = {}
         if DataSource.DEX in plan.data_sources:
-            data_tasks["dex"] = self.async_get_dex_data(dex_chain, dex_address)
-
+            tasks["dex"] = self._async_dex(dex_chain, dex_address)
         if DataSource.GMGN in plan.data_sources:
-            data_tasks["gmgn"] = get_token_analysis(plan.token_address, plan.chain)
-
+            tasks["gmgn"] = get_token_analysis(plan.token_address, plan.chain)
         if DataSource.SAFETY in plan.data_sources:
-            data_tasks["safety"] = get_safety_report(plan.token_address, plan.chain)
+            tasks["safety"] = get_safety_report(plan.token_address, plan.chain)
 
-        # Execute in parallel
-        results = await gather_with_results(data_tasks, timeout=30.0)
+        results = await gather_with_results(tasks, timeout=30.0)
 
-        # Extract results
-        dex_data = results.get("dex", {})
-        dex_data = dex_data.data if hasattr(dex_data, 'data') and dex_data.success else {}
+        def _extract(key: str) -> Any:
+            value = results.get(key)
+            if value is None:
+                return {}
+            return value.data if getattr(value, "success", False) else {}
 
-        gmgn_data = results.get("gmgn", {})
-        gmgn_data = gmgn_data.data if hasattr(gmgn_data, 'data') and gmgn_data.success else {}
+        dex_data = _extract("dex")
+        gmgn_data = _extract("gmgn")
 
-        safety_data = results.get("safety", {})
-        safety_raw = safety_data.data if hasattr(safety_data, 'data') and safety_data.success else None
-        safety_dict = safety_raw.to_dict() if hasattr(safety_raw, 'to_dict') else (safety_raw or {})
+        safety_raw = _extract("safety")
+        safety_dict = (
+            safety_raw.to_dict() if hasattr(safety_raw, "to_dict") else (safety_raw or {})
+        )
 
-        # Get token info for Twitter search
-        token_symbol = None
-        token_name = None
-
-        if dex_data and 'pairs' in dex_data and dex_data['pairs']:
-            pair = dex_data['pairs'][0]
-            token_symbol = pair.get('baseToken', {}).get('symbol')
-            token_name = pair.get('baseToken', {}).get('name')
-
-        # Fallback: try to get symbol from token_data_service
-        if not token_symbol and gmgn_data:
-            token_stats = gmgn_data.get('token_stats')
-            if token_stats:
-                token_symbol = token_stats.get('symbol')
-                token_name = token_stats.get('name')
-
-        # Fetch Twitter data
-        twitter_data = {}
+        # Fetch Twitter using whatever symbol/name we can derive from DEX or GMGN.
+        token_symbol, token_name = self._derive_token_identity(dex_data, gmgn_data)
+        twitter_data: Dict[str, Any] = {}
         if DataSource.TWITTER in plan.data_sources and token_symbol:
             try:
                 twitter_data = await fetch_token_tweets(
                     token_symbol=token_symbol,
                     token_name=token_name,
                     token_address=plan.token_address,
-                    max_tweets=20
+                    max_tweets=20,
                 )
-            except Exception as e:
-                logger.warning(f"Twitter fetch failed: {str(e)}")
-                twitter_data = {"error": str(e), "tweets": []}
+            except Exception as exc:  # noqa: BLE001
+                logger.warning(f"Twitter fetch failed: {exc}")
+                twitter_data = {"error": str(exc), "tweets": [], "status": "error"}
 
         return dex_data, gmgn_data, safety_dict, twitter_data
-    
-    def observe(
-        self,
-        dex_data: Dict[str, Any],
-        gmgn_data: Dict[str, Any],
-        safety_data: Dict[str, Any],
-        twitter_data: Dict[str, Any]
-    ) -> Tuple[Dict[str, DataValidationResult], List[str]]:
-        """
-        OBSERVE: Validate data and identify issues.
-        """
-        logger.section("PHASE 2: DATA VALIDATION")
 
-        validations = {
-            "dex": validate_dex_data(dex_data),
-            "gmgn": validate_gmgn_data(gmgn_data),
-            "safety": validate_safety_data(safety_data),
-            "twitter": validate_twitter_data(twitter_data)
+    @staticmethod
+    def _derive_token_identity(
+        dex_data: Dict[str, Any], gmgn_data: Dict[str, Any]
+    ) -> Tuple[Optional[str], Optional[str]]:
+        pairs = (dex_data or {}).get("pairs") or []
+        if pairs:
+            base = pairs[0].get("baseToken") or {}
+            symbol = base.get("symbol")
+            name = base.get("name")
+            if symbol:
+                return symbol, name
+        stats = ((gmgn_data or {}).get("token_stats")) or {}
+        return stats.get("symbol"), stats.get("name")
+
+    # ----------------------------------------------------------------- workers
+
+    async def run_workers(
+        self, factbook: TokenFactBook, killswitch_triggered: bool
+    ) -> Tuple[AgentOutcome, AgentOutcome, AgentOutcome]:
+        """Run the three worker agents in parallel.
+
+        If the kill-switch already triggered, we skip the workers entirely and
+        return neutral outcomes. That's a cost-saving short-circuit: any data
+        we could extract from a kill-switched token will be ignored anyway.
+        """
+        if killswitch_triggered:
+            logger.section("PHASE 3: AI ANALYSIS (SKIPPED — kill-switch)")
+            return (
+                empty_outcome("market_agent", "killswitch triggered"),
+                empty_outcome("rug_check_agent", "killswitch triggered"),
+                empty_outcome("social_agent", "killswitch triggered"),
+            )
+
+        logger.section("PHASE 3: AI ANALYSIS")
+
+        tasks: Dict[str, Any] = {}
+        if factbook.market.has_data:
+            tasks["market"] = self.market_agent.analyze(factbook.market)
+        if factbook.rug.has_data:
+            tasks["rug"] = self.rug_check_agent.analyze(factbook.rug)
+        if factbook.social.has_data:
+            tasks["social"] = self.social_agent.analyze(factbook.social)
+
+        results = await run_parallel_agents(tasks, timeout=60.0)
+
+        market = results.get("market") or empty_outcome(
+            "market_agent", "market data missing"
+        )
+        rug = results.get("rug") or empty_outcome(
+            "rug_check_agent", "safety data missing"
+        )
+        social = results.get("social") or empty_outcome(
+            "social_agent", "social data missing"
+        )
+
+        return market, rug, social
+
+    # ------------------------------------------------------------------ synth
+
+    def _synthesize(
+        self,
+        *,
+        factbook: TokenFactBook,
+        killswitch: KillSwitchResult,
+        market: AgentOutcome,
+        rug: AgentOutcome,
+        social: AgentOutcome,
+        prediction: AgentOutcome,
+    ) -> Tuple[Dict[str, Any], float, List[str]]:
+        """Build a synthesis dict and a confidence adjustment from agent outcomes.
+
+        Replaces the legacy magic-number penalties in `reflect()`. The new
+        synthesis is *informational*, not punitive — calibration is the
+        scoring module's job (Step 7).
+        """
+        logger.section("PHASE 4: SYNTHESIS")
+
+        warnings: List[str] = []
+        cross_analysis: List[Dict[str, Any]] = []
+
+        # Aggregate the structured red_flags from every agent into the cross_analysis
+        # list so consumers can see everything that was flagged in one place.
+        for outcome in (market, rug, social):
+            for flag in outcome.scored.red_flags:
+                cross_analysis.append(
+                    {
+                        "source": outcome.agent_type,
+                        "flag": flag,
+                    }
+                )
+
+        # Kill-switch contributes its own reasons.
+        if killswitch.triggered:
+            for reason in killswitch.reasons:
+                cross_analysis.append(
+                    {
+                        "source": "killswitch",
+                        "pattern": reason.rule,
+                        "severity": reason.severity.value,
+                        "message": reason.message,
+                    }
+                )
+                warnings.append(f"KILLSWITCH {reason.rule}: {reason.message}")
+
+        # Confidence adjustment — no more magic numbers. It is simply the
+        # average of the three worker confidences, optionally floored by the
+        # kill-switch. The scoring module in Step 7 will replace this with a
+        # calibrated weight.
+        confidences = [market.scored.confidence, rug.scored.confidence, social.scored.confidence]
+        avg_conf = sum(confidences) / 3
+        if killswitch.triggered:
+            avg_conf = max(avg_conf, 0.95)  # kill-switch decisions are high-confidence
+
+        valid_sources = sum(
+            1
+            for fb_has_data in (
+                factbook.market.has_data,
+                factbook.rug.has_data,
+                factbook.social.has_data,
+            )
+            if fb_has_data
+        )
+
+        synthesis = {
+            "data_coverage": f"{valid_sources}/3 sources available",
+            "confidence_adjustment": round(avg_conf, 3),
+            "cross_analysis": cross_analysis,
+            "killswitch_triggered": killswitch.triggered,
+            "killswitch_action": killswitch.action,
+            "worker_scores": {
+                "market": round(market.scored.score, 3),
+                "rug_safety": round(rug.scored.score, 3),
+                "social": round(social.scored.score, 3),
+            },
         }
 
-        warnings = []
-        for source, result in validations.items():
-            if result.is_valid:
-                logger.success(f"{source.upper()} data validated")
-            else:
-                msg = f"{source.upper()}: {result.reason}"
-                warnings.append(msg)
-                logger.warning(f"Skipping {source}: {result.reason}")
+        logger.info(
+            f"Synthesis: coverage={valid_sources}/3, avg_conf={avg_conf:.2f}, "
+            f"killswitch={killswitch.triggered}"
+        )
+        return synthesis, avg_conf, warnings
 
-        return validations, warnings
-    
-    async def act_analyze(
+    # --------------------------------------------------------------- validate
+
+    def _legacy_validations(
         self,
         dex_data: Dict[str, Any],
         gmgn_data: Dict[str, Any],
         safety_data: Dict[str, Any],
         twitter_data: Dict[str, Any],
-        validations: Dict[str, DataValidationResult]
-    ) -> Dict[str, Any]:
-        """
-        ACT: Run AI analysis only on validated data.
-        """
-        logger.section("PHASE 3: AI ANALYSIS")
-
-        agent_tasks = {}
-
-        if validations["dex"].is_valid:
-            agent_tasks["market_analysis"] = token_agents.market_signals(dex_data)
-
-        # Combine gmgn + safety data for the safety analysis agent
-        combined_gmgn = gmgn_data.copy() if gmgn_data else {}
-        if safety_data:
-            combined_gmgn["safety_report"] = safety_data
-        if validations.get("gmgn", DataValidationResult(is_valid=False, source="gmgn")).is_valid or \
-           validations.get("safety", DataValidationResult(is_valid=False, source="safety")).is_valid:
-            agent_tasks["gmgn_analysis"] = token_agents.gmgn_signals(combined_gmgn)
-
-        if validations["twitter"].is_valid:
-            agent_tasks["social_analysis"] = token_agents.analyze_social_data(twitter_data)
-
-        if not agent_tasks:
-            logger.warning("No valid data for AI analysis")
-            return {}
-
-        # Run in parallel
-        return await run_parallel_agents(agent_tasks, timeout=60.0)
-    
-    def reflect(
-        self,
-        ai_results: Dict[str, Any],
-        safety_data: Dict[str, Any],
-        validations: Dict[str, DataValidationResult],
-        warnings: List[str]
-    ) -> Tuple[float, Dict[str, Any]]:
-        """
-        REFLECT: Synthesize insights and adjust confidence.
-
-        Key insight: Analyze cross-data patterns
-        - High volume on DEX but 0 Twitter mentions = Suspicious
-        - High rug risk + low Twitter engagement = RED FLAG
-        """
-        logger.section("PHASE 4: SYNTHESIS")
-
-        # Calculate confidence adjustment based on data availability
-        valid_sources = sum(1 for v in validations.values() if v.is_valid)
-        total_sources = len(validations)
-
-        # Base confidence: proportion of valid sources
-        confidence_adjustment = valid_sources / total_sources if total_sources > 0 else 0.5
-
-        synthesis = {
-            "data_coverage": f"{valid_sources}/{total_sources} sources valid",
-            "confidence_adjustment": confidence_adjustment,
-            "cross_analysis": []
+    ) -> Dict[str, DataValidationResult]:
+        """Run legacy validators for backwards-compatible AnalysisResult.validations."""
+        return {
+            "dex": validate_dex_data(dex_data),
+            "gmgn": validate_gmgn_data(gmgn_data),
+            "safety": validate_safety_data(safety_data),
+            "twitter": validate_twitter_data(twitter_data),
         }
 
-        # Pattern 1: High trading activity but no social presence
-        if validations["dex"].is_valid and not validations["twitter"].is_valid:
-            synthesis["cross_analysis"].append({
-                "pattern": "NO_SOCIAL_PRESENCE",
-                "severity": "warning",
-                "insight": "Token has no detectable social media activity. Could indicate organic growth or manipulation."
-            })
+    # -------------------------------------------------------------------- run
 
-        # Pattern 2: High rug risk from safety report
-        if safety_data:
-            rug_risk = safety_data.get("overall_risk_score", 0)
-            risk_level = safety_data.get("risk_level", "UNKNOWN")
-            if rug_risk > 70 or risk_level in ("HIGH", "CRITICAL"):
-                synthesis["cross_analysis"].append({
-                    "pattern": "HIGH_RUG_RISK",
-                    "severity": "critical",
-                    "insight": f"Safety risk score is {rug_risk}/100 ({risk_level}). Exercise extreme caution."
-                })
-                confidence_adjustment *= 0.5
-
-            if safety_data.get("is_honeypot") is True:
-                synthesis["cross_analysis"].append({
-                    "pattern": "HONEYPOT_DETECTED",
-                    "severity": "critical",
-                    "insight": "Token detected as a honeypot. DO NOT BUY."
-                })
-                confidence_adjustment *= 0.1
-
-        # Pattern 3: AI analysis cross-check
-        gmgn = ai_results.get("gmgn_analysis", {}).get("analysis", {})
-        if isinstance(gmgn, dict) and gmgn.get("rug_risk_score", 0) > 70:
-            synthesis["cross_analysis"].append({
-                "pattern": "AI_HIGH_RISK",
-                "severity": "critical",
-                "insight": f"AI rug analysis score: {gmgn.get('rug_risk_score')}/100."
-            })
-            confidence_adjustment *= 0.6
-
-        logger.info(f"Synthesis complete. Confidence adjustment: {confidence_adjustment:.2f}")
-
-        return confidence_adjustment, synthesis
-    
     async def run(
         self,
         token_address: str,
         chain: str,
-        pair_address: Optional[str] = None
+        pair_address: Optional[str] = None,
     ) -> AnalysisResult:
-        """
-        Execute the full ReAct analysis loop.
-
-        1. THINK -> Create plan
-        2. ACT -> Fetch data
-        3. OBSERVE -> Validate
-        4. ACT -> AI analysis
-        5. REFLECT -> Synthesize
-        """
-        logger.section("ORCHESTRATOR: REACT ANALYSIS")
+        """Execute the full enhanced pipeline for one token."""
+        logger.section("ORCHESTRATOR: ENHANCED ANALYSIS")
 
         # 1. THINK
         plan = self.think(token_address, chain)
 
-        # 2. ACT (fetch)
-        dex_data, gmgn_data, safety_data, twitter_data = await self.act_fetch_data(plan, pair_address)
+        # 2. ACT — fetch raw data
+        dex_data, gmgn_data, safety_data, twitter_data = await self.fetch_data(
+            plan, pair_address
+        )
 
-        # 3. OBSERVE
-        validations, warnings = self.observe(dex_data, gmgn_data, safety_data, twitter_data)
+        # Legacy validations (for backwards-compatible AnalysisResult shape).
+        validations = self._legacy_validations(
+            dex_data, gmgn_data, safety_data, twitter_data
+        )
 
-        # 4. ACT (analyze)
-        ai_results = await self.act_analyze(dex_data, gmgn_data, safety_data, twitter_data, validations)
+        # 2.5. Preprocess Twitter before the FactBook sees it.
+        logger.section("PHASE 2: PREPROCESSING")
+        clean_twitter = preprocess_twitter_payload(twitter_data)
 
-        # 5. REFLECT
-        confidence_adjustment, synthesis = self.reflect(ai_results, safety_data, validations, warnings)
+        # Stage 0: FactBook
+        factbook = build_token_factbook(
+            token_address=token_address,
+            chain=chain,
+            dex_data=dex_data,
+            gmgn_data=gmgn_data,
+            safety_data=safety_data,
+            twitter_data=clean_twitter,
+        )
 
-        # Run final prediction with all data
+        # Stage 1: Kill-switch
+        killswitch = check_killswitch(factbook)
+        if killswitch.triggered:
+            logger.warning(
+                f"KILL-SWITCH TRIGGERED: {killswitch.primary.rule if killswitch.primary else 'unknown'}"
+            )
+
+        # Stage 2: Workers
+        market_outcome, rug_outcome, social_outcome = await self.run_workers(
+            factbook, killswitch.triggered
+        )
+
+        # Stage 3: Scoring module is Step 7 — for now, pass worker outcomes
+        # through directly. The `signal_vector` field stays None until then.
+        signal_vector: Optional[Dict[str, Any]] = None
+
+        # Stage 4: Prediction
         logger.section("PHASE 5: PREDICTION")
-        combined_data = {
-            "market_data": dex_data,
-            "gmgn_data": gmgn_data,
-            "safety_data": safety_data,
-            "social_data": twitter_data,
-            "ai_analysis": ai_results,
-            "data_coverage": synthesis.get("data_coverage"),
-            "confidence_adjustment": confidence_adjustment
-        }
+        prediction_outcome = await self.prediction_agent.predict(
+            factbook=factbook,
+            killswitch=killswitch,
+            market=market_outcome,
+            rug=rug_outcome,
+            social=social_outcome,
+            signal_vector=signal_vector,
+        )
 
-        prediction = await token_agents.predict_token_movement(combined_data)
-        ai_results["prediction"] = prediction
+        # Synthesis
+        synthesis, confidence_adjustment, warnings = self._synthesize(
+            factbook=factbook,
+            killswitch=killswitch,
+            market=market_outcome,
+            rug=rug_outcome,
+            social=social_outcome,
+            prediction=prediction_outcome,
+        )
+
+        # Build legacy ai_results dict from new AgentOutcomes.
+        ai_results: Dict[str, Any] = {
+            "market_analysis": to_legacy_envelope(market_outcome),
+            "gmgn_analysis": to_legacy_envelope(rug_outcome),
+            "social_analysis": to_legacy_envelope(social_outcome),
+            "prediction": to_legacy_envelope(prediction_outcome),
+        }
 
         return AnalysisResult(
             token_address=token_address,
@@ -420,12 +474,15 @@ class OrchestratorAgent:
             dex_data=dex_data,
             gmgn_data=gmgn_data,
             safety_data=safety_data,
-            twitter_data=twitter_data,
+            twitter_data=clean_twitter,  # store the cleaned version
             validations=validations,
             ai_results=ai_results,
             synthesis=synthesis,
             confidence_adjustment=confidence_adjustment,
-            warnings=warnings
+            warnings=warnings,
+            factbook=factbook,
+            killswitch=killswitch,
+            signal_vector=signal_vector,
         )
 
 
