@@ -134,6 +134,13 @@ async def main() -> int:
     else:
         print("not run")
 
+    # Signal vector (Step 7 — scoring module output)
+    _hr("SIGNAL VECTOR (scoring module)")
+    if result.signal_vector is not None:
+        print(_pretty(result.signal_vector.to_dict()))
+    else:
+        print("not computed")
+
     # Worker outcomes (via legacy envelope)
     _hr("AGENT OUTCOMES")
     for key in ("market_analysis", "gmgn_analysis", "social_analysis", "prediction"):
