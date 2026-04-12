@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useApiStatus } from "@/lib/contexts/ApiStatusContext";
 import { WalletConnectionButton } from "@/components/wallet/WalletConnectionButton";
+import { SearchCommand } from "@/components/web3/SearchCommand";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
@@ -35,25 +36,7 @@ export function Header() {
       >
         {/* Left: Search */}
         <div className="flex items-center gap-8">
-          <div className="relative flex items-center">
-            <span
-              className="material-symbols-outlined absolute left-4 text-[#acabaa] text-lg"
-              style={{ fontSize: '1.1rem' }}
-            >
-              search
-            </span>
-            <input
-              className="rounded-full py-2 pl-12 pr-6 text-sm w-80 outline-none placeholder:text-neutral-600 text-[#e7e5e5]"
-              placeholder="Explore assets, signals or markets..."
-              type="text"
-              style={{
-                backgroundColor: '#252626',
-                border: 'none',
-              }}
-              onFocus={(e) => { e.target.style.boxShadow = `0 0 0 1px rgba(167,203,235,0.3)`; }}
-              onBlur={(e) => { e.target.style.boxShadow = 'none'; }}
-            />
-          </div>
+          <SearchCommand />
         </div>
 
         {/* Right: Status + Icons + Wallet */}
