@@ -309,6 +309,34 @@ const WITHDRAW_EVENT = parseAbiItem(
   "event Withdraw(address indexed sender, address indexed receiver, address indexed owner, uint256 assets, uint256 shares)"
 );
 
+// Base Sepolia public RPC caps eth_getLogs at 10,000 blocks per call.
+// We chunk at 9,000 to stay under that safely.
+const LOG_CHUNK_SIZE = 9_000n;
+const LOG_WINDOW_BLOCKS = 100_000n; // ~55 hours on Base Sepolia
+
+async function chunkedGetLogs<T>(
+  fetcher: (fromBlock: bigint, toBlock: bigint) => Promise<T[]>,
+  fromBlock: bigint,
+  toBlock: bigint,
+  chunkSize: bigint = LOG_CHUNK_SIZE
+): Promise<T[]> {
+  const results: T[] = [];
+  let start = fromBlock;
+  while (start <= toBlock) {
+    const tentativeEnd = start + chunkSize - 1n;
+    const end = tentativeEnd > toBlock ? toBlock : tentativeEnd;
+    try {
+      const chunk = await fetcher(start, end);
+      results.push(...chunk);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(`[chunkedGetLogs] chunk ${start}-${end} failed`, e);
+    }
+    start = end + 1n;
+  }
+  return results;
+}
+
 export interface UserDepositEvent {
   txHash: `0x${string}`;
   blockNumber: bigint;
@@ -338,57 +366,88 @@ export function useUserActivity() {
       setIsLoading(true);
       try {
         const latest = await client.getBlockNumber();
-        const fromBlock = latest > 50_000n ? latest - 50_000n : 0n;
+        const fromBlock =
+          latest > LOG_WINDOW_BLOCKS ? latest - LOG_WINDOW_BLOCKS : 0n;
+        const me = address.toLowerCase();
 
         const [depositLogs, withdrawLogs] = await Promise.all([
-          client.getLogs({
-            address: VAULT_ADDRESS,
-            event: DEPOSIT_EVENT,
-            args: { owner: address },
+          chunkedGetLogs(
+            (from, to) =>
+              client.getLogs({
+                address: VAULT_ADDRESS,
+                event: DEPOSIT_EVENT,
+                fromBlock: from,
+                toBlock: to,
+              }),
             fromBlock,
-            toBlock: "latest",
-          }),
-          client.getLogs({
-            address: VAULT_ADDRESS,
-            event: WITHDRAW_EVENT,
-            args: { owner: address },
+            latest
+          ),
+          chunkedGetLogs(
+            (from, to) =>
+              client.getLogs({
+                address: VAULT_ADDRESS,
+                event: WITHDRAW_EVENT,
+                fromBlock: from,
+                toBlock: to,
+              }),
             fromBlock,
-            toBlock: "latest",
-          }),
+            latest
+          ),
         ]);
 
-        const mapDep = (log: (typeof depositLogs)[number]): UserDepositEvent => {
-          const parsed = decodeEventLog({
-            abi: [DEPOSIT_EVENT],
-            data: log.data,
-            topics: log.topics,
-          });
-          const args = parsed.args as unknown as { assets: bigint; shares: bigint };
-          return {
-            txHash: log.transactionHash!,
-            blockNumber: log.blockNumber!,
-            assets: args.assets,
-            shares: args.shares,
-          };
-        };
+        const deps: UserDepositEvent[] = [];
+        for (const log of depositLogs) {
+          try {
+            const parsed = decodeEventLog({
+              abi: [DEPOSIT_EVENT],
+              data: log.data,
+              topics: log.topics,
+            });
+            const args = parsed.args as unknown as {
+              sender: `0x${string}`;
+              owner: `0x${string}`;
+              assets: bigint;
+              shares: bigint;
+            };
+            if (args.owner.toLowerCase() !== me) continue;
+            deps.push({
+              txHash: log.transactionHash!,
+              blockNumber: log.blockNumber!,
+              assets: args.assets,
+              shares: args.shares,
+            });
+          } catch {
+            /* skip malformed log */
+          }
+        }
 
-        const mapWd = (log: (typeof withdrawLogs)[number]): UserWithdrawEvent => {
-          const parsed = decodeEventLog({
-            abi: [WITHDRAW_EVENT],
-            data: log.data,
-            topics: log.topics,
-          });
-          const args = parsed.args as unknown as { assets: bigint; shares: bigint };
-          return {
-            txHash: log.transactionHash!,
-            blockNumber: log.blockNumber!,
-            assets: args.assets,
-            shares: args.shares,
-          };
-        };
+        const wds: UserWithdrawEvent[] = [];
+        for (const log of withdrawLogs) {
+          try {
+            const parsed = decodeEventLog({
+              abi: [WITHDRAW_EVENT],
+              data: log.data,
+              topics: log.topics,
+            });
+            const args = parsed.args as unknown as {
+              sender: `0x${string}`;
+              receiver: `0x${string}`;
+              owner: `0x${string}`;
+              assets: bigint;
+              shares: bigint;
+            };
+            if (args.owner.toLowerCase() !== me) continue;
+            wds.push({
+              txHash: log.transactionHash!,
+              blockNumber: log.blockNumber!,
+              assets: args.assets,
+              shares: args.shares,
+            });
+          } catch {
+            /* skip malformed log */
+          }
+        }
 
-        const deps = depositLogs.map(mapDep);
-        const wds = withdrawLogs.map(mapWd);
         deps.sort((a, b) => Number(b.blockNumber - a.blockNumber));
         wds.sort((a, b) => Number(b.blockNumber - a.blockNumber));
 
@@ -396,7 +455,9 @@ export function useUserActivity() {
           setDeposits(deps);
           setWithdrawals(wds);
         }
-      } catch {
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error("[useUserActivity] load failed", e);
         if (!cancelled) {
           setDeposits([]);
           setWithdrawals([]);
@@ -445,39 +506,53 @@ export function useTradeHistory() {
       setIsLoading(true);
       try {
         const latest = await client.getBlockNumber();
-        const fromBlock = latest > 50_000n ? latest - 50_000n : 0n;
-        const logs = await client.getLogs({
-          address: VAULT_ADDRESS,
-          event: TRADE_EVENT,
-          fromBlock,
-          toBlock: "latest",
-        });
+        const fromBlock =
+          latest > LOG_WINDOW_BLOCKS ? latest - LOG_WINDOW_BLOCKS : 0n;
 
-        const decoded: TradeEvent[] = logs.map((log) => {
-          const parsed = decodeEventLog({
-            abi: [TRADE_EVENT],
-            data: log.data,
-            topics: log.topics,
-          });
-          const args = parsed.args as unknown as {
-            tokenIn: `0x${string}`;
-            tokenOut: `0x${string}`;
-            amountIn: bigint;
-            amountOut: bigint;
-            reasoningHash: `0x${string}`;
-            confidence: number;
-            timestamp: bigint;
-          };
-          return {
-            txHash: log.transactionHash!,
-            blockNumber: log.blockNumber!,
-            ...args,
-          };
-        });
+        const logs = await chunkedGetLogs(
+          (from, to) =>
+            client.getLogs({
+              address: VAULT_ADDRESS,
+              event: TRADE_EVENT,
+              fromBlock: from,
+              toBlock: to,
+            }),
+          fromBlock,
+          latest
+        );
+
+        const decoded: TradeEvent[] = [];
+        for (const log of logs) {
+          try {
+            const parsed = decodeEventLog({
+              abi: [TRADE_EVENT],
+              data: log.data,
+              topics: log.topics,
+            });
+            const args = parsed.args as unknown as {
+              tokenIn: `0x${string}`;
+              tokenOut: `0x${string}`;
+              amountIn: bigint;
+              amountOut: bigint;
+              reasoningHash: `0x${string}`;
+              confidence: number;
+              timestamp: bigint;
+            };
+            decoded.push({
+              txHash: log.transactionHash!,
+              blockNumber: log.blockNumber!,
+              ...args,
+            });
+          } catch {
+            /* skip malformed log */
+          }
+        }
 
         decoded.sort((a, b) => Number(b.blockNumber - a.blockNumber));
         if (!cancelled) setEvents(decoded);
-      } catch {
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error("[useTradeHistory] load failed", e);
         if (!cancelled) setEvents([]);
       } finally {
         if (!cancelled) setIsLoading(false);
