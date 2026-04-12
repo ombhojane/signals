@@ -154,8 +154,8 @@ function HeroSection() {
       >
         <Link
           href="/dashboard/vault"
-          className="px-10 py-4 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 gradient-primary hover:shadow-[0_0_30px_rgba(167,203,235,0.25)] flex items-center gap-2 group"
-          style={{ color: "#1e435e" }}
+          className="px-10 py-4 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 hover:shadow-[0_0_30px_rgba(167,203,235,0.25)] flex items-center gap-2 group"
+          style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
         >
           Launch Signals
           <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -181,8 +181,6 @@ function HeroSection() {
           animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both, bounce 2s infinite 2s"
         }}
       >
-        <span className="text-[10px] uppercase tracking-widest text-neutral-500 group-hover:text-neutral-300 transition-colors">Scroll to explore</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-neutral-500 to-transparent"></div>
       </div>
 
       <style>{`
@@ -472,8 +470,8 @@ function CTASection() {
         </p>
         <Link
           href="/dashboard/vault"
-          className="inline-block px-12 py-5 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 gradient-primary hover:shadow-[0_0_40px_rgba(167,203,235,0.3)] relative z-10"
-          style={{ color: "#1e435e" }}
+          className="inline-block px-12 py-5 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 hover:shadow-[0_0_40px_rgba(167,203,235,0.3)] relative z-10"
+          style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
         >
           Launch Signals
         </Link>

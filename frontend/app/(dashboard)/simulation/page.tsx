@@ -16,6 +16,7 @@ import {
   SimulationState,
   TokenSnapshot,
   SimulationResult,
+  TradeDecision,
 } from "@/lib/types/simulation";
 import {
   generateDEXData,
