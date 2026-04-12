@@ -133,19 +133,19 @@ function HeroSection() {
           fontFamily: "var(--font-space)"
         }}
       >
-        Deposit USDC.
+        Intelligent signals.
         <br />
-        <span style={{ color: "#a7cbeb" }}>AI trades it.</span>
+        <span style={{ color: "#a7cbeb" }}>Autonomous trading.</span>
         <br />
-        <span className="opacity-40 text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500">Proven on-chain.</span>
+        <span className="opacity-40 text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500">Unified vaults.</span>
       </h1>
 
       <p 
         className="text-lg md:text-xl text-neutral-400 max-w-2xl font-light leading-relaxed mb-16 mx-auto"
         style={{ animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both" }}
       >
-        A non-custodial ERC-4626 vault on Base. Every trade ships with the AI&apos;s
-        reasoning hash committed on-chain — zero edits, zero cherry-picking.
+        Multi-source signal analysis powered by DeepSeek and Crew AI. RL-based autonomous trading with real-time 
+        market adaptation. Unified vault management with kill-switch safety mechanisms—all on-chain.
       </p>
 
       <div 
@@ -257,22 +257,22 @@ function LiveStatsStrip() {
         <StatCard
           label="Total Value Locked"
           value={`$${formatUsdc(totalAssets, 2)}`}
-          sub={`USDC On ${CHAIN.name}`}
+          sub="Managed Across Protocols"
         />
         <StatCard
           label="Shares Outstanding"
           value={formatUsdc(totalSupply, 2)}
-          sub="ERC-4626 sVAULT"
+          sub="sVAULT Tokens"
         />
         <StatCard
           label="Share Price"
           value={`$${sharePriceUsdc.toFixed(4)}`}
-          sub="USDC per sVAULT"
+          sub="USDC per Share"
         />
         <StatCard
-          label="Status"
-          value={positionOpen ? "Trading" : "Idle"}
-          sub={positionOpen ? "Position open" : "Accepting deposits"}
+          label="Trading Status"
+          value={positionOpen ? "Active" : "Idle"}
+          sub={positionOpen ? "Executing trades" : "Next signal incoming"}
           accent
         />
       </div>
@@ -285,18 +285,18 @@ function HowItWorksSection() {
   const steps = [
     {
       num: "01",
-      title: "Deposit USDC",
-      desc: "Connect your wallet and deposit USDC into the vault contract. You receive sVAULT shares 1:1 with the current share price.",
+      title: "Multi-Source Signal Analysis",
+      desc: "Aggregates Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement via DeepSeek and Crew AI agents for high-quality, actionable signals.",
     },
     {
       num: "02",
-      title: "AI trades on Uniswap",
-      desc: "The Signals agent analyzes market data and executes trades through the vault on Uniswap V3. Every trade commits a reasoning hash on-chain.",
+      title: "RL-Based Autonomous Trading",
+      desc: "Reinforcement learning agent executes trades with real-time market adaptation. Risk management, portfolio optimization, and intelligent rebalancing—all autonomous.",
     },
     {
       num: "03",
-      title: "Withdraw anytime",
-      desc: "When the vault is idle, redeem your sVAULT shares back to USDC at the current share price. Gas-efficient. Fully non-custodial.",
+      title: "Token Safety & Kill-Switch",
+      desc: "Real-time token risk assessment with kill-switch mechanism for emergency stops. Comprehensive logging, rate limiting, and resilience safeguards.",
     },
   ];
 
@@ -314,9 +314,9 @@ function HowItWorksSection() {
             className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
             style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
           >
-            Three steps.
+            Three pillars.
             <br />
-            <span className="text-neutral-500">Zero custody.</span>
+            <span className="text-neutral-500">On-chain execution.</span>
           </h2>
         </div>
         <Link
@@ -367,19 +367,19 @@ function HowItWorksSection() {
 function ValuePropsSection() {
   const props = [
     {
-      icon: "verified",
-      title: "Verifiable Alpha",
-      desc: "Every trade emits a TradeExecuted event with a keccak256 hash of the AI reasoning. Click any trade on the Proof page to audit the exact decision that produced it.",
+      icon: "insights",
+      title: "Intelligent Signal Generation",
+      desc: "Multi-source analysis combines Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement produces high-quality, low-noise signals with customizable thresholds.",
     },
     {
-      icon: "lock",
-      title: "Non-custodial",
-      desc: "Your funds sit inside an audited-base ERC-4626 vault contract, not on our servers. You interact directly with the contract from your wallet. Withdraw anytime.",
+      icon: "smart_toy",
+      title: "Autonomous RL Trading",
+      desc: "Reinforcement learning agent trained on market simulations. Real-time adaptation, portfolio optimization, risk management, and intelligent rebalancing—fully autonomous execution.",
     },
     {
-      icon: "bolt",
-      title: "Agent Economy",
-      desc: "Our AI signal API is priced per call via x402 — HTTP-native USDC micropayments. Other agents pay to query our AI. No API keys. No Stripe.",
+      icon: "shield_verified",
+      title: "Safety-First Design",
+      desc: "Token risk assessment framework with kill-switch emergency stops. Rate limiting, resilience mechanisms, comprehensive audit trails, and multi-protocol vault support.",
     },
   ];
 
@@ -405,9 +405,9 @@ function ValuePropsSection() {
             className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
             style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
           >
-            Load-bearing
+            Built for
             <br />
-            web3 infrastructure.
+            Web3 traders.
           </h2>
         </div>
 
@@ -462,12 +462,13 @@ function CTASection() {
             fontFamily: "var(--font-space)"
           }}
         >
-          Let the AI trade.
+          Cut through the noise.
           <br />
-          <span className="text-neutral-500">Keep the receipts.</span>
+          <span className="text-neutral-500">Trade with confidence.</span>
         </h2>
         <p className="text-lg text-neutral-400 font-light leading-relaxed mb-16 max-w-xl mx-auto relative z-10">
-          Actively managed on Base Sepolia. Every decision committed to the chain with an irrefutable reasoning hash.
+          Intelligent signals meet autonomous trading. Multi-protocol vault management with safety mechanisms 
+          built-in. Everything on-chain, fully auditable.
         </p>
         <Link
           href="/dashboard/vault"
