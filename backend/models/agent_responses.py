@@ -36,7 +36,7 @@ class Recommendation(str, Enum):
 
 class MarketAnalysisResponse(BaseModel):
     """Structured response from DEX/market analyzer agent."""
-    
+
     summary: str = Field(description="Brief overview of the analysis")
     volume_analysis: str = Field(description="Volume trends and significance")
     liquidity_analysis: str = Field(description="Liquidity and market depth insights")
@@ -44,6 +44,23 @@ class MarketAnalysisResponse(BaseModel):
     risk_assessment: str = Field(description="Identified risk factors")
     market_health: int = Field(ge=1, le=10, description="Market health score 1-10")
     recommendations: List[str] = Field(description="Key takeaways and recommendations")
+    # Normalized scoring fields (consumed by the scoring module)
+    score: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="Normalized market quality score in [0,1] — higher is healthier",
+    )
+    confidence: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="Agent's self-reported confidence in the assessment in [0,1]",
+    )
+    red_flags: List[str] = Field(
+        default_factory=list,
+        description="Specific concerns or warning signals identified",
+    )
 
 
 # =============================================================================
@@ -52,13 +69,31 @@ class MarketAnalysisResponse(BaseModel):
 
 class GMGNAnalysisResponse(BaseModel):
     """Structured response from GMGN safety analyzer agent."""
-    
+
     rug_risk_score: int = Field(ge=0, le=100, description="Rug pull risk 0-100")
     safety_factors: List[str] = Field(description="Positive safety indicators")
     risk_factors: List[str] = Field(description="Concerning factors")
     holder_analysis: str = Field(description="Holder distribution insights")
     recommendation: Recommendation = Field(description="SAFE/CAUTION/AVOID")
     summary: str = Field(description="Brief safety assessment")
+    # Normalized scoring fields. For rug, "score" represents SAFETY (higher = safer),
+    # so the scoring module can weight all three agents in the same direction.
+    score: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="Normalized safety score in [0,1] — higher is safer",
+    )
+    confidence: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="Agent's self-reported confidence in [0,1]",
+    )
+    red_flags: List[str] = Field(
+        default_factory=list,
+        description="Specific rug/safety concerns",
+    )
 
 
 # =============================================================================
@@ -67,7 +102,7 @@ class GMGNAnalysisResponse(BaseModel):
 
 class SocialAnalysisResponse(BaseModel):
     """Structured response from social sentiment analyzer agent."""
-    
+
     sentiment_score: int = Field(ge=0, le=100, description="Overall sentiment 0-100")
     engagement_level: str = Field(description="Community engagement assessment")
     influencer_impact: str = Field(description="Influencer analysis")
@@ -75,6 +110,23 @@ class SocialAnalysisResponse(BaseModel):
     trend_analysis: str = Field(description="Trending patterns")
     community_health: int = Field(ge=0, le=100, description="Community strength 0-100")
     summary: str = Field(description="Social sentiment overview")
+    # Normalized scoring fields.
+    score: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="Normalized social health score in [0,1] — higher is stronger organic signal",
+    )
+    confidence: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="Agent's self-reported confidence in [0,1]",
+    )
+    red_flags: List[str] = Field(
+        default_factory=list,
+        description="Manipulation, bot, or hype concerns",
+    )
 
 
 # =============================================================================
