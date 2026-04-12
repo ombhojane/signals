@@ -10,6 +10,7 @@ import { SimulationControls } from "@/components/simulation/SimulationControls";
 import { SimulationMetrics } from "@/components/simulation/SimulationMetrics";
 import { ResultSummary } from "@/components/simulation/ResultSummary";
 import { SimulationHistory } from "@/components/simulation/SimulationHistory";
+import { TrendingTokens } from "@/components/dashboard/TrendingTokens";
 import { MarketChart, MarketChartHandle } from "@/components/charts/MarketChart";
 import { Card } from "@/components/ui/card";
 import {
@@ -316,9 +317,14 @@ function SimulationContent() {
     switch (state.phase) {
       case "idle":
         return (
-          <div className="space-y-6">
-            <SimulationInput onStart={handleStart} defaultAddress={urlAddress} />
-            <SimulationHistory />
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="lg:col-span-2 space-y-6">
+              <SimulationInput onStart={handleStart} defaultAddress={urlAddress} />
+              <SimulationHistory />
+            </div>
+            <div className="space-y-6">
+              <TrendingTokens />
+            </div>
           </div>
         );
 

@@ -138,7 +138,7 @@ export function SearchCommand() {
         title: "Analyze this token on Explore",
         description: shortHex(q, 12, 10),
         onSelect: () => {
-          router.push(`/dashboard/simulation?token=${q}`);
+          router.push(`/dashboard/simulation?address=${q}`);
           closeAndReset();
         },
       });
