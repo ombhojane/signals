@@ -2,303 +2,229 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { useSettings } from "@/lib/settings-context";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Moon,
-  Sun,
-  Monitor,
-  AlertTriangle,
-  Shield,
-  Wallet,
-  Bell,
-  Activity,
-  Check,
-  X,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { useAccount, useChainId } from "wagmi";
+import { Moon, Sun, Monitor } from "lucide-react";
+import { CHAIN, VAULT_ADDRESS, USDC_ADDRESS, explorerAddress } from "@/lib/web3/constants";
 
-interface APIKeyState {
-  key: string;
-  connected: boolean;
+function shortAddr(addr?: string): string {
+  if (!addr) return "—";
+  return `${addr.slice(0, 8)}…${addr.slice(-6)}`;
+}
+
+function SettingsSection({
+  title,
+  description,
+  icon,
+  children,
+}: {
+  title: string;
+  description: string;
+  icon: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section
+      className="rounded-3xl p-8 flex flex-col gap-6"
+      style={{
+        backgroundColor: "#131313",
+        border: "1px solid rgba(72,72,72,0.25)",
+      }}
+    >
+      <div className="flex items-start gap-4">
+        <div
+          className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
+          style={{
+            backgroundColor: "rgba(167,203,235,0.1)",
+            border: "1px solid rgba(167,203,235,0.2)",
+          }}
+        >
+          <span
+            className="material-symbols-outlined"
+            style={{ fontSize: "1.1rem", color: "#a7cbeb" }}
+          >
+            {icon}
+          </span>
+        </div>
+        <div>
+          <h3 className="text-sm font-bold tracking-[0.2em] uppercase" style={{ color: "#e7e5e5" }}>
+            {title}
+          </h3>
+          <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+            {description}
+          </p>
+        </div>
+      </div>
+      {children}
+    </section>
+  );
+}
+
+function InfoRow({
+  label,
+  value,
+  mono = false,
+  href,
+}: {
+  label: string;
+  value: string;
+  mono?: boolean;
+  href?: string;
+}) {
+  const valueClass = `text-sm ${mono ? "font-mono" : ""}`;
+
+  const content = (
+    <span
+      className={valueClass}
+      style={{ color: href ? "#a7cbeb" : "#e7e5e5" }}
+    >
+      {value}
+    </span>
+  );
+
+  return (
+    <div
+      className="flex items-center justify-between py-3"
+      style={{ borderBottom: "1px solid rgba(72,72,72,0.2)" }}
+    >
+      <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "#acabaa" }}>
+        {label}
+      </span>
+      {href ? (
+        <a href={href} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:underline">
+          {content}
+          <span className="material-symbols-outlined" style={{ fontSize: "0.9rem", color: "#a7cbeb" }}>
+            open_in_new
+          </span>
+        </a>
+      ) : (
+        content
+      )}
+    </div>
+  );
 }
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
-  const { settings, updateSetting } = useSettings();
+  const { address, isConnected } = useAccount();
+  const chainId = useChainId();
   const [mounted, setMounted] = useState(false);
-  const [apiKeys, setApiKeys] = useState<Record<string, APIKeyState>>({
-    OpenAI: { key: "", connected: false },
-    Anthropic: { key: "", connected: false },
-    "Google Vertex": { key: "", connected: false },
-    DeepSeek: { key: "", connected: false },
-  });
-  const [editingProvider, setEditingProvider] = useState<string | null>(null);
-  const [tempKey, setTempKey] = useState("");
 
-  useEffect(() => {
-    setMounted(true);
-    // Load API keys from localStorage
-    const storedKeys = localStorage.getItem("Signals-api-keys");
-    if (storedKeys) {
-      try {
-        setApiKeys(JSON.parse(storedKeys));
-      } catch (e) {
-        console.error("Failed to parse API keys:", e);
-      }
-    }
-  }, []);
+  useEffect(() => setMounted(true), []);
 
-  const handleSaveApiKey = (provider: string) => {
-    const newKeys = {
-      ...apiKeys,
-      [provider]: { key: tempKey, connected: tempKey.length > 10 },
-    };
-    setApiKeys(newKeys);
-    localStorage.setItem("Signals-api-keys", JSON.stringify(newKeys));
-    setEditingProvider(null);
-    setTempKey("");
-  };
-
-  const handleDisconnect = (provider: string) => {
-    const newKeys = {
-      ...apiKeys,
-      [provider]: { key: "", connected: false },
-    };
-    setApiKeys(newKeys);
-    localStorage.setItem("Signals-api-keys", JSON.stringify(newKeys));
-  };
-
-  if (!mounted) return null;
+  const chainMatch = chainId === CHAIN.id;
 
   return (
-    <div className="flex flex-col gap-6 max-w-4xl">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
-          <p className="text-muted-foreground">
-            Manage appearance, simulation parameters, and API keys
-          </p>
-        </div>
+    <div className="flex flex-col gap-8 p-8 max-w-4xl">
+      <div>
+        <span
+          className="text-[10px] font-bold tracking-[0.2em] uppercase"
+          style={{ color: "#acabaa" }}
+        >
+          Preferences
+        </span>
+        <h1
+          className="text-5xl font-black tracking-[-0.03em] mt-2"
+          style={{ color: "#e7e5e5" }}
+        >
+          Settings
+        </h1>
+        <p className="mt-3 text-sm max-w-xl" style={{ color: "#acabaa" }}>
+          Appearance, wallet info, and vault contract details.
+        </p>
       </div>
 
       {/* Appearance */}
-      <Card className="border-border bg-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Monitor className="h-5 w-5" />
-            Appearance
-          </CardTitle>
-          <CardDescription>
-            Customize the look and feel of the dashboard
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center justify-between rounded-lg border border-border p-4">
-            <div className="space-y-0.5">
-              <div className="font-medium">Theme Preference</div>
-              <div className="text-sm text-muted-foreground">
-                Select your preferred interface theme
-              </div>
-            </div>
-            <div className="flex items-center gap-2 bg-muted/50 p-1 rounded-md">
-              <Button
-                variant={theme === "light" ? "default" : "ghost"}
-                size="sm"
-                className="h-8 w-8 px-0"
-                onClick={() => setTheme("light")}
+      <SettingsSection
+        title="Appearance"
+        description="Dark mode is the default and looks best. Light mode is experimental."
+        icon="palette"
+      >
+        <div className="flex gap-2">
+          {[
+            { id: "light", label: "Light", icon: Sun },
+            { id: "system", label: "System", icon: Monitor },
+            { id: "dark", label: "Dark", icon: Moon },
+          ].map(({ id, label, icon: Icon }) => {
+            const active = mounted && theme === id;
+            return (
+              <button
+                key={id}
+                onClick={() => setTheme(id)}
+                className="flex-1 rounded-2xl p-4 flex flex-col items-center gap-2 transition-colors"
+                style={{
+                  backgroundColor: active ? "#252626" : "#0e0e0e",
+                  border: `1px solid ${active ? "rgba(167,203,235,0.4)" : "rgba(72,72,72,0.25)"}`,
+                }}
               >
-                <Sun className="h-4 w-4" />
-              </Button>
-              <Button
-                variant={theme === "system" ? "default" : "ghost"}
-                size="sm"
-                className="h-8 w-8 px-0"
-                onClick={() => setTheme("system")}
-              >
-                <Monitor className="h-4 w-4" />
-              </Button>
-              <Button
-                variant={theme === "dark" ? "default" : "ghost"}
-                size="sm"
-                className="h-8 w-8 px-0"
-                onClick={() => setTheme("dark")}
-              >
-                <Moon className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Simulation */}
-      <Card className="border-border bg-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Activity className="h-5 w-5" />
-            Simulation Control
-          </CardTitle>
-          <CardDescription>
-            Configure the parameters for the AI trading simulation
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center justify-between rounded-lg border border-border p-4">
-            <div className="space-y-0.5">
-              <div className="font-medium">Global Auto-Trading</div>
-              <div className="text-sm text-muted-foreground">
-                Enable or disable trading for all active agents
-              </div>
-            </div>
-            <Switch
-              checked={settings.autoTrading}
-              onCheckedChange={(v) => updateSetting("autoTrading", v)}
-            />
-          </div>
-
-          <div className="flex items-center justify-between rounded-lg border border-border p-4">
-            <div className="space-y-0.5">
-              <div className="font-medium">Simulation Speed</div>
-              <div className="text-sm text-muted-foreground">
-                Accelerate time for backtesting visualization
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              {[0.5, 1, 2, 5].map((speed) => (
-                <Button
-                  key={speed}
-                  variant={settings.simulationSpeed === speed ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => updateSetting("simulationSpeed", speed)}
-                  className="w-12"
+                <Icon className="size-4" style={{ color: active ? "#a7cbeb" : "#acabaa" }} />
+                <span
+                  className="text-[10px] tracking-widest uppercase font-bold"
+                  style={{ color: active ? "#a7cbeb" : "#acabaa" }}
                 >
-                  {speed}x
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between rounded-lg border border-border p-4">
-            <div className="space-y-0.5">
-              <div className="font-medium">Price Alerts</div>
-              <div className="text-sm text-muted-foreground">
-                Receive notifications for significant price movements
-              </div>
-            </div>
-            <Switch
-              checked={settings.notifications}
-              onCheckedChange={(v) => updateSetting("notifications", v)}
-            />
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* API Keys */}
-      <Card className="border-border bg-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Shield className="h-5 w-5" />
-            API Configuration
-          </CardTitle>
-          <CardDescription>
-            Connect your own LLM providers for real inference
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="rounded-lg bg-yellow-500/10 border border-yellow-500/20 p-4">
-            <div className="flex items-center gap-2 text-yellow-500 font-medium mb-1">
-              <AlertTriangle className="h-4 w-4" />
-              Demo Mode Active
-            </div>
-            <p className="text-sm text-yellow-500/80">
-              API keys are stored locally. For production, use server-side key management.
-            </p>
-          </div>
-
-          {Object.entries(apiKeys).map(([provider, state]) => (
-            <div
-              key={provider}
-              className="flex items-center justify-between rounded-lg border border-border p-4"
-            >
-              <div className="flex items-center gap-3">
-                <div className="font-medium">{provider}</div>
-                {state.connected && (
-                  <Badge variant="outline" className="text-green-500 border-green-500/50">
-                    <Check className="h-3 w-3 mr-1" />
-                    Connected
-                  </Badge>
-                )}
-              </div>
-
-              {editingProvider === provider ? (
-                <div className="flex items-center gap-2">
-                  <Input
-                    type="password"
-                    placeholder="sk-..."
-                    value={tempKey}
-                    onChange={(e) => setTempKey(e.target.value)}
-                    className="h-8 w-48 text-xs"
-                  />
-                  <Button size="sm" onClick={() => handleSaveApiKey(provider)}>
-                    Save
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => {
-                      setEditingProvider(null);
-                      setTempKey("");
-                    }}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                </div>
-              ) : state.connected ? (
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => handleDisconnect(provider)}
-                >
-                  Disconnect
-                </Button>
-              ) : (
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => setEditingProvider(provider)}
-                >
-                  Connect
-                </Button>
-              )}
-            </div>
-          ))}
-        </CardContent>
-      </Card>
+                  {label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </SettingsSection>
 
       {/* Wallet */}
-      <Card className="border-border bg-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Wallet className="h-5 w-5" />
-            Connected Wallet
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Button variant="outline" className="w-full">
-            Connect Solana Wallet
-          </Button>
-        </CardContent>
-      </Card>
+      <SettingsSection
+        title="Connected Wallet"
+        description="Your active session. Manage it from the sidebar Connect Wallet button."
+        icon="account_balance_wallet"
+      >
+        {!isConnected ? (
+          <div
+            className="rounded-2xl p-6 text-center"
+            style={{
+              backgroundColor: "#0e0e0e",
+              border: "1px dashed rgba(72,72,72,0.3)",
+            }}
+          >
+            <p className="text-sm" style={{ color: "#acabaa" }}>
+              No wallet connected
+            </p>
+          </div>
+        ) : (
+          <div>
+            <InfoRow label="Address" value={shortAddr(address)} mono />
+            <InfoRow
+              label="Network"
+              value={chainMatch ? CHAIN.name : `Wrong chain (${chainId})`}
+            />
+            {!chainMatch && (
+              <p className="mt-2 text-xs" style={{ color: "#ee7d77" }}>
+                Switch to {CHAIN.name} using the sidebar button.
+              </p>
+            )}
+          </div>
+        )}
+      </SettingsSection>
+
+      {/* Vault */}
+      <SettingsSection
+        title="Vault Contract"
+        description="Public addresses used by this interface. All verifiable on-chain."
+        icon="savings"
+      >
+        <div>
+          <InfoRow
+            label="Vault Address"
+            value={shortAddr(VAULT_ADDRESS)}
+            mono
+            href={explorerAddress(VAULT_ADDRESS)}
+          />
+          <InfoRow
+            label="Asset"
+            value="USDC"
+            href={explorerAddress(USDC_ADDRESS)}
+          />
+          <InfoRow label="Network" value={CHAIN.name} />
+          <InfoRow label="Chain ID" value={String(CHAIN.id)} mono />
+        </div>
+      </SettingsSection>
     </div>
   );
 }

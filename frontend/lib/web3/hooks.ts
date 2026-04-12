@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { decodeEventLog, parseAbiItem } from "viem";
 import {
   useAccount,
@@ -300,6 +300,136 @@ export interface TradeEvent {
 const TRADE_EVENT = parseAbiItem(
   "event TradeExecuted(address indexed tokenIn, address indexed tokenOut, uint256 amountIn, uint256 amountOut, bytes32 indexed reasoningHash, uint8 confidence, uint256 timestamp)"
 );
+
+const DEPOSIT_EVENT = parseAbiItem(
+  "event Deposit(address indexed sender, address indexed owner, uint256 assets, uint256 shares)"
+);
+
+const WITHDRAW_EVENT = parseAbiItem(
+  "event Withdraw(address indexed sender, address indexed receiver, address indexed owner, uint256 assets, uint256 shares)"
+);
+
+export interface UserDepositEvent {
+  txHash: `0x${string}`;
+  blockNumber: bigint;
+  assets: bigint;
+  shares: bigint;
+}
+
+export type UserWithdrawEvent = UserDepositEvent;
+
+export function useUserActivity() {
+  const { address } = useAccount();
+  const client = usePublicClient({ chainId: CHAIN.id });
+  const [deposits, setDeposits] = useState<UserDepositEvent[]>([]);
+  const [withdrawals, setWithdrawals] = useState<UserWithdrawEvent[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [nonce, setNonce] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      if (!client || !address) {
+        setDeposits([]);
+        setWithdrawals([]);
+        return;
+      }
+      setIsLoading(true);
+      try {
+        const latest = await client.getBlockNumber();
+        const fromBlock = latest > 50_000n ? latest - 50_000n : 0n;
+
+        const [depositLogs, withdrawLogs] = await Promise.all([
+          client.getLogs({
+            address: VAULT_ADDRESS,
+            event: DEPOSIT_EVENT,
+            args: { owner: address },
+            fromBlock,
+            toBlock: "latest",
+          }),
+          client.getLogs({
+            address: VAULT_ADDRESS,
+            event: WITHDRAW_EVENT,
+            args: { owner: address },
+            fromBlock,
+            toBlock: "latest",
+          }),
+        ]);
+
+        const mapDep = (log: (typeof depositLogs)[number]): UserDepositEvent => {
+          const parsed = decodeEventLog({
+            abi: [DEPOSIT_EVENT],
+            data: log.data,
+            topics: log.topics,
+          });
+          const args = parsed.args as unknown as { assets: bigint; shares: bigint };
+          return {
+            txHash: log.transactionHash!,
+            blockNumber: log.blockNumber!,
+            assets: args.assets,
+            shares: args.shares,
+          };
+        };
+
+        const mapWd = (log: (typeof withdrawLogs)[number]): UserWithdrawEvent => {
+          const parsed = decodeEventLog({
+            abi: [WITHDRAW_EVENT],
+            data: log.data,
+            topics: log.topics,
+          });
+          const args = parsed.args as unknown as { assets: bigint; shares: bigint };
+          return {
+            txHash: log.transactionHash!,
+            blockNumber: log.blockNumber!,
+            assets: args.assets,
+            shares: args.shares,
+          };
+        };
+
+        const deps = depositLogs.map(mapDep);
+        const wds = withdrawLogs.map(mapWd);
+        deps.sort((a, b) => Number(b.blockNumber - a.blockNumber));
+        wds.sort((a, b) => Number(b.blockNumber - a.blockNumber));
+
+        if (!cancelled) {
+          setDeposits(deps);
+          setWithdrawals(wds);
+        }
+      } catch {
+        if (!cancelled) {
+          setDeposits([]);
+          setWithdrawals([]);
+        }
+      } finally {
+        if (!cancelled) setIsLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [client, address, nonce]);
+
+  const totalDeposited = useMemo(
+    () => deposits.reduce((s, d) => s + d.assets, 0n),
+    [deposits]
+  );
+  const totalWithdrawn = useMemo(
+    () => withdrawals.reduce((s, w) => s + w.assets, 0n),
+    [withdrawals]
+  );
+
+  return {
+    deposits,
+    withdrawals,
+    totalDeposited,
+    totalWithdrawn,
+    isLoading,
+    refetch: () => setNonce((n) => n + 1),
+  };
+}
 
 export function useTradeHistory() {
   const client = usePublicClient({ chainId: CHAIN.id });

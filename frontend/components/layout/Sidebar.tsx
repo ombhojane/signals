@@ -6,12 +6,10 @@ import { cn } from "@/lib/utils";
 import { ConnectWalletButton } from "@/components/web3/ConnectWalletButton";
 
 const NAV_ITEMS = [
-  { title: "Intelligence", href: "/dashboard", icon: "insights" },
-  { title: "Portfolio", href: "/dashboard/portfolio", icon: "account_balance" },
   { title: "Vault", href: "/dashboard/vault", icon: "savings" },
-  { title: "Signals", href: "/dashboard/simulation", icon: "sensors" },
-  { title: "Market", href: "/dashboard/leaderboard", icon: "analytics" },
-  { title: "Curator", href: "/dashboard/models", icon: "auto_awesome" },
+  { title: "Activity", href: "/dashboard/portfolio", icon: "history" },
+  { title: "Explore", href: "/dashboard/simulation", icon: "travel_explore" },
+  { title: "Proof", href: "/dashboard/leaderboard", icon: "verified" },
 ];
 
 export function Sidebar() {
@@ -90,8 +88,8 @@ export function Sidebar() {
 
       {/* Mobile bottom nav */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 flex justify-around items-center px-4 z-[100]" style={{ backgroundColor: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(20px)' }}>
-        {NAV_ITEMS.slice(0, 4).map((item) => {
-          const isActive = pathname === item.href;
+        {NAV_ITEMS.map((item) => {
+          const isActive = pathname === item.href || (pathname?.startsWith(item.href) ?? false);
           return (
             <Link key={item.href} href={item.href} className="flex flex-col items-center gap-1">
               <span
@@ -105,15 +103,11 @@ export function Sidebar() {
                 {item.icon}
               </span>
               <span className="text-[8px] font-bold uppercase" style={{ color: isActive ? '#b1d4f5' : '#737373' }}>
-                {item.title.slice(0, 4)}
+                {item.title}
               </span>
             </Link>
           );
         })}
-        <Link href="/dashboard/models" className="flex flex-col items-center gap-1">
-          <span className="material-symbols-outlined" style={{ fontSize: '1.25rem', color: '#737373' }}>auto_awesome</span>
-          <span className="text-[8px] font-bold uppercase text-neutral-500">Zen</span>
-        </Link>
       </nav>
     </>
   );
