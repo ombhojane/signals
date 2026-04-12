@@ -1,38 +1,99 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { CHAIN, VAULT_ADDRESS, explorerAddress } from "@/lib/web3/constants";
 import { formatUsdc, useVaultState } from "@/lib/web3/hooks";
+import { useState, useEffect } from "react";
+
+// ─── Utility ─────────────────────────────────────────────────────────────
+function cn(...classes: (string | undefined | null | false)[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
+// ─── Smooth Scroll Function ──────────────────────────────────────────────
+function goToSection(sectionName: string) {
+  if (sectionName === "Home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+  const element = document.getElementById(sectionName);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+}
 
 // ─── Navbar ──────────────────────────────────────────────────────────────
 function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 md:px-16 h-20 nav-glass">
-      <div className="flex items-center gap-10">
-        <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-          Signals
-        </Link>
-        <div className="hidden md:flex gap-6 text-[11px] font-semibold tracking-[0.15em] uppercase">
-          <a href="#how" className="text-neutral-500 hover:text-white transition-colors">
+    <nav 
+      className={cn(
+        "fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 transition-all duration-500",
+        scrolled ? "h-16 nav-glass shadow-lg shadow-black/20" : "h-24 bg-transparent border-transparent"
+      )}
+    >
+      <div className="flex items-center gap-12">
+        <button 
+          onClick={() => goToSection("Home")}
+          className="flex items-center gap-3 group"
+        >
+          <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+            <Image 
+              src="/signal_logo.svg" 
+              alt="Signals Logo" 
+              fill
+              className="object-cover"
+            />
+          </div>
+          <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: 'var(--font-space)' }}>Signals</span>
+        </button>
+        <div className="hidden md:flex gap-8 text-[11px] font-semibold tracking-[0.15em] uppercase">
+          <button 
+            onClick={() => goToSection("how")}
+            className="text-neutral-400 hover:text-white transition-colors duration-300 relative group overflow-hidden"
+          >
             How it works
-          </a>
-          <a href="#why" className="text-neutral-500 hover:text-white transition-colors">
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+          </button>
+          <button 
+            onClick={() => goToSection("why")}
+            className="text-neutral-400 hover:text-white transition-colors duration-300 relative group overflow-hidden"
+          >
             Why Signals
-          </a>
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+          </button>
           <Link
             href="/dashboard/leaderboard"
-            className="text-neutral-500 hover:text-white transition-colors"
+            className="text-neutral-400 hover:text-white transition-colors duration-300 relative group overflow-hidden"
           >
             Proof
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
           </Link>
         </div>
       </div>
       <Link
         href="/dashboard/vault"
-        className="px-5 py-2.5 rounded-full font-bold text-[11px] tracking-widest uppercase transition-all active:scale-95"
-        style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+        className="px-6 py-2.5 rounded-full font-bold text-[11px] tracking-widest uppercase transition-all duration-300 active:scale-95 group relative overflow-hidden"
+        style={{ 
+          backgroundColor: scrolled ? "#a7cbeb" : "rgba(255,255,255,0.1)", 
+          color: scrolled ? "#1e435e" : "#ffffff",
+          border: scrolled ? "1px solid transparent" : "1px solid rgba(255,255,255,0.2)"
+        }}
       >
-        Launch App
+        <span className="relative z-10">Launch App</span>
+        {!scrolled && (
+          <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+        )}
       </Link>
     </nav>
   );
@@ -42,65 +103,94 @@ function Navbar() {
 function HeroSection() {
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-center px-6 text-center"
-      style={{ paddingTop: "8rem", paddingBottom: "4rem" }}
+      id="Home"
+      className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden"
+      style={{ paddingTop: "6rem", paddingBottom: "4rem" }}
     >
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.03] pointer-events-none blur-[100px]" style={{ background: "radial-gradient(circle, #a7cbeb 0%, transparent 70%)" }} />
+
       <div
-        className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-10"
+        className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-12 animate-fade-in zen-glass-light"
         style={{
-          background: "rgba(255,255,255,0.04)",
-          border: "1px solid rgba(255,255,255,0.08)",
+          animation: "fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both"
         }}
       >
         <span className="zen-pulse" />
         <span
-          className="text-[10px] uppercase tracking-[0.25em] font-medium"
-          style={{ color: "#acabaa" }}
+          className="text-[10px] uppercase tracking-[0.25em] font-medium text-neutral-300"
         >
           Live on {CHAIN.name}
         </span>
       </div>
 
       <h1
-        className="font-bold text-white mb-6 max-w-5xl"
+        className="font-bold text-white mb-8 max-w-5xl tracking-tighter"
         style={{
-          fontSize: "clamp(3rem, 9vw, 6.5rem)",
-          lineHeight: "0.95",
-          letterSpacing: "-0.04em",
+          fontSize: "clamp(3.5rem, 9vw, 7.5rem)",
+          lineHeight: "0.9",
+          animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both",
+          fontFamily: "var(--font-space)"
         }}
       >
         Deposit USDC.
         <br />
         <span style={{ color: "#a7cbeb" }}>AI trades it.</span>
         <br />
-        <span style={{ color: "rgba(255,255,255,0.18)" }}>Every decision proven on-chain.</span>
+        <span className="opacity-40 text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500">Proven on-chain.</span>
       </h1>
 
-      <p className="text-lg md:text-xl text-neutral-400 max-w-xl font-light leading-relaxed mb-14 mx-auto">
+      <p 
+        className="text-lg md:text-xl text-neutral-400 max-w-2xl font-light leading-relaxed mb-16 mx-auto"
+        style={{ animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both" }}
+      >
         A non-custodial ERC-4626 vault on Base. Every trade ships with the AI&apos;s
-        reasoning hash committed on-chain — no edits, no cherry-picking.
+        reasoning hash committed on-chain — zero edits, zero cherry-picking.
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-3 items-center">
+      <div 
+        className="flex flex-col sm:flex-row gap-4 items-center relative z-10"
+        style={{ animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both" }}
+      >
         <Link
           href="/dashboard/vault"
-          className="px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:opacity-90 transition-all active:scale-95"
-          style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+          className="px-10 py-4 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 gradient-primary hover:shadow-[0_0_30px_rgba(167,203,235,0.25)] flex items-center gap-2 group"
+          style={{ color: "#1e435e" }}
         >
-          Launch App
+          Launch Signals
+          <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </Link>
         <Link
           href="/dashboard/leaderboard"
-          className="px-10 py-4 rounded-full font-semibold text-sm tracking-wide hover:bg-white/10 transition-all active:scale-95"
+          className="px-10 py-4 rounded-full font-semibold text-sm tracking-wide transition-all active:scale-95 flex items-center gap-2 group"
           style={{
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            color: "rgba(255,255,255,0.75)",
+            background: "transparent",
+            border: "1px solid rgba(255,255,255,0.15)",
+            color: "rgba(255,255,255,0.8)",
           }}
         >
-          See Proof of Alpha
+          <span className="group-hover:text-white transition-colors">See Proof of Alpha</span>
         </Link>
       </div>
+
+      {/* Scroll Indicator */}
+      <div 
+        className="absolute bottom-10 flex flex-col items-center gap-3 animate-bounce cursor-pointer group"
+        onClick={() => goToSection('how')}
+        style={{
+          animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both, bounce 2s infinite 2s"
+        }}
+      >
+        <span className="text-[10px] uppercase tracking-widest text-neutral-500 group-hover:text-neutral-300 transition-colors">Scroll to explore</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-neutral-500 to-transparent"></div>
+      </div>
+
+      <style>{`
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
+      `}</style>
     </section>
   );
 }
@@ -119,26 +209,27 @@ function StatCard({
 }) {
   return (
     <div
-      className="rounded-2xl p-6 flex flex-col gap-2"
+      className="rounded-[20px] p-8 flex flex-col gap-3 group transition-all duration-500 hover:-translate-y-1 relative overflow-hidden"
       style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
+        backgroundColor: "var(--surface-container-low)",
+        border: "1px solid var(--border)",
       }}
     >
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.03)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <span
         className="text-[10px] font-semibold tracking-[0.2em] uppercase"
-        style={{ color: "#acabaa" }}
+        style={{ color: "var(--on-surface-variant)" }}
       >
         {label}
       </span>
       <span
-        className="text-2xl md:text-3xl font-black font-mono tracking-tight"
-        style={{ color: accent ? "#a7cbeb" : "#e7e5e5" }}
+        className="text-3xl md:text-4xl font-black font-mono tracking-tight numeric"
+        style={{ color: accent ? "var(--primary)" : "var(--foreground)" }}
       >
         {value}
       </span>
       {sub ? (
-        <span className="text-xs" style={{ color: "#acabaa" }}>
+        <span className="text-xs font-medium" style={{ color: "var(--on-surface-variant)" }}>
           {sub}
         </span>
       ) : null}
@@ -146,26 +237,27 @@ function StatCard({
   );
 }
 
-// ─── Live Stats Strip (reads vault contract directly) ───────────────────
+// ─── Live Stats Strip ───────────────────────────────────────────────────
 function LiveStatsStrip() {
   const { totalAssets, totalSupply, positionOpen, sharePriceUsdc } = useVaultState();
 
   return (
-    <section className="px-6 md:px-16 pt-8 pb-20 max-w-[1400px] mx-auto">
-      <div className="flex items-center gap-2 mb-6">
+    <section className="px-6 md:px-16 pt-8 pb-32" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
+      <div className="flex items-center gap-3 mb-8">
         <div className="zen-pulse" />
         <span
-          className="text-[10px] uppercase tracking-[0.3em] font-semibold"
-          style={{ color: "#a7cbeb" }}
+          className="text-[11px] uppercase tracking-[0.3em] font-semibold"
+          style={{ color: "var(--primary)" }}
         >
           Live Vault State
         </span>
+        <div className="flex-1 h-[1px] bg-gradient-to-r from-[rgba(167,203,235,0.2)] to-transparent ml-4" />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
           label="Total Value Locked"
-          value={`${formatUsdc(totalAssets, 2)} USDC`}
-          sub={`On ${CHAIN.name}`}
+          value={`$${formatUsdc(totalAssets, 2)}`}
+          sub={`USDC On ${CHAIN.name}`}
         />
         <StatCard
           label="Shares Outstanding"
@@ -174,7 +266,7 @@ function LiveStatsStrip() {
         />
         <StatCard
           label="Share Price"
-          value={sharePriceUsdc.toFixed(4)}
+          value={`$${sharePriceUsdc.toFixed(4)}`}
           sub="USDC per sVAULT"
         />
         <StatCard
@@ -198,7 +290,7 @@ function HowItWorksSection() {
     },
     {
       num: "02",
-      title: "AI trades on Uniswap V3",
+      title: "AI trades on Uniswap",
       desc: "The Signals agent analyzes market data and executes trades through the vault on Uniswap V3. Every trade commits a reasoning hash on-chain.",
     },
     {
@@ -209,56 +301,59 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="how" className="px-6 md:px-16 py-28 max-w-[1400px] mx-auto">
-      <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
-        <div>
+    <section id="how" className="px-6 md:px-16 py-32 relative" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-24 gap-8">
+        <div className="max-w-2xl">
           <span
-            className="text-[9px] uppercase tracking-[0.3em] font-semibold block mb-5"
-            style={{ color: "#a7cbeb" }}
+            className="text-[10px] uppercase tracking-[0.3em] font-semibold block mb-6"
+            style={{ color: "var(--primary)" }}
           >
             How it works
           </span>
           <h2
-            className="text-5xl md:text-6xl font-bold tracking-tighter text-white"
-            style={{ lineHeight: "0.95" }}
+            className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
+            style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
           >
             Three steps.
             <br />
-            Zero custody.
+            <span className="text-neutral-500">Zero custody.</span>
           </h2>
         </div>
         <Link
           href="/dashboard/vault"
-          className="text-xs uppercase font-bold flex items-center gap-2 transition-colors"
-          style={{ color: "#a7cbeb", letterSpacing: "0.2em" }}
+          className="text-xs uppercase font-bold flex items-center gap-2 transition-colors group"
+          style={{ color: "var(--primary)", letterSpacing: "0.2em" }}
         >
-          Start now
-          <span className="material-symbols-outlined" style={{ fontSize: "1rem" }}>
+          <span className="relative">
+            Start now
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+          </span>
+          <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
             arrow_forward
           </span>
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {steps.map((s) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {steps.map((s, i) => (
           <div
             key={s.num}
-            className="rounded-2xl p-8 flex flex-col gap-4"
+            className="rounded-[24px] p-10 flex flex-col gap-6 relative group transition-all duration-500 hover:-translate-y-2 border border-transparent"
             style={{
-              backgroundColor: "#131313",
-              border: "1px solid rgba(72,72,72,0.25)",
+              backgroundColor: "var(--surface-container-low)"
             }}
           >
+            <div className="absolute inset-0 rounded-[24px] ring-1 ring-white/5 group-hover:ring-white/10 transition-all duration-500 pointer-events-none" />
             <span
-              className="text-5xl font-black font-mono tracking-tighter"
-              style={{ color: "#a7cbeb", opacity: 0.5 }}
+              className="text-6xl font-black font-mono tracking-tighter"
+              style={{ color: "var(--primary)", opacity: 0.2 }}
             >
               {s.num}
             </span>
-            <h3 className="text-xl font-bold" style={{ color: "#e7e5e5" }}>
+            <h3 className="text-2xl font-bold tracking-tight" style={{ color: "var(--foreground)", fontFamily: "var(--font-space)" }}>
               {s.title}
             </h3>
-            <p className="text-sm font-light leading-relaxed" style={{ color: "#acabaa" }}>
+            <p className="text-[15px] font-light leading-relaxed" style={{ color: "var(--on-surface-variant)" }}>
               {s.desc}
             </p>
           </div>
@@ -291,54 +386,59 @@ function ValuePropsSection() {
   return (
     <section
       id="why"
-      className="py-28"
+      className="py-32 relative overflow-hidden"
       style={{
-        background: "rgba(255,255,255,0.015)",
-        borderTop: "1px solid rgba(255,255,255,0.04)",
-        borderBottom: "1px solid rgba(255,255,255,0.04)",
+        background: "var(--surface-container-lowest)",
+        borderTop: "1px solid var(--border)",
+        borderBottom: "1px solid var(--border)",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-16">
-        <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
-          <div>
-            <span
-              className="text-[9px] uppercase tracking-[0.3em] font-semibold block mb-5"
-              style={{ color: "#a7cbeb" }}
-            >
-              Why Signals
-            </span>
-            <h2
-              className="text-5xl md:text-6xl font-bold tracking-tighter text-white"
-              style={{ lineHeight: "0.95" }}
-            >
-              Load-bearing
-              <br />
-              web3.
-            </h2>
-          </div>
+      <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
+        <div className="mb-24">
+          <span
+            className="text-[10px] uppercase tracking-[0.3em] font-semibold block mb-6"
+            style={{ color: "var(--primary)" }}
+          >
+            Why Signals
+          </span>
+          <h2
+            className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
+            style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
+          >
+            Load-bearing
+            <br />
+            web3 infrastructure.
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {props.map((p) => (
-            <div key={p.title} className="space-y-5">
+            <div 
+              key={p.title} 
+              className="flex flex-col space-y-6 group"
+            >
               <div
-                className="h-10 w-10 rounded-full flex items-center justify-center"
+                className="h-16 w-16 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 style={{
-                  backgroundColor: "rgba(167,203,235,0.1)",
-                  border: "1px solid rgba(167,203,235,0.2)",
+                  backgroundColor: "rgba(167,203,235,0.05)",
+                  border: "1px solid rgba(167,203,235,0.15)",
                 }}
               >
                 <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: "1.25rem", color: "#a7cbeb" }}
+                  className="material-symbols-outlined transition-colors duration-500"
+                  style={{ fontSize: "2rem", color: "var(--primary)" }}
                 >
                   {p.icon}
                 </span>
               </div>
-              <h3 className="text-xl font-bold tracking-tight" style={{ color: "#e7e5e5" }}>
-                {p.title}
-              </h3>
-              <p className="text-neutral-400 font-light leading-relaxed text-sm">{p.desc}</p>
+              <div>
+                <h3 className="text-2xl font-bold tracking-tight mb-4" style={{ color: "var(--foreground)", fontFamily: "var(--font-space)" }}>
+                  {p.title}
+                </h3>
+                <p className="text-[15px] font-light leading-relaxed" style={{ color: "var(--on-surface-variant)" }}>
+                  {p.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -350,27 +450,29 @@ function ValuePropsSection() {
 // ─── CTA ─────────────────────────────────────────────────────────────────
 function CTASection() {
   return (
-    <section className="px-6 py-36">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="px-6 py-40">
+      <div className="max-w-4xl mx-auto text-center relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.02] pointer-events-none blur-[80px]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }} />
+        
         <h2
-          className="font-bold tracking-tighter text-white mb-8"
+          className="font-bold tracking-tighter text-white mb-8 relative z-10"
           style={{
             fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
             lineHeight: "0.93",
-            letterSpacing: "-0.04em",
+            fontFamily: "var(--font-space)"
           }}
         >
           Let the AI trade.
           <br />
-          Keep the receipts.
+          <span className="text-neutral-500">Keep the receipts.</span>
         </h2>
-        <p className="text-lg text-neutral-400 font-light leading-relaxed mb-14 max-w-xl mx-auto">
-          All on Base Sepolia. Every trade committed to the chain with its reasoning hash.
+        <p className="text-lg text-neutral-400 font-light leading-relaxed mb-16 max-w-xl mx-auto relative z-10">
+          Actively managed on Base Sepolia. Every decision committed to the chain with an irrefutable reasoning hash.
         </p>
         <Link
           href="/dashboard/vault"
-          className="inline-block px-14 py-5 rounded-full font-black text-base tracking-tight hover:scale-[1.03] transition-all active:scale-95"
-          style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+          className="inline-block px-12 py-5 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 gradient-primary hover:shadow-[0_0_40px_rgba(167,203,235,0.3)] relative z-10"
+          style={{ color: "#1e435e" }}
         >
           Launch Signals
         </Link>
@@ -382,37 +484,45 @@ function CTASection() {
 // ─── Footer ──────────────────────────────────────────────────────────────
 function Footer() {
   return (
-    <footer style={{ backgroundColor: "#000", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-      <div className="max-w-7xl mx-auto px-8 md:px-16 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="space-y-2 text-center md:text-left">
-          <div className="text-base font-bold tracking-tighter text-white">Signals</div>
+    <footer style={{ backgroundColor: "#000", borderTop: "1px solid var(--border)" }}>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden">
+              <Image 
+                src="/signal_logo.svg" 
+                alt="Signals Logo" 
+                fill
+                className="object-cover"
+              />
+            </div>
+            <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: "var(--font-space)" }}>Signals</span>
+          </div>
           <p
-            className="text-[10px] uppercase tracking-[0.2em] font-light"
-            style={{ color: "#404040" }}
+            className="text-[11px] uppercase tracking-[0.2em] font-medium"
+            style={{ color: "var(--on-surface-variant)" }}
           >
             AI trading vault · {CHAIN.name} · Non-custodial
           </p>
         </div>
-        <div
-          className="flex flex-wrap justify-center gap-6 text-[10px] uppercase tracking-[0.25em] font-semibold"
-          style={{ color: "#404040" }}
-        >
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-4 text-[11px] uppercase tracking-[0.2em] font-semibold w-full md:w-auto">
           <a
             href={explorerAddress(VAULT_ADDRESS)}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-white transition-colors"
+            className="text-neutral-500 hover:text-white transition-colors"
           >
             Contract
           </a>
-          <Link href="/dashboard/leaderboard" className="hover:text-white transition-colors">
+          <Link href="/dashboard/leaderboard" className="text-neutral-500 hover:text-white transition-colors">
             Proof
           </Link>
-          <Link href="/dashboard/simulation" className="hover:text-white transition-colors">
+          <Link href="/dashboard/simulation" className="text-neutral-500 hover:text-white transition-colors">
             Signal API
           </Link>
-          <Link href="/dashboard/vault" className="hover:text-white transition-colors">
-            Vault
+          <Link href="/dashboard/vault" className="text-primary hover:text-white transition-colors">
+            Vault App
           </Link>
         </div>
       </div>
@@ -423,7 +533,7 @@ function Footer() {
 // ─── Page ────────────────────────────────────────────────────────────────
 export default function LandingPage() {
   return (
-    <div style={{ backgroundColor: "#0e0e0e", color: "#e7e5e5" }}>
+    <div style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
       <Navbar />
       <main>
         <HeroSection />

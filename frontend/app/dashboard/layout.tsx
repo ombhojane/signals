@@ -1,5 +1,8 @@
+"use client";
+
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
+import { PageTransition } from "@/components/ui/PageTransition";
 
 export default function DashboardLayout({
   children,
@@ -13,7 +16,9 @@ export default function DashboardLayout({
         <Header />
         <div className="flex-1 overflow-y-auto px-8 pb-12 pt-4" style={{ scrollbarWidth: 'none' }}>
           <div className="max-w-7xl mx-auto">
-            {children}
+            <PageTransition delay={800}>
+              {children}
+            </PageTransition>
           </div>
         </div>
       </main>

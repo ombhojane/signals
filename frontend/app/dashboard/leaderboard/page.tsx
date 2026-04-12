@@ -189,12 +189,6 @@ export default function ProofPage() {
     <div className="flex flex-col gap-8 p-8 max-w-6xl">
       <div className="flex items-start justify-between gap-6 flex-wrap">
         <div>
-          <span
-            className="text-[10px] font-bold tracking-[0.2em] uppercase"
-            style={{ color: "#acabaa" }}
-          >
-            Public Transparency
-          </span>
           <h1
             className="text-5xl font-black tracking-[-0.03em] mt-2"
             style={{ color: "#e7e5e5" }}
