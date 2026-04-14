@@ -117,8 +117,8 @@ export function WalletConnectionButton() {
 
   return (
     <div className="flex items-center gap-3">
-      {/* Chain Selector */}
-      <div className="flex gap-1 bg-neutral-800 p-1 rounded-full">
+      {/* Chain Selector Desktop */}
+      <div className="hidden sm:flex gap-1 bg-neutral-800 p-1 rounded-full">
         <button
           onClick={() => setChainType("solana")}
           className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
@@ -138,6 +138,19 @@ export function WalletConnectionButton() {
           }`}
         >
           EVM
+        </button>
+      </div>
+
+      {/* Chain Selector Mobile (Toggle) */}
+      <div className="flex sm:hidden">
+        <button
+          onClick={() => setChainType(chainType === "solana" ? "evm" : "solana")}
+          className={`flex items-center gap-1.5 min-w-[54px] px-2.5 py-1.5 rounded-full text-[10px] font-bold tracking-wider transition-all active:scale-95 ${
+            chainType === "solana" ? "bg-blue-500 text-white" : "bg-violet-500 text-white"
+          }`}
+        >
+          {chainType === "solana" ? "SOL" : "EVM"}
+          <span className="material-symbols-outlined opacity-70" style={{ fontSize: '10px' }}>swap_horiz</span>
         </button>
       </div>
 
