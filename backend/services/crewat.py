@@ -2,7 +2,7 @@
 Token Analysis Agents — Gemini 2.5 Flash agents with native structured output.
 
 Step 1 of the v1 enhancement plan:
-- All agents upgraded from gemini-2.5-flash-lite to gemini-2.5-flash.
+- All agents upgraded from gemma-4-31b-it-lite.
 - Uses LangChain's `with_structured_output(PydanticModel)` which under the hood
   drives Gemini's native JSON-schema-constrained generation. No more regex
   parsing, no more retry loops — the SDK returns a validated Pydantic object
@@ -32,7 +32,7 @@ from models.agent_responses import (
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "gemma-4-31b-it"
 
 T = TypeVar("T", bound=BaseModel)
 

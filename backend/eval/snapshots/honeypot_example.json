@@ -1,0 +1,33 @@
+{
+  "token_address": "E6DsrhBPKLRZBjcj6Tx19KteN3Np4Tjc9pJrvwyoGk2T",
+  "chain": "sol",
+  "fetched_at": "2026-04-12T02:25:20.196346+00:00",
+  "dex_data": {
+    "schemaVersion": "1.0.0",
+    "pairs": []
+  },
+  "gmgn_data": {
+    "token_address": "E6DsrhBPKLRZBjcj6Tx19KteN3Np4Tjc9pJrvwyoGk2T",
+    "chain": "sol",
+    "token_stats": null,
+    "status": "no_data"
+  },
+  "safety_data": {
+    "token_address": "E6DsrhBPKLRZBjcj6Tx19KteN3Np4Tjc9pJrvwyoGk2T",
+    "chain": "sol",
+    "overall_risk_score": 21,
+    "risk_level": "MEDIUM",
+    "is_honeypot": null,
+    "is_mintable": null,
+    "is_open_source": null,
+    "ownership_renounced": null,
+    "liquidity_locked": null,
+    "lock_remaining_days": 0,
+    "liquidity_usd": 0.0,
+    "holder_count": 0,
+    "top_10_holder_pct": 0.0,
+    "dev_wallet_pct": 0.0,
+    "smart_money_flow": "neutral"
+  },
+  "twitter_data": {}
+}

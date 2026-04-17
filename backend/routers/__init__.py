@@ -10,6 +10,7 @@ from routers.vault import router as vault_router
 from routers.signal import router as signal_router
 from routers.token_scan import router as token_scan_router
 from routers.wallet import wallet_router
+from routers.cron import router as cron_router
 
 __all__ = [
     "dex_router",
@@ -20,4 +21,5 @@ __all__ = [
     "signal_router",
     "token_scan_router",
     "wallet_router",
+    "cron_router",
 ]

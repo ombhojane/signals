@@ -144,8 +144,8 @@ function HeroSection() {
         className="text-lg md:text-xl text-neutral-400 max-w-2xl font-light leading-relaxed mb-16 mx-auto"
         style={{ animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both" }}
       >
-        Multi-source signal analysis powered by DeepSeek and Crew AI. RL-based autonomous trading with real-time 
-        market adaptation. Unified vault management with kill-switch safety mechanisms—all on-chain.
+        Multi-source signal analysis powered by Gemma and Langchain. RL-based autonomous trading with real-time 
+        market adaptation. Unified vault management with kill-switch safety mechanisms - everything onchain!
       </p>
 
       <div 
@@ -284,7 +284,7 @@ function HowItWorksSection() {
     {
       num: "01",
       title: "Multi-Source Signal Analysis",
-      desc: "Aggregates Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement via DeepSeek and Crew AI agents for high-quality, actionable signals.",
+      desc: "Aggregates Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement via Gemma and Langchain agents for high-quality, actionable signals.",
     },
     {
       num: "02",

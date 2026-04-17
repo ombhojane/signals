@@ -71,7 +71,7 @@ class AgenticTrader:
         
         # Initialize LLM
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
+            model="gemma-4-31b-it",
             temperature=0.3,
             google_api_key=google_api_key
         )

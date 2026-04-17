@@ -1,0 +1,2673 @@
+{
+  "token_address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+  "chain": "sol",
+  "fetched_at": "2026-04-12T02:24:55.364911+00:00",
+  "dex_data": {
+    "schemaVersion": "1.0.0",
+    "pairs": [
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/9dirurpjnanzhn6ts5hglouhtjrt1jgspbxnycrfz2ad",
+        "pairAddress": "9DiruRpjnAnzhn6ts5HGLouHtJrT1JGsPbXNYCrFz2ad",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.1029",
+        "priceUsd": "0.1029",
+        "txns": {
+          "m5": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 2,
+            "sells": 31
+          },
+          "h6": {
+            "buys": 20,
+            "sells": 38
+          },
+          "h24": {
+            "buys": 31,
+            "sells": 122
+          }
+        },
+        "volume": {
+          "h24": 41523.25,
+          "h6": 12307.69,
+          "h1": 9827.36,
+          "m5": 9.93
+        },
+        "priceChange": {
+          "m5": 0.05,
+          "h1": -0.99,
+          "h24": -2.9
+        },
+        "liquidity": {
+          "usd": 12625854.35,
+          "base": 100990469,
+          "quote": 2228371
+        },
+        "fdv": 102955008,
+        "marketCap": 98064345,
+        "pairCreatedAt": 1737320909000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/eu2ur3kc1hfaqzwbnnxgw9sdscow7jscjutazsxngbqz",
+        "pairAddress": "EU2ur3KC1hFaqzwbNnXgW9Sdscow7JscjUTAZSXNgbqZ",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001223",
+        "priceUsd": "0.1052",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 11
+          }
+        },
+        "volume": {
+          "h24": 304.74,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -3.67
+        },
+        "liquidity": {
+          "usd": 22133.24,
+          "base": 105144,
+          "quote": 128.6218
+        },
+        "fdv": 105251230,
+        "marketCap": 100251491,
+        "pairCreatedAt": 1737322177000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/3qhdx4grwjabvctlsw8ukrqhenf1zvexegqnrada6b5b",
+        "pairAddress": "3qhdX4gRWJabvcTLSw8UKrqHENF1ZVeXegQnrada6B5B",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001228",
+        "priceUsd": "0.1008",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 1,
+            "sells": 1
+          },
+          "h6": {
+            "buys": 3,
+            "sells": 5
+          },
+          "h24": {
+            "buys": 33,
+            "sells": 23
+          }
+        },
+        "volume": {
+          "h24": 20.7,
+          "h6": 6.11,
+          "h1": 0.29,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -1.94,
+          "h6": -0.84,
+          "h24": -5.35
+        },
+        "liquidity": {
+          "usd": 5650.61,
+          "base": 35506,
+          "quote": 25.1808
+        },
+        "fdv": 100897160,
+        "marketCap": 96104251,
+        "pairCreatedAt": 1737324444000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/ag8znhpj4m2tjscx8qvvaprwr6ujxmcruecql8tym3jq",
+        "pairAddress": "AG8znhPJ4m2TJsCX8QvVAPRwr6UJXmCRuecQL8TyM3JQ",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001226",
+        "priceUsd": "0.1006",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 3,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 10,
+            "sells": 19
+          },
+          "h24": {
+            "buys": 105,
+            "sells": 67
+          }
+        },
+        "volume": {
+          "h24": 243.76,
+          "h6": 35.36,
+          "h1": 1.67,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.66,
+          "h6": -0.9,
+          "h24": -5.88
+        },
+        "liquidity": {
+          "usd": 2920.7,
+          "base": 21159,
+          "quote": 9.6296
+        },
+        "fdv": 100670007,
+        "marketCap": 95887888,
+        "pairCreatedAt": 1737326813000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/4q1d8xiftxysa8asehv9dc4elyxbcmgt1zkizgzr5h11",
+        "pairAddress": "4q1d8xiftXysa8asehv9dC4ELYxBCmGT1zkiZGZR5h11",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001223",
+        "priceUsd": "0.1041",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 2,
+            "sells": 4
+          }
+        },
+        "volume": {
+          "h24": 11.71,
+          "h6": 1.37,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 4.74,
+          "h24": -3.52
+        },
+        "liquidity": {
+          "usd": 2321.81,
+          "base": 17801,
+          "quote": 5.4868
+        },
+        "fdv": 104179118,
+        "marketCap": 99230306,
+        "pairCreatedAt": 1737324817000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/hysl6zha5wrsqfa4mpe7hatybem518ylwvbkgq4z8zqa",
+        "pairAddress": "HySL6Zha5WRSqfA4MpE7hATyBEM518yLwvBkGQ4z8zqa",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.1009",
+        "priceUsd": "0.1009",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 5
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 5
+          },
+          "h24": {
+            "buys": 17,
+            "sells": 19
+          }
+        },
+        "volume": {
+          "h24": 43.12,
+          "h6": 3.23,
+          "h1": 1.65,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.29,
+          "h6": -1.84,
+          "h24": -4.62
+        },
+        "liquidity": {
+          "usd": 1423.37,
+          "base": 6351.3611,
+          "quote": 781.9744
+        },
+        "fdv": 100985997,
+        "marketCap": 96188869,
+        "pairCreatedAt": 1737327547000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/2q26jdvvgx7kgs4d1ubnha6avnjbgbhwpqdjtjwkm3cv",
+        "pairAddress": "2Q26jDvVGx7kGs4d1UBNhA6AVNjbGbhWpqDJTJwkm3cV",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03631",
+        "priceUsd": "0.1028",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 3,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 8,
+            "sells": 19
+          }
+        },
+        "volume": {
+          "h24": 21.75,
+          "h6": 3.74,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 0.72,
+          "h24": -3.79
+        },
+        "liquidity": {
+          "usd": 985.58,
+          "base": 8717.9981,
+          "quote": 31.2445
+        },
+        "fdv": 102897864,
+        "marketCap": 98009916,
+        "pairCreatedAt": 1737327398000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/9kxrp3ba6ryalhpvfcruowy8mjyxzv6ofcoe4xxomfdu",
+        "pairAddress": "9KxrP3bA6RyALhpvFcrUoWy8mjYXzV6oFCoE4XxoMFDU",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03638",
+        "priceUsd": "0.1030",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 7
+          }
+        },
+        "volume": {
+          "h24": 2.64,
+          "h6": 0.22,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 0.79,
+          "h24": -3.38
+        },
+        "liquidity": {
+          "usd": 192.72,
+          "base": 1065.07943,
+          "quote": 29.2705
+        },
+        "fdv": 103087753,
+        "marketCap": 98190785,
+        "pairCreatedAt": 1737328547000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/37xbmdysjrhrcdvf2e3nq8tyuhsf5b2ilpu2dbojzx85",
+        "pairAddress": "37XbmDySjrHrcdvF2e3nq8tYUhsF5B2iLPu2DbojZx85",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03641",
+        "priceUsd": "0.1030",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 8,
+            "sells": 11
+          }
+        },
+        "volume": {
+          "h24": 1.59,
+          "h6": 0.08,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 1.26,
+          "h24": -4.22
+        },
+        "liquidity": {
+          "usd": 43.13,
+          "base": 206.7162,
+          "quote": 7.7207
+        },
+        "fdv": 103024695,
+        "marketCap": 98130722,
+        "pairCreatedAt": 1737425633000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/crwrxe6byt3yhfd5ggnkjnvupzwzcsvixmhbdiaq5jmd",
+        "pairAddress": "CRWrXe6BYt3YHfD5GGnKJNvupzwzcSviXmHbDiAq5JmD",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "5JEdwCUafTGLFZz8wDLmWNLbJKKwFafrHJ7A3W1Wpump",
+          "name": "America 51st State",
+          "symbol": "GREENLAND"
+        },
+        "priceNative": "3853.8669",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 0
+          }
+        },
+        "volume": {
+          "h24": 0,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": 1.44
+        },
+        "pairCreatedAt": 1737326096000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/ht73nqjw4qvcy3tthpt6twslofhkvhkiy12pbnaiwctc",
+        "pairAddress": "HT73nQjW4QvCy3TtHPT6tWsLoFHKVHKiY12PbNaiwctC",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.002044",
+        "priceUsd": "0.1731",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 3,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 8,
+            "sells": 8
+          }
+        },
+        "volume": {
+          "h24": 0.61,
+          "h6": 0.07,
+          "h1": 0.02,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": 0.82,
+          "h6": 1.09,
+          "h24": -1.87
+        },
+        "liquidity": {
+          "usd": 30.29,
+          "base": 87.4896,
+          "quote": 0.1788
+        },
+        "fdv": 173139916,
+        "marketCap": 164915266,
+        "pairCreatedAt": 1737322247000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/j9lcdhfn6tcbjsgtbyrqvjzg9bxhbunmju4fgriz7awz",
+        "pairAddress": "J9LCDhFN6TcBjSGTByrQVJzG9BxhbUNMJu4fgRiz7AWz",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001208",
+        "priceUsd": "0.1023",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 5
+          }
+        },
+        "volume": {
+          "h24": 0.12,
+          "h6": 0.04,
+          "h1": 0.02,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": 0.01,
+          "h6": -0.93,
+          "h24": -3.81
+        },
+        "liquidity": {
+          "usd": 18.76,
+          "base": 159.5826,
+          "quote": 0.02868
+        },
+        "fdv": 102387848,
+        "marketCap": 97524127,
+        "pairCreatedAt": 1737329240000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/e2urow45on2gxnu3oo8hqjhbmh1fa9hcy5wmxpreawch",
+        "pairAddress": "E2Urow45oN2gXnU3oo8HQjHbmH1Fa9hCy5wmxPreAwch",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001205",
+        "priceUsd": "0.1013",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 4
+          }
+        },
+        "volume": {
+          "h24": 1.52,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -3.59
+        },
+        "liquidity": {
+          "usd": 113.01,
+          "base": 550.7814,
+          "quote": 0.68
+        },
+        "fdv": 101376608,
+        "marketCap": 96561215,
+        "pairCreatedAt": 1737323602000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/aq5vioc48nxaziyaziffql7ub1qthbb9okdcvqsjsbtz",
+        "pairAddress": "AQ5vioc48nxaziyAziffqL7UB1qtHbb9okDCvQsjSBTZ",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03637",
+        "priceUsd": "0.1032",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 1
+          }
+        },
+        "volume": {
+          "h24": 0.05,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -1.23
+        },
+        "liquidity": {
+          "usd": 149.76,
+          "base": 1368.09704,
+          "quote": 2.9792
+        },
+        "fdv": 103288172,
+        "marketCap": 98381684,
+        "pairCreatedAt": 1737325320000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/3gutqg3tfyfewvdbvb5t9qvxmt5zrckrk1hrduckhght",
+        "pairAddress": "3gUtqG3TFYfeWvDbVb5T9QvxMT5ZRCkrk1HRDUckhgHT",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001304",
+        "priceUsd": "0.1111",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 6
+          }
+        },
+        "volume": {
+          "h24": 0.82,
+          "h6": 0.15,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 0.31,
+          "h24": -2.18
+        },
+        "liquidity": {
+          "usd": 58.68,
+          "base": 264.06111,
+          "quote": 0.3445
+        },
+        "fdv": 111117399,
+        "marketCap": 105838999,
+        "pairCreatedAt": 1737324461000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/funvtwmr62mo5ibjswhieqrpdutpy6eprkydeq2yxqf9",
+        "pairAddress": "FUnVTwmr62Mo5ibjswHiEQRPduTPy6ePrKyDEq2YxQF9",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "9xbgwwXdzJYv8sLmVCFsRSNKwzCCNQWiEhWVGNhWCNGE",
+          "name": "Pawel",
+          "symbol": "Pawel"
+        },
+        "priceNative": "4236.7682",
+        "priceUsd": "0.1000",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 4
+          }
+        },
+        "volume": {
+          "h24": 0.46,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -6.03
+        },
+        "liquidity": {
+          "usd": 21.42,
+          "base": 107.2035,
+          "quote": 453476
+        },
+        "fdv": 100009028,
+        "marketCap": 95258595,
+        "pairCreatedAt": 1737369553000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/3wasydjnfq5u9h4nfpmuahp2xa3e9l18fugjnq6d4xxz",
+        "pairAddress": "3wasYDjnfq5U9h4nfpmUAHp2xa3e9L18fugjNQ6D4xxz",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03666",
+        "priceUsd": "0.1040",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0.4,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": 0.45
+        },
+        "liquidity": {
+          "usd": 69.55,
+          "base": 334.1274,
+          "quote": 12.2497
+        },
+        "fdv": 104079742,
+        "marketCap": 99135651,
+        "pairCreatedAt": 1737327913000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/hlxezdq3pf2osffxskkrj9kggkynhg9986ko7duxh53k",
+        "pairAddress": "HLXEZDQ3Pf2oSFfxskkrj9kGGkyNHg9986Ko7duXH53K",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.1008",
+        "priceUsd": "0.1008",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0.33,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -2.92
+        },
+        "liquidity": {
+          "usd": 22.41,
+          "base": 110.7039,
+          "quote": 11.255
+        },
+        "fdv": 100825062,
+        "marketCap": 96035868,
+        "pairCreatedAt": 1737386488000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/8jpnnxz1rj8xxbjavvoptu8qnsxmb9rypmtvmxhpcy8x",
+        "pairAddress": "8JpnnXZ1RJ8XxbjavvopTU8QNSXMb9rYpMtVmxhPCy8x",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03764",
+        "priceUsd": "0.1056",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0.25,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -1.65
+        },
+        "liquidity": {
+          "usd": 33.35,
+          "base": 157.93,
+          "quote": 5.946
+        },
+        "fdv": 105606178,
+        "marketCap": 100589577,
+        "pairCreatedAt": 1737335512000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/dshx21ozw6yahjow2wzxnzfjx2jn2ku7vgsxfcqz28gu",
+        "pairAddress": "DSHX21ozw6yAhJow2WZxnzFJX2Jn2Ku7vGSxfcqZ28GU",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.1010",
+        "priceUsd": "0.1010",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 5
+          }
+        },
+        "volume": {
+          "h24": 0.02,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -5.54
+        },
+        "liquidity": {
+          "usd": 1.52,
+          "base": 7.5185,
+          "quote": 0.7642
+        },
+        "fdv": 101035249,
+        "marketCap": 96235780,
+        "pairCreatedAt": 1737361928000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/dpytbrxzpdmbtnpwd1qsxfja7xuvctgb4vfaif3fyqnn",
+        "pairAddress": "DPyTBrxZPDMBtNPwd1QSxfja7XUvCtgb4vfAif3FYQNn",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001218",
+        "priceUsd": "0.1024",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0.02,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -3.06
+        },
+        "liquidity": {
+          "usd": 1.62,
+          "base": 7.9625,
+          "quote": 0.009626
+        },
+        "fdv": 102438307,
+        "marketCap": 97572189,
+        "pairCreatedAt": 1738373718000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/ht8pjnu1sagxzzwjdiaipoauejcxubgtcnm7fp67y3ge",
+        "pairAddress": "HT8pjnU1sagxzzWJDiaipoaUEjcxuBGtCNM7Fp67y3gE",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001207",
+        "priceUsd": "0.1019",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 5
+          }
+        },
+        "volume": {
+          "h24": 0.02,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -6.15
+        },
+        "liquidity": {
+          "usd": 1.17,
+          "base": 5.7605,
+          "quote": 0.006963
+        },
+        "fdv": 101960076,
+        "marketCap": 97116676,
+        "pairCreatedAt": 1737372003000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/29hdwvcfv6hrjgp2nccwqmz7dir2x9bbddbmutvgrgk3",
+        "pairAddress": "29hDWVCfV6HRJgP2NCCWqMZ7Dir2x9bBdDbmutVGrGK3",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03639",
+        "priceUsd": "0.1031",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 3
+          }
+        },
+        "volume": {
+          "h24": 0.14,
+          "h6": 0.04,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 2.8,
+          "h24": -2.46
+        },
+        "liquidity": {
+          "usd": 5.6,
+          "base": 27.238,
+          "quote": 0.988
+        },
+        "fdv": 103104379,
+        "marketCap": 98206621,
+        "pairCreatedAt": 1737382446000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/6clbfgkqwgocr9tpbdvgkk6bxc6apskrgymuytdwbnad",
+        "pairAddress": "6cLbFGkqWGocR9TpbdVGKk6bxc6apSKRGyMuyTdwBNad",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001234",
+        "priceUsd": "0.1042",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 4
+          }
+        },
+        "volume": {
+          "h24": 0.01,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -6.63
+        },
+        "liquidity": {
+          "usd": 0.88,
+          "base": 4.2276,
+          "quote": 0.005218
+        },
+        "fdv": 104250201,
+        "marketCap": 99298013,
+        "pairCreatedAt": 1737339812000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/bv5gc1cxueixngd4yrwvhthh1vefnc993jcypnmt5bq8",
+        "pairAddress": "BV5GC1cxUEiXngD4YrwVHtHH1VEfnC993jCyPNMT5bq8",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "name": "OFFICIAL TRUMP",
+          "symbol": "TRUMP"
+        },
+        "priceNative": "0.03629",
+        "priceUsd": "0.1020",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0.16,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -4.52
+        },
+        "liquidity": {
+          "usd": 6.33,
+          "base": 32.2386,
+          "quote": 1.08519
+        },
+        "fdv": 102019040,
+        "marketCap": 97172838,
+        "pairCreatedAt": 1737329378000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/4qddbmqkfwd8tjgey2qe2fzq2fh8lb3guusi8tjtiylr",
+        "pairAddress": "4qdDBMQkFwD8tjGEY2Qe2fzQ2fh8LB3guUSi8tjTiyLR",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001219",
+        "priceUsd": "0.1024",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 1
+          }
+        },
+        "volume": {
+          "h24": 0,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": -3.67
+        },
+        "liquidity": {
+          "usd": 2.89,
+          "base": 2.4486,
+          "quote": 0.0315
+        },
+        "fdv": 102480663,
+        "marketCap": 97612534,
+        "pairCreatedAt": 1737325116000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/4sbkydxuh8ezuvtrhwftemhgzagx93zdrwyyctwezmgp",
+        "pairAddress": "4sBKyDXUH8EZuVtRhWFTemHGzaGX93ZdRwyyCtWeZMGp",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.001229",
+        "priceUsd": "0.1042",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -0.64,
+          "h24": -0.64
+        },
+        "liquidity": {
+          "usd": 4.81,
+          "base": 34.1716,
+          "quote": 0.01477
+        },
+        "fdv": 104278244,
+        "marketCap": 99324724,
+        "pairCreatedAt": 1738372180000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/5csbv2ikbn5qg7he7155bq8khutjuzetga8ntbwgr6es",
+        "pairAddress": "5Csbv2ikbN5QG7HE7155bQ8kHutjuZEtgA8nTBWgR6eS",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs",
+          "name": "Wrapped Ether (Wormhole)",
+          "symbol": "WETH"
+        },
+        "quoteToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "priceNative": "21849.2150",
+        "priceUsd": "2182.50",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h6": {
+            "buys": 4,
+            "sells": 5
+          },
+          "h24": {
+            "buys": 31,
+            "sells": 30
+          }
+        },
+        "volume": {
+          "h24": 40.41,
+          "h6": 4.28,
+          "h1": 0.56,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -4.52,
+          "h6": -5.43,
+          "h24": -1.05
+        },
+        "liquidity": {
+          "usd": 370.54,
+          "base": 0.08489,
+          "quote": 1854.7977
+        },
+        "fdv": 190031290,
+        "marketCap": 190031290,
+        "pairCreatedAt": 1737332753000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/5s1z654zgk9kybqwgdt7ecorjutsibc5w65zywdkzpfm",
+        "pairAddress": "5S1Z654ZGK9kyBQWgdT7EcorjuTSibc5W65zywdkzpfM",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+          "name": "Marinade staked SOL (mSOL)",
+          "symbol": "mSOL"
+        },
+        "quoteToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "priceNative": "1125.9757",
+        "priceUsd": "112.25",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h24": {
+            "buys": 7,
+            "sells": 9
+          }
+        },
+        "volume": {
+          "h24": 0.94,
+          "h6": 0.13,
+          "h1": 0.06,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.18,
+          "h6": -2.19,
+          "h24": -2.25
+        },
+        "liquidity": {
+          "usd": 26.46,
+          "base": 0.1181,
+          "quote": 132.4341
+        },
+        "fdv": 444137644,
+        "marketCap": 444137644,
+        "pairCreatedAt": 1738578177000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/6dhcq8p2gpudqrgsa9c72exrpqw6semk8cd5hyjj3xsg",
+        "pairAddress": "6dhCq8P2gpuDqRgSA9C72EXRpqw6semK8cD5hYjj3xsG",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "Fvn8R736buLh8Va89YjTWa9J3gU8zndMaCDzK1HLpump",
+          "name": "autistic individuals",
+          "symbol": "ai"
+        },
+        "quoteToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "priceNative": "0.00007036",
+        "priceUsd": "0.000007174",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h24": {
+            "buys": 5,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 1.25,
+          "h6": 0.33,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -3.18,
+          "h24": 0.15
+        },
+        "liquidity": {
+          "usd": 58.16,
+          "base": 4053471,
+          "quote": 285.2395
+        },
+        "fdv": 6830,
+        "marketCap": 6830,
+        "pairCreatedAt": 1737402014000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/80e1baac7454ce527db174b95c8883b4ce4b4cef857eb48f3542ab690a890d5f?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/1770638f25d01c04f1cfd2d2c6c25319a9ae0fbe9b53f4e2868b7f7fc0019872?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/Fvn8R736buLh8Va89YjTWa9J3gU8zndMaCDzK1HLpump?timestamp=1775960700000",
+          "websites": [],
+          "socials": [
+            {
+              "url": "https://x.com/AutisticAISOL?t=RRRO1gWmUsSGnZhhPJ0aGQ&s=09",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/AutisticIndividuals_CTO",
+              "type": "telegram"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "gmgn_data": {
+    "token_address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+    "chain": "sol",
+    "token_stats": {
+      "token_address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+      "chain": "sol",
+      "name": "Melania Meme",
+      "symbol": "MELANIA",
+      "price": 0.1029,
+      "market_cap": 98064345.0,
+      "volume_24h": 41523.25,
+      "liquidity": 12625854.35,
+      "holders": null,
+      "transactions": 153,
+      "price_change_24h": -2.9,
+      "created_at": 1737320909000,
+      "raw_data": {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/9dirurpjnanzhn6ts5hglouhtjrt1jgspbxnycrfz2ad",
+        "pairAddress": "9DiruRpjnAnzhn6ts5HGLouHtJrT1JGsPbXNYCrFz2ad",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+          "name": "Melania Meme",
+          "symbol": "MELANIA"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.1029",
+        "priceUsd": "0.1029",
+        "txns": {
+          "m5": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 2,
+            "sells": 31
+          },
+          "h6": {
+            "buys": 20,
+            "sells": 38
+          },
+          "h24": {
+            "buys": 31,
+            "sells": 122
+          }
+        },
+        "volume": {
+          "h24": 41523.25,
+          "h6": 12307.69,
+          "h1": 9827.36,
+          "m5": 9.93
+        },
+        "priceChange": {
+          "m5": 0.05,
+          "h1": -0.99,
+          "h24": -2.9
+        },
+        "liquidity": {
+          "usd": 12625854.35,
+          "base": 100990469,
+          "quote": 2228371
+        },
+        "fdv": 102955008,
+        "marketCap": 98064345,
+        "pairCreatedAt": 1737320909000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b22b95643577c5b0eafa197f3ba9aa39194d97ed185ce8ebba92bb34dacf247e?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://melaniameme.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MELANIATRUMP/status/1881087523847593995",
+              "type": "twitter"
+            }
+          ]
+        }
+      }
+    },
+    "status": "success"
+  },
+  "safety_data": {
+    "token_address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P",
+    "chain": "sol",
+    "overall_risk_score": 16,
+    "risk_level": "LOW",
+    "is_honeypot": null,
+    "is_mintable": null,
+    "is_open_source": null,
+    "ownership_renounced": null,
+    "liquidity_locked": null,
+    "lock_remaining_days": 0,
+    "liquidity_usd": 0.0,
+    "holder_count": 0,
+    "top_10_holder_pct": 0.0,
+    "dev_wallet_pct": 0.0,
+    "smart_money_flow": "neutral"
+  },
+  "twitter_data": {
+    "query": "(\"$MELANIA\" OR \"#MELANIA\") OR \"Melania Meme\" OR \"FUAfBo2j...aRxM1P\"",
+    "query_type": "Latest",
+    "total_tweets": 20,
+    "status": "success",
+    "error": null,
+    "tweets": [
+      {
+        "id": "2043153250971439146",
+        "text": "@hubertlepicki Melania Trump is just like them though",
+        "url": "https://x.com/MountyP42596/status/2043153250971439146",
+        "createdAt": "Sun Apr 12 02:24:29 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 1,
+        "author": {
+          "userName": "MountyP42596",
+          "name": "Mounty Py",
+          "id": "2006736771221245953",
+          "isBlueVerified": false,
+          "followers": 8,
+          "following": 10,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153246878064970",
+        "text": "@JOKAQARMY1 Melania Trump is the most beautiful, most elegant, most intelligent, and most outstanding First Lady America has ever had! God bless Melania, her husband president Donald J Trump, and their entire family! ❤️🙏",
+        "url": "https://x.com/DJ7811/status/2043153246878064970",
+        "createdAt": "Sun Apr 12 02:24:28 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 0,
+        "author": {
+          "userName": "DJ7811",
+          "name": "Don",
+          "id": "817403673496039424",
+          "isBlueVerified": true,
+          "followers": 5480,
+          "following": 5254,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153208189579735",
+        "text": "#trends today for 'pakistani pm' 'man city' &amp; 'melania trump'\n\nClick/Tap below:\n\nhttps://t.co/kSsM1G5Zuh\n\nhttps://t.co/diifJ6FT4V\n\nhttps://t.co/2X6MEzxN21\n\n#pakistanipm #mancity #melaniatrump",
+        "url": "https://x.com/NewsMasonApp/status/2043153208189579735",
+        "createdAt": "Sun Apr 12 02:24:19 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "NewsMasonApp",
+          "name": "News Mason",
+          "id": "1756051017840410625",
+          "isBlueVerified": false,
+          "followers": 80,
+          "following": 0,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153187251654742",
+        "text": "Top 10 Tweeted Coins\n1. $FARTCOIN\n2. MELANIA\n3. CRV\n4. FLUID\n5. SAND\n6. DEEP\n7. BAT\n8. TRX\n9. GLM\n10. FLR https://t.co/dzW7UCiZkM",
+        "url": "https://x.com/SeismicCrypto/status/2043153187251654742",
+        "createdAt": "Sun Apr 12 02:24:14 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 1,
+        "author": {
+          "userName": "SeismicCrypto",
+          "name": "Seismic Crypto",
+          "id": "1690746909659742209",
+          "isBlueVerified": true,
+          "followers": 301,
+          "following": 5,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153150920597693",
+        "text": "@JohhnyBeBad1 @Mollyploofkins Well isn’t that special! How did we get from Melania to you anyway?",
+        "url": "https://x.com/Melmis/status/2043153150920597693",
+        "createdAt": "Sun Apr 12 02:24:05 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "Melmis",
+          "name": "Melissa Nelson 🇺🇸🟧🇨🇦🇺🇦💚💛",
+          "id": "18267427",
+          "isBlueVerified": false,
+          "followers": 11090,
+          "following": 10530,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153143580758464",
+        "text": "@adcock_brett @aplusk Melania gets around!",
+        "url": "https://x.com/LightOfShades/status/2043153143580758464",
+        "createdAt": "Sun Apr 12 02:24:04 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 1,
+        "author": {
+          "userName": "LightOfShades",
+          "name": "P-Nemisis",
+          "id": "1954149720093556736",
+          "isBlueVerified": false,
+          "followers": 14,
+          "following": 107,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153141139665183",
+        "text": "@IanCalderon You made no such calls regarding Melania Trump. So why don’t you shut it you typical liberal hypocritical.",
+        "url": "https://x.com/SlavaUkraini380/status/2043153141139665183",
+        "createdAt": "Sun Apr 12 02:24:03 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "SlavaUkraini380",
+          "name": "WesternWarrior",
+          "id": "1498522014906077185",
+          "isBlueVerified": false,
+          "followers": 262,
+          "following": 1003,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153137758798227",
+        "text": "@obi_1987 @RealAlexJones This Alex Jones post is satire. It's riffing on comedian Tim Dillon's recent podcast clip reacting to Melania Trump's April 9 White House statement, where she denied being friends with Jeffrey Epstein and called for public hearings on the matter (citing overlapping social circles in NYC/Palm Beach).\n\nNo actual engagement or divorce—pure meme humor exaggerating \"elite\" drama. Melania and Trump remain together.",
+        "url": "https://x.com/grok/status/2043153137758798227",
+        "createdAt": "Sun Apr 12 02:24:02 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "grok",
+          "name": "Grok",
+          "id": "1720665183188922368",
+          "isBlueVerified": true,
+          "followers": 8501996,
+          "following": 4,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153127994687866",
+        "text": "@JOKAQARMY1 ❤️Melania",
+        "url": "https://x.com/DeannaR67989647/status/2043153127994687866",
+        "createdAt": "Sun Apr 12 02:24:00 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 0,
+        "author": {
+          "userName": "DeannaR67989647",
+          "name": "LOUD&PROUD",
+          "id": "4826307703",
+          "isBlueVerified": false,
+          "followers": 69,
+          "following": 495,
+          "description": ""
+        },
+        "lang": "in"
+      },
+      {
+        "id": "2043153115667406974",
+        "text": "@AxelDescan91074 @AntiLeftMemes Yet 10 YEARS LATER.still crying about him like a 2016 trumplican. Get a life my guy , he's living rent free in your dome , for argument sake ,have you ever seen Donald Trump In a strawberry shortcake bed and Melania without military grade makeup ,here you go friend.. btw Not ai https://t.co/BWho1BNGBA",
+        "url": "https://x.com/VeedFeed/status/2043153115667406974",
+        "createdAt": "Sun Apr 12 02:23:57 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 4,
+        "author": {
+          "userName": "VeedFeed",
+          "name": "V Spike",
+          "id": "317946508",
+          "isBlueVerified": false,
+          "followers": 29,
+          "following": 59,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153089306194078",
+        "text": "@0IvankaTrumpRV2 Looks like corrupt racist Hitlerian Trump the rapist and paedophile EPSTEIN'S ASSOCIATE was desperate to bury the Epstein saga but plagiarist Melania has brought it all up again! I support both Don and Melania being subjected to an unconditional public polygraph test!",
+        "url": "https://x.com/ramukrivus/status/2043153089306194078",
+        "createdAt": "Sun Apr 12 02:23:51 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 8,
+        "author": {
+          "userName": "ramukrivus",
+          "name": "Ramukrivus",
+          "id": "1502391468908072966",
+          "isBlueVerified": false,
+          "followers": 1436,
+          "following": 40,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153066539593902",
+        "text": "@Old_SchoolEddie Please explain. Is Melania an American? Is Marco Rubio an American?",
+        "url": "https://x.com/smacksfc/status/2043153066539593902",
+        "createdAt": "Sun Apr 12 02:23:45 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 3,
+        "author": {
+          "userName": "smacksfc",
+          "name": "Jeff Morrison",
+          "id": "315008666",
+          "isBlueVerified": false,
+          "followers": 914,
+          "following": 2580,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153056104157670",
+        "text": "@ronsterd89 No, wait, that’s Melania Trump",
+        "url": "https://x.com/ClassicBow1/status/2043153056104157670",
+        "createdAt": "Sun Apr 12 02:23:43 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 3,
+        "author": {
+          "userName": "ClassicBow1",
+          "name": "SouthernClassicBows",
+          "id": "890625382499700736",
+          "isBlueVerified": false,
+          "followers": 1556,
+          "following": 2478,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153042485486049",
+        "text": "@RonFilipkowski 💥 \"Melania? Never met her.\" 😂😂😂",
+        "url": "https://x.com/SBethlenfalvay/status/2043153042485486049",
+        "createdAt": "Sun Apr 12 02:23:39 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 13,
+        "author": {
+          "userName": "SBethlenfalvay",
+          "name": "Stefan Bethlenfalvay",
+          "id": "799668799012122624",
+          "isBlueVerified": false,
+          "followers": 4216,
+          "following": 192,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153000064016713",
+        "text": "@anthon7yandrews That explains the random bullshit speech melania gave because of amanda coming out with info on her so melania was trying to save her own ass she does not give a shit about the victims it was all for herself all she told was lies",
+        "url": "https://x.com/PureHorrorGirl/status/2043153000064016713",
+        "createdAt": "Sun Apr 12 02:23:29 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 20,
+        "author": {
+          "userName": "PureHorrorGirl",
+          "name": "𝕷і᥎іᥒg𝕯ᥱᥲძ𝕲іrᥣ",
+          "id": "843915358188834822",
+          "isBlueVerified": false,
+          "followers": 1426,
+          "following": 1001,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152996393967902",
+        "text": "How will Melania Trump react to this?",
+        "url": "https://x.com/LucasSa56947288/status/2043152996393967902",
+        "createdAt": "Sun Apr 12 02:23:28 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 38,
+        "author": {
+          "userName": "LucasSa56947288",
+          "name": "Lucas Sanders 👊🏽🔥🇺🇸",
+          "id": "1375864198417223683",
+          "isBlueVerified": true,
+          "followers": 61151,
+          "following": 63923,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152993164431790",
+        "text": "@_kst @PopularLiberal He obviously deliberately chose not to put his hand on the Bible. Do you think Melania prevented him against his will? 🤣\nYour last sentence is some ridiculous strawmanning cope refuting nothing. Sit down loser.",
+        "url": "https://x.com/CamrynHorchow/status/2043152993164431790",
+        "createdAt": "Sun Apr 12 02:23:28 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 0,
+        "author": {
+          "userName": "CamrynHorchow",
+          "name": "Ivy Shoots",
+          "id": "755038209986396161",
+          "isBlueVerified": false,
+          "followers": 487,
+          "following": 552,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152939527676230",
+        "text": "@Outin2025 @MELANIATRUMP @realDonaldTrump According to Rotten Tomatoes, the Melania documentary currently has a 10% Tomatometer score from 59 critic reviews and a 98% Popcornmeter from 1,000+ verified audience ratings.",
+        "url": "https://x.com/grok/status/2043152939527676230",
+        "createdAt": "Sun Apr 12 02:23:15 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 4,
+        "author": {
+          "userName": "grok",
+          "name": "Grok",
+          "id": "1720665183188922368",
+          "isBlueVerified": true,
+          "followers": 8501996,
+          "following": 4,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152926672073052",
+        "text": "@Mollyploofkins @skydreams10551 if anyone else is curious about the math\n\nDivorce in 1990\n\nOctober 1993 birth of Tiffany Trump\n\nDecember 1993 marriage of Donald to Marla \n\nDating Model(s) Summer 1998 \n\nModel Kyle Bax Giirlfriend July 1998\nMelania Sept 1998 photo w Donald \nDivorce 1999 https://t.co/JQqhcHU0hn",
+        "url": "https://x.com/MarineLibby/status/2043152926672073052",
+        "createdAt": "Sun Apr 12 02:23:12 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 10,
+        "author": {
+          "userName": "MarineLibby",
+          "name": "LibbyAnn C",
+          "id": "1698334571874406400",
+          "isBlueVerified": true,
+          "followers": 911,
+          "following": 1729,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152920657449301",
+        "text": "Melania Trump’ın Epstein çağrısı tepki çekti: Mağdurlar isyan etti\nhttps://t.co/tX2ooIeek1",
+        "url": "https://x.com/abcgazete/status/2043152920657449301",
+        "createdAt": "Sun Apr 12 02:23:10 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 8,
+        "author": {
+          "userName": "abcgazete",
+          "name": "ABC Gazetesi",
+          "id": "4002014542",
+          "isBlueVerified": true,
+          "followers": 331552,
+          "following": 36,
+          "description": ""
+        },
+        "lang": "tr"
+      }
+    ]
+  }
+}

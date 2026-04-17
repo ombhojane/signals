@@ -26,7 +26,7 @@ from core.logging import logger
 
 load_dotenv()
 
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "gemma-4-31b-it"
 _GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 T = TypeVar("T", bound=BaseModel)
