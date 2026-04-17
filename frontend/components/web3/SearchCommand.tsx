@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { explorerAddress, explorerTx } from "@/lib/web3/constants";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 type ResultKind = "page" | "address" | "tx" | "external";
 
@@ -70,43 +71,37 @@ export function SearchCommand() {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  // Click outside to close
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
 
   // Global keyboard shortcut: Cmd/Ctrl + K
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        inputRef.current?.focus();
-        inputRef.current?.select();
-        setOpen(true);
-      }
-      if (e.key === "Escape") {
-        setOpen(false);
-        inputRef.current?.blur();
+        setOpen((o) => !o);
       }
     }
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, []);
 
+  // Autofocus input when dialog opens
+  useEffect(() => {
+    if (open) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+        inputRef.current?.select();
+      }, 50);
+    } else {
+      setQuery("");
+      setActiveIndex(0);
+    }
+  }, [open]);
+
   const closeAndReset = () => {
     setOpen(false);
     setQuery("");
     setActiveIndex(0);
-    inputRef.current?.blur();
   };
 
   const results: Result[] = useMemo(() => {
@@ -207,40 +202,22 @@ export function SearchCommand() {
   };
 
   return (
-    <div ref={containerRef} className="relative">
-      <div className="relative flex items-center">
-        <span
-          className="material-symbols-outlined absolute left-4 text-[#acabaa] pointer-events-none"
-          style={{ fontSize: "1.1rem" }}
-        >
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="flex items-center justify-center md:justify-start gap-2 rounded-full py-2 w-11 h-11 md:h-auto md:w-64 md:px-4 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-800 shrink-0"
+        style={{
+          backgroundColor: "#252626",
+          color: "#acabaa",
+        }}
+        title="Search (Cmd+K)"
+      >
+        <span className="material-symbols-outlined shrink-0" style={{ fontSize: "1.2rem" }}>
           search
         </span>
-        <input
-          ref={inputRef}
-          type="text"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setOpen(true);
-            setActiveIndex(0);
-          }}
-          onFocus={(e) => {
-            setOpen(true);
-            e.target.style.boxShadow = "0 0 0 1px rgba(167,203,235,0.3)";
-          }}
-          onBlur={(e) => {
-            e.target.style.boxShadow = "none";
-          }}
-          onKeyDown={handleKeyDown}
-          placeholder="Search tokens, txs, pages…"
-          className="rounded-full py-2 pl-12 pr-16 text-sm w-80 outline-none placeholder:text-neutral-600 text-[#e7e5e5]"
-          style={{
-            backgroundColor: "#252626",
-            border: "none",
-          }}
-        />
+        <span className="hidden md:inline flex-1 text-left truncate">Search tokens, txs, pages…</span>
         <kbd
-          className="absolute right-3 text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded pointer-events-none"
+          className="hidden md:flex items-center gap-1 text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded pointer-events-none"
           style={{
             backgroundColor: "#131313",
             color: "#acabaa",
@@ -249,88 +226,109 @@ export function SearchCommand() {
         >
           ⌘K
         </kbd>
-      </div>
+      </button>
 
-      {open && (
-        <div
-          className="absolute top-full left-0 mt-2 w-[26rem] rounded-2xl overflow-hidden card-shadow z-[60]"
-          style={{
-            backgroundColor: "#191a1a",
-            border: "1px solid rgba(72,72,72,0.3)",
-          }}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent 
+          showCloseButton={false}
+          className="p-0 overflow-hidden bg-[#191a1a] border-[#484848]/30 w-[92vw] max-w-[400px] sm:max-w-[600px] gap-0 translate-y-[-40%] mx-auto"
         >
-          {results.length === 0 ? (
-            <div className="p-6 text-center">
-              <p className="text-xs" style={{ color: "#737373" }}>
-                No results. Try a token address, tx hash, or page name.
-              </p>
+          <DialogTitle className="sr-only">Search</DialogTitle>
+          <div className="flex flex-col">
+            <div className="flex items-center border-b border-[#484848]/30 px-4">
+               <span className="material-symbols-outlined text-[#a7cbeb] shrink-0" style={{ fontSize: "1.3rem" }}>
+                 search
+               </span>
+               <input
+                 ref={inputRef}
+                 type="text"
+                 value={query}
+                 onChange={(e) => {
+                   setQuery(e.target.value);
+                   setActiveIndex(0);
+                 }}
+                 onKeyDown={handleKeyDown}
+                 placeholder="Search token address, tx hash, or jump to page…"
+                 className="flex-1 bg-transparent border-none py-5 px-4 text-sm outline-none text-[#e7e5e5] placeholder:text-neutral-500 font-medium"
+               />
+               <kbd
+                 className="hidden sm:inline-flex text-[9px] font-bold tracking-widest uppercase px-2 py-1 rounded pointer-events-none"
+                 style={{
+                   backgroundColor: "#131313",
+                   color: "#acabaa",
+                   border: "1px solid rgba(72,72,72,0.4)",
+                 }}
+               >
+                 ESC
+               </kbd>
             </div>
-          ) : (
-            <div className="flex flex-col py-2">
-              <div
-                className="px-4 py-2 text-[9px] font-bold tracking-[0.2em] uppercase"
-                style={{ color: "#737373" }}
-              >
-                {query.trim() === "" ? "Jump to" : "Results"}
-              </div>
-              {results.map((r, i) => {
-                const active = i === activeIndex;
-                return (
-                  <button
-                    key={r.id}
-                    onMouseDown={(e) => {
-                      e.preventDefault();
-                      r.onSelect();
-                    }}
-                    onMouseEnter={() => setActiveIndex(i)}
-                    className="flex items-center gap-3 px-4 py-3 text-left transition-colors"
-                    style={{
-                      backgroundColor: active ? "#252626" : "transparent",
-                      color: "#e7e5e5",
-                    }}
-                  >
-                    <span
-                      className="material-symbols-outlined shrink-0"
-                      style={{ fontSize: "1.1rem", color: "#a7cbeb" }}
-                    >
-                      {r.icon}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold truncate">{r.title}</div>
-                      <div
-                        className="text-[11px] truncate font-mono"
-                        style={{ color: "#acabaa" }}
+            
+            <div className="max-h-[60vh] overflow-y-auto py-2" style={{ scrollbarWidth: 'none' }}>
+              {results.length === 0 ? (
+                <div className="p-8 text-center text-sm text-[#737373]">
+                  No results found for &quot;{query}&quot;
+                </div>
+              ) : (
+                <div className="flex flex-col">
+                  <div className="px-5 py-2 text-[10px] font-bold tracking-[0.15em] uppercase text-[#737373]">
+                    {query.trim() === "" ? "Jump To" : "Results"}
+                  </div>
+                  {results.map((r, i) => {
+                    const active = i === activeIndex;
+                    return (
+                      <button
+                        key={r.id}
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          r.onSelect();
+                        }}
+                        onMouseEnter={() => setActiveIndex(i)}
+                        className="flex items-center gap-4 px-5 py-3.5 text-left transition-colors w-full group"
+                        style={{
+                          backgroundColor: active ? "#252626" : "transparent",
+                          color: "#e7e5e5",
+                        }}
                       >
-                        {r.description}
-                      </div>
-                    </div>
-                    {active && (
-                      <span
-                        className="text-[9px] uppercase tracking-widest font-bold"
-                        style={{ color: "#a7cbeb" }}
-                      >
-                        ↵
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
+                        <span
+                          className={`material-symbols-outlined shrink-0 ${active ? 'text-[#a7cbeb]' : 'text-neutral-500'}`}
+                          style={{ fontSize: "1.2rem", transition: "color 0.2s" }}
+                        >
+                          {r.icon}
+                        </span>
+                        <div className="flex-1 min-w-0 flex flex-col">
+                          <div className={`text-sm font-semibold truncate ${active ? 'text-white' : 'text-neutral-200'}`}>
+                            {r.title}
+                          </div>
+                          <div
+                            className="text-[11px] truncate font-mono mt-0.5"
+                            style={{ color: "#acabaa" }}
+                          >
+                            {r.description}
+                          </div>
+                        </div>
+                        {active && (
+                          <span
+                            className="text-[10px] uppercase tracking-widest font-bold text-[#a7cbeb]"
+                          >
+                            ↵
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
-          )}
-          <div
-            className="px-4 py-2.5 flex items-center gap-4 text-[9px] tracking-widest uppercase font-semibold"
-            style={{
-              backgroundColor: "#0e0e0e",
-              borderTop: "1px solid rgba(72,72,72,0.2)",
-              color: "#737373",
-            }}
-          >
-            <span>↑↓ navigate</span>
-            <span>↵ select</span>
-            <span>esc close</span>
+            
+            <div
+              className="px-5 py-3 flex items-center gap-5 text-[9px] tracking-[0.15em] uppercase font-bold bg-[#0e0e0e] border-t border-[#484848]/20 text-[#737373]"
+            >
+              <span className="flex items-center gap-1.5"><span className="text-[12px]">↑↓</span> navigate</span>
+              <span className="flex items-center gap-1.5"><span className="text-[12px]">↵</span> select</span>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

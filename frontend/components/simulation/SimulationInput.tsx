@@ -57,7 +57,7 @@ export function SimulationInput({ onStart, disabled, defaultAddress }: Simulatio
           <div className="space-y-2">
             <Input
               type="text"
-              placeholder="Enter coin address (Solana or Ethereum)"
+              placeholder="Enter coin address..."
               value={address}
               onChange={(e) => {
                 setAddress(e.target.value);

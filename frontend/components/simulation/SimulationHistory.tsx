@@ -85,30 +85,30 @@ export function SimulationHistory({ onViewSimulation }: SimulationHistoryProps) 
                   isEquilized && "bg-yellow-500/5 border-yellow-500/20"
                 )}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-center gap-2">
+                <div className="flex items-start justify-between gap-4 flex-wrap">
+                  <div className="flex-1 min-w-0 space-y-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <code className="text-xs font-mono bg-muted px-2 py-1 rounded">
                         {sim.coinAddress.slice(0, 8)}...
                       </code>
-                      <Badge variant={statusVariant} className="text-xs">
+                      <Badge variant={statusVariant} className="text-xs shrink-0">
                         {isProfit && <TrendingUp className="size-3 mr-1" />}
                         {isLoss && <TrendingDown className="size-3 mr-1" />}
                         {isEquilized && <Minus className="size-3 mr-1" />}
                         {sim.result.action}
                       </Badge>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-xs shrink-0">
                         {sim.result.status}
                       </Badge>
                     </div>
-                    <div className="flex items-center gap-4 text-sm">
+                    <div className="flex items-center gap-x-4 gap-y-2 text-sm flex-wrap">
                       <span className={cn("font-mono font-semibold", pnlFormatted.className)}>
                         {pnlFormatted.value}
                       </span>
-                      <span className="text-muted-foreground">
+                      <span className="text-muted-foreground whitespace-nowrap">
                         Accuracy: {sim.result.accuracy.toFixed(1)}%
                       </span>
-                      <span className="text-muted-foreground">
+                      <span className="text-muted-foreground whitespace-nowrap">
                         {sim.duration}m duration
                       </span>
                     </div>

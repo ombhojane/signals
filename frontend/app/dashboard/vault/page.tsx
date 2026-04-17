@@ -24,7 +24,7 @@ export default function VaultPage() {
   }, [wrongNetwork, switchChain]);
 
   return (
-    <div className="flex flex-col gap-8 p-8 max-w-6xl">
+    <div className="flex flex-col gap-8 max-w-6xl">
       {/* Header */}
       <div className="flex items-start justify-between gap-6 flex-wrap">
         <div>

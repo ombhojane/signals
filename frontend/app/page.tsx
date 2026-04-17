@@ -42,7 +42,7 @@ function Navbar() {
         scrolled ? "h-16 nav-glass shadow-lg shadow-black/20" : "h-24 bg-transparent border-transparent"
       )}
     >
-      <div className="flex items-center gap-12">
+      <div className="flex items-center gap-4 md:gap-12">
         <button 
           onClick={() => goToSection("Home")}
           className="flex items-center gap-3 group"
@@ -240,7 +240,7 @@ function LiveStatsStrip() {
   const { totalAssets, totalSupply, positionOpen, sharePriceUsdc } = useVaultState();
 
   return (
-    <section className="px-6 md:px-16 pt-8 pb-32" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
+    <section className="px-6 md:px-16 pt-8 pb-16 md:pb-32" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
       <div className="flex items-center gap-3 mb-8">
         <div className="zen-pulse" />
         <span
@@ -299,8 +299,8 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="how" className="px-6 md:px-16 py-32 relative" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-24 gap-8">
+    <section id="how" className="px-6 md:px-16 py-16 md:py-32 relative" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 md:mb-24 gap-8">
         <div className="max-w-2xl">
           <span
             className="text-[10px] uppercase tracking-[0.3em] font-semibold block mb-6"
@@ -384,7 +384,7 @@ function ValuePropsSection() {
   return (
     <section
       id="why"
-      className="py-32 relative overflow-hidden"
+      className="py-16 md:py-32 relative overflow-hidden"
       style={{
         background: "var(--surface-container-lowest)",
         borderTop: "1px solid var(--border)",
@@ -448,7 +448,7 @@ function ValuePropsSection() {
 // ─── CTA ─────────────────────────────────────────────────────────────────
 function CTASection() {
   return (
-    <section className="px-6 py-40">
+    <section className="px-6 py-24 md:py-40">
       <div className="max-w-4xl mx-auto text-center relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.02] pointer-events-none blur-[80px]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }} />
         
