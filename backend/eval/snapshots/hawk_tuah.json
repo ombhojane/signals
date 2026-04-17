@@ -1,0 +1,587 @@
+{
+  "token_address": "HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34",
+  "chain": "sol",
+  "fetched_at": "2026-04-12T02:24:29.218998+00:00",
+  "dex_data": {
+    "schemaVersion": "1.0.0",
+    "pairs": [
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/exygvxvrvujjryo65vyuhlaccxhwyztkqa7jxqit2tvr",
+        "pairAddress": "ExyGVXVRvUjJryo65vYUhLACcxhwYztKqa7jXqiT2tvr",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34",
+          "name": "Hawk Tuah",
+          "symbol": "HAWK"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.000001208",
+        "priceUsd": "0.0001031",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 0
+          }
+        },
+        "volume": {
+          "h24": 0.12,
+          "h6": 0.12,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {},
+        "liquidity": {
+          "usd": 168256.01,
+          "base": 818850577,
+          "quote": 981.4868
+        },
+        "fdv": 1031493,
+        "marketCap": 1031524,
+        "pairCreatedAt": 1733350093000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/dad9e6ea38d0523e3e3d4006853fe1ef3800420001877974a9039fe8a669b7ee?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/fdd90e893b78a0b9a3c3ee9f561f8f48ce97d8aae88284c3254248f0f991ebad?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34?timestamp=1775960700000",
+          "websites": [],
+          "socials": [
+            {
+              "url": "https://x.com/HalieyWelchX",
+              "type": "twitter"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "gmgn_data": {
+    "token_address": "HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34",
+    "chain": "sol",
+    "token_stats": {
+      "token_address": "HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34",
+      "chain": "sol",
+      "name": "Hawk Tuah",
+      "symbol": "HAWK",
+      "price": 0.0001031,
+      "market_cap": 1031524.0,
+      "volume_24h": 0.12,
+      "liquidity": 168256.01,
+      "holders": null,
+      "transactions": 1,
+      "price_change_24h": null,
+      "created_at": 1733350093000,
+      "raw_data": {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/exygvxvrvujjryo65vyuhlaccxhwyztkqa7jxqit2tvr",
+        "pairAddress": "ExyGVXVRvUjJryo65vYUhLACcxhwYztKqa7jXqiT2tvr",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34",
+          "name": "Hawk Tuah",
+          "symbol": "HAWK"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.000001208",
+        "priceUsd": "0.0001031",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 0
+          }
+        },
+        "volume": {
+          "h24": 0.12,
+          "h6": 0.12,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {},
+        "liquidity": {
+          "usd": 168256.01,
+          "base": 818850577,
+          "quote": 981.4868
+        },
+        "fdv": 1031493,
+        "marketCap": 1031524,
+        "pairCreatedAt": 1733350093000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/dad9e6ea38d0523e3e3d4006853fe1ef3800420001877974a9039fe8a669b7ee?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/fdd90e893b78a0b9a3c3ee9f561f8f48ce97d8aae88284c3254248f0f991ebad?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34?timestamp=1775960700000",
+          "websites": [],
+          "socials": [
+            {
+              "url": "https://x.com/HalieyWelchX",
+              "type": "twitter"
+            }
+          ]
+        }
+      }
+    },
+    "status": "success"
+  },
+  "safety_data": {
+    "token_address": "HAWKThXRcNL9ZGZKqgUXLm4W8tnRZ7U6MVdEepSutj34",
+    "chain": "sol",
+    "overall_risk_score": 40,
+    "risk_level": "MEDIUM",
+    "is_honeypot": null,
+    "is_mintable": null,
+    "is_open_source": null,
+    "ownership_renounced": null,
+    "liquidity_locked": true,
+    "lock_remaining_days": 0,
+    "liquidity_usd": 0.0,
+    "holder_count": 0,
+    "top_10_holder_pct": 0.0,
+    "dev_wallet_pct": 0.0,
+    "smart_money_flow": "neutral"
+  },
+  "twitter_data": {
+    "query": "(\"$HAWK\" OR \"#HAWK\") OR \"Hawk Tuah\" OR \"HAWKThXR...Sutj34\"",
+    "query_type": "Latest",
+    "total_tweets": 20,
+    "status": "success",
+    "error": null,
+    "tweets": [
+      {
+        "id": "2043153130263548088",
+        "text": "@Mattheius2783 Gonna have to bring back Hawk to say “GAS” when he pitches",
+        "url": "https://x.com/TheNotoriousADD/status/2043153130263548088",
+        "createdAt": "Sun Apr 12 02:24:00 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 0,
+        "author": {
+          "userName": "TheNotoriousADD",
+          "name": "Drew Durham",
+          "id": "117268494",
+          "isBlueVerified": false,
+          "followers": 986,
+          "following": 1312,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043153090325500139",
+        "text": "‘You better hit him before he hits you’. Hawk Harrelson, the most quotable Indian ever.",
+        "url": "https://x.com/DanH9709/status/2043153090325500139",
+        "createdAt": "Sun Apr 12 02:23:51 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "DanH9709",
+          "name": "Daniel Hogan",
+          "id": "1767891786519703552",
+          "isBlueVerified": false,
+          "followers": 82,
+          "following": 85,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152915620139012",
+        "text": "@BrandonWalk @asbraner Take away the fact that Iowa hasn’t had a concert since 2016, and had 15,000 less people. You’d be right!! \n\nRough time to be a hawk if you’re trying to talk shit about concert hosting capabilities because you can’t talk about any sport and still get bodybagged https://t.co/I9zcYthJc0",
+        "url": "https://x.com/B_BettorDudley/status/2043152915620139012",
+        "createdAt": "Sun Apr 12 02:23:09 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "B_BettorDudley",
+          "name": "Biased Bettor Dudley",
+          "id": "1952392969883115520",
+          "isBlueVerified": false,
+          "followers": 42,
+          "following": 36,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152813845553473",
+        "text": "@elonmusk @captive_dreamer Fuck off chicken hawk. You’ve never served this country.",
+        "url": "https://x.com/ty_mandividend/status/2043152813845553473",
+        "createdAt": "Sun Apr 12 02:22:45 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "ty_mandividend",
+          "name": "Y-Man",
+          "id": "1636651478",
+          "isBlueVerified": false,
+          "followers": 295,
+          "following": 728,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152736418406799",
+        "text": "@BuzzPatterson This was during black hawk down.",
+        "url": "https://x.com/Ishy226/status/2043152736418406799",
+        "createdAt": "Sun Apr 12 02:22:26 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 19,
+        "author": {
+          "userName": "Ishy226",
+          "name": "Ishy",
+          "id": "1572969901773447168",
+          "isBlueVerified": false,
+          "followers": 2,
+          "following": 2,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152529886761372",
+        "text": "@Chelsea87883298 Are they old enough to watch this one?\n13 Hours: The Secret Soldiers of Benghazi (2016)\n... like Black Hawk Down ... both are based on true stories ... https://t.co/gePVr5o18Z",
+        "url": "https://x.com/mrgrizbear1/status/2043152529886761372",
+        "createdAt": "Sun Apr 12 02:21:37 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 1,
+        "author": {
+          "userName": "mrgrizbear1",
+          "name": "El Oso (aka:Griz)",
+          "id": "787045849469628416",
+          "isBlueVerified": false,
+          "followers": 280,
+          "following": 105,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152447200170428",
+        "text": "The Tony Hawk games on GBA punch above their weight I swear",
+        "url": "https://x.com/BboyMaestro/status/2043152447200170428",
+        "createdAt": "Sun Apr 12 02:21:18 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 3,
+        "author": {
+          "userName": "BboyMaestro",
+          "name": "Maestrodyne",
+          "id": "36792324",
+          "isBlueVerified": false,
+          "followers": 443,
+          "following": 380,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152333953986563",
+        "text": "One night in Bangkok I’m the hawk Tuah girl",
+        "url": "https://x.com/BwayBeatNews/status/2043152333953986563",
+        "createdAt": "Sun Apr 12 02:20:51 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 23,
+        "author": {
+          "userName": "BwayBeatNews",
+          "name": "The Broadway Beat",
+          "id": "1062368225676148736",
+          "isBlueVerified": false,
+          "followers": 17361,
+          "following": 310,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152242857959789",
+        "text": "\"Fuck! You can't not have thoughts on Tomorrowland.\"\n\n                                    -Snapcube Jet the Hawk, 2020",
+        "url": "https://x.com/AtomicFox64/status/2043152242857959789",
+        "createdAt": "Sun Apr 12 02:20:29 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 4,
+        "author": {
+          "userName": "AtomicFox64",
+          "name": "AtomicFox64",
+          "id": "708880978564005889",
+          "isBlueVerified": false,
+          "followers": 448,
+          "following": 653,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043152208867275136",
+        "text": "@abichungus hawk tuah still funny chill",
+        "url": "https://x.com/AudsTso/status/2043152208867275136",
+        "createdAt": "Sun Apr 12 02:20:21 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 7,
+        "author": {
+          "userName": "AudsTso",
+          "name": "audrey💭 COMMS OPEN",
+          "id": "1095872147094945793",
+          "isBlueVerified": false,
+          "followers": 1983,
+          "following": 2147,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043151999978397887",
+        "text": "@bubbagumpino Pat MAGAfee is nothing but a LOSER just like AJ Hawk is",
+        "url": "https://x.com/jamesk0044/status/2043151999978397887",
+        "createdAt": "Sun Apr 12 02:19:31 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 1,
+        "author": {
+          "userName": "jamesk0044",
+          "name": "jamesb0044",
+          "id": "1885156049617117186",
+          "isBlueVerified": false,
+          "followers": 453,
+          "following": 3495,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043151805228757210",
+        "text": "@MajorBoutMinors Im going to take him up on the offer to stay the night but I'll be bringing a meal prep container, chained diaper, and I'll be watching my drink like a hawk",
+        "url": "https://x.com/Absolunar/status/2043151805228757210",
+        "createdAt": "Sun Apr 12 02:18:44 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 15,
+        "author": {
+          "userName": "Absolunar",
+          "name": "mr online",
+          "id": "1482890732",
+          "isBlueVerified": true,
+          "followers": 44260,
+          "following": 489,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043151805165469760",
+        "text": "@PeterSchiff How come you watch it like a hawk?",
+        "url": "https://x.com/theXExpert/status/2043151805165469760",
+        "createdAt": "Sun Apr 12 02:18:44 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 1,
+        "author": {
+          "userName": "theXExpert",
+          "name": "The X Expert",
+          "id": "1451731311106867202",
+          "isBlueVerified": false,
+          "followers": 282,
+          "following": 129,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043151782495306185",
+        "text": "11/04/2026 - INTERNACIONAL!\n\nWhy Black Hawk Helicopters Dominate Modern Warfare! - WION Podcast \n\nPor que os helicópteros Black Hawk dominam a guerra moderna! - WION Podcast\n\nhttps://t.co/OogEcjRL0t\n\n https://t.co/hbqxFAh8tz",
+        "url": "https://x.com/BaiaRodrigues/status/2043151782495306185",
+        "createdAt": "Sun Apr 12 02:18:39 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 4,
+        "author": {
+          "userName": "BaiaRodrigues",
+          "name": "João Rodrigues Baia - Críticas políticas/economia",
+          "id": "3325047111",
+          "isBlueVerified": false,
+          "followers": 266,
+          "following": 452,
+          "description": ""
+        },
+        "lang": "ca"
+      },
+      {
+        "id": "2043151577549316427",
+        "text": "@SirCravings @Unknown1542256 67 Labubu tung tung tung tung sahur hawk Tuah scary worm steal grow a garden https://t.co/tc9iVgyI4Q",
+        "url": "https://x.com/TowerUpgrade/status/2043151577549316427",
+        "createdAt": "Sun Apr 12 02:17:50 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 4,
+        "author": {
+          "userName": "TowerUpgrade",
+          "name": "Upgrade Button.",
+          "id": "2008988354650718209",
+          "isBlueVerified": false,
+          "followers": 239,
+          "following": 2446,
+          "description": ""
+        },
+        "lang": "in"
+      },
+      {
+        "id": "2043151473119543485",
+        "text": "@speakcleary @nvolpewild Correct the first one is a hawk moth, the other is a moth too, I just can’t remember its name.",
+        "url": "https://x.com/ArsenBalls/status/2043151473119543485",
+        "createdAt": "Sun Apr 12 02:17:25 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 2,
+        "author": {
+          "userName": "ArsenBalls",
+          "name": "Arsen Balls",
+          "id": "1813618064178753536",
+          "isBlueVerified": true,
+          "followers": 1751,
+          "following": 3383,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043150895593193611",
+        "text": "Been seeing lots of Talonflames recently. Like how you gonna bring a hawk to a sand matchup??",
+        "url": "https://x.com/MegaMaphoo/status/2043150895593193611",
+        "createdAt": "Sun Apr 12 02:15:08 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 9,
+        "author": {
+          "userName": "MegaMaphoo",
+          "name": "Maphoo",
+          "id": "982839689705963520",
+          "isBlueVerified": false,
+          "followers": 1637,
+          "following": 1202,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043150728202485900",
+        "text": "@SZade15 Why does that look like Tony Hawk? Lmao.",
+        "url": "https://x.com/TheKAshow_/status/2043150728202485900",
+        "createdAt": "Sun Apr 12 02:14:28 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 7,
+        "author": {
+          "userName": "TheKAshow_",
+          "name": "Tired Jesus",
+          "id": "2023506244276023297",
+          "isBlueVerified": false,
+          "followers": 6,
+          "following": 60,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043150569280258436",
+        "text": "@jaywooden12 @Coach_SchmidtE @kjmaye_4 @dfreund7 @UNDfootball @EHSMavsFB @CoachCJCox @_K_Wright_ @drobalwayzopen @KhiyonWafer @CoachJRob56 @adamQcumber Congrats! Join the Hawk family!",
+        "url": "https://x.com/gusaas_jeremy15/status/2043150569280258436",
+        "createdAt": "Sun Apr 12 02:13:50 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 11,
+        "author": {
+          "userName": "gusaas_jeremy15",
+          "name": "Jeremy Gusaas",
+          "id": "1041071076",
+          "isBlueVerified": false,
+          "followers": 482,
+          "following": 1861,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043150345069572577",
+        "text": "JK's familiars love JM and will leave JK's side to stay with JM. JK has a snake, hawk and a wolf familiar I believe, the snake was the 1st one and the hawk the last one. JK takes revenge on JM's family for their ill treatment of JM.",
+        "url": "https://x.com/pakchoi_jimin/status/2043150345069572577",
+        "createdAt": "Sun Apr 12 02:12:56 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 12,
+        "author": {
+          "userName": "pakchoi_jimin",
+          "name": "Dani⁷ 🩷💛💙",
+          "id": "731139853",
+          "isBlueVerified": false,
+          "followers": 334,
+          "following": 702,
+          "description": ""
+        },
+        "lang": "en"
+      }
+    ]
+  }
+}

@@ -1,0 +1,2879 @@
+{
+  "token_address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+  "chain": "sol",
+  "fetched_at": "2026-04-12T02:24:01.354617+00:00",
+  "dex_data": {
+    "schemaVersion": "1.0.0",
+    "pairs": [
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/frhb8l7y9qq41qzxyltc2nw8an1rjfllxrf2x9rwllmo",
+        "pairAddress": "FRhB8L7Y9Qq41qZXYLtC2nw8An1RJfLLxRF2x9RwLLMo",
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006088",
+        "priceUsd": "0.05038",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 11
+          },
+          "h1": {
+            "buys": 19,
+            "sells": 91
+          },
+          "h6": {
+            "buys": 56,
+            "sells": 239
+          },
+          "h24": {
+            "buys": 600,
+            "sells": 568
+          }
+        },
+        "volume": {
+          "h24": 171786.91,
+          "h6": 30867.11,
+          "h1": 8352.17,
+          "m5": 832.59
+        },
+        "priceChange": {
+          "m5": -0.26,
+          "h1": -2.83,
+          "h6": -5.41,
+          "h24": -3.35
+        },
+        "liquidity": {
+          "usd": 3202425.41,
+          "base": 31741703,
+          "quote": 19373
+        },
+        "fdv": 49374075,
+        "marketCap": 49374075,
+        "pairCreatedAt": 1702415044000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/hbs7a3br8gmmwuqva7vb3smfa7xvi1tsfdof5w4zz3ks",
+        "pairAddress": "HBS7a3br8GMMWuqVa7VB3SMFa7xVi1tSFdoF5w4ZZ3kS",
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.05056",
+        "priceUsd": "0.05056",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 65,
+            "sells": 148
+          },
+          "h6": {
+            "buys": 169,
+            "sells": 279
+          },
+          "h24": {
+            "buys": 816,
+            "sells": 694
+          }
+        },
+        "volume": {
+          "h24": 50810.29,
+          "h6": 15297.8,
+          "h1": 7700.34,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.45,
+          "h6": -5.08,
+          "h24": -3.03
+        },
+        "liquidity": {
+          "usd": 593145.91,
+          "base": 5871816,
+          "quote": 296211
+        },
+        "fdv": 49554993,
+        "marketCap": 49554993,
+        "pairCreatedAt": 1702511326000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/ebliu3gfbyh9cfxrdrfhqgbzjmxqch38nmzzkzskfggq",
+        "pairAddress": "EbLiu3GfBYh9cfxrdrfhQgbZJmXqch38NmzZKZSkFGGq",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006171",
+        "priceUsd": "0.05241",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 43
+          },
+          "h24": {
+            "buys": 18,
+            "sells": 54
+          }
+        },
+        "volume": {
+          "h24": 9494.78,
+          "h6": 4694.32,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -0.91,
+          "h24": 0.66
+        },
+        "liquidity": {
+          "usd": 99453.47,
+          "base": 723517,
+          "quote": 724.602
+        },
+        "fdv": 51359696,
+        "marketCap": 51359696,
+        "pairCreatedAt": 1732966846000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/ahttzwf3gmvmjdxwm8v2msxyjzj8rqr6hyac3g9477yj",
+        "pairAddress": "AHTTzwf3GmVMJdxWM8v2MSxyjZj8rQR6hyAC3g9477Yj",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006098",
+        "priceUsd": "0.05046",
+        "txns": {
+          "m5": {
+            "buys": 2,
+            "sells": 3
+          },
+          "h1": {
+            "buys": 127,
+            "sells": 151
+          },
+          "h6": {
+            "buys": 556,
+            "sells": 460
+          },
+          "h24": {
+            "buys": 2447,
+            "sells": 2640
+          }
+        },
+        "volume": {
+          "h24": 6814.95,
+          "h6": 1543.36,
+          "h1": 534.55,
+          "m5": 4.75
+        },
+        "priceChange": {
+          "m5": -0.12,
+          "h1": -2.81,
+          "h6": -5.29,
+          "h24": -2.94
+        },
+        "liquidity": {
+          "usd": 19610.79,
+          "base": 347271,
+          "quote": 25.1933
+        },
+        "fdv": 49455549,
+        "marketCap": 49455549,
+        "pairCreatedAt": 1720046346000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/fjpuzni84crl8npbkqtsmylkxmhjfajdziz65zsegxnr",
+        "pairAddress": "FjpUZNi84CrL8NPBkqTsMyLkxMHJfAjDZiZ65zsEgXnR",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006097",
+        "priceUsd": "0.05050",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h1": {
+            "buys": 2,
+            "sells": 10
+          },
+          "h6": {
+            "buys": 14,
+            "sells": 86
+          },
+          "h24": {
+            "buys": 209,
+            "sells": 198
+          }
+        },
+        "volume": {
+          "h24": 965.89,
+          "h6": 201.32,
+          "h1": 46.21,
+          "m5": 2.38
+        },
+        "priceChange": {
+          "m5": -0.09,
+          "h1": -2.69,
+          "h6": -5.87,
+          "h24": -3.28
+        },
+        "liquidity": {
+          "usd": 11719.12,
+          "base": 140361,
+          "quote": 55.8865
+        },
+        "fdv": 49495478,
+        "marketCap": 49495478,
+        "pairCreatedAt": 1705227858000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/4g9nkvnq2theuwpcavygmiizrfawwrsq8tfkb8adiedh",
+        "pairAddress": "4g9NkVnQ2tHeuWpCavYGmiizRFawwrsq8TFkB8adieDh",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "name": "Fartcoin ",
+          "symbol": "Fartcoin "
+        },
+        "priceNative": "0.2607",
+        "priceUsd": "0.05039",
+        "txns": {
+          "m5": {
+            "buys": 2,
+            "sells": 2
+          },
+          "h1": {
+            "buys": 46,
+            "sells": 45
+          },
+          "h6": {
+            "buys": 226,
+            "sells": 231
+          },
+          "h24": {
+            "buys": 1196,
+            "sells": 1233
+          }
+        },
+        "volume": {
+          "h24": 2036.83,
+          "h6": 343.36,
+          "h1": 155.26,
+          "m5": 3.55
+        },
+        "priceChange": {
+          "m5": -0.39,
+          "h1": -2.54,
+          "h6": -5.23,
+          "h24": -3.04
+        },
+        "liquidity": {
+          "usd": 753.04,
+          "base": 11027,
+          "quote": 1021.3739
+        },
+        "fdv": 49380026,
+        "marketCap": 49380026,
+        "pairCreatedAt": 1745176467000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/dyfk5yvux4mkuqcxka7h6fwgrqhc1z7jub42sjvxnhgg",
+        "pairAddress": "DYFk5yvux4mkuQcxkA7H6FWgRQHc1Z7JUb42SJVxnhgG",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "name": "Fartcoin ",
+          "symbol": "Fartcoin "
+        },
+        "priceNative": "0.2605",
+        "priceUsd": "0.05041",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 23,
+            "sells": 15
+          },
+          "h6": {
+            "buys": 99,
+            "sells": 92
+          },
+          "h24": {
+            "buys": 539,
+            "sells": 415
+          }
+        },
+        "volume": {
+          "h24": 29.28,
+          "h6": 11.29,
+          "h1": 2.42,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.76,
+          "h6": -5.49,
+          "h24": -2.97
+        },
+        "liquidity": {
+          "usd": 216.46,
+          "base": 3684.4765,
+          "quote": 158.6682
+        },
+        "fdv": 49406312,
+        "marketCap": 49406312,
+        "pairCreatedAt": 1742542143000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/fqhddf1hxul3jp3qge8syokscldgz7wagdxaxqrdxa1u",
+        "pairAddress": "FqHddf1hxUL3jp3Qge8sYoKsCLDGZ7WagDXAXqrDXA1U",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006107",
+        "priceUsd": "0.05137",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 6
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 13
+          },
+          "h24": {
+            "buys": 14,
+            "sells": 26
+          }
+        },
+        "volume": {
+          "h24": 50.85,
+          "h6": 15.02,
+          "h1": 8.57,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -1.31,
+          "h6": -3.97,
+          "h24": -0.31
+        },
+        "liquidity": {
+          "usd": 9597.53,
+          "base": 93034,
+          "quote": 57.262
+        },
+        "fdv": 50348830,
+        "marketCap": 50348830,
+        "pairCreatedAt": 1703167204000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/53nb67rhfuyffd8byuqrnx1a5ro69aw14byeakqzzced",
+        "pairAddress": "53nb67RHfUyfFD8BYUQrnx1A5Ro69aw14bYEaKQzzCed",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006101",
+        "priceUsd": "0.05133",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 7
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 34
+          },
+          "h24": {
+            "buys": 29,
+            "sells": 50
+          }
+        },
+        "volume": {
+          "h24": 19.11,
+          "h6": 5.74,
+          "h1": 3.39,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -1.21,
+          "h6": -4.15,
+          "h24": 0.03
+        },
+        "liquidity": {
+          "usd": 7206.63,
+          "base": 81102,
+          "quote": 36.1723
+        },
+        "fdv": 50306208,
+        "marketCap": 50306208,
+        "pairCreatedAt": 1702701822000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/aishphdjxuhpo3zg2gt5avfdug3mpmf8dv8fbutvbrj6",
+        "pairAddress": "AishPhdJXUHpo3zg2gt5AVfdUg3MPmf8DV8FButvbRJ6",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+          "name": "dogwifhat",
+          "symbol": "$WIF"
+        },
+        "priceNative": "0.2647",
+        "priceUsd": "0.05041",
+        "txns": {
+          "m5": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 12,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 35,
+            "sells": 19
+          },
+          "h24": {
+            "buys": 101,
+            "sells": 90
+          }
+        },
+        "volume": {
+          "h24": 214.12,
+          "h6": 55.44,
+          "h1": 7.61,
+          "m5": 0.49
+        },
+        "priceChange": {
+          "m5": -0.2,
+          "h1": -3.03,
+          "h6": -5.72,
+          "h24": -3.05
+        },
+        "liquidity": {
+          "usd": 5075.07,
+          "base": 88410,
+          "quote": 3242.741
+        },
+        "fdv": 49406367,
+        "marketCap": 49406367,
+        "pairCreatedAt": 1724152719000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/82vnbma6vxm1a9twy54s1dyrcyegyzupqnn7ivlbvmtx",
+        "pairAddress": "82vnbMa6vxm1a9TWy54s1dYRCYeGYZUPQnn7iVLBvmtx",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.05059",
+        "priceUsd": "0.05059",
+        "txns": {
+          "m5": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 3,
+            "sells": 16
+          },
+          "h6": {
+            "buys": 11,
+            "sells": 46
+          },
+          "h24": {
+            "buys": 153,
+            "sells": 125
+          }
+        },
+        "volume": {
+          "h24": 5.15,
+          "h6": 2.12,
+          "h1": 0.86,
+          "m5": 0.01
+        },
+        "priceChange": {
+          "m5": 0.11,
+          "h1": -2.44,
+          "h6": -5.74,
+          "h24": -2.9
+        },
+        "liquidity": {
+          "usd": 835.41,
+          "base": 12559,
+          "quote": 199.9729
+        },
+        "fdv": 49579543,
+        "marketCap": 49579543,
+        "pairCreatedAt": 1710354634000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/d3krwddqniw7zmcf3blehszvntwce4ybxr86wrfwcjim",
+        "pairAddress": "D3kRWDdQniw7zMcf3BLeHSzVnTwcE4YbXr86WRFwCJiM",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "name": "Fartcoin ",
+          "symbol": "Fartcoin "
+        },
+        "priceNative": "0.2601",
+        "priceUsd": "0.05035",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 34,
+            "sells": 15
+          },
+          "h6": {
+            "buys": 58,
+            "sells": 51
+          },
+          "h24": {
+            "buys": 129,
+            "sells": 197
+          }
+        },
+        "volume": {
+          "h24": 595.39,
+          "h6": 209.04,
+          "h1": 89.13,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.6,
+          "h6": -5.28,
+          "h24": -3.11
+        },
+        "liquidity": {
+          "usd": 261.1,
+          "base": 2435.3214,
+          "quote": 715.5655
+        },
+        "fdv": 49344225,
+        "marketCap": 49344225,
+        "pairCreatedAt": 1765372085000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/3wyho5xjxfazgsxdwdkfhw84rh6kcgcqnsyg6whqypqo",
+        "pairAddress": "3WYho5XjXfAzGsXdwdkFHw84rH6kCGCQnSYg6wHqypQo",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006164",
+        "priceUsd": "0.05104",
+        "txns": {
+          "m5": {
+            "buys": 1,
+            "sells": 2
+          },
+          "h1": {
+            "buys": 2,
+            "sells": 5
+          },
+          "h6": {
+            "buys": 7,
+            "sells": 18
+          },
+          "h24": {
+            "buys": 41,
+            "sells": 53
+          }
+        },
+        "volume": {
+          "h24": 9328.26,
+          "h6": 2336.06,
+          "h1": 666.62,
+          "m5": 332.9
+        },
+        "priceChange": {
+          "m5": 0.51,
+          "h1": -2.89,
+          "h6": -5.43,
+          "h24": -2.81
+        },
+        "liquidity": {
+          "usd": 965.85,
+          "base": 9460.7471,
+          "quote": 5.8324
+        },
+        "fdv": 50021386,
+        "marketCap": 50021386,
+        "pairCreatedAt": 1732208945000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/43xbek8mztssdjfldrpr2muh5ayqjrvfb22y5rhvfo9c",
+        "pairAddress": "43xBeK8mZtssDjFLdrpr2muH5AYQJRVFb22y5rHvfo9C",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006139",
+        "priceUsd": "0.05208",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 4
+          },
+          "h24": {
+            "buys": 8,
+            "sells": 7
+          }
+        },
+        "volume": {
+          "h24": 1.32,
+          "h6": 0.36,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -2.39,
+          "h24": 0.42
+        },
+        "liquidity": {
+          "usd": 610.19,
+          "base": 10315,
+          "quote": 0.8593
+        },
+        "fdv": 51040532,
+        "marketCap": 51040532,
+        "pairCreatedAt": 1723699479000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/cyjg5pgm5hkrdnmszbujqfjpshvjqwusyffxytytayxv",
+        "pairAddress": "CyJG5PGm5hKrdnmszBUJQfjpSHVJqwUSYffXyTyTAyXv",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+          "name": "dogwifhat",
+          "symbol": "$WIF"
+        },
+        "priceNative": "0.2663",
+        "priceUsd": "0.05191",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 2,
+            "sells": 0
+          }
+        },
+        "volume": {
+          "h24": 0.88,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": 0.67
+        },
+        "liquidity": {
+          "usd": 634.58,
+          "base": 7032.06814,
+          "quote": 1382.5572
+        },
+        "fdv": 50878320,
+        "marketCap": 50878320,
+        "pairCreatedAt": 1705780241000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/dgfjkacfubdgfx3mhek1jkak9qx38splzm2wndgx2fd",
+        "pairAddress": "dgfJKacfubDGfX3mhEk1JKaK9qx38SpLzM2wNdgX2fD",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006155",
+        "priceUsd": "0.05063",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 3
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 4
+          },
+          "h24": {
+            "buys": 4,
+            "sells": 7
+          }
+        },
+        "volume": {
+          "h24": 2.28,
+          "h6": 0.71,
+          "h1": 0.57,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.53,
+          "h6": -4.74,
+          "h24": -2.21
+        },
+        "liquidity": {
+          "usd": 419.82,
+          "base": 4080.7264,
+          "quote": 2.5919
+        },
+        "fdv": 49616389,
+        "marketCap": 49616389,
+        "pairCreatedAt": 1723702482000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/6pvk1noagabjuwvhympmha2lo9cbfdhaawcbfeqr1r6y",
+        "pairAddress": "6PvK1noagaBjuWVhymPmHA2Lo9CBFdHAAwcbfeqR1R6Y",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump",
+          "name": "AI Rig Complex",
+          "symbol": "arc"
+        },
+        "priceNative": "0.6558",
+        "priceUsd": "0.05062",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 3
+          },
+          "h6": {
+            "buys": 8,
+            "sells": 11
+          },
+          "h24": {
+            "buys": 18,
+            "sells": 25
+          }
+        },
+        "volume": {
+          "h24": 8.36,
+          "h6": 4.26,
+          "h1": 0.69,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.51,
+          "h6": -6,
+          "h24": -4.59
+        },
+        "liquidity": {
+          "usd": 13.8,
+          "base": 174.2097,
+          "quote": 64.5944
+        },
+        "fdv": 49608875,
+        "marketCap": 49608875,
+        "pairCreatedAt": 1739450470000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/7bf74rrzcpal1gkc4hdc3yujuacwqhyz354xumzcyixi",
+        "pairAddress": "7BF74rRZCpAL1gkc4hdC3YUJuACwqhYz354XuMzcYixi",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.05083",
+        "priceUsd": "0.05083",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 4
+          },
+          "h24": {
+            "buys": 6,
+            "sells": 10
+          }
+        },
+        "volume": {
+          "h24": 0.82,
+          "h6": 0.31,
+          "h1": 0.18,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.72,
+          "h6": -3.41,
+          "h24": -1.7
+        },
+        "liquidity": {
+          "usd": 23.78,
+          "base": 234.6825,
+          "quote": 11.8547
+        },
+        "fdv": 49818233,
+        "marketCap": 49818233,
+        "pairCreatedAt": 1738945398000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/dehrwvta1npsrcvt7xnwoyxdegtpd4zstmeeb2qlgfjj",
+        "pairAddress": "DEHrWvTA1npSrcVt7xnWoyxdEgtpD4ZstmEeB2QLgFJj",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
+          "name": "Pippin",
+          "symbol": "pippin"
+        },
+        "priceNative": "1.6769",
+        "priceUsd": "0.05057",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 5
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 9
+          },
+          "h24": {
+            "buys": 13,
+            "sells": 17
+          }
+        },
+        "volume": {
+          "h24": 3.5,
+          "h6": 1.11,
+          "h1": 0.64,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.17,
+          "h6": -3.16,
+          "h24": -1.99
+        },
+        "liquidity": {
+          "usd": 56.57,
+          "base": 559.331,
+          "quote": 937.9525
+        },
+        "fdv": 49560141,
+        "marketCap": 49560141,
+        "pairCreatedAt": 1773350672000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/5osafblparf8ewj3benbeq9gadku4h9npknzmwee4nrk",
+        "pairAddress": "5osaFBLpaRf8EwJ3bENBeq9GaDkU4H9NpkNzmWEE4NRk",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "name": "Fartcoin ",
+          "symbol": "Fartcoin "
+        },
+        "priceNative": "0.2651",
+        "priceUsd": "0.05020",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 4,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 5,
+            "sells": 2
+          },
+          "h24": {
+            "buys": 6,
+            "sells": 13
+          }
+        },
+        "volume": {
+          "h24": 7.1,
+          "h6": 2.58,
+          "h1": 1.44,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.04,
+          "h6": -6.24,
+          "h24": -4.04
+        },
+        "liquidity": {
+          "usd": 11.93,
+          "base": 11.2846,
+          "quote": 60.03223
+        },
+        "fdv": 49197949,
+        "marketCap": 49197949,
+        "pairCreatedAt": 1775654428000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/5xyftel4v31yugoczxdq9ekgrbocdyt38mmlos6r2df1",
+        "pairAddress": "5XyfteL4v31yugoCZXDQ9EKGRboCDyT38MmLos6R2DF1",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+          "name": "dogwifhat",
+          "symbol": "$WIF"
+        },
+        "priceNative": "0.2633",
+        "priceUsd": "0.05208",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 4
+          }
+        },
+        "volume": {
+          "h24": 2.86,
+          "h6": 0.76,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -3.2,
+          "h24": 1.82
+        },
+        "liquidity": {
+          "usd": 55.62,
+          "base": 714.001998,
+          "quote": 93.2112
+        },
+        "fdv": 51038260,
+        "marketCap": 51038260,
+        "pairCreatedAt": 1736587349000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/cdmkjihzs467566tmftkjsyvmeqpedb9batqkjrjh1qp",
+        "pairAddress": "CDmKjihZS467566TMFtKjSYvMEQpEdB9baTQKjRjH1qP",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "name": "Fartcoin ",
+          "symbol": "Fartcoin "
+        },
+        "priceNative": "0.2641",
+        "priceUsd": "0.05027",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 3,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 3,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 4,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 3.41,
+          "h6": 1.77,
+          "h1": 1.77,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.43,
+          "h6": -3.43,
+          "h24": -4.05
+        },
+        "liquidity": {
+          "usd": 59.7,
+          "base": 799.3887,
+          "quote": 102.5484
+        },
+        "fdv": 49271179,
+        "marketCap": 49271179,
+        "pairCreatedAt": 1746943585000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/gszszmcywlcdmxexund4twdzhfjymy3dwjxnt6iucncz",
+        "pairAddress": "GSZszMcYWLCDmxEXuNd4TwDZhfJYMY3dwJXNT6iUCNcZ",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "name": "Fartcoin ",
+          "symbol": "Fartcoin "
+        },
+        "priceNative": "0.2625",
+        "priceUsd": "0.05029",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 2,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 2,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 3
+          }
+        },
+        "volume": {
+          "h24": 1.94,
+          "h6": 0.79,
+          "h1": 0.79,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -5.33,
+          "h6": -5.33,
+          "h24": -3.94
+        },
+        "liquidity": {
+          "usd": 27.64,
+          "base": 488.07745,
+          "quote": 16.165
+        },
+        "fdv": 49286390,
+        "marketCap": 49286390,
+        "pairCreatedAt": 1746292718000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/c91xehaaajhuj7fme3vurpqrmf15p3lrgqa3hjurxv9n",
+        "pairAddress": "C91xEhAaajhuj7Fme3VUrPqRmf15p3LrgQa3hJurxv9n",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "name": "Fartcoin ",
+          "symbol": "Fartcoin "
+        },
+        "priceNative": "0.2619",
+        "priceUsd": "0.04985",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 4
+          }
+        },
+        "volume": {
+          "h24": 0.62,
+          "h6": 0.24,
+          "h1": 0.11,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -6.75,
+          "h6": -5.03,
+          "h24": -4.24
+        },
+        "liquidity": {
+          "usd": 8.34,
+          "base": 118.2235,
+          "quote": 12.9026
+        },
+        "fdv": 48852229,
+        "marketCap": 48852229,
+        "pairCreatedAt": 1742212309000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/3vldppjqcchasnjnp8gjxx3q6wx9cujxadhrsyimk16z",
+        "pairAddress": "3vLdPpJQcCHASNJnp8gJXx3Q6Wx9cUjXadhRSyimk16z",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "EHmZM5QD7NFpu6hm3o8yYSA6EhYYunHL21fzN2ucpump",
+          "name": "Coinomi wallet$",
+          "symbol": "Coinomi"
+        },
+        "quoteToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "priceNative": "0.02164",
+        "priceUsd": "0.001093",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 24,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 28,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 132,
+            "sells": 62
+          }
+        },
+        "volume": {
+          "h24": 1050.36,
+          "h6": 198.6,
+          "h1": 179.87,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.26,
+          "h6": -2.68,
+          "h24": -0.05
+        },
+        "liquidity": {
+          "usd": 75160.39,
+          "base": 34520911,
+          "quote": 740440
+        },
+        "fdv": 1093476,
+        "marketCap": 1093476,
+        "pairCreatedAt": 1763716112000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/5vngkfrrf74x5t8ghkmuywafyc98f6e6wc2k1yjkmuvm",
+        "pairAddress": "5vNGkfrRf74x5t8ghKMuYWaFYC98F6e6WC2K1yjkmuVM",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr",
+          "name": "SPX6900 (Wormhole)",
+          "symbol": "SPX"
+        },
+        "quoteToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "priceNative": "6.1450",
+        "priceUsd": "0.3093",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 11
+          },
+          "h6": {
+            "buys": 8,
+            "sells": 20
+          },
+          "h24": {
+            "buys": 103,
+            "sells": 143
+          }
+        },
+        "volume": {
+          "h24": 170.4,
+          "h6": 38.11,
+          "h1": 17.11,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -5.48,
+          "h6": -7.96,
+          "h24": -6.85
+        },
+        "liquidity": {
+          "usd": 4343.1,
+          "base": 7019.5753,
+          "quote": 43135
+        },
+        "fdv": 38808468,
+        "marketCap": 38808468,
+        "pairCreatedAt": 1716313317000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/4bb3c10a18160c945786d4bd3a990ddf2134fbc456524a476a70531776446b5e?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/1ef2b874a14887be29f1ab0b00fbb3f5f98d39404b0c3ebb7225ed1b6e36557d?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.spx6900.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/spx6900",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/SPX6900Portal",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/6ow2zcj2jwh8mpt6ykwtuys5kgfpsvm9jdcxbpsv8nin",
+        "pairAddress": "6oW2zcJ2jWH8mpt6YKwtUYS5KGfPSVm9Jdcxbpsv8NiN",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump",
+          "name": "FWOG",
+          "symbol": "FWOG"
+        },
+        "quoteToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "priceNative": "0.09766",
+        "priceUsd": "0.005102",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 5,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 5,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 22.62,
+          "h6": 17.57,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 4.84,
+          "h24": 4.84
+        },
+        "liquidity": {
+          "usd": 2226.88,
+          "base": 413695,
+          "quote": 2221.5273
+        },
+        "fdv": 4977972,
+        "marketCap": 4977972,
+        "pairCreatedAt": 1726521257000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/ceccc0a74f91ec3a5f6162005af09d1f6e8bdbdd6a55f49e43ac8b217b6ec8bd?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/843e06d17fd1f9dafbc162493e6dc679671ac501dac413be79e9870eaf49544a?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://itsafwog.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/itsafwog",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/justfwogs",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/2gadeletqzfesecp4wftpg5c6etdsoh6g5nkew4q2apk",
+        "pairAddress": "2gaDELeTQzFeSECP4WftpG5C6eTDSoH6G5nkew4q2apk",
+        "labels": [
+          "DYN2"
+        ],
+        "baseToken": {
+          "address": "DYjZvo3k77xjKMp61FjxXdAkbvEMzAVxfLQEGgUkpump",
+          "name": "Raccoon with Glasses",
+          "symbol": "COON"
+        },
+        "quoteToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "priceNative": "0.002926",
+        "priceUsd": "0.0001503",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 6,
+            "sells": 2
+          },
+          "h6": {
+            "buys": 14,
+            "sells": 20
+          },
+          "h24": {
+            "buys": 69,
+            "sells": 96
+          }
+        },
+        "volume": {
+          "h24": 181.26,
+          "h6": 36.94,
+          "h1": 9.9,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": 0.36,
+          "h6": -3.72,
+          "h24": -12.17
+        },
+        "liquidity": {
+          "usd": 1030.57,
+          "base": 3424332,
+          "quote": 10035
+        },
+        "fdv": 150379,
+        "marketCap": 150379,
+        "pairCreatedAt": 1775702630000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/5f827e1b8bf3fd905a09b8b5b5e4d8e7a6b6f688032fdaaff3f55f8f930c7c36?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/ab32b0637f50b0318503dab1b9480190c47cc6c9c19e9e2202f62dc25a4ae29e?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/DYjZvo3k77xjKMp61FjxXdAkbvEMzAVxfLQEGgUkpump?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.youtube.com/channel/UCKN-eQcZOlusp-WgaxavhKQ",
+              "label": "YouTube"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/bopscoon",
+              "type": "twitter"
+            },
+            {
+              "url": "https://discord.gg/qMpJUetE",
+              "type": "discord"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/f8uvydc6fexhrfzwrdekkstbm39kb4sdmjmzxb7rcgrb",
+        "pairAddress": "F8UVYdc6FexhRFZwrDEKKSTBm39Kb4SdmjMZXb7rcgrb",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
+          "name": "Goatseus Maximus",
+          "symbol": "GOAT"
+        },
+        "quoteToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "priceNative": "0.3362",
+        "priceUsd": "0.01783",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 15,
+            "sells": 8
+          }
+        },
+        "volume": {
+          "h24": 19.36,
+          "h6": 0.44,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -2.79,
+          "h24": 2.97
+        },
+        "liquidity": {
+          "usd": 752.65,
+          "base": 19549,
+          "quote": 7616.7897
+        },
+        "fdv": 17834305,
+        "marketCap": 17834305,
+        "pairCreatedAt": 1729032893000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/e857505d98436d21d13451a83c93ff4db36d0b53829af8070ddae75845d9b459?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/10b541bd45a02adfb2b90aaa4dd2e9f68097bdbfa5d208e491e6d8cf81c0b434?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://goatchan.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/truth_terminal",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/GoatseusMaximusSolanaPortal",
+              "type": "telegram"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/6cevckpvh3upugm8yirtuvmju7zazxacuwpugkdwb4wn",
+        "pairAddress": "6CevCKPvH3upUgM8yirtuvMJu7zaZXacuWPUGkdwb4wn",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "CPcf58MNikQw2G23kTVWQevRDeFDpdxMH7KkR7Lhpump",
+          "name": "DOBBY",
+          "symbol": "DOBBY"
+        },
+        "quoteToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "priceNative": "0.002736",
+        "priceUsd": "0.0001369",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 4,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 8,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 9,
+            "sells": 5
+          }
+        },
+        "volume": {
+          "h24": 8.17,
+          "h6": 4.54,
+          "h1": 2.87,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.56,
+          "h6": -4.94,
+          "h24": -1.59
+        },
+        "liquidity": {
+          "usd": 847.38,
+          "base": 3093758,
+          "quote": 8467.03603
+        },
+        "fdv": 136916,
+        "marketCap": 136916,
+        "pairCreatedAt": 1729540156000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/033754157736f4f144638f2f7bda9b9d15e68081dbaa62b3a1e6177751f17f52?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/cf2327d3c1999e90e1913bfd9d39a36b3c964189ff8f2d3e39b7552bb09fbdda?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/CPcf58MNikQw2G23kTVWQevRDeFDpdxMH7KkR7Lhpump?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://dobby.webby.fun/",
+              "label": "Website"
+            },
+            {
+              "url": "https://www.instagram.com/dobbyxcoin/",
+              "label": "IG"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/Dobby_Coin",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/Dobby_Coin",
+              "type": "telegram"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "gmgn_data": {
+    "token_address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+    "chain": "sol",
+    "token_stats": {
+      "token_address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+      "chain": "sol",
+      "name": "Popcat",
+      "symbol": "POPCAT",
+      "price": 0.05038,
+      "market_cap": 49374075.0,
+      "volume_24h": 171786.91,
+      "liquidity": 3202425.41,
+      "holders": null,
+      "transactions": 1168,
+      "price_change_24h": -3.35,
+      "created_at": 1702415044000,
+      "raw_data": {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/frhb8l7y9qq41qzxyltc2nw8an1rjfllxrf2x9rwllmo",
+        "pairAddress": "FRhB8L7Y9Qq41qZXYLtC2nw8An1RJfLLxRF2x9RwLLMo",
+        "baseToken": {
+          "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "name": "Popcat",
+          "symbol": "POPCAT"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.0006088",
+        "priceUsd": "0.05038",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 11
+          },
+          "h1": {
+            "buys": 19,
+            "sells": 91
+          },
+          "h6": {
+            "buys": 56,
+            "sells": 239
+          },
+          "h24": {
+            "buys": 600,
+            "sells": 568
+          }
+        },
+        "volume": {
+          "h24": 171786.91,
+          "h6": 30867.11,
+          "h1": 8352.17,
+          "m5": 832.59
+        },
+        "priceChange": {
+          "m5": -0.26,
+          "h1": -2.83,
+          "h6": -5.41,
+          "h24": -3.35
+        },
+        "liquidity": {
+          "usd": 3202425.41,
+          "base": 31741703,
+          "quote": 19373
+        },
+        "fdv": 49374075,
+        "marketCap": 49374075,
+        "pairCreatedAt": 1702415044000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/b81e914266494074d233b1b88a8983d7e724951f67d82baebbeb943efe1f5da2?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/92fb884d963db4358ca46636bf7260a0438e70a4a043e9f557f95e9dd2255f5b?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr?timestamp=1775960700000",
+          "websites": [
+            {
+              "url": "https://www.popcatsolana.xyz/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/POPCATSOLANA/",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/popcatsolana",
+              "type": "telegram"
+            }
+          ]
+        }
+      }
+    },
+    "status": "success"
+  },
+  "safety_data": {
+    "token_address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+    "chain": "sol",
+    "overall_risk_score": 1,
+    "risk_level": "LOW",
+    "is_honeypot": null,
+    "is_mintable": null,
+    "is_open_source": null,
+    "ownership_renounced": null,
+    "liquidity_locked": true,
+    "lock_remaining_days": 0,
+    "liquidity_usd": 0.0,
+    "holder_count": 0,
+    "top_10_holder_pct": 0.0,
+    "dev_wallet_pct": 0.0,
+    "smart_money_flow": "neutral"
+  },
+  "twitter_data": {
+    "query": "(\"$POPCAT\" OR \"#POPCAT\") OR \"Popcat\" OR \"7GCihgDB...YmW2hr\"",
+    "query_type": "Latest",
+    "total_tweets": 20,
+    "status": "success",
+    "error": null,
+    "tweets": [
+      {
+        "id": "2043147990274056393",
+        "text": "Grab the dips 👀 \n\n$bnb \n$wif $popcat $doge $shib \n\nGet aggressive go for it. \n\nSomething gives me a feeling 🏴‍☠️ https://t.co/EErj96uD0T",
+        "url": "https://x.com/snipersback/status/2043147990274056393",
+        "createdAt": "Sun Apr 12 02:03:35 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 39,
+        "author": {
+          "userName": "snipersback",
+          "name": "Sniper Trades 🏴‍☠️",
+          "id": "1916985243661377536",
+          "isBlueVerified": false,
+          "followers": 248,
+          "following": 1008,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043131164035002786",
+        "text": "It's crazy how coiled $DOGE looks\n\nWouldn't be suprised to see 20% daily candles very soon\n\n$POPCAT looking ready for the poppening too",
+        "url": "https://x.com/Enma_888/status/2043131164035002786",
+        "createdAt": "Sun Apr 12 00:56:43 +0000 2026",
+        "likeCount": 3,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 62,
+        "author": {
+          "userName": "Enma_888",
+          "name": "Enma",
+          "id": "1445451791550672903",
+          "isBlueVerified": false,
+          "followers": 366,
+          "following": 491,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043106869947117711",
+        "text": "@SamuraiTakedown my popcat trade wasn't actually that far off of this 🤮",
+        "url": "https://x.com/boobs_scary/status/2043106869947117711",
+        "createdAt": "Sat Apr 11 23:20:11 +0000 2026",
+        "likeCount": 2,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 26,
+        "author": {
+          "userName": "boobs_scary",
+          "name": "scaredofboobs🪲",
+          "id": "1501001317329694720",
+          "isBlueVerified": true,
+          "followers": 10865,
+          "following": 5726,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043092503465775367",
+        "text": "$POPDOG Global click battle is getting real. Plus the Popcat creator is already claiming. This will go parabolic.\n\nRepresent your country here https://t.co/qGDQnhtpX9 don’t let your country fall behind.\n\n2DhnGmwu14KHLBxhKcvLR9XV4uZ6DzQJtducmtbzBAGS https://t.co/yHKW9bSXVk",
+        "url": "https://x.com/EDJ_Crypto/status/2043092503465775367",
+        "createdAt": "Sat Apr 11 22:23:06 +0000 2026",
+        "likeCount": 5,
+        "retweetCount": 2,
+        "replyCount": 2,
+        "viewCount": 172,
+        "author": {
+          "userName": "EDJ_Crypto",
+          "name": "ED",
+          "id": "1793653901293412352",
+          "isBlueVerified": true,
+          "followers": 223,
+          "following": 412,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043089694771089918",
+        "text": "Refund landed so I grabbed more $popcat  https://t.co/LlxxUB7JcH",
+        "url": "https://x.com/efthiss/status/2043089694771089918",
+        "createdAt": "Sat Apr 11 22:11:56 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 51,
+        "viewCount": 213,
+        "author": {
+          "userName": "efthiss",
+          "name": "εv",
+          "id": "2968312606",
+          "isBlueVerified": false,
+          "followers": 106,
+          "following": 379,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043089412565635128",
+        "text": "It's a kind of #giveaway, but it is also much more. It's celebration of 2 years of $michi. I am looking also at other cats like $popcat $nub $afk, and I am sure we will all make it.",
+        "url": "https://x.com/Matej221_/status/2043089412565635128",
+        "createdAt": "Sat Apr 11 22:10:49 +0000 2026",
+        "likeCount": 4,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 54,
+        "author": {
+          "userName": "Matej221_",
+          "name": "Matej221",
+          "id": "1503506569417445387",
+          "isBlueVerified": true,
+          "followers": 1065,
+          "following": 1810,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043087073729454145",
+        "text": "@athena_ying @100xgemfinder They are. People are underestimating cats like popcat and michi!",
+        "url": "https://x.com/Matej221_/status/2043087073729454145",
+        "createdAt": "Sat Apr 11 22:01:31 +0000 2026",
+        "likeCount": 2,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 33,
+        "author": {
+          "userName": "Matej221_",
+          "name": "Matej221",
+          "id": "1503506569417445387",
+          "isBlueVerified": true,
+          "followers": 1065,
+          "following": 1810,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043084013800427705",
+        "text": "so the creator of $popcat claimed fees for the @BagsApp $popdog and it’s sitting at $20k mc and no one is talking about it?",
+        "url": "https://x.com/CcommissionerX/status/2043084013800427705",
+        "createdAt": "Sat Apr 11 21:49:22 +0000 2026",
+        "likeCount": 12,
+        "retweetCount": 7,
+        "replyCount": 1,
+        "viewCount": 813,
+        "author": {
+          "userName": "CcommissionerX",
+          "name": "CryptoCommissioner",
+          "id": "15788157",
+          "isBlueVerified": true,
+          "followers": 38270,
+          "following": 6835,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043079360119226520",
+        "text": "Tag every BAGS workers on posts guys. Let them see $POPDOG 😮🐶\n\nThis dog will POP To BILLIONS.\n\nTiktok guy claimed the fee! He is owner of $POPCAT, he got nothing from the cat lol.. \n\nNow on $POPDOG 🐶\n\nhttps://t.co/2iK7W9vv01\n\n@BagsApp @BagsHackathon @finnbags @Sambags12 @BNNBags",
+        "url": "https://x.com/CYblazied/status/2043079360119226520",
+        "createdAt": "Sat Apr 11 21:30:52 +0000 2026",
+        "likeCount": 14,
+        "retweetCount": 8,
+        "replyCount": 1,
+        "viewCount": 284,
+        "author": {
+          "userName": "CYblazied",
+          "name": "Aizen",
+          "id": "1322220173827461120",
+          "isBlueVerified": true,
+          "followers": 2110,
+          "following": 4287,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043074116626854073",
+        "text": "Popcat and @elonmusk salute you. https://t.co/qfmwHX3Wct",
+        "url": "https://x.com/Flame93np/status/2043074116626854073",
+        "createdAt": "Sat Apr 11 21:10:02 +0000 2026",
+        "likeCount": 7,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 165,
+        "author": {
+          "userName": "Flame93np",
+          "name": "Flame",
+          "id": "1454125894730231809",
+          "isBlueVerified": true,
+          "followers": 1801,
+          "following": 3792,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043073310120890652",
+        "text": "Hi sir, Popcat II mission is ready for activation https://t.co/TAZcDR8W66",
+        "url": "https://x.com/Fujimperor/status/2043073310120890652",
+        "createdAt": "Sat Apr 11 21:06:50 +0000 2026",
+        "likeCount": 4,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 81,
+        "author": {
+          "userName": "Fujimperor",
+          "name": "V",
+          "id": "1973879449147092997",
+          "isBlueVerified": false,
+          "followers": 4,
+          "following": 10,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043070962892181595",
+        "text": "@100xgemfinder Dogwifhat &amp; Popcat are from the end of 2023 🙏",
+        "url": "https://x.com/athena_ying/status/2043070962892181595",
+        "createdAt": "Sat Apr 11 20:57:30 +0000 2026",
+        "likeCount": 4,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 291,
+        "author": {
+          "userName": "athena_ying",
+          "name": "athena",
+          "id": "1631849779746701312",
+          "isBlueVerified": false,
+          "followers": 795,
+          "following": 1736,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043069785404055739",
+        "text": "Popcat to the moon. Bond it ladies",
+        "url": "https://x.com/Flame93np/status/2043069785404055739",
+        "createdAt": "Sat Apr 11 20:52:49 +0000 2026",
+        "likeCount": 3,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 69,
+        "author": {
+          "userName": "Flame93np",
+          "name": "Flame",
+          "id": "1454125894730231809",
+          "isBlueVerified": true,
+          "followers": 1801,
+          "following": 3792,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043067654764626259",
+        "text": "two years ago - april 2024 was the slowest month for memecoins. all hope was lost. the timeline was drier than ever. then may 2024 dogwifhat launched, popcat launched, and we saw a generational run for memecoins that lead to a two year supercycle where we saw billion dollar runners galore and life changing money being made.\n\nmemecoin may is a real thing, and i believe that history will repeat itself. exciting times ahead!",
+        "url": "https://x.com/100xgemfinder/status/2043067654764626259",
+        "createdAt": "Sat Apr 11 20:44:21 +0000 2026",
+        "likeCount": 87,
+        "retweetCount": 7,
+        "replyCount": 14,
+        "viewCount": 4336,
+        "author": {
+          "userName": "100xgemfinder",
+          "name": "100x",
+          "id": "1330270220838170628",
+          "isBlueVerified": true,
+          "followers": 100720,
+          "following": 177,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043067584187371808",
+        "text": "popcat - lobstar fractal anyone? https://t.co/VfKI7aF1ps",
+        "url": "https://x.com/tradirboi/status/2043067584187371808",
+        "createdAt": "Sat Apr 11 20:44:05 +0000 2026",
+        "likeCount": 24,
+        "retweetCount": 2,
+        "replyCount": 1,
+        "viewCount": 1684,
+        "author": {
+          "userName": "tradirboi",
+          "name": "enjoyer (you wouldnt get it)",
+          "id": "1388585790968516608",
+          "isBlueVerified": true,
+          "followers": 512,
+          "following": 752,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043067126102266299",
+        "text": "Spring cleaning the portfolio. Just dumped my $POPCAT bag for ~0.117 SOL. Held it for over two weeks but the cat meta is flatlining. Walking away with a clean break-even. Capital is ammo. 🐈🔫 #Solana",
+        "url": "https://x.com/VibeCoderChris/status/2043067126102266299",
+        "createdAt": "Sat Apr 11 20:42:15 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 19,
+        "author": {
+          "userName": "VibeCoderChris",
+          "name": "Chris | Solana Command Center",
+          "id": "2025240921043054592",
+          "isBlueVerified": false,
+          "followers": 8,
+          "following": 12,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043065631734391190",
+        "text": "Lore is good but that ticker is dope. Send popcat.",
+        "url": "https://x.com/Flame93np/status/2043065631734391190",
+        "createdAt": "Sat Apr 11 20:36:19 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 81,
+        "author": {
+          "userName": "Flame93np",
+          "name": "Flame",
+          "id": "1454125894730231809",
+          "isBlueVerified": true,
+          "followers": 1801,
+          "following": 3792,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043063042775072901",
+        "text": "while the algo quietly quarantines ct its also amplifying the cat prophecy onto the world\n\nas foretold. accumulate. enjoy life\n\nCATS. POPCAT. EVERYONE.. https://t.co/6SOKTHv5Pm",
+        "url": "https://x.com/Fu11io/status/2043063042775072901",
+        "createdAt": "Sat Apr 11 20:26:02 +0000 2026",
+        "likeCount": 20,
+        "retweetCount": 3,
+        "replyCount": 2,
+        "viewCount": 230,
+        "author": {
+          "userName": "Fu11io",
+          "name": "Fu11io",
+          "id": "1432384113319759881",
+          "isBlueVerified": false,
+          "followers": 1234,
+          "following": 1776,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043058537006534739",
+        "text": "@degengambleh Pengu wif popcat fartcoin",
+        "url": "https://x.com/infomohitkhanna/status/2043058537006534739",
+        "createdAt": "Sat Apr 11 20:08:08 +0000 2026",
+        "likeCount": 2,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 53,
+        "author": {
+          "userName": "infomohitkhanna",
+          "name": "MOHIT KHANNA",
+          "id": "1642156996890710017",
+          "isBlueVerified": false,
+          "followers": 235,
+          "following": 400,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043058494572761547",
+        "text": "5xkpiowtpfDoZtncGtp375wNBXbVJSEDavyrMBaYpump   THIS ONE MAKES MOST SENSE + THIS IS OG JUST A CAT\n\nBCOZ ITS PIC OF POPCAT WITHOUT POP WHICH WENT 2.5B ATH\n\nSAME WITH JUST A DOG ITS WIF",
+        "url": "https://x.com/dizzyy093/status/2043058494572761547",
+        "createdAt": "Sat Apr 11 20:07:57 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 6,
+        "author": {
+          "userName": "dizzyy093",
+          "name": "cortexsw",
+          "id": "2024553319411437568",
+          "isBlueVerified": false,
+          "followers": 1,
+          "following": 2,
+          "description": ""
+        },
+        "lang": "en"
+      }
+    ]
+  }
+}

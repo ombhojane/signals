@@ -1,0 +1,2408 @@
+{
+  "token_address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+  "chain": "sol",
+  "fetched_at": "2026-04-12T02:22:01.662927+00:00",
+  "dex_data": {
+    "schemaVersion": "1.0.0",
+    "pairs": [
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/g2fie1yn9n9zjx5e1e2lxxmnhvb1h3hcuhlpfkj98sma",
+        "pairAddress": "G2FiE1yn9N9ZJx5e1E2LxxMnHvb1H3hCuHLPfKJ98smA",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+          "name": "Jito Staked SOL",
+          "symbol": "JitoSOL"
+        },
+        "priceNative": "0.002809",
+        "priceUsd": "0.2963",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h1": {
+            "buys": 48,
+            "sells": 13
+          },
+          "h6": {
+            "buys": 167,
+            "sells": 85
+          },
+          "h24": {
+            "buys": 415,
+            "sells": 653
+          }
+        },
+        "volume": {
+          "h24": 120205.14,
+          "h6": 36294.09,
+          "h1": 22191.34,
+          "m5": 23.22
+        },
+        "priceChange": {
+          "m5": 0.58,
+          "h1": -2.37,
+          "h6": -3.16,
+          "h24": -1.37
+        },
+        "liquidity": {
+          "usd": 730590.52,
+          "base": 1449863,
+          "quote": 2853.874
+        },
+        "fdv": 296309804,
+        "marketCap": 135538747,
+        "pairCreatedAt": 1701918160000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/4uvvsvdeth9mxppe4nwwzsexpd2bqqdm4xvajsve3dxw",
+        "pairAddress": "4UVvSVdeth9mxpPe4nwwZseXPd2bqqDm4xVaJSve3DXw",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+          "name": "Jito Staked SOL",
+          "symbol": "JitoSOL"
+        },
+        "priceNative": "0.002785",
+        "priceUsd": "0.3050",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 14
+          }
+        },
+        "volume": {
+          "h24": 235.29,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": 1.66
+        },
+        "liquidity": {
+          "usd": 66712.32,
+          "base": 106737,
+          "quote": 311.7503
+        },
+        "fdv": 305080242,
+        "marketCap": 139550542,
+        "pairCreatedAt": 1701883605000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/jvoptwwdsrclvqosu5fwc2canf6jetjzbxdptceuvzo",
+        "pairAddress": "JVoPtWWDsRcLvQosu5fWc2CaNF6jEtJzbxdPtcEuvZo",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003577",
+        "priceUsd": "0.2944",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 7,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 7,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 19,
+            "sells": 43
+          }
+        },
+        "volume": {
+          "h24": 1001.71,
+          "h6": 44.86,
+          "h1": 44.86,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -4.22,
+          "h6": -4.22,
+          "h24": -2.11
+        },
+        "liquidity": {
+          "usd": 55129.54,
+          "base": 117043,
+          "quote": 251.09076
+        },
+        "fdv": 294461857,
+        "marketCap": 134693455,
+        "pairCreatedAt": 1723705207000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/2uhfnysoji6c89aydgags7zremo2dbkfrhvsjqdx4ghj",
+        "pairAddress": "2UhFnySoJi6c89aydGAGS7ZRemo2dbkFRhvSJqDX4gHJ",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003592",
+        "priceUsd": "0.2945",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 21,
+            "sells": 10
+          },
+          "h6": {
+            "buys": 63,
+            "sells": 47
+          },
+          "h24": {
+            "buys": 158,
+            "sells": 223
+          }
+        },
+        "volume": {
+          "h24": 3747.7,
+          "h6": 1440.16,
+          "h1": 852.57,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.04,
+          "h6": -3.43,
+          "h24": -2.6
+        },
+        "liquidity": {
+          "usd": 20713.48,
+          "base": 40061,
+          "quote": 108.7174
+        },
+        "fdv": 294537337,
+        "marketCap": 134727981,
+        "pairCreatedAt": 1701901119000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/93mjuknkxazkmgs3gbx2gj2bttejjuyi7nyeydhdhsc2",
+        "pairAddress": "93MjUKNKxazKmgS3GBX2Gj2BttEjJUyi7NYeyDHdHSc2",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.2934",
+        "priceUsd": "0.2934",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 16
+          },
+          "h6": {
+            "buys": 3,
+            "sells": 16
+          },
+          "h24": {
+            "buys": 32,
+            "sells": 17
+          }
+        },
+        "volume": {
+          "h24": 246.48,
+          "h6": 186.84,
+          "h1": 180.42,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -4.42,
+          "h6": -4.32,
+          "h24": -2.02
+        },
+        "liquidity": {
+          "usd": 20134.89,
+          "base": 25400,
+          "quote": 12682
+        },
+        "fdv": 293414220,
+        "marketCap": 134214242,
+        "pairCreatedAt": 1701883697000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/j9mz7bacwmutrvq5dgcajmvfiq4aymdq5djwgbgnftai",
+        "pairAddress": "J9mZ7bACwmutrVq5DgcAjMVFiq4AyMDq5DjwGBgNFtai",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+          "name": "Jito Staked SOL",
+          "symbol": "JitoSOL"
+        },
+        "priceNative": "0.002832",
+        "priceUsd": "0.3029",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 0
+          }
+        },
+        "volume": {
+          "h24": 3.97,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {},
+        "liquidity": {
+          "usd": 19169.47,
+          "base": 32151,
+          "quote": 88.1746
+        },
+        "fdv": 298854855,
+        "marketCap": 138570386,
+        "pairCreatedAt": 1703167204000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/eqv1tjgklfeh4gigy8vqkxf4njbhtgr5cgmkg6cpvy4z",
+        "pairAddress": "Eqv1tJGkLFeH4giGy8vqKxF4NJBHtGR5cGmKG6cpVy4Z",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.2975",
+        "priceUsd": "0.2975",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 15,
+            "sells": 16
+          },
+          "h6": {
+            "buys": 41,
+            "sells": 50
+          },
+          "h24": {
+            "buys": 142,
+            "sells": 125
+          }
+        },
+        "volume": {
+          "h24": 624.78,
+          "h6": 218.75,
+          "h1": 98.8,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.47,
+          "h6": -2.22,
+          "h24": -1.73
+        },
+        "liquidity": {
+          "usd": 4658.1,
+          "base": 12288,
+          "quote": 1001.2955
+        },
+        "fdv": 297574448,
+        "marketCap": 136117224,
+        "pairCreatedAt": 1706213758000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/gzcp3anutd15zryaf1racombkxvcckvxyywvdaedqkki",
+        "pairAddress": "GZcP3ANuTD15ZrYaF1RacomBKXVCCKvXYyWVDaEDqkKi",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003589",
+        "priceUsd": "0.2951",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h6": {
+            "buys": 6,
+            "sells": 5
+          },
+          "h24": {
+            "buys": 41,
+            "sells": 21
+          }
+        },
+        "volume": {
+          "h24": 2106.68,
+          "h6": 476.14,
+          "h1": 0.84,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3,
+          "h6": -3.35,
+          "h24": -1.77
+        },
+        "liquidity": {
+          "usd": 4120.02,
+          "base": 9005.7556,
+          "quote": 17.7758
+        },
+        "fdv": 295159875,
+        "marketCap": 135012744,
+        "pairCreatedAt": 1721504448000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/catwalaaexjs1rk8vjb1uonwuc42rqsvwcn1a6bmdqxs",
+        "pairAddress": "CATwaLAaExjs1Rk8vjB1UoNwUC42rQsvWCN1A6BmDqxS",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "name": "Bonk",
+          "symbol": "Bonk"
+        },
+        "priceNative": "52152.8397",
+        "priceUsd": "0.2972",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 16,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 33,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 51,
+            "sells": 36
+          }
+        },
+        "volume": {
+          "h24": 81.84,
+          "h6": 36.73,
+          "h1": 14.66,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -3.04,
+          "h6": -2.64,
+          "h24": -0.41
+        },
+        "liquidity": {
+          "usd": 1995.7,
+          "base": 3003.5086,
+          "quote": 193536193
+        },
+        "fdv": 297225094,
+        "marketCap": 135957421,
+        "pairCreatedAt": 1701968411000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/awbhvnxf5x5hnbc1jaqrj7stx5xlug97xdjj9pny1h65",
+        "pairAddress": "AwBhvNXf5X5hNbC1jAqrJ7Stx5xLuG97xDjJ9PNy1h65",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.2959",
+        "priceUsd": "0.2959",
+        "txns": {
+          "m5": {
+            "buys": 2,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 3,
+            "sells": 10
+          },
+          "h6": {
+            "buys": 7,
+            "sells": 18
+          },
+          "h24": {
+            "buys": 55,
+            "sells": 52
+          }
+        },
+        "volume": {
+          "h24": 14.28,
+          "h6": 5.71,
+          "h1": 3.58,
+          "m5": 0.26
+        },
+        "priceChange": {
+          "m5": 0.32,
+          "h1": -2.51,
+          "h6": -2.8,
+          "h24": -2.1
+        },
+        "liquidity": {
+          "usd": 1285.93,
+          "base": 1787.7992,
+          "quote": 756.7837
+        },
+        "fdv": 295976515,
+        "marketCap": 135386293,
+        "pairCreatedAt": 1701898859000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/ezlbvty6gwdz5bgjnkdzggyrmzm1plkcxdviqrx5fsl1",
+        "pairAddress": "EzLBvtY6gwdz5BGJnKDZGgYrMzm1PLKcxdViqRx5fSL1",
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003576",
+        "priceUsd": "0.2962",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h1": {
+            "buys": 8,
+            "sells": 20
+          },
+          "h6": {
+            "buys": 22,
+            "sells": 35
+          },
+          "h24": {
+            "buys": 67,
+            "sells": 100
+          }
+        },
+        "volume": {
+          "h24": 10911.32,
+          "h6": 1194.92,
+          "h1": 1193.46,
+          "m5": 0.1
+        },
+        "priceChange": {
+          "m5": 0.79,
+          "h1": -2.51,
+          "h6": -3.15,
+          "h24": -2.01
+        },
+        "liquidity": {
+          "usd": 167.37,
+          "base": 282.3385,
+          "quote": 1.01098
+        },
+        "fdv": 296230511,
+        "marketCap": 135502477,
+        "pairCreatedAt": 1708298593000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/6pn9vbghf9f31iiwudunjtwawyst9wwmh3oxqzubv9zz",
+        "pairAddress": "6pn9VbgHf9F31iiwUDuNJTWawYSt9Wwmh3oXqZubv9zZ",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003998",
+        "priceUsd": "0.3314",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h1": {
+            "buys": 7,
+            "sells": 7
+          },
+          "h6": {
+            "buys": 19,
+            "sells": 17
+          },
+          "h24": {
+            "buys": 57,
+            "sells": 66
+          }
+        },
+        "volume": {
+          "h24": 11799.98,
+          "h6": 0.73,
+          "h1": 0.24,
+          "m5": 0.15
+        },
+        "priceChange": {
+          "m5": 0.46,
+          "h1": -2.59,
+          "h6": -3.26,
+          "h24": 0.77
+        },
+        "liquidity": {
+          "usd": 147.62,
+          "base": 222.7089,
+          "quote": 0.8904
+        },
+        "fdv": 331430385,
+        "marketCap": 151603688,
+        "pairCreatedAt": 1751541093000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/2x6odcyfpwqogtmxbbtahhmqaseffdapddpitjbgzphq",
+        "pairAddress": "2x6oDcyFpWqogTMxbbTAHHMqAsefFdApDdpiTJbgzPHQ",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003547",
+        "priceUsd": "0.3034",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 4,
+            "sells": 9
+          }
+        },
+        "volume": {
+          "h24": 1.6,
+          "h6": 0.19,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -0.72,
+          "h24": -0.69
+        },
+        "liquidity": {
+          "usd": 1257.77,
+          "base": 1893.07174,
+          "quote": 7.9907
+        },
+        "fdv": 303423609,
+        "marketCap": 138792761,
+        "pairCreatedAt": 1701883777000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/69pzkiukgfrhj2ezgnfzbzqs9czo131htvqrh4l1azjv",
+        "pairAddress": "69pZkiUKgFrHj2EzGnFZbZQs9czo131hTVqrh4L1azjv",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003546",
+        "priceUsd": "0.3030",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 2,
+            "sells": 3
+          }
+        },
+        "volume": {
+          "h24": 0.73,
+          "h6": 0.05,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 0.74,
+          "h24": -0.86
+        },
+        "liquidity": {
+          "usd": 348.21,
+          "base": 683.3394,
+          "quote": 1.6522
+        },
+        "fdv": 303002750,
+        "marketCap": 138600250,
+        "pairCreatedAt": 1759995018000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/7vvpc1pgvcnjhzkw9rymary4cytkskhcnwxjzbcrwcg6",
+        "pairAddress": "7VVpc1pgVCnJHzKW9ryMaRy4cytkSkhcNwXjzBCRwcG6",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+          "name": "Raydium",
+          "symbol": "RAY"
+        },
+        "priceNative": "0.4686",
+        "priceUsd": "0.3067",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 7,
+            "sells": 0
+          }
+        },
+        "volume": {
+          "h24": 0.68,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": 1.14
+        },
+        "liquidity": {
+          "usd": 228.88,
+          "base": 384.08371,
+          "quote": 169.6289
+        },
+        "fdv": 306787174,
+        "marketCap": 140331331,
+        "pairCreatedAt": 1704172850000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/b42b1o99bfwtejwujelbhjkkghhwoajxykg1eqp5vqlr",
+        "pairAddress": "B42b1o99BfWtEJWUjELbhJKkgHhWoaJXyKg1EqP5VqLR",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.2969",
+        "priceUsd": "0.2969",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 7
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 7
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 8
+          }
+        },
+        "volume": {
+          "h24": 0.33,
+          "h6": 0.24,
+          "h1": 0.24,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.95,
+          "h6": -2.95,
+          "h24": -1.2
+        },
+        "liquidity": {
+          "usd": 68.54,
+          "base": 114.9495,
+          "quote": 34.4027
+        },
+        "fdv": 292982155,
+        "marketCap": 135847385,
+        "pairCreatedAt": 1703167204000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/cddjhmydrdeqpmtfpkkgbmwpw9dc8zzphuqzwzgtt3jf",
+        "pairAddress": "CDdjhMYDrdEqpMTfPkKGBMWPw9DC8ZZphuQzwZgTT3Jf",
+        "labels": [
+          "DLMM"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS",
+          "name": "Kamino",
+          "symbol": "KMNO"
+        },
+        "priceNative": "14.8631",
+        "priceUsd": "0.3021",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 4.97,
+          "h6": 1.75,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 0.07,
+          "h24": -0.84
+        },
+        "liquidity": {
+          "usd": 59.02,
+          "base": 69.7863,
+          "quote": 1866.05196
+        },
+        "fdv": 302183841,
+        "marketCap": 138225663,
+        "pairCreatedAt": 1728614578000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "pumpswap",
+        "url": "https://dexscreener.com/solana/c2tadtxcnnowwiompcaypcgscmsjhuh4fhkzfbah37yz",
+        "pairAddress": "C2TadtxCNNowWioMpcAYPcgscMsJhuH4FHkzfBAh37yZ",
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "So11111111111111111111111111111111111111112",
+          "name": "Wrapped SOL",
+          "symbol": "SOL"
+        },
+        "priceNative": "0.003583",
+        "priceUsd": "0.3039",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 16,
+            "sells": 20
+          },
+          "h24": {
+            "buys": 20,
+            "sells": 23
+          }
+        },
+        "volume": {
+          "h24": 3,
+          "h6": 2.99,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 0.31,
+          "h24": 0.54
+        },
+        "liquidity": {
+          "usd": 1.87,
+          "base": 3.08068,
+          "quote": 0.01106
+        },
+        "fdv": 299887526,
+        "marketCap": 139049206,
+        "pairCreatedAt": 1769762932000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/63n1caj1iywus6fqnxzn41nlfdkxhqbku2fkrht8erjl",
+        "pairAddress": "63n1cAJ1iyWUS6fqNXzN41nLFdKxhQbKU2FKRht8ERjL",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.2976",
+        "priceUsd": "0.2976",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h24": {
+            "buys": 7,
+            "sells": 4
+          }
+        },
+        "volume": {
+          "h24": 0.02,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.22,
+          "h6": -2.22,
+          "h24": -1.45
+        },
+        "liquidity": {
+          "usd": 1.16,
+          "base": 1.9703,
+          "quote": 0.5821
+        },
+        "fdv": 293610176,
+        "marketCap": 136138580,
+        "pairCreatedAt": 1705240875000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/hjpo8rgenkts96pkq2znvuyxsuzcyfcymjk3wxedvtmg",
+        "pairAddress": "HjPo8rgENKtS96PkQ2ZNVUyxsuzCyfCYMJK3wxEDvTMg",
+        "labels": [
+          "DYN2"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        "priceNative": "0.2981",
+        "priceUsd": "0.2981",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 2
+          },
+          "h24": {
+            "buys": 4,
+            "sells": 3
+          }
+        },
+        "volume": {
+          "h24": 0.01,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -1.85,
+          "h6": -1.36,
+          "h24": -1.34
+        },
+        "liquidity": {
+          "usd": 0.73,
+          "base": 1.2318,
+          "quote": 0.3643
+        },
+        "fdv": 294101562,
+        "marketCap": 136366422,
+        "pairCreatedAt": 1744266839000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/cvg45etaswwm1e5cy8cqaphcwcyq2pqf5mjpsrr9nnn7",
+        "pairAddress": "Cvg45etASWwM1E5Cy8cQapHcWcYQ2pqF5MJPSRR9nNN7",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3",
+          "name": "Pyth Network",
+          "symbol": "PYTH"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "0.1487",
+        "priceUsd": "0.04520",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 2
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 30
+          }
+        },
+        "volume": {
+          "h24": 120.57,
+          "h6": 5.44,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": 0.43,
+          "h24": -3.17
+        },
+        "liquidity": {
+          "usd": 2283.95,
+          "base": 26178,
+          "quote": 3621.9027
+        },
+        "fdv": 452078036,
+        "marketCap": 259944382,
+        "pairCreatedAt": 1702078054000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/6041bc5bddf3e7905a571b913487bf6043b0438053007de8318e732f12d45270?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/ff207809023eb7191c152b0c03bebece65ce9c29b08b2839395d2dfa9e3a142e?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3?timestamp=1775960400000",
+          "websites": [
+            {
+              "url": "https://pyth.network",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/PythNetwork",
+              "type": "twitter"
+            },
+            {
+              "url": "https://telegram.me/Pyth_Network",
+              "type": "telegram"
+            },
+            {
+              "url": "https://discord.com/invite/PythNetwork",
+              "type": "discord"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/g3dbppmujquz8cixg67kxo6ktqmde5hulmcgdpspvwcy",
+        "pairAddress": "G3DbppmUJQuZ8cixg67Kxo6KtqMdE5huLMCGdpSPvWCY",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "LABSh5DTebUcUbEoLzXKCiXFJLecDFiDWiBGUU1GpxR",
+          "name": "Epicentral Labs",
+          "symbol": "LABS"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "0.01253",
+        "priceUsd": "0.003797",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 4,
+            "sells": 1
+          },
+          "h6": {
+            "buys": 4,
+            "sells": 2
+          },
+          "h24": {
+            "buys": 6,
+            "sells": 7
+          }
+        },
+        "volume": {
+          "h24": 8.04,
+          "h6": 4.38,
+          "h1": 3.75,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": 2.26,
+          "h6": 1.83,
+          "h24": -0.17
+        },
+        "liquidity": {
+          "usd": 560.28,
+          "base": 73731,
+          "quote": 925.32
+        },
+        "fdv": 207285,
+        "marketCap": 207285,
+        "pairCreatedAt": 1732415201000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/6661a53738429f016c17526b30443726144a802f2e8f7f4bf559af1889fae53b?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/5fcea0ca64540500b27aea5e4dcc1a548d07e0a95564a1b815acd6f074f04b18?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/LABSh5DTebUcUbEoLzXKCiXFJLecDFiDWiBGUU1GpxR?timestamp=1775960400000",
+          "websites": [
+            {
+              "url": "https://epicentrallabs.com/",
+              "label": "Website"
+            },
+            {
+              "url": "https://epicentrallabs.com/labs-token/labstoken-about",
+              "label": "Docs"
+            },
+            {
+              "url": "https://github.com/EpicentralLabs",
+              "label": "GitHub"
+            },
+            {
+              "url": "https://www.youtube.com/@EpicentralLabs",
+              "label": "YouTube"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/EpicentralLabs",
+              "type": "twitter"
+            },
+            {
+              "url": "https://discord.gg/5asAuY2sR8",
+              "type": "discord"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/uvy55w3g1g6aqm5ybna7qauy9v3tsmrs9bgagsahfhf",
+        "pairAddress": "uvY55W3g1G6aQm5YBna7QAuY9V3tsMRS9BGaGsAHfHF",
+        "labels": [
+          "CPMM"
+        ],
+        "baseToken": {
+          "address": "JAD3fhtcxgUxYaEpqqoWu2i4dCTD56hMBAWHqp1ypump",
+          "name": "BINGO Universe",
+          "symbol": "BINGO"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "0.001401",
+        "priceUsd": "0.0004213",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 3
+          }
+        },
+        "volume": {
+          "h24": 2.65,
+          "h6": 0.17,
+          "h1": 0.17,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -1.95,
+          "h6": -1.95,
+          "h24": -0.51
+        },
+        "liquidity": {
+          "usd": 434.19,
+          "base": 515296,
+          "quote": 722.1392
+        },
+        "fdv": 421276,
+        "marketCap": 421276,
+        "pairCreatedAt": 1757500039000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/6b2948fb1829aa62c95d09c4dc2f91136193b23018c93ad90561d5a2995458f8?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/589af0aa53ab597c94358ff59ab041ede480af0d0b1539667fd8ee9dc4754fcb?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/JAD3fhtcxgUxYaEpqqoWu2i4dCTD56hMBAWHqp1ypump?timestamp=1775960400000",
+          "websites": [
+            {
+              "url": "https://bingo-universe.com/",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/Bingo_Universe",
+              "type": "twitter"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/7zssetfru3276ceth96gaejy58spr4djac3ufcsl4ene",
+        "pairAddress": "7ZSsetFRu3276CetH96gaejy58SPr4DjaC3ufCSL4ENE",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3",
+          "name": "Pyth Network",
+          "symbol": "PYTH"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "0.1504",
+        "priceUsd": "0.04558",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 8
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 44
+          }
+        },
+        "volume": {
+          "h24": 0.35,
+          "h6": 0.1,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -1.47,
+          "h24": -3.81
+        },
+        "liquidity": {
+          "usd": 41.56,
+          "base": 448.595,
+          "quote": 69.714
+        },
+        "fdv": 455844837,
+        "marketCap": 262110438,
+        "pairCreatedAt": 1703167204000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/6041bc5bddf3e7905a571b913487bf6043b0438053007de8318e732f12d45270?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/ff207809023eb7191c152b0c03bebece65ce9c29b08b2839395d2dfa9e3a142e?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3?timestamp=1775960400000",
+          "websites": [
+            {
+              "url": "https://pyth.network",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/PythNetwork",
+              "type": "twitter"
+            },
+            {
+              "url": "https://telegram.me/Pyth_Network",
+              "type": "telegram"
+            },
+            {
+              "url": "https://discord.com/invite/PythNetwork",
+              "type": "discord"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/guekuesmlbuycnnuubvthufymsjgnx4tsqmup1jxyts7",
+        "pairAddress": "GUeKuESmLbUYCNnUUbVThUFYMsJGNX4tSQmuP1jxYts7",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE",
+          "name": "Orca",
+          "symbol": "ORCA"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "3.005249",
+        "priceUsd": "0.9200",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0.56,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": 1.78
+        },
+        "liquidity": {
+          "usd": 207.97,
+          "base": 121.4561,
+          "quote": 314.3684
+        },
+        "fdv": 92000469,
+        "marketCap": 55935334,
+        "pairCreatedAt": 1702149440000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/bfd0d54a2ff7a764291354b848f3f05c8b6b89213b16b240807e9cb9a78dd128?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/8044fef53efe70415cc4b3fa387f9df339f208c0e1a5f91f9d38c8a0556722e2?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE?timestamp=1775960400000",
+          "websites": [
+            {
+              "url": "https://www.orca.so/",
+              "label": "Website"
+            },
+            {
+              "url": "https://docs.orca.so/",
+              "label": "Docs"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/orca_so",
+              "type": "twitter"
+            },
+            {
+              "url": "https://discord.gg/a2SSVmYX7T",
+              "type": "discord"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/eghx2wbanaq2kekmsvfewr1eqhc8qaubogaeqlml9mri",
+        "pairAddress": "EGHx2wbanaq2KekMSVFewR1eQHC8QauBogaEqLmL9MRi",
+        "labels": [
+          "CLMM"
+        ],
+        "baseToken": {
+          "address": "CxN4zmEB6unBKAfz6jHgoQ5BWHiCeWDTT8wkr3K2YHRt",
+          "name": "Armenian Crypto Project",
+          "symbol": "ARMCP"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "4.3531",
+        "priceUsd": "1.32",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 2
+          }
+        },
+        "volume": {
+          "h24": 0.6,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h24": 0.79
+        },
+        "liquidity": {
+          "usd": 147.85,
+          "base": 55.8079,
+          "quote": 242.8629
+        },
+        "fdv": 27822372,
+        "marketCap": 27822372,
+        "pairCreatedAt": 1753200756000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/cba6a463a4baae56218fabfc3e664e01426f8b5bdcea932e4146d1e0da4eb2eb?width=800&height=800&quality=95&format=auto",
+          "header": "https://cdn.dexscreener.com/cms/images/a6ca315c2d1a0bbdf357a8a358fe3c6f195f54d191ed14d1a7acce2739a13180?width=1500&height=500&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/CxN4zmEB6unBKAfz6jHgoQ5BWHiCeWDTT8wkr3K2YHRt?timestamp=1775960400000",
+          "websites": [
+            {
+              "url": "https://www.armcp.net/",
+              "label": "Website"
+            },
+            {
+              "url": "https://token.armcp.net/Whitepaper.pdf",
+              "label": "Docs"
+            },
+            {
+              "url": "https://www.facebook.com/Musheg88",
+              "label": "Facebook"
+            },
+            {
+              "url": "https://www.instagram.com/musheg88/",
+              "label": "Instagram"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://x.com/MushManuk88",
+              "type": "twitter"
+            },
+            {
+              "url": "https://t.me/ARMCP_Channel",
+              "type": "telegram"
+            },
+            {
+              "url": "https://discord.gg/7xwgc4Wk",
+              "type": "discord"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/543uauueqgvqnppqaxqjvvlv2qybbgomokjvxmvzyv3f",
+        "pairAddress": "543uAUUEQgVqnppQaxQJVvLV2QYbBgomoKJvXMVZYV3F",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "Eh1fXbAipe4k7CYR9UMb2bbWmBcpU3HcyX3LWuRVFBLz",
+          "name": "Flowmatic",
+          "symbol": "FM"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "0.02543",
+        "priceUsd": "0.007747",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 0,
+            "sells": 1
+          }
+        },
+        "volume": {
+          "h24": 1.95,
+          "h6": 0,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {},
+        "liquidity": {
+          "usd": 1383.75,
+          "base": 87962,
+          "quote": 2305.09686
+        },
+        "fdv": 155148,
+        "marketCap": 25984,
+        "pairCreatedAt": 1709262529000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "raydium",
+        "url": "https://dexscreener.com/solana/5gnzg2dkqrvbakgctdakmuxmumry1jmcx9eznto5kymk",
+        "pairAddress": "5GNzg2DKqRvbaKGCtDAkmUxmuMRY1jmcx9EzNTo5kymk",
+        "baseToken": {
+          "address": "3f7wfg9yHLtGKvy75MmqsVT1ueTFoqyySQbusrX1YAQ4",
+          "name": "Pixel by Pixel",
+          "symbol": "PbP"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "0.001021",
+        "priceUsd": "0.0003104",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h24": {
+            "buys": 1,
+            "sells": 3
+          }
+        },
+        "volume": {
+          "h24": 0.62,
+          "h6": 0.22,
+          "h1": 0,
+          "m5": 0
+        },
+        "priceChange": {
+          "h6": -0.07,
+          "h24": -0.64
+        },
+        "liquidity": {
+          "usd": 79.25,
+          "base": 127440,
+          "quote": 130.5824
+        },
+        "fdv": 301331,
+        "marketCap": 301331,
+        "pairCreatedAt": 1701967116000
+      },
+      {
+        "chainId": "solana",
+        "dexId": "meteora",
+        "url": "https://dexscreener.com/solana/2na8ymctmxturjonaayfh7rgnxtoxefskglyvky4i8l7",
+        "pairAddress": "2na8yMCtmXTUrjoNaAyFh7RGNxToxefskGLYVKy4i8L7",
+        "labels": [
+          "DYN"
+        ],
+        "baseToken": {
+          "address": "6gx6Ph2ek73kF6EWDrG4GQ54pcLJB6CYpATuRyxKXumo",
+          "name": "FillmorePHX",
+          "symbol": "fPHX"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "0.00006838",
+        "priceUsd": "0.00002071",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 1,
+            "sells": 0
+          },
+          "h24": {
+            "buys": 3,
+            "sells": 1
+          }
+        },
+        "volume": {
+          "h24": 1.14,
+          "h6": 0.5,
+          "h1": 0.5,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": 0.31,
+          "h6": 0.31,
+          "h24": 0.23
+        },
+        "liquidity": {
+          "usd": 390.92,
+          "base": 9432221,
+          "quote": 645.4142
+        },
+        "fdv": 20690,
+        "marketCap": 20690,
+        "pairCreatedAt": 1750099591000,
+        "info": {
+          "imageUrl": "https://cdn.dexscreener.com/cms/images/3e2ea64317aea87db8903df82d07793220e2a9cf4f3b6b3ac6faf36700985e9b?width=800&height=800&quality=95&format=auto",
+          "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/6gx6Ph2ek73kF6EWDrG4GQ54pcLJB6CYpATuRyxKXumo?timestamp=1775960400000",
+          "websites": [
+            {
+              "url": "https://fillmorephx.com",
+              "label": "Website"
+            }
+          ],
+          "socials": [
+            {
+              "url": "https://twitter.com/fPHXGallery",
+              "type": "twitter"
+            },
+            {
+              "url": "https://discord.gg/rgqKVWNmqV",
+              "type": "discord"
+            }
+          ]
+        }
+      },
+      {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/dbixsoqkk3jpy5qhrwzwujr1bffifzyzbp97kutem6sm",
+        "pairAddress": "DbiXsoQKk3JpY5QHrWzWuJr1BfFiFZYZBp97KutEm6sM",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "FKU35pM9FujrBMkMDXM7QpZ1Xxcfodw64S1rcvY92mCq",
+          "name": "SuperJet",
+          "symbol": "SJ"
+        },
+        "quoteToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "priceNative": "2.01422",
+        "priceUsd": "0.5950",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 0
+          },
+          "h1": {
+            "buys": 6,
+            "sells": 0
+          },
+          "h6": {
+            "buys": 10,
+            "sells": 3
+          },
+          "h24": {
+            "buys": 32,
+            "sells": 7
+          }
+        },
+        "volume": {
+          "h24": 1691.21,
+          "h6": 1083.39,
+          "h1": 630.69,
+          "m5": 0
+        },
+        "priceChange": {
+          "h1": -2.33,
+          "h6": -2.02,
+          "h24": -0.78
+        },
+        "liquidity": {
+          "usd": 5974.03,
+          "base": 8598.701,
+          "quote": 2902.7155
+        },
+        "fdv": 595035,
+        "marketCap": 595035,
+        "pairCreatedAt": 1775888027000
+      }
+    ]
+  },
+  "gmgn_data": {
+    "token_address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+    "chain": "sol",
+    "token_stats": {
+      "token_address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+      "chain": "sol",
+      "name": "JITO",
+      "symbol": "JTO",
+      "price": 0.2963,
+      "market_cap": 135538747.0,
+      "volume_24h": 120205.14,
+      "liquidity": 730590.52,
+      "holders": null,
+      "transactions": 1068,
+      "price_change_24h": -1.37,
+      "created_at": 1701918160000,
+      "raw_data": {
+        "chainId": "solana",
+        "dexId": "orca",
+        "url": "https://dexscreener.com/solana/g2fie1yn9n9zjx5e1e2lxxmnhvb1h3hcuhlpfkj98sma",
+        "pairAddress": "G2FiE1yn9N9ZJx5e1E2LxxMnHvb1H3hCuHLPfKJ98smA",
+        "labels": [
+          "wp"
+        ],
+        "baseToken": {
+          "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "name": "JITO",
+          "symbol": "JTO"
+        },
+        "quoteToken": {
+          "address": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+          "name": "Jito Staked SOL",
+          "symbol": "JitoSOL"
+        },
+        "priceNative": "0.002809",
+        "priceUsd": "0.2963",
+        "txns": {
+          "m5": {
+            "buys": 0,
+            "sells": 1
+          },
+          "h1": {
+            "buys": 48,
+            "sells": 13
+          },
+          "h6": {
+            "buys": 167,
+            "sells": 85
+          },
+          "h24": {
+            "buys": 415,
+            "sells": 653
+          }
+        },
+        "volume": {
+          "h24": 120205.14,
+          "h6": 36294.09,
+          "h1": 22191.34,
+          "m5": 23.22
+        },
+        "priceChange": {
+          "m5": 0.58,
+          "h1": -2.37,
+          "h6": -3.16,
+          "h24": -1.37
+        },
+        "liquidity": {
+          "usd": 730590.52,
+          "base": 1449863,
+          "quote": 2853.874
+        },
+        "fdv": 296309804,
+        "marketCap": 135538747,
+        "pairCreatedAt": 1701918160000
+      }
+    },
+    "status": "success"
+  },
+  "safety_data": {
+    "token_address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+    "chain": "sol",
+    "overall_risk_score": 34,
+    "risk_level": "MEDIUM",
+    "is_honeypot": null,
+    "is_mintable": null,
+    "is_open_source": null,
+    "ownership_renounced": null,
+    "liquidity_locked": null,
+    "lock_remaining_days": 0,
+    "liquidity_usd": 0.0,
+    "holder_count": 0,
+    "top_10_holder_pct": 0.0,
+    "dev_wallet_pct": 0.0,
+    "smart_money_flow": "neutral"
+  },
+  "twitter_data": {
+    "query": "(\"$JTO\" OR \"#JTO\") OR \"JITO\" OR \"jtojtome...2f9mCL\"",
+    "query_type": "Latest",
+    "total_tweets": 20,
+    "status": "success",
+    "error": null,
+    "tweets": [
+      {
+        "id": "2043152059076424140",
+        "text": "t. wts lfb wtt lft wtb lfs ph manga book viz media fullybooked horror bookworm R18 usa concept pc pob gg bg album wts lfb official junji jto books ph the liminal zone &amp; sensor tomie japan",
+        "url": "https://x.com/tammcarts/status/2043152059076424140",
+        "createdAt": "Sun Apr 12 02:19:45 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 3,
+        "author": {
+          "userName": "tammcarts",
+          "name": "Tammi (open for boosting)",
+          "id": "1805454628227792896",
+          "isBlueVerified": false,
+          "followers": 1871,
+          "following": 1513,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043151126703272197",
+        "text": "Consulate observed World Navkar Mahamantra Day in collaboration with Jain International Trade Organization (JITO), Atlanta, at its premises, with collective chanting of the sacred Navkar Mahamantra.\n\nA cornerstone of Jainism, the mantra reflects universal values of humility, peace, and spiritual upliftment. The observance highlighted the enduring relevance of such traditions in fostering harmony, well-being, and community spirit.",
+        "url": "https://x.com/CGI_Atlanta/status/2043151126703272197",
+        "createdAt": "Sun Apr 12 02:16:03 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 6,
+        "author": {
+          "userName": "CGI_Atlanta",
+          "name": "India in Atlanta",
+          "id": "1056208680",
+          "isBlueVerified": false,
+          "followers": 8160,
+          "following": 423,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043149043497685106",
+        "text": "4.18 JTO大阪\n4.19 JTO広島\n\nお約束通り、MIRAIさんご希望の稲葉ともかとの対戦をご用意しました\n\n他所に団体のベルト流出は良しとはされないが、\n貴女の真っ直ぐで友愛に満ちた心を俺は買ったんだ\n\n勿論やるからには、\n気持ちよく終わるお手伝いもしましょう\n #pw_jto\n #ビッグフュージョン https://t.co/Xt40uGgbyq",
+        "url": "https://x.com/Apwjto/status/2043149043497685106",
+        "createdAt": "Sun Apr 12 02:07:46 +0000 2026",
+        "likeCount": 10,
+        "retweetCount": 2,
+        "replyCount": 0,
+        "viewCount": 129,
+        "author": {
+          "userName": "Apwjto",
+          "name": "Aoi",
+          "id": "1372951795274633219",
+          "isBlueVerified": false,
+          "followers": 9093,
+          "following": 259,
+          "description": ""
+        },
+        "lang": "ja"
+      },
+      {
+        "id": "2043145638708473885",
+        "text": "@jto_m_desu CLUB JTOで、この人お客さんぽくないなぁーって、たぶん練習に来た人かな？って見てすぐ思いましたよ😅\n練習頑張ってください！ https://t.co/N4NKPraL0g",
+        "url": "https://x.com/QJ3zTVhDSt673/status/2043145638708473885",
+        "createdAt": "Sun Apr 12 01:54:14 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 15,
+        "author": {
+          "userName": "QJ3zTVhDSt673",
+          "name": "まっつん",
+          "id": "1916402243194306560",
+          "isBlueVerified": false,
+          "followers": 108,
+          "following": 65,
+          "description": ""
+        },
+        "lang": "ja"
+      },
+      {
+        "id": "2043143508526235736",
+        "text": "@pw_jtoM よっしゃー、やりました✌️\n\nほんと今のJTOにはいないタイプ。\n\nいい試合見れました😊\n\nこれからも経験値上げて、頑張れみず葉選手💪\n\nお疲れ様でした✨",
+        "url": "https://x.com/zCHc7gfbpz87891/status/2043143508526235736",
+        "createdAt": "Sun Apr 12 01:45:46 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 13,
+        "author": {
+          "userName": "zCHc7gfbpz87891",
+          "name": "委員長エイト",
+          "id": "1720765707754090496",
+          "isBlueVerified": false,
+          "followers": 20,
+          "following": 37,
+          "description": ""
+        },
+        "lang": "ja"
+      },
+      {
+        "id": "2043142995696812413",
+        "text": "Grayscale has released its Q2 2026 “Assets Under Consideration” list, including tokens such as CC, CELO, MNT, MON, TON, TRX, ENA, HYPE, JUP, KMNO, SYRUP, MORPHO, PENDLE, ROBO, FLOCK, GRASS, KAITO, KITE, VVV, VIRTUAL, WLD, 2Z, GEOD, HNT, JTO, ZRO, and W, as well as projects such as MegaETH, Nous Research, and Poseidon.\n@CantonNetwork",
+        "url": "https://x.com/seven_czar/status/2043142995696812413",
+        "createdAt": "Sun Apr 12 01:43:44 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 10,
+        "author": {
+          "userName": "seven_czar",
+          "name": "SEVEN",
+          "id": "1566879601351180294",
+          "isBlueVerified": true,
+          "followers": 332,
+          "following": 883,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043139288943223052",
+        "text": "@QJ3zTVhDSt673 いいな〜私もいつか\nJTO見に行きたいです🥺",
+        "url": "https://x.com/tomomi_ABC123/status/2043139288943223052",
+        "createdAt": "Sun Apr 12 01:29:00 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 11,
+        "author": {
+          "userName": "tomomi_ABC123",
+          "name": "愛媛のとも",
+          "id": "1385166197142872065",
+          "isBlueVerified": false,
+          "followers": 219,
+          "following": 441,
+          "description": ""
+        },
+        "lang": "ja"
+      },
+      {
+        "id": "2043138971035668986",
+        "text": "@Camberismo_12 Efraín es un pendejo\nNo decide una buen\nY no entiendo que Marin este delante de camberos \nEse jto\nLe tiene miedo a todo lo que tenga que ver con el balón, en especial tirar a puerta siendo DELANTERO",
+        "url": "https://x.com/whimkker/status/2043138971035668986",
+        "createdAt": "Sun Apr 12 01:27:45 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 52,
+        "author": {
+          "userName": "whimkker",
+          "name": "ireina LM8",
+          "id": "1379156518612832258",
+          "isBlueVerified": false,
+          "followers": 91,
+          "following": 1355,
+          "description": ""
+        },
+        "lang": "es"
+      },
+      {
+        "id": "2043132903253512501",
+        "text": "@devotochildstar @noquierotequila @basebydanna Que tenia que ver Kenia Jto traumado?",
+        "url": "https://x.com/saddsvk/status/2043132903253512501",
+        "createdAt": "Sun Apr 12 01:03:38 +0000 2026",
+        "likeCount": 8,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 42,
+        "author": {
+          "userName": "saddsvk",
+          "name": "ivn.kst | 🗝️",
+          "id": "1527426607572393984",
+          "isBlueVerified": false,
+          "followers": 109,
+          "following": 199,
+          "description": ""
+        },
+        "lang": "es"
+      },
+      {
+        "id": "2043126729405812862",
+        "text": "⎐كُـود⎐كوبِون⎐خـِصم⎐\n\n⎐مذركير⎐\n⊵A7BAu⊴\n\n⎐ممزورلد⎐\n⊵jor⊴\n\n⎐ماماز▬اند▬باباز⎐\n⊵M24⊴\n\n⎐بلومنغديلز▬بلومينغديلز⎐\n⊵d15⊴\n\n^^^^\n\nJto",
+        "url": "https://x.com/Marc121222/status/2043126729405812862",
+        "createdAt": "Sun Apr 12 00:39:06 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 0,
+        "author": {
+          "userName": "Marc121222",
+          "name": "Marc",
+          "id": "1428535958438305797",
+          "isBlueVerified": false,
+          "followers": 7,
+          "following": 8,
+          "description": ""
+        },
+        "lang": "ar"
+      },
+      {
+        "id": "2043125599548400112",
+        "text": "@DavidFaitelson_ Eres un gordo transa y Jto!",
+        "url": "https://x.com/PglezRicardo/status/2043125599548400112",
+        "createdAt": "Sun Apr 12 00:34:37 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 29,
+        "author": {
+          "userName": "PglezRicardo",
+          "name": "Ricardo Pglez",
+          "id": "1467264403565428742",
+          "isBlueVerified": false,
+          "followers": 57,
+          "following": 101,
+          "description": ""
+        },
+        "lang": "es"
+      },
+      {
+        "id": "2043124744656924862",
+        "text": "@Chivas @Richymarin19 Increíble que entre Marin por delantero de camberos \nEse maldito jto\nLe tiene miedo a la portería",
+        "url": "https://x.com/whimkker/status/2043124744656924862",
+        "createdAt": "Sun Apr 12 00:31:13 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 55,
+        "author": {
+          "userName": "whimkker",
+          "name": "ireina LM8",
+          "id": "1379156518612832258",
+          "isBlueVerified": false,
+          "followers": 91,
+          "following": 1355,
+          "description": ""
+        },
+        "lang": "es"
+      },
+      {
+        "id": "2043123118060032213",
+        "text": "昨日はJTO LADIES・CLUB JTOにお越し頂き有難うございました‼️ 初めてセコンドを務めさせて頂きました。試合を観続けてもセコンドはなかなか難しく、センスが問われるなぁと思いました。もっと頑張ります‼️💪\n\n#pw_jto https://t.co/iA9j15YpUr",
+        "url": "https://x.com/jto_m_desu/status/2043123118060032213",
+        "createdAt": "Sun Apr 12 00:24:45 +0000 2026",
+        "likeCount": 10,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 78,
+        "author": {
+          "userName": "jto_m_desu",
+          "name": "JTO LADIES 練習生M",
+          "id": "1911153623746449408",
+          "isBlueVerified": false,
+          "followers": 38,
+          "following": 11,
+          "description": ""
+        },
+        "lang": "ja"
+      },
+      {
+        "id": "2043119678436909156",
+        "text": "@JETLATAM @jito_sol Importante demais pra quem quer aproveitar esse momento da JITO que ainda tem pouca gente explorando direito essas possibilidades!",
+        "url": "https://x.com/perguntapragiu/status/2043119678436909156",
+        "createdAt": "Sun Apr 12 00:11:05 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 5,
+        "author": {
+          "userName": "perguntapragiu",
+          "name": "Giu",
+          "id": "325719299",
+          "isBlueVerified": true,
+          "followers": 1977,
+          "following": 574,
+          "description": ""
+        },
+        "lang": "pt"
+      },
+      {
+        "id": "2043117591586378096",
+        "text": "@narichu777 そうなんですか‼️\n今日はダブプロレスで明日は誕生日なので\nディズニーランドに行ってきます(´・∀・｀)\nちなみに来週は久しぶりのJTOです💫",
+        "url": "https://x.com/Sakura51247/status/2043117591586378096",
+        "createdAt": "Sun Apr 12 00:02:47 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 49,
+        "author": {
+          "userName": "Sakura51247",
+          "name": "Sakura❤︎",
+          "id": "615762336",
+          "isBlueVerified": false,
+          "followers": 3357,
+          "following": 3056,
+          "description": ""
+        },
+        "lang": "ja"
+      },
+      {
+        "id": "2043115883833540762",
+        "text": "Jito bundle tech on Solana = less spam, more efficiency for traders. The MEV infrastructure play that's quietly winning. Solana keeps shipping what others only talk about.",
+        "url": "https://x.com/SkySera99/status/2043115883833540762",
+        "createdAt": "Sat Apr 11 23:56:00 +0000 2026",
+        "likeCount": 0,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 7,
+        "author": {
+          "userName": "SkySera99",
+          "name": "Sky Sera | Ai Gem Hunter",
+          "id": "1933162748600573953",
+          "isBlueVerified": true,
+          "followers": 503,
+          "following": 991,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043086482034843797",
+        "text": "The Solana DeFi stack is getting deep. Jito + Drift + Raydium = a yield compositing machine that actually works. This is what defi should have been from day one.",
+        "url": "https://x.com/SkySera99/status/2043086482034843797",
+        "createdAt": "Sat Apr 11 21:59:10 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 17,
+        "author": {
+          "userName": "SkySera99",
+          "name": "Sky Sera | Ai Gem Hunter",
+          "id": "1933162748600573953",
+          "isBlueVerified": true,
+          "followers": 503,
+          "following": 991,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043086464045441345",
+        "text": "Jito staking at 9.2% APY this week. MEV tips pushing yields higher. Staking SOL via Phantom, then lending on Drift for an extra 3% boost — that's composable finance working exactly as intended on Solana.",
+        "url": "https://x.com/SkySera99/status/2043086464045441345",
+        "createdAt": "Sat Apr 11 21:59:06 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 15,
+        "author": {
+          "userName": "SkySera99",
+          "name": "Sky Sera | Ai Gem Hunter",
+          "id": "1933162748600573953",
+          "isBlueVerified": true,
+          "followers": 503,
+          "following": 991,
+          "description": ""
+        },
+        "lang": "en"
+      },
+      {
+        "id": "2043085069485564351",
+        "text": "@Eltraviesoarce5 Usted hable campeón!\nSi, hablas mucho dicen que eres creído.\nSi, hablas poco que eres Pend...jito.\nA la pinche gente no la contentas con nada.\nSolo que lo privado con la familia y no más. Saludos bro.",
+        "url": "https://x.com/Pipinn65/status/2043085069485564351",
+        "createdAt": "Sat Apr 11 21:53:33 +0000 2026",
+        "likeCount": 1,
+        "retweetCount": 0,
+        "replyCount": 0,
+        "viewCount": 38,
+        "author": {
+          "userName": "Pipinn65",
+          "name": "Pipin",
+          "id": "1283774117775241216",
+          "isBlueVerified": false,
+          "followers": 922,
+          "following": 2404,
+          "description": ""
+        },
+        "lang": "es"
+      },
+      {
+        "id": "2043084517355954187",
+        "text": "@aiSpellResearch Jito me looks pretty satisfied",
+        "url": "https://x.com/BoredLazyRabbit/status/2043084517355954187",
+        "createdAt": "Sat Apr 11 21:51:22 +0000 2026",
+        "likeCount": 2,
+        "retweetCount": 0,
+        "replyCount": 1,
+        "viewCount": 19,
+        "author": {
+          "userName": "BoredLazyRabbit",
+          "name": "Magnolium",
+          "id": "1842597113806684160",
+          "isBlueVerified": false,
+          "followers": 47,
+          "following": 91,
+          "description": ""
+        },
+        "lang": "en"
+      }
+    ]
+  }
+}

@@ -29,7 +29,7 @@ async def analyze_gmgn_data(gmgn_data: str) -> Dict[str, Any]:
 
   Format the response as a clean JSON object without any markdown formatting or additional headers. Include all available metrics and insights from the provided data."""
 
-  model = "gemini-2.5-flash"
+  model = "gemma-4-31b-it"
   
   prompt = f"""{system_instruction}
 

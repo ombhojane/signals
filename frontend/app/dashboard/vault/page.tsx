@@ -1,6 +1,7 @@
 "use client";
 
-import { useAccount, useChainId } from "wagmi";
+import { useEffect } from "react";
+import { useAccount, useChainId, useSwitchChain } from "wagmi";
 import { DepositCard } from "@/components/web3/DepositCard";
 import { TradeHistory } from "@/components/web3/TradeHistory";
 import { VaultStats } from "@/components/web3/VaultStats";
@@ -10,7 +11,17 @@ import { CHAIN, VAULT_ADDRESS, explorerAddress } from "@/lib/web3/constants";
 export default function VaultPage() {
   const { isConnected } = useAccount();
   const chainId = useChainId();
+  const { switchChain } = useSwitchChain();
   const wrongNetwork = isConnected && chainId !== CHAIN.id;
+
+  // Auto-switch wallet to Base Sepolia when the vault page loads.
+  // This prompts MetaMask once; if the user rejects, the wrong-network
+  // banner below stays visible with a manual "Switch" button.
+  useEffect(() => {
+    if (wrongNetwork && switchChain) {
+      switchChain({ chainId: CHAIN.id });
+    }
+  }, [wrongNetwork, switchChain]);
 
   return (
     <div className="flex flex-col gap-8 p-8 max-w-6xl">
@@ -81,9 +92,16 @@ export default function VaultPage() {
           <span className="material-symbols-outlined" style={{ color: "#ee7d77" }}>
             warning
           </span>
-          <span className="text-sm" style={{ color: "#ee7d77" }}>
-            Your wallet is on the wrong network. Switch to {CHAIN.name} using the sidebar button.
+          <span className="text-sm flex-1" style={{ color: "#ee7d77" }}>
+            Your wallet is on the wrong network. Switch to <strong>{CHAIN.name}</strong> to deposit & withdraw.
           </span>
+          <button
+            onClick={() => switchChain({ chainId: CHAIN.id })}
+            className="px-4 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all hover:brightness-110"
+            style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+          >
+            Switch to {CHAIN.name}
+          </button>
         </div>
       )}
 
