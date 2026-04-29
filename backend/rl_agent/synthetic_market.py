@@ -10,7 +10,6 @@ Generates realistic synthetic cryptocurrency data with full token schema:
 """
 
 import numpy as np
-import pandas as pd
 from dataclasses import dataclass, asdict
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timedelta
@@ -230,18 +229,21 @@ class SyntheticMarket:
         return np.clip(rsi, 0, 100)
     
     def _calculate_macd(self) -> tuple:
-        """Calculate MACD and signal line."""
+        """Calculate MACD and signal line (numpy EMA)."""
         if len(self.price_history) < 26:
             return 0.0, 0.0
-        
-        prices = pd.Series(self.price_history)
-        ema12 = prices.ewm(span=12).mean().iloc[-1]
-        ema26 = prices.ewm(span=26).mean().iloc[-1]
+
+        def _ema(vals, span):
+            alpha = 2.0 / (span + 1.0)
+            ema = vals[0]
+            for v in vals[1:]:
+                ema = alpha * v + (1 - alpha) * ema
+            return ema
+
+        ema12 = _ema(self.price_history, 12)
+        ema26 = _ema(self.price_history, 26)
         macd = ema12 - ema26
-        
-        # Signal line (9-period EMA of MACD)
-        signal = macd * 0.8  # Simplified
-        
+        signal = macd * 0.8  # simplified 9-period EMA of MACD
         return float(macd), float(signal)
     
     def _calculate_bollinger(self) -> tuple:

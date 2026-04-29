@@ -27,20 +27,29 @@ def calculate_rsi(prices: List[float], window: int = 14) -> float:
     return float(np.clip(rsi, 0, 100))
 
 
+def _ema(values: List[float], span: int) -> float:
+    """Final-value EMA via numpy (matches pandas ewm(span=span).mean().iloc[-1])."""
+    if not values:
+        return 0.0
+    alpha = 2.0 / (span + 1.0)
+    arr = np.asarray(values, dtype=float)
+    # iterative form, numerically stable for short series
+    ema = arr[0]
+    for v in arr[1:]:
+        ema = alpha * v + (1 - alpha) * ema
+    return float(ema)
+
+
 def calculate_macd(prices: List[float]) -> Tuple[float, float]:
-    """Calculate MACD and signal line from price history."""
+    """Calculate MACD and signal line from price history (numpy-only)."""
     if len(prices) < 26:
         return 0.0, 0.0
 
-    import pandas as pd
-    series = pd.Series(prices)
-    ema12 = series.ewm(span=12).mean().iloc[-1]
-    ema26 = series.ewm(span=26).mean().iloc[-1]
+    ema12 = _ema(prices, 12)
+    ema26 = _ema(prices, 26)
     macd = ema12 - ema26
-
-    # Signal line (simplified 9-period EMA of MACD)
+    # Signal line — simplified 9-period EMA of macd (single-point proxy)
     signal = macd * 0.8
-
     return float(macd), float(signal)
 
 
