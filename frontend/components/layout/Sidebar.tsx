@@ -8,8 +8,10 @@ import { ConnectWalletButton } from "@/components/web3/ConnectWalletButton";
 
 const NAV_ITEMS = [
   { title: "Vault", href: "/dashboard/vault", icon: "savings" },
+  { title: "Scan", href: "/dashboard/scan", icon: "radar" },
   { title: "Activity", href: "/dashboard/portfolio", icon: "history" },
   { title: "Explore", href: "/dashboard/simulation", icon: "travel_explore" },
+  { title: "Research", href: "/dashboard/research", icon: "science" },
   { title: "Proof", href: "/dashboard/leaderboard", icon: "verified" },
 ];
 
