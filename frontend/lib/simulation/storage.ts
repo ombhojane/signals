@@ -1,6 +1,6 @@
 import { StoredSimulation } from '../types/simulation';
 
-const STORAGE_KEY = 'Signals_simulations';
+const STORAGE_KEY = 'HypeScan_simulations';
 const MAX_HISTORY = 50;
 
 export class SimulationStorage {

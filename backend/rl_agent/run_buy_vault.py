@@ -1,6 +1,6 @@
 """
 Run the agentic trader on a fast synthetic market and, the moment a BUY
-decision fires, execute a real Uniswap V3 swap THROUGH the SignalsVault on
+decision fires, execute a real Uniswap V3 swap THROUGH the HypeScanVault on
 Base Sepolia (1 USDC → WETH).
 
 Loads AGENT_PRIVATE_KEY from backend/.env. Uses public Base Sepolia RPC.

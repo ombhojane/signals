@@ -33,7 +33,7 @@ export function Header() {
       <div className="flex items-center gap-3 flex-1 min-w-0 pr-2">
         {/* Mobile Logo */}
         <div className="flex md:hidden items-center shrink-0">
-          <img src="/signal_logo.svg" alt="Signals" className="w-8 h-8 rounded-full" />
+          <img src="/signal_logo.svg" alt="HypeScan" className="w-8 h-8 rounded-full" />
         </div>
         {/* Search */}
         <div className="flex-1 min-w-0 flex items-center">

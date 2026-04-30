@@ -63,8 +63,8 @@ def generate_markdown_report(
     lines.append("---")
     lines.append("")
     
-    # Market Signals Section
-    lines.append("## 1. Market Signals Data")
+    # Market HypeScan Section
+    lines.append("## 1. Market HypeScan Data")
     lines.append("")
     
     if 'dex_data' in market_data and market_data['dex_data'].get('pairs'):
@@ -94,8 +94,8 @@ def generate_markdown_report(
     lines.append("---")
     lines.append("")
     
-    # GMGN Signals Section
-    lines.append("## 2. GMGN Signals Data")
+    # GMGN HypeScan Section
+    lines.append("## 2. GMGN HypeScan Data")
     lines.append("")
     
     if 'analysis' in gmgn_data:
@@ -124,7 +124,7 @@ def generate_markdown_report(
     lines.append("")
     
     # Twitter Section
-    lines.append("## 3. Twitter/Social Signals Data")
+    lines.append("## 3. Twitter/Social HypeScan Data")
     lines.append("")
     
     if twitter_data and twitter_data.get('tweets'):

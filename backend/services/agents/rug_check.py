@@ -82,7 +82,7 @@ class RugCheckAgent:
             "detecting rug pulls, honeypots, and dilution attacks.\n\n"
             "A deterministic kill-switch has already run — tokens with certain-death "
             "conditions (honeypot, top10 > 90%, liquidity < $1k) never reach you. "
-            "Your job is to assess the subtler risk signals using ONLY the known facts below.\n\n"
+            "Your job is to assess the subtler risk HypeScan using ONLY the known facts below.\n\n"
             "CRITICAL — data completeness rules (read carefully):\n"
             "- Fields listed under UNKNOWN_FIELDS were NOT returned by the upstream providers. "
             "You MUST treat them as 'not verified' (absent evidence), NOT as '0' or 'false'.\n"

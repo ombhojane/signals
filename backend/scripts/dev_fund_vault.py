@@ -52,8 +52,8 @@ def load_vault_abi() -> list:
         Path(__file__).resolve().parent.parent.parent
         / "contracts"
         / "out"
-        / "SignalsVault.sol"
-        / "SignalsVault.json"
+        / "HypeScanVault.sol"
+        / "HypeScanVault.json"
     )
     return json.loads(path.read_text())["abi"]
 

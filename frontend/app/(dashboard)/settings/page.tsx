@@ -49,7 +49,7 @@ export default function SettingsPage() {
   useEffect(() => {
     setMounted(true);
     // Load API keys from localStorage
-    const storedKeys = localStorage.getItem("Signals-api-keys");
+    const storedKeys = localStorage.getItem("HypeScan-api-keys");
     if (storedKeys) {
       try {
         setApiKeys(JSON.parse(storedKeys));
@@ -65,7 +65,7 @@ export default function SettingsPage() {
       [provider]: { key: tempKey, connected: tempKey.length > 10 },
     };
     setApiKeys(newKeys);
-    localStorage.setItem("Signals-api-keys", JSON.stringify(newKeys));
+    localStorage.setItem("HypeScan-api-keys", JSON.stringify(newKeys));
     setEditingProvider(null);
     setTempKey("");
   };
@@ -76,7 +76,7 @@ export default function SettingsPage() {
       [provider]: { key: "", connected: false },
     };
     setApiKeys(newKeys);
-    localStorage.setItem("Signals-api-keys", JSON.stringify(newKeys));
+    localStorage.setItem("HypeScan-api-keys", JSON.stringify(newKeys));
   };
 
   if (!mounted) return null;

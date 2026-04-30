@@ -29,13 +29,13 @@ export function Sidebar() {
           <div className="relative w-10 h-10 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
             <Image 
               src="/signal_logo.svg" 
-              alt="Signals Logo" 
+              alt="HypeScan Logo" 
               fill
               className="object-cover"
             />
           </div>
           <div>
-            <h1 className="text-[1.35rem] font-bold text-white tracking-tighter" style={{ fontFamily: 'var(--font-space)' }}>Signals</h1>
+            <h1 className="text-[1.35rem] font-bold text-white tracking-tighter" style={{ fontFamily: 'var(--font-space)' }}>HypeScan</h1>
             <p className="text-[9px] uppercase tracking-[0.2em] font-semibold text-neutral-500 mt-0.5 group-hover:text-neutral-400 transition-colors">Web3 Intelligence</p>
           </div>
         </Link>

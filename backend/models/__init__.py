@@ -7,11 +7,11 @@ from models.schemas import (
     LiquidityPool,
     WhaleTransaction,
     DexAnalyticsResponse,
-    # AI Signals
+    # AI HypeScan
     FeatureEngineering,
     BlockchainRecognition,
     AlertThreshold,
-    AISignalsResponse,
+    AIHypeScanResponse,
     # Risk Assessment
     RiskAssessmentResponse,
     # Historical
@@ -31,7 +31,7 @@ __all__ = [
     "FeatureEngineering",
     "BlockchainRecognition",
     "AlertThreshold",
-    "AISignalsResponse",
+    "AIHypeScanResponse",
     "RiskAssessmentResponse",
     "HistoricalResponse",
     "ChatMessage",

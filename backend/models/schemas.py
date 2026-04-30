@@ -33,7 +33,7 @@ class DexAnalyticsResponse(BaseModel):
     whale_transactions: List[WhaleTransaction]
 
 
-# --- AI Signals Models ---
+# --- AI HypeScan Models ---
 
 class FeatureEngineering(BaseModel):
     name: str
@@ -57,7 +57,7 @@ class AlertThreshold(BaseModel):
     bgColor: str
 
 
-class AISignalsResponse(BaseModel):
+class AIHypeScanResponse(BaseModel):
     strength: str
     confidence: int
     pattern: str

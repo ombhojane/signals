@@ -11,6 +11,7 @@ from routers.signal import router as signal_router
 from routers.token_scan import router as token_scan_router
 from routers.wallet import wallet_router
 from routers.cron import router as cron_router
+from routers.rl_trade import router as rl_trade_router
 
 __all__ = [
     "dex_router",
@@ -22,4 +23,5 @@ __all__ = [
     "token_scan_router",
     "wallet_router",
     "cron_router",
+    "rl_trade_router",
 ]

@@ -1,4 +1,4 @@
-"""Market Signals Agent — analyzes the MarketFactBook slice."""
+"""Market HypeScan Agent — analyzes the MarketFactBook slice."""
 
 from __future__ import annotations
 

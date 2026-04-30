@@ -21,7 +21,7 @@ const defaultSettings: Settings = {
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
-const STORAGE_KEY = "Signals-settings";
+const STORAGE_KEY = "HypeScan-settings";
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<Settings>(defaultSettings);
