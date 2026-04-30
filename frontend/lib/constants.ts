@@ -52,7 +52,7 @@ export const DEFAULT_STARTING_BALANCE = 10000;
 // AI decision reasons templates
 export const DECISION_REASONS = {
     BUY: [
-        "Bitcoin has dipped below key support, showing bullish reversal HypeScan",
+        "Bitcoin has dipped below key support, showing bullish reversal Signals",
         "Bitcoin has retreated to a favorable entry point",
         "Bitcoin shows momentum breakout above resistance",
         "BTC has retreated and RSI indicates oversold conditions",
@@ -67,7 +67,7 @@ export const DECISION_REASONS = {
         "Market structure weakening, securing gains",
     ],
     HOLD: [
-        "Bitcoin shows mixed HypeScan, maintaining current position",
+        "Bitcoin shows mixed Signals, maintaining current position",
         "Waiting for clearer market direction",
         "Current position aligns with medium-term thesis",
         "No significant change in market conditions",

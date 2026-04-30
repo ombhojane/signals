@@ -3,18 +3,18 @@ pragma solidity ^0.8.24;
 
 import {Test, console2} from "forge-std/Test.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {HypeScanVault} from "../src/HypeScanVault.sol";
+import {SignalsVault} from "../src/SignalsVault.sol";
 
 /// @notice Tests run against a Base mainnet fork so they exercise real
 ///         Uniswap V3 liquidity instead of mocks.
-contract HypeScanVaultTest is Test {
+contract SignalsVaultTest is Test {
     // Base mainnet addresses
     address constant USDC = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913;
     address constant WETH = 0x4200000000000000000000000000000000000006;
     address constant SWAP_ROUTER_02 = 0x2626664c2603336E57B271c5C0b26F421741e481;
     uint24 constant POOL_FEE_500 = 500; // WETH/USDC 0.05% pool
 
-    HypeScanVault vault;
+    SignalsVault vault;
     address owner = makeAddr("owner");
     address agent = makeAddr("agent");
     address alice = makeAddr("alice");
@@ -26,7 +26,7 @@ contract HypeScanVaultTest is Test {
         vm.createSelectFork(vm.rpcUrl("base"));
 
         vm.prank(owner);
-        vault = new HypeScanVault(IERC20(USDC), SWAP_ROUTER_02, agent);
+        vault = new SignalsVault(IERC20(USDC), SWAP_ROUTER_02, agent);
 
         // Fund Alice with 10,000 USDC
         deal(USDC, alice, 10_000 * 1e6);
@@ -99,7 +99,7 @@ contract HypeScanVaultTest is Test {
         _depositAs(alice, 1_000 * 1e6);
 
         vm.prank(alice);
-        vm.expectRevert(HypeScanVault.NotAgent.selector);
+        vm.expectRevert(SignalsVault.NotAgent.selector);
         vault.executeTrade(USDC, WETH, POOL_FEE_500, 100 * 1e6, 0, REASONING_HASH, 82);
     }
 
@@ -147,7 +147,7 @@ contract HypeScanVaultTest is Test {
 
         vm.startPrank(bob);
         IERC20(USDC).approve(address(vault), 100 * 1e6);
-        vm.expectRevert(HypeScanVault.PositionCurrentlyOpen.selector);
+        vm.expectRevert(SignalsVault.PositionCurrentlyOpen.selector);
         vault.deposit(100 * 1e6, bob);
         vm.stopPrank();
     }
@@ -159,7 +159,7 @@ contract HypeScanVaultTest is Test {
         vault.executeTrade(USDC, WETH, POOL_FEE_500, 500 * 1e6, 0, REASONING_HASH, 82);
 
         vm.prank(alice);
-        vm.expectRevert(HypeScanVault.PositionCurrentlyOpen.selector);
+        vm.expectRevert(SignalsVault.PositionCurrentlyOpen.selector);
         vault.withdraw(100 * 1e6, alice, alice);
     }
 
@@ -171,7 +171,7 @@ contract HypeScanVaultTest is Test {
         _depositAs(alice, 1_000 * 1e6);
 
         vm.expectEmit(true, true, true, false, address(vault));
-        emit HypeScanVault.TradeExecuted(USDC, WETH, 500 * 1e6, 0, REASONING_HASH, 82, 0);
+        emit SignalsVault.TradeExecuted(USDC, WETH, 500 * 1e6, 0, REASONING_HASH, 82, 0);
 
         vm.prank(agent);
         vault.executeTrade(USDC, WETH, POOL_FEE_500, 500 * 1e6, 0, REASONING_HASH, 82);

@@ -48,7 +48,7 @@ const wagmiConfig = createConfig({
   connectors: [
     injected(),
     walletConnect({
-      projectId: "HypeScan-wallet-connection",
+      projectId: "Signals-wallet-connection",
     }),
   ],
   transports: {

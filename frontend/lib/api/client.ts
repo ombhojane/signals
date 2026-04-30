@@ -164,11 +164,11 @@ export async function fetchTokenStats(coinAddress: string, chain: string = 'sol'
 }
 
 /**
- * Fetch AI HypeScan
+ * Fetch AI Signals
  */
-export async function fetchAIHypeScan(coinAddress: string) {
+export async function fetchAISignals(coinAddress: string) {
   return apiFetch<any>(
-    `/ai-HypeScan?coinAddress=${encodeURIComponent(coinAddress)}&pairAddress=${encodeURIComponent(coinAddress)}`
+    `/ai-Signals?coinAddress=${encodeURIComponent(coinAddress)}&pairAddress=${encodeURIComponent(coinAddress)}`
   );
 }
 

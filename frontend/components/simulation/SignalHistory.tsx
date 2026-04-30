@@ -65,7 +65,7 @@ export default function SignalHistory({
   tokenAddress: string;
   currentPrice?: number;
 }) {
-  const [HypeScan, setHypeScan] = useState<OnChainSignal[]>([]);
+  const [Signals, setSignals] = useState<OnChainSignal[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState<string | null>(null);
 
@@ -74,7 +74,7 @@ export default function SignalHistory({
     setLoading(true);
     setError(null);
 
-    fetch(`${API_BASE}/HypeScan-onchain/${tokenAddress}?limit=20`)
+    fetch(`${API_BASE}/Signals-onchain/${tokenAddress}?limit=20`)
       .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then((data: OnChainSignal[]) => {
         const now = Date.now() / 1000;
@@ -86,13 +86,13 @@ export default function SignalHistory({
           const pnlPct = ((currentPrice - priceAtSignal) / priceAtSignal) * 100;
           return { ...s, priceAtSignal, priceNow: currentPrice, pnlPct, outcome: computeOutcome(s.signal, pnlPct) };
         });
-        setHypeScan(enriched);
+        setSignals(enriched);
       })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, [tokenAddress, currentPrice]);
 
-  const resolved = HypeScan.filter((s) => s.outcome && s.outcome !== "PENDING");
+  const resolved = Signals.filter((s) => s.outcome && s.outcome !== "PENDING");
   const wins     = resolved.filter((s) => s.outcome === "WIN").length;
   const winRate  = resolved.length > 0 ? Math.round((wins / resolved.length) * 100) : null;
 
@@ -111,13 +111,13 @@ export default function SignalHistory({
         )}
       </div>
 
-      {loading && <div className="px-5 py-8 text-center text-sm text-gray-400">Loading HypeScan…</div>}
-      {error   && <div className="px-5 py-4 text-sm text-red-500">Could not load HypeScan: {error}</div>}
-      {!loading && !error && HypeScan.length === 0 && (
-        <div className="px-5 py-8 text-center text-sm text-gray-400">No on-chain HypeScan yet for this token.</div>
+      {loading && <div className="px-5 py-8 text-center text-sm text-gray-400">Loading Signals…</div>}
+      {error   && <div className="px-5 py-4 text-sm text-red-500">Could not load Signals: {error}</div>}
+      {!loading && !error && Signals.length === 0 && (
+        <div className="px-5 py-8 text-center text-sm text-gray-400">No on-chain Signals yet for this token.</div>
       )}
 
-      {!loading && HypeScan.length > 0 && (
+      {!loading && Signals.length > 0 && (
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -131,7 +131,7 @@ export default function SignalHistory({
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
-              {HypeScan.map((s) => (
+              {Signals.map((s) => (
                 <tr key={s.pubkey} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                   <td className="px-5 py-3 text-gray-500 whitespace-nowrap">{formatTime(s.timestamp)}</td>
                   <td className="px-4 py-3">

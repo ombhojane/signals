@@ -54,7 +54,7 @@ export default function VaultPage() {
             className="text-5xl font-black tracking-[-0.03em]"
             style={{ color: "#e7e5e5" }}
           >
-            HypeScan Vault
+            Signals Vault
           </h1>
           <p className="mt-3 text-sm max-w-xl" style={{ color: "#acabaa" }}>
             Deposit USDC, the AI agent trades it on Uniswap V3, and every decision

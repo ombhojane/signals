@@ -3,7 +3,7 @@ One-shot client for the RL-trade endpoint.
 
 Hits POST /rl-trade/run on the local backend, runs the agent through a
 synthetic market, executes up to `max_trades` real Uniswap V3 swaps
-(1 USDC → WETH each) through the HypeScanVault on Base Sepolia, and
+(1 USDC → WETH each) through the SignalsVault on Base Sepolia, and
 prints a clean summary.
 
 Prereqs:

@@ -97,8 +97,8 @@ class TokenAnalysisAgents:
     """Token analysis agents using Gemini 2.5 Flash with structured outputs.
 
     Same public API as the previous implementation so callers don't break:
-      - market_HypeScan(dex_data)
-      - gmgn_HypeScan(gmgn_data)
+      - market_Signals(dex_data)
+      - gmgn_Signals(gmgn_data)
       - analyze_social_data(social_data) / analyze_social_sentiment(social_data)
       - predict_token_movement(combined_data)
 
@@ -114,9 +114,9 @@ class TokenAnalysisAgents:
 
     # ------------------------------------------------------------------ market
 
-    async def market_HypeScan(self, dex_data: Dict[str, Any]) -> Dict[str, Any]:
+    async def market_Signals(self, dex_data: Dict[str, Any]) -> Dict[str, Any]:
         """Analyze DEX/market data and provide structured insights."""
-        logger.info("Running market HypeScan analysis...")
+        logger.info("Running market Signals analysis...")
         prompt = (
             "As a cryptocurrency data analyst expert, analyze the following DEX/market "
             "data and return a structured assessment.\n\n"
@@ -135,7 +135,7 @@ class TokenAnalysisAgents:
 
     # --------------------------------------------------------------- rug check
 
-    async def gmgn_HypeScan(self, gmgn_data: Dict[str, Any]) -> Dict[str, Any]:
+    async def gmgn_Signals(self, gmgn_data: Dict[str, Any]) -> Dict[str, Any]:
         """Analyze GMGN + safety data for rug detection."""
         logger.info("Running rug-check analysis...")
         prompt = (
@@ -189,7 +189,7 @@ class TokenAnalysisAgents:
         """Synthesize all analyses into a final action signal."""
         logger.info("Running prediction model...")
         prompt = (
-            "As a cryptocurrency prediction expert, synthesize all available HypeScan "
+            "As a cryptocurrency prediction expert, synthesize all available Signals "
             "into a single trading recommendation. Weight safety (rug-risk) highest — "
             "an unsafe token is always HOLD or SELL regardless of hype.\n\n"
             f"Combined Analysis Data:\n{json.dumps(combined_data, separators=(',', ':'))}\n\n"

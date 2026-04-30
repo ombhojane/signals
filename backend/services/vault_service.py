@@ -1,5 +1,5 @@
 """
-Vault Service - web3.py wrapper around the HypeScanVault contract.
+Vault Service - web3.py wrapper around the SignalsVault contract.
 
 Executes AI-driven trades on Uniswap V3 through the deployed vault, passing the
 reasoning hash and confidence score so every trade is verifiably linked to the
@@ -19,7 +19,7 @@ from web3.types import TxReceipt
 load_dotenv()
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-_ABI_PATH = _REPO_ROOT / "contracts" / "out" / "HypeScanVault.sol" / "HypeScanVault.json"
+_ABI_PATH = _REPO_ROOT / "contracts" / "out" / "SignalsVault.sol" / "SignalsVault.json"
 
 
 def _load_abi() -> list:

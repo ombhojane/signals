@@ -27,7 +27,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "HypeScan | Web3 Intelligence",
+  title: "Signals | Web3 Intelligence",
   description: "Quiet clarity in a noisy ecosystem. Distilling global on-chain complexity into actionable editorial intelligence for the discerning institution.",
   icons: {
     icon: "/signal_logo.png",

@@ -3,7 +3,7 @@
     {
       "hash": "0xee412f7b23d1b6c2e57f98fc60b9060bf7e06cc9aee5a79a44c6df5b15dfa974",
       "transactionType": "CREATE",
-      "contractName": "HypeScanVault",
+      "contractName": "SignalsVault",
       "contractAddress": "0xdf57590d27f02bcfa8522d4a59e07ca7a31b9a6a",
       "function": null,
       "arguments": [
@@ -70,7 +70,7 @@
   "pending": [],
   "returns": {
     "vault": {
-      "internal_type": "contract HypeScanVault",
+      "internal_type": "contract SignalsVault",
       "value": "0xdf57590D27f02BcFA8522d4a59E07Ca7a31b9a6a"
     }
   },
