@@ -23,11 +23,11 @@ interface ISwapRouter {
         returns (uint256 amountOut);
 }
 
-/// @title SignalsVault
+/// @title HypeScanVault
 /// @notice ERC-4626 vault whose USDC is traded on Uniswap V3 by an AI agent.
 ///         Every trade emits the keccak256 hash of the LLM reasoning and its
 ///         confidence score, creating a verifiable on-chain decision log.
-contract SignalsVault is ERC4626, Ownable {
+contract HypeScanVault is ERC4626, Ownable {
     using SafeERC20 for IERC20;
 
     ISwapRouter public immutable swapRouter;
@@ -56,7 +56,7 @@ contract SignalsVault is ERC4626, Ownable {
 
     constructor(IERC20 usdc, address _swapRouter, address _agent)
         ERC4626(usdc)
-        ERC20("Signals Vault Share", "sVAULT")
+        ERC20("HypeScan Vault Share", "sVAULT")
         Ownable(msg.sender)
     {
         if (_swapRouter == address(0) || _agent == address(0)) revert ZeroAddress();

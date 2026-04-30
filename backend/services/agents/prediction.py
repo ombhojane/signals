@@ -30,7 +30,7 @@ _TEMPERATURE = 0.1  # lowest temp — decisions should be stable
 
 
 class PredictionAgent:
-    """Synthesize worker outcomes + FactBook signals into a trading action."""
+    """Synthesize worker outcomes + FactBook HypeScan into a trading action."""
 
     def __init__(self) -> None:
         self.llm = make_llm(temperature=_TEMPERATURE)
@@ -178,7 +178,7 @@ class PredictionAgent:
         return (
             "You are the final decision layer for a multi-agent crypto analysis "
             "system. Three specialist agents have already analyzed market, safety, "
-            "and social signals. Your job is to synthesize their outputs into a "
+            "and social HypeScan. Your job is to synthesize their outputs into a "
             "single trading recommendation.\n\n"
             "DECISION RULES (strict — check in order, first match wins):\n"
             "- Rug safety score < 0.30 AND rug confidence ≥ 0.50 → SELL or STRONG_SELL.\n"

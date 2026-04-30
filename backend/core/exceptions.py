@@ -3,8 +3,8 @@ Core Exceptions - Custom exception hierarchy for better error handling.
 """
 
 
-class SignalsError(Exception):
-    """Base exception for all Signals errors."""
+class HypeScanError(Exception):
+    """Base exception for all HypeScan errors."""
     
     def __init__(self, message: str, details: dict = None):
         self.message = message
@@ -12,7 +12,7 @@ class SignalsError(Exception):
         super().__init__(self.message)
 
 
-class ExternalAPIError(SignalsError):
+class ExternalAPIError(HypeScanError):
     """Error when external API (DexScreener, GMGN, Twitter, etc.) fails."""
     
     def __init__(self, api_name: str, message: str, status_code: int = None):
@@ -24,7 +24,7 @@ class ExternalAPIError(SignalsError):
         )
 
 
-class ConfigurationError(SignalsError):
+class ConfigurationError(HypeScanError):
     """Error when required configuration is missing or invalid."""
     
     def __init__(self, missing_keys: list):
@@ -35,7 +35,7 @@ class ConfigurationError(SignalsError):
         )
 
 
-class TokenNotFoundError(SignalsError):
+class TokenNotFoundError(HypeScanError):
     """Error when a token cannot be found."""
     
     def __init__(self, token_address: str, chain: str = None):
@@ -47,7 +47,7 @@ class TokenNotFoundError(SignalsError):
         )
 
 
-class AnalysisError(SignalsError):
+class AnalysisError(HypeScanError):
     """Error during AI analysis."""
     
     def __init__(self, agent_type: str, message: str):

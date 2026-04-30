@@ -50,12 +50,12 @@ function Navbar() {
           <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
             <Image 
               src="/signal_logo.svg" 
-              alt="Signals Logo" 
+              alt="HypeScan Logo" 
               fill
               className="object-cover"
             />
           </div>
-          <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: 'var(--font-space)' }}>Signals</span>
+          <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: 'var(--font-space)' }}>HypeScan</span>
         </button>
         <div className="hidden md:flex gap-8 text-[11px] font-semibold tracking-[0.15em] uppercase">
           <button 
@@ -69,7 +69,7 @@ function Navbar() {
             onClick={() => goToSection("why")}
             className="text-neutral-400 hover:text-white transition-colors duration-300 relative group overflow-hidden"
           >
-            Why Signals
+            Why HypeScan
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
           </button>
           <Link
@@ -133,7 +133,7 @@ function HeroSection() {
           fontFamily: "var(--font-space)"
         }}
       >
-        Intelligent signals.
+        Intelligent Signals.
         <br />
         <span style={{ color: "#a7cbeb" }}>Autonomous trading.</span>
         <br />
@@ -157,7 +157,7 @@ function HeroSection() {
           className="px-10 py-4 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 hover:shadow-[0_0_30px_rgba(167,203,235,0.25)] flex items-center gap-2 group"
           style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
         >
-          Launch Signals
+          Launch HypeScan
           <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </Link>
         <Link
@@ -284,7 +284,7 @@ function HowItWorksSection() {
     {
       num: "01",
       title: "Multi-Source Signal Analysis",
-      desc: "Aggregates Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement via Gemma and Langchain agents for high-quality, actionable signals.",
+      desc: "Aggregates Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement via Gemma and Langchain agents for high-quality, actionable HypeScan.",
     },
     {
       num: "02",
@@ -367,7 +367,7 @@ function ValuePropsSection() {
     {
       icon: "insights",
       title: "Intelligent Signal Generation",
-      desc: "Multi-source analysis combines Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement produces high-quality, low-noise signals with customizable thresholds.",
+      desc: "Multi-source analysis combines Twitter sentiment, on-chain metrics, and DEX activity. AI-powered refinement produces high-quality, low-noise HypeScan with customizable thresholds.",
     },
     {
       icon: "smart_toy",
@@ -397,7 +397,7 @@ function ValuePropsSection() {
             className="text-[10px] uppercase tracking-[0.3em] font-semibold block mb-6"
             style={{ color: "var(--primary)" }}
           >
-            Why Signals
+            Why HypeScan
           </span>
           <h2
             className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
@@ -465,7 +465,7 @@ function CTASection() {
           <span className="text-neutral-500">Trade with confidence.</span>
         </h2>
         <p className="text-lg text-neutral-400 font-light leading-relaxed mb-16 max-w-xl mx-auto relative z-10">
-          Intelligent signals meet autonomous trading. Multi-protocol vault management with safety mechanisms 
+          Intelligent Signals meet autonomous trading. Multi-protocol vault management with safety mechanisms 
           built-in. Everything on-chain, fully auditable.
         </p>
         <Link
@@ -473,7 +473,7 @@ function CTASection() {
           className="inline-block px-12 py-5 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 hover:shadow-[0_0_40px_rgba(167,203,235,0.3)] relative z-10"
           style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
         >
-          Launch Signals
+          Launch HypeScan
         </Link>
       </div>
     </section>
@@ -490,12 +490,12 @@ function Footer() {
             <div className="relative w-8 h-8 rounded-full overflow-hidden">
               <Image 
                 src="/signal_logo.svg" 
-                alt="Signals Logo" 
+                alt="HypeScan Logo" 
                 fill
                 className="object-cover"
               />
             </div>
-            <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: "var(--font-space)" }}>Signals</span>
+            <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: "var(--font-space)" }}>HypeScan</span>
           </div>
           <p
             className="text-[11px] uppercase tracking-[0.2em] font-medium"

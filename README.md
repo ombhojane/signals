@@ -1,4 +1,4 @@
-# 🚀 Signals: Web3 Intelligence Platform
+# 🚀 HypeScan: Web3 Intelligence Platform
 
 > Intelligent Web3 signal analysis, RL-based trading, and vault management for decentralized finance.
 
@@ -19,7 +19,7 @@
 
 The cryptocurrency and DeFi ecosystem faces critical pain points:
 
-1. **Information Overload**: Millions of tokens and trading signals, impossible to filter manually
+1. **Information Overload**: Millions of tokens and trading HypeScan, impossible to filter manually
 2. **Signal Quality**: Existing alert systems produce too many false positives with low accuracy
 3. **Manual Trading**: Retail traders lack sophisticated tools for optimal trade execution
 4. **Vault Fragmentation**: Capital scattered across multiple protocols with no unified management
@@ -28,7 +28,7 @@ The cryptocurrency and DeFi ecosystem faces critical pain points:
 
 ### Target Users
 
-- **Retail Traders**: Need high-quality, actionable signals without noise
+- **Retail Traders**: Need high-quality, actionable HypeScan without noise
 - **DeFi Participants**: Want safer vault strategies and capital management
 - **Professional Traders**: Require real-time data and automated execution
 - **Risk Managers**: Need comprehensive token safety scoring
@@ -79,7 +79,7 @@ The cryptocurrency and DeFi ecosystem faces critical pain points:
 ┌─────────────────────────────────────────────────────────┐
 │                    Frontend (Next.js)                    │
 │  ┌──────────────────────────────────────────────────┐   │
-│  │  Dashboard | Vault | Signals | Leaderboard       │   │
+│  │  Dashboard | Vault | HypeScan | Leaderboard       │   │
 │  │  Collapsible Sidebar | Real-time Charts          │   │
 │  └──────────────────────────────────────────────────┘   │
 └────────────────────────┬────────────────────────────────┘
@@ -105,7 +105,7 @@ The cryptocurrency and DeFi ecosystem faces critical pain points:
         │                │                │
 ┌───────▼────────┐ ┌─────▼──────┐ ┌──────▼──────────┐
 │   Smart Contracts   │ Database  │ External APIs   │
-│ (SignalsVault)  │ (Reasoning) │ (DEX, Twitter)  │
+│ (HypeScanVault)  │ (Reasoning) │ (DEX, Twitter)  │
 └─────────────────┘ └───────────┘ └─────────────────┘
 ```
 
@@ -131,7 +131,7 @@ The cryptocurrency and DeFi ecosystem faces critical pain points:
 - **Blockchain**: Direct smart contract interaction
 
 #### Contract Layer
-- **SignalsVault**: ERC-4626 compliant vault contract (Solidity)
+- **HypeScanVault**: ERC-4626 compliant vault contract (Solidity)
 - **Deployment**: Foundry framework
 - **Networks**: Ethereum, Sepolia testnet
 
@@ -141,7 +141,7 @@ The cryptocurrency and DeFi ecosystem faces critical pain points:
    - Fetch token data from multiple sources (parallel API calls)
    - Run through safety validators and kill-switch checks
    - Process with AI agents (Crew AI) for reasoning
-   - Generate ranked signals with confidence scores
+   - Generate ranked HypeScan with confidence scores
 
 2. **User Action**
    - User views signal in dashboard
@@ -258,10 +258,10 @@ forge test
 
 ### Step 3: Explore Features
 
-#### 3a. View Signals
-1. Navigate to **Signals** tab in sidebar
-2. View AI-generated trading signals with safety scores
-3. Signals refresh every 60 seconds with latest on-chain data
+#### 3a. View HypeScan
+1. Navigate to **HypeScan** tab in sidebar
+2. View AI-generated trading HypeScan with safety scores
+3. HypeScan refresh every 60 seconds with latest on-chain data
 4. Interact with signal details to see reasoning
 
 #### 3b. Manage Vault
@@ -338,7 +338,7 @@ forge test
 
 ## 📊 Performance Metrics
 
-- **Signal Generation**: < 5 seconds from API call to ranked signals
+- **Signal Generation**: < 5 seconds from API call to ranked HypeScan
 - **Page Load**: < 2 seconds with smooth 1.5s loader animation
 - **API Responses**: Cached with 60s TTL to reduce redundant calls
 - **RL Agent**: Trained on 10,000+ market simulation steps

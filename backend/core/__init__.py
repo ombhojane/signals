@@ -1,5 +1,5 @@
 """
-Signals Core Module
+HypeScan Core Module
 """
 
 from core.config import settings, Settings
@@ -13,7 +13,7 @@ from core.constants import (
     DEFAULT_CHAIN,
 )
 from core.exceptions import (
-    SignalsError,
+    HypeScanError,
     ExternalAPIError,
     ConfigurationError,
     TokenNotFoundError,
@@ -46,7 +46,7 @@ __all__ = [
     "DEFAULT_TRENCHES_LIMIT",
     "DEFAULT_CHAIN",
     # Exceptions
-    "SignalsError",
+    "HypeScanError",
     "ExternalAPIError",
     "ConfigurationError",
     "TokenNotFoundError",

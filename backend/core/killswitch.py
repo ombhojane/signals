@@ -10,7 +10,7 @@ a HOLD on a honeypot).
 
 The rules are intentionally conservative — false negatives (letting a scam
 through) are acceptable here because the LLM pipeline still runs behind them
-and can catch subtler signals. False positives (blocking a legit token) are
+and can catch subtler HypeScan. False positives (blocking a legit token) are
 the real risk, so every rule must fire only on strong, numerically verifiable
 evidence.
 

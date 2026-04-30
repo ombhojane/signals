@@ -152,7 +152,7 @@ const MODELS: ModelRow[] = [
     archetype: "Analysis Paralysis",
     oneLiner: "Highest leverage, longest reasoning, worst decisions.",
     observation:
-      "Wrote the most thorough trade rationales — and acted on them last. Hesitated under conflicting signals, shorted into rallies, ran the field's highest leverage. Best-in-class as a writer, worst-in-class as a trader.",
+      "Wrote the most thorough trade rationales — and acted on them last. Hesitated under conflicting HypeScan, shorted into rallies, ran the field's highest leverage. Best-in-class as a writer, worst-in-class as a trader.",
   },
 ];
 
@@ -176,7 +176,7 @@ const FINDINGS = [
   },
   {
     title: "Reasoning chains can hurt you.",
-    body: "GPT-5's longer deliberation correlated with worse entries. In fast markets, latency-to-decision is itself a cost: while the model checked historical context, the edge moved. Cheaper, decisive signals beat expensive contemplative ones.",
+    body: "GPT-5's longer deliberation correlated with worse entries. In fast markets, latency-to-decision is itself a cost: while the model checked historical context, the edge moved. Cheaper, decisive HypeScan beat expensive contemplative ones.",
   },
   {
     title: "Leverage amplifies the model, not the market.",

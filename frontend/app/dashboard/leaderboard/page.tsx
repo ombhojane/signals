@@ -196,7 +196,7 @@ export default function ProofPage() {
             Proof of Alpha
           </h1>
           <p className="mt-3 text-sm max-w-xl" style={{ color: "#acabaa" }}>
-            Every trade the Signals vault has ever made, live from Base Sepolia.
+            Every trade the HypeScan vault has ever made, live from Base Sepolia.
             Each one is linked to the AI reasoning that produced it via an
             on-chain hash. No edits, no cherry-picking, no retroactive spin.
           </p>

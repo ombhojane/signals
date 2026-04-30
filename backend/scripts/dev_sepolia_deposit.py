@@ -51,7 +51,7 @@ ERC20_ABI = [
 
 
 def _load_vault_abi() -> list:
-    path = REPO_ROOT / "contracts" / "out" / "SignalsVault.sol" / "SignalsVault.json"
+    path = REPO_ROOT / "contracts" / "out" / "HypeScanVault.sol" / "HypeScanVault.json"
     return json.loads(path.read_text())["abi"]
 
 
