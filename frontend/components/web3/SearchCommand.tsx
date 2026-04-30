@@ -36,7 +36,7 @@ const PAGES = [
     href: "/dashboard/simulation",
     icon: "travel_explore",
     description: "Token scanner · signal playground",
-    keywords: ["explore", "simulation", "HypeScan", "scan", "tokens", "analyze"],
+    keywords: ["explore", "simulation", "Signals", "scan", "tokens", "analyze"],
   },
   {
     title: "Proof",

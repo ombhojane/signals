@@ -5,7 +5,7 @@ Flow:
     1. THINK         — plan data sources based on chain capabilities
     2. ACT (fetch)   — fetch DEX + GMGN + Safety + Twitter in parallel
     3. STAGE 0       — build TokenFactBook from raw data (pure, no LLM)
-    4. STAGE 1       — deterministic kill-switch (no LLM, short-circuits on hard HypeScan)
+    4. STAGE 1       — deterministic kill-switch (no LLM, short-circuits on hard Signals)
     5. STAGE 2       — three FactBook-aware worker agents in parallel
                        (Market / RugCheck / Social)
     6. STAGE 3       — scoring module placeholder (Step 7 plugs in here)

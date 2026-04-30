@@ -105,11 +105,11 @@ async def _run_prediction(
             "safety": safety_data
         }
         
-        # Run market HypeScan analysis
+        # Run market Signals analysis
         market_analysis = {}
         if dex_data and validate_dex_data(dex_data).is_valid:
             try:
-                market_analysis = await token_agents.market_HypeScan(dex_data)
+                market_analysis = await token_agents.market_Signals(dex_data)
             except Exception as e:
                 logger.warning(f"Market analysis failed: {str(e)}")
         
@@ -117,7 +117,7 @@ async def _run_prediction(
         safety_analysis = {}
         if gmgn_data and validate_gmgn_data(gmgn_data).is_valid:
             try:
-                safety_analysis = await token_agents.gmgn_HypeScan(gmgn_data)
+                safety_analysis = await token_agents.gmgn_Signals(gmgn_data)
             except Exception as e:
                 logger.warning(f"Safety analysis failed: {str(e)}")
         

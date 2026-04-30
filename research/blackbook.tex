@@ -1,5 +1,5 @@
  % =============================================================================
-% HYPESCAN PROJECT BLACKBOOK (B.E. THESIS REPORT)
+% Signals PROJECT BLACKBOOK (B.E. THESIS REPORT)
 % A. P. Shah Institute of Technology, Thane -- University of Mumbai
 % Academic Year: 2025-2026
 %
@@ -163,8 +163,8 @@
 \begin{singlespace}
 \begin{center}
     % \vspace*{2mm}
-    {\Large \textbf{HYPESCAN: FORECASTING MEMECOIN PRICES\\
-    BASED ON MARKET SIGNALS, RUG CHECKS, AND\\
+    {\Large \textbf{Signals: FORECASTING MEMECOIN PRICES\\
+    BASED ON MARKET Signals, RUG CHECKS, AND\\
     TWITTER SENTIMENT DATA} \par}
 
     \vspace{1cm}
@@ -221,7 +221,7 @@
 \begin{spacing}{1.5}
 {\setstretch{1.3}
 \noindent This is to certify that the project entitled
-\textbf{``HypeScan: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data''} is a bonafide work of \textbf{Om Bhojane (22102097)}, \textbf{Mihir Amin (22102088)}, \textbf{Sairaj Bokand (22102133)}, and \textbf{Shreyas Bhalekar (22102168)} submitted to the University of Mumbai in partial fulfilment of the requirement for the award of the degree of \textbf{Bachelor of Engineering in Computer Engineering}.
+\textbf{``Signals: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data''} is a bonafide work of \textbf{Om Bhojane (22102097)}, \textbf{Mihir Amin (22102088)}, \textbf{Sairaj Bokand (22102133)}, and \textbf{Shreyas Bhalekar (22102168)} submitted to the University of Mumbai in partial fulfilment of the requirement for the award of the degree of \textbf{Bachelor of Engineering in Computer Engineering}.
 \par}
 \end{spacing}
 \end{singlespace}
@@ -288,7 +288,7 @@
 {\setstretch{1.3}
 \noindent
 This project report entitled
-\textbf{``HypeScan: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data''}
+\textbf{``Signals: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data''}
 by \textbf{Om Bhojane, Mihir Amin, Sairaj Bokand, and Shreyas Bhalekar}
 is approved for the degree of \textbf{Bachelor of Engineering in Computer Engineering}.
 \textbf{2025--2026}.
@@ -376,7 +376,7 @@ Shreyas Bhalekar - 22102168 \\
 \end{center}
 
 \noindent
-Memecoin markets exhibit extreme volatility, sentiment-driven price swings, and a high prevalence of rug-pull exploits, making them fundamentally incompatible with traditional cryptocurrency analytics. Existing tools operate in silos: price-prediction models rely solely on technical indicators, rug-pull detectors analyse only smart-contract features, and sentiment analysers aggregate social-media mentions without integrating them into actionable trading decisions. In this project, an integrated multi-agent platform called \textbf{HypeScan} was developed to forecast memecoin prices and assess token risk in real time by unifying market signals, on-chain rug checks, and Twitter sentiment data. The system orchestrates specialised LLM-based agents---a Market Agent, a Rug-Check Agent, a Social Agent, and a Predictor Agent---through a ReAct-style reasoning loop with episodic and semantic memory, enabling continual self-improvement across market regimes. On-chain safety analysis covers liquidity locks, holder concentration, mint authority, and contract-level red flags, while the sentiment pipeline ingests Twitter activity and reconciles it against on-chain truth. A custom synthetic market simulator with slippage and regime modelling provides a zero-risk evaluation environment for the agentic trader. The platform delivers transparent, interpretable verdicts with sub-second latency, demonstrating the viability of unified, self-improving, multi-signal analysis for the extreme volatility of modern memecoin markets.
+Memecoin markets exhibit extreme volatility, sentiment-driven price swings, and a high prevalence of rug-pull exploits, making them fundamentally incompatible with traditional cryptocurrency analytics. Existing tools operate in silos: price-prediction models rely solely on technical indicators, rug-pull detectors analyse only smart-contract features, and sentiment analysers aggregate social-media mentions without integrating them into actionable trading decisions. In this project, an integrated multi-agent platform called \textbf{Signals} was developed to forecast memecoin prices and assess token risk in real time by unifying market Signals, on-chain rug checks, and Twitter sentiment data. The system orchestrates specialised LLM-based agents---a Market Agent, a Rug-Check Agent, a Social Agent, and a Predictor Agent---through a ReAct-style reasoning loop with episodic and semantic memory, enabling continual self-improvement across market regimes. On-chain safety analysis covers liquidity locks, holder concentration, mint authority, and contract-level red flags, while the sentiment pipeline ingests Twitter activity and reconciles it against on-chain truth. A custom synthetic market simulator with slippage and regime modelling provides a zero-risk evaluation environment for the agentic trader. The platform delivers transparent, interpretable verdicts with sub-second latency, demonstrating the viability of unified, self-improving, multi-signal analysis for the extreme volatility of modern memecoin markets.
 
 \vspace{8mm}
 
@@ -470,16 +470,16 @@ The global cryptocurrency market has experienced an unprecedented structural shi
 The price volatility of memecoins is unlike anything traditional finance has ever encountered. The MURICA token, analysed as one of the live case studies in this project, recorded a 3{,}576\% price change within a single 24-hour window. Such extreme movements are frequently accompanied by sophisticated exploits collectively known as \emph{rug pulls}---attacks in which developers deliberately design, launch, and hype a token only to withdraw liquidity, dump their allocation on retail buyers, and disappear. A recent survey of the literature identified 35 distinct rug-pull attack patterns~\cite{ref20}, and Chainalysis' 2025 Crypto Crime Report estimates that rug pulls and exit scams collectively stole more than \$2.6 billion from retail investors over the past twelve months. These exploits are compounded by the fact that existing analytical infrastructure remains fundamentally fragmented: price-prediction models rely solely on technical indicators~\cite{ref4,ref7}, rug-pull detectors analyse only smart-contract features~\cite{ref5}, and sentiment analysis tools merely aggregate social-media mentions and hashtags without integrating them into any actionable trading decision~\cite{ref6}.
 
 \section{Motivation}
-The central problem facing a modern memecoin trader is therefore one of \emph{signal integration}. A tool that excels at detecting rug pulls is useless if it cannot tell the user whether the token is trending on Twitter; a sentiment analyser that correctly identifies viral hype is dangerous if it ignores the fact that the liquidity pool is unlocked and the top ten wallets control 72\% of the supply. Recent multi-agent LLM trading systems such as TradingAgents~\cite{ref23}, FinCon~\cite{ref24}, CryptoTrade~\cite{ref25} and FinMem~\cite{ref26} have demonstrated the potential of LLM-based financial reasoning, yet none of these systems addresses the unique challenges of memecoin markets: extreme volatility, prevalent frauds, and social-sentiment-driven price dynamics operating on minute-level timescales. This gap motivated the design of a unified system capable of fusing market, safety, and social signals into a single coherent trading decision.
+The central problem facing a modern memecoin trader is therefore one of \emph{signal integration}. A tool that excels at detecting rug pulls is useless if it cannot tell the user whether the token is trending on Twitter; a sentiment analyser that correctly identifies viral hype is dangerous if it ignores the fact that the liquidity pool is unlocked and the top ten wallets control 72\% of the supply. Recent multi-agent LLM trading systems such as TradingAgents~\cite{ref23}, FinCon~\cite{ref24}, CryptoTrade~\cite{ref25} and FinMem~\cite{ref26} have demonstrated the potential of LLM-based financial reasoning, yet none of these systems addresses the unique challenges of memecoin markets: extreme volatility, prevalent frauds, and social-sentiment-driven price dynamics operating on minute-level timescales. This gap motivated the design of a unified system capable of fusing market, safety, and social Signals into a single coherent trading decision.
 
 \section{Problem Definition}
-Formally, given a token $\tau$ on a blockchain $\mathcal{B}$ with a feature vector $x \in \mathbb{R}^{23}$ comprising technical, on-chain and social signals, the objective is to produce a trading decision $d \in \{\mathrm{BUY}, \mathrm{SELL}, \mathrm{HOLD}\}$ together with a confidence value $c \in [0,1]$ and a categorical risk assessment $r \in \{\mathrm{LOW}, \mathrm{MEDIUM}, \mathrm{HIGH}\}$, subject to an end-to-end latency constraint $t_{\mathrm{response}} < 30$~seconds. This formulation distinguishes the present work from traditional cryptocurrency-prediction research by demanding \emph{simultaneous} fraud detection, sentiment integration and real-time decision making under severe temporal constraints.
+Formally, given a token $\tau$ on a blockchain $\mathcal{B}$ with a feature vector $x \in \mathbb{R}^{23}$ comprising technical, on-chain and social Signals, the objective is to produce a trading decision $d \in \{\mathrm{BUY}, \mathrm{SELL}, \mathrm{HOLD}\}$ together with a confidence value $c \in [0,1]$ and a categorical risk assessment $r \in \{\mathrm{LOW}, \mathrm{MEDIUM}, \mathrm{HIGH}\}$, subject to an end-to-end latency constraint $t_{\mathrm{response}} < 30$~seconds. This formulation distinguishes the present work from traditional cryptocurrency-prediction research by demanding \emph{simultaneous} fraud detection, sentiment integration and real-time decision making under severe temporal constraints.
 
 \section{Project Contributions}
-The HypeScan project delivers five primary contributions:
+The Signals project delivers five primary contributions:
 
 \begin{enumerate}[leftmargin=12mm]
-\item \textbf{Tri-pillar signal fusion:} Engineering of twenty-three distinct features spanning eleven technical indicators, seven on-chain safety metrics, and five social sentiment signals, analysed by four specialised LLM agents with a composite scoring framework (40\% technical + 40\% on-chain + 20\% social) and cross-domain safety overrides.
+\item \textbf{Tri-pillar signal fusion:} Engineering of twenty-three distinct features spanning eleven technical indicators, seven on-chain safety metrics, and five social sentiment Signals, analysed by four specialised LLM agents with a composite scoring framework (40\% technical + 40\% on-chain + 20\% social) and cross-domain safety overrides.
 
 \item \textbf{Multi-agent ReAct architecture:} Implementation of a five-phase orchestrated THINK-ACT-OBSERVE-ACT-REFLECT pipeline with Chain-of-Thought reasoning, tool use, and confidence-score aggregation across four role-specialised agents running at distinct temperature profiles.
 
@@ -491,14 +491,14 @@ The HypeScan project delivers five primary contributions:
 \end{enumerate}
 
 \section{Significance of the Work}
-By integrating previously siloed analytical domains into a unified agentic intelligence platform, HypeScan establishes a comprehensive defence, monitoring, and decision-support layer for retail investors operating within the highly volatile and speculative memecoin ecosystem. Unlike traditional tools that focus on isolated signals such as price trends or social sentiment, HypeScan fuses multi-modal data streams—including on-chain activity, social media dynamics, developer behavior, and liquidity patterns—into a coherent analytical pipeline. This holistic approach enables early detection of anomalous patterns such as coordinated hype cycles, liquidity manipulation, and potential rug-pull events, thereby significantly improving risk awareness for non-expert participants.
+By integrating previously siloed analytical domains into a unified agentic intelligence platform, Signals establishes a comprehensive defence, monitoring, and decision-support layer for retail investors operating within the highly volatile and speculative memecoin ecosystem. Unlike traditional tools that focus on isolated Signals such as price trends or social sentiment, Signals fuses multi-modal data streams—including on-chain activity, social media dynamics, developer behavior, and liquidity patterns—into a coherent analytical pipeline. This holistic approach enables early detection of anomalous patterns such as coordinated hype cycles, liquidity manipulation, and potential rug-pull events, thereby significantly improving risk awareness for non-expert participants.
 
-In addition, HypeScan contributes to the broader discourse on agentic AI systems by demonstrating how modular, collaborative agents can be orchestrated to solve complex, real-world problems. The architecture highlights the practical viability of multi-agent coordination, tool usage, and memory augmentation in building scalable and adaptive intelligent systems. As such, this work not only advances the state-of-the-art in crypto analytics but also serves as a reference design for next-generation AI-driven financial infrastructures.
+In addition, Signals contributes to the broader discourse on agentic AI systems by demonstrating how modular, collaborative agents can be orchestrated to solve complex, real-world problems. The architecture highlights the practical viability of multi-agent coordination, tool usage, and memory augmentation in building scalable and adaptive intelligent systems. As such, this work not only advances the state-of-the-art in crypto analytics but also serves as a reference design for next-generation AI-driven financial infrastructures.
 
 \section{Organisation of the Report}
 The remainder of this report is structured to provide a systematic progression from foundational concepts to implementation and evaluation. Chapter~\ref{ch:lit} presents a comprehensive survey of related work spanning six key research domains: cryptocurrency price prediction, memecoin-specific analysis, rug-pull detection mechanisms, multi-agent LLM applications in finance, agentic AI frameworks, and sentiment analysis techniques tailored to crypto markets. This chapter establishes the theoretical and technological context for the proposed system.
 
-Chapter~\ref{ch:limit} critically examines the limitations of existing approaches, highlighting challenges such as lack of interpretability, fragmented analysis pipelines, poor generalization in volatile markets, and absence of standardized evaluation frameworks. Based on this analysis, the chapter identifies the specific research gaps that motivate the development of HypeScan.
+Chapter~\ref{ch:limit} critically examines the limitations of existing approaches, highlighting challenges such as lack of interpretability, fragmented analysis pipelines, poor generalization in volatile markets, and absence of standardized evaluation frameworks. Based on this analysis, the chapter identifies the specific research gaps that motivate the development of Signals.
 
 Chapter~\ref{ch:prob} formalizes the problem definition, clearly outlining the objectives, assumptions, and scope of the project. It also defines key performance metrics and success criteria used throughout the study. Chapter~\ref{ch:proposed} provides an in-depth description of the proposed system architecture, including detailed UML diagrams, agent interactions, data flow pipelines, and core algorithms. The methodology section elaborates on the design choices, model configurations, and reasoning mechanisms employed.
 
@@ -512,7 +512,7 @@ Chapter~\ref{ch:plan} outlines the project timeline through a detailed Gantt cha
 \chapter{Literature Survey}
 \label{ch:lit}
 
-The design of HypeScan draws on research from six distinct but interlocking areas: cryptocurrency price prediction, memecoin market analysis, rug-pull detection, multi-agent LLM systems for finance, agentic AI frameworks, and sentiment analysis for crypto markets. This chapter presents a critical appraisal of the state of the art in each of these six areas and identifies the gaps that motivated the present work.
+The design of Signals draws on research from six distinct but interlocking areas: cryptocurrency price prediction, memecoin market analysis, rug-pull detection, multi-agent LLM systems for finance, agentic AI frameworks, and sentiment analysis for crypto markets. This chapter presents a critical appraisal of the state of the art in each of these six areas and identifies the gaps that motivated the present work.
 
 \section{Cryptocurrency Price Prediction}
 Researchers have investigated cryptocurrency price prediction for several years using a wide variety of statistical, machine-learning, and deep-learning techniques. Early work in this domain relied on traditional econometric models such as ARIMA and GARCH, which attempted to model temporal dependencies and volatility clustering in financial time series. However, these models often struggled with the highly non-linear, noisy, and non-stationary nature of cryptocurrency markets.
@@ -521,7 +521,7 @@ With the evolution of machine learning, more robust predictive models emerged. W
 
 Traditional machine-learning methods such as XGBoost~\cite{ref4} have also demonstrated strong predictive performance. These models are especially effective in short-horizon forecasting scenarios, where market behavior tends to be relatively stable and decision boundaries are easier to learn. Their ability to incorporate engineered features such as technical indicators, trading volume, and price momentum makes them highly competitive against deep learning approaches in certain settings.
 
-More advanced sequence models such as the Temporal Fusion Transformer (TFT)~\cite{ref21} have further improved forecasting capabilities. TFT integrates static features (e.g., asset-specific characteristics) with time-varying inputs (e.g., historical prices, exogenous signals) and produces calibrated probabilistic forecasts rather than single-point estimates. This probabilistic output is particularly valuable in financial contexts, where uncertainty quantification plays a critical role in risk management and decision-making. Additionally, TFT supports multi-horizon forecasting, enabling predictions across multiple future time steps simultaneously.
+More advanced sequence models such as the Temporal Fusion Transformer (TFT)~\cite{ref21} have further improved forecasting capabilities. TFT integrates static features (e.g., asset-specific characteristics) with time-varying inputs (e.g., historical prices, exogenous Signals) and produces calibrated probabilistic forecasts rather than single-point estimates. This probabilistic output is particularly valuable in financial contexts, where uncertainty quantification plays a critical role in risk management and decision-making. Additionally, TFT supports multi-horizon forecasting, enabling predictions across multiple future time steps simultaneously.
 
 In parallel, recent research has begun to explore the application of large language models (LLMs) in finance. Benchmarks such as FinBen~\cite{ref37} evaluate LLM performance across a variety of financial tasks, including price prediction, sentiment analysis, and numerical reasoning. These models are capable of processing unstructured data sources such as news articles, financial reports, and social media content factors that significantly influence cryptocurrency markets. Domain-specific foundation models such as BloombergGPT~\cite{ref38} and FinGPT~\cite{ref39} further demonstrate that finance-specialised pre-training can substantially enhance downstream task performance, particularly in tasks that require contextual understanding of financial language and events.
 
@@ -536,9 +536,9 @@ A small but rapidly growing body of work has begun to investigate the unique beh
 
 ME2F~\cite{ref2} further explores the fragility of memecoin ecosystems by analysing their market microstructures. The study identifies recurring patterns that precede instability events, such as liquidity imbalances, abrupt trading volume spikes, and asymmetric participation. These findings suggest that memecoin markets are inherently unstable due to their reliance on speculative sentiment rather than intrinsic value, making them highly sensitive to external triggers.
 
-Recent studies focusing on the Pump.fun platform~\cite{ref10} provide deeper insight into early-stage token dynamics. These works demonstrate that multiple modalities of information available at the time of token launch including token names, descriptive text, initial liquidity parameters, and even early visual chart patterns carry predictive signals regarding a token’s long-term survival. Notably, linguistic cues (e.g., humor, cultural references) and visual trends (e.g., early price momentum patterns) can act as early indicators of community engagement and subsequent adoption.
+Recent studies focusing on the Pump.fun platform~\cite{ref10} provide deeper insight into early-stage token dynamics. These works demonstrate that multiple modalities of information available at the time of token launch including token names, descriptive text, initial liquidity parameters, and even early visual chart patterns carry predictive Signals regarding a token’s long-term survival. Notably, linguistic cues (e.g., humor, cultural references) and visual trends (e.g., early price momentum patterns) can act as early indicators of community engagement and subsequent adoption.
 
-Building on these ideas, MemeTrans~\cite{ref11} explores transformer-based architectures tailored specifically for memecoin price prediction. By leveraging attention mechanisms, these models can capture complex temporal dependencies and rapidly changing market signals, which are characteristic of memecoin environments. Similarly, CoinCLIP~\cite{ref33} extends prediction capabilities into the multimodal domain by linking visual meme content with market behaviour. Using contrastive vision-language learning, CoinCLIP learns joint embeddings of meme images and their corresponding price trajectories, demonstrating that visual culture memes, virality, and symbolism plays a measurable role in influencing financial outcomes.
+Building on these ideas, MemeTrans~\cite{ref11} explores transformer-based architectures tailored specifically for memecoin price prediction. By leveraging attention mechanisms, these models can capture complex temporal dependencies and rapidly changing market Signals, which are characteristic of memecoin environments. Similarly, CoinCLIP~\cite{ref33} extends prediction capabilities into the multimodal domain by linking visual meme content with market behaviour. Using contrastive vision-language learning, CoinCLIP learns joint embeddings of meme images and their corresponding price trajectories, demonstrating that visual culture memes, virality, and symbolism plays a measurable role in influencing financial outcomes.
 
 Parallel research on manipulation detection~\cite{ref34} investigates how coordinated pump-and-dump schemes artificially inflate memecoin prices. These studies reveal that such schemes often involve synchronized activity across multiple social platforms, including rapid dissemination of promotional content, influencer endorsements, and coordinated buying behaviour. Additionally, research on meme-coin copy-trading behaviour~\cite{ref35} shows that investors frequently mimic the actions of perceived “successful” traders, creating tight feedback loops. This leads to strong herd behaviour, where price movements are amplified not by fundamentals but by collective imitation and fear of missing out (FOMO).
 
@@ -563,14 +563,14 @@ Although these studies demonstrate the potential of LLM-based agents in finance,
 \section{Agentic AI Frameworks}
 Recent research on agentic AI has introduced several frameworks that allow language models to perform more complex reasoning and acting. The ReAct framework~\cite{ref28} combines reasoning and action within a single loop, allowing LLM agents to think through a problem while interacting with external tools. Reflexion~\cite{ref29} extends this idea with self-reflection, in which agents review their earlier decisions and use natural-language feedback to improve future performance. Toolformer~\cite{ref30} shows that language models can learn to use external tools autonomously, making them more capable on real-world tasks.
 
-Chain-of-Thought prompting~\cite{ref31} encourages models to reason step-by-step through complex problems, significantly improving performance on tasks that require deeper inference. A broader survey of LLM-based autonomous agents~\cite{ref32} catalogues the common design elements---memory systems, strategy planning, and tool usage---across a large body of contemporary work. HypeScan builds directly on these ideas by combining the ReAct approach for agentic coordination with self-improvement concepts inspired by Reflexion, re-interpreted through a reinforcement-learning lens and implemented in the specific context of risk-aware memecoin trading.
+Chain-of-Thought prompting~\cite{ref31} encourages models to reason step-by-step through complex problems, significantly improving performance on tasks that require deeper inference. A broader survey of LLM-based autonomous agents~\cite{ref32} catalogues the common design elements---memory systems, strategy planning, and tool usage---across a large body of contemporary work. Signals builds directly on these ideas by combining the ReAct approach for agentic coordination with self-improvement concepts inspired by Reflexion, re-interpreted through a reinforcement-learning lens and implemented in the specific context of risk-aware memecoin trading.
 
 \section{Sentiment Analysis for Crypto Markets}
 Social-media sentiment has demonstrated genuine predictive power for cryptocurrency prices. Twitter sentiment achieves approximately 74\% directional accuracy in crypto price prediction~\cite{ref8}, and Kraaijeveld and De Smedt~\cite{ref9} establish Granger-causal relationships between Twitter sentiment and cryptocurrency returns for multiple large-cap tokens. FinBERT~\cite{ref40} provides a domain-adapted sentiment analysis model for financial text, while bi-LSTM architectures combined with RoBERTa~\cite{ref41} achieve strong performance on crypto-specific sentiment classification.
 
-Multi-modal fusion approaches such as DASF-Net~\cite{ref42} and MSGCA~\cite{ref22} integrate text, price and volume signals for improved forecasting. Research on pump-and-dump detection via social media~\cite{ref43} and Telegram NLP~\cite{ref44} further highlights the importance of social signals, particularly in markets where manipulation is organised through private communication channels. However, sentiment systems in the literature typically operate independently of on-chain analysis, and very few attempt to incorporate sentiment into a real-time risk-adjusted trading decision.
+Multi-modal fusion approaches such as DASF-Net~\cite{ref42} and MSGCA~\cite{ref22} integrate text, price and volume Signals for improved forecasting. Research on pump-and-dump detection via social media~\cite{ref43} and Telegram NLP~\cite{ref44} further highlights the importance of social Signals, particularly in markets where manipulation is organised through private communication channels. However, sentiment systems in the literature typically operate independently of on-chain analysis, and very few attempt to incorporate sentiment into a real-time risk-adjusted trading decision.
 
-Table~\ref{tab:lit} summarises the key findings of a subset of the most relevant prior work and positions HypeScan against the state of the art. HypeScan is, to the best of the authors' knowledge, the only system that simultaneously integrates market signals, on-chain safety analysis, and social sentiment through a multi-agent architecture with self-improving memory, specifically targeting memecoin markets with real-time processing capabilities.
+Table~\ref{tab:lit} summarises the key findings of a subset of the most relevant prior work and positions Signals against the state of the art. Signals is, to the best of the authors' knowledge, the only system that simultaneously integrates market Signals, on-chain safety analysis, and social sentiment through a multi-agent architecture with self-improving memory, specifically targeting memecoin markets with real-time processing capabilities.
 
 \begin{small}
 \begin{longtable}{@{}p{0.8cm}p{3.8cm}p{3.4cm}p{5.6cm}@{}}
@@ -610,8 +610,8 @@ Table~\ref{tab:lit} summarises the key findings of a subset of the most relevant
 19. & Twitter sentiment for crypto prediction & arXiv 2023~\cite{ref8} & 74\% directional accuracy using Twitter sentiment alone. \\
 20. & Kraaijeveld \& De Smedt on Twitter sentiment & J. Int. Fin. Markets 2020~\cite{ref9} & Establishes Granger causality between sentiment and crypto returns. \\
 21. & FinBERT: financial sentiment with pre-trained LMs & Araci (arXiv 2019)~\cite{ref40} & Domain-adapted BERT for financial sentiment classification. \\
-22. & Pump.fun multimodal launch analysis & arXiv 2024~\cite{ref10} & Combines text, numeric and chart signals for early-stage detection. \\
-23. & Tulving's episodic-semantic memory model & 1972~\cite{ref45} & Cognitive-psychology foundation for HypeScan's dual memory. \\
+22. & Pump.fun multimodal launch analysis & arXiv 2024~\cite{ref10} & Combines text, numeric and chart Signals for early-stage detection. \\
+23. & Tulving's episodic-semantic memory model & 1972~\cite{ref45} & Cognitive-psychology foundation for Signals's dual memory. \\
 24. & Pump-and-dump detection on social media & ACM TOIT 2023~\cite{ref43} & Detects coordinated manipulation via Twitter activity patterns. \\
 25. & Telegram NLP pump-and-dump detection & IEEE BigData 2023~\cite{ref44} & Private-channel manipulation detection using NLP. \\
 \end{longtable}
@@ -623,10 +623,10 @@ Table~\ref{tab:lit} summarises the key findings of a subset of the most relevant
 \chapter{Limitations of Existing System}
 \label{ch:limit}
 
-The literature survey in Chapter~\ref{ch:lit} reveals that despite substantial advances in cryptocurrency analytics, existing systems suffer from a set of consistent and compounding limitations when applied to the memecoin setting. These limitations are summarised below and collectively motivate the need for the HypeScan platform.
+The literature survey in Chapter~\ref{ch:lit} reveals that despite substantial advances in cryptocurrency analytics, existing systems suffer from a set of consistent and compounding limitations when applied to the memecoin setting. These limitations are summarised below and collectively motivate the need for the Signals platform.
 
 \begin{itemize}[leftmargin=8mm]
-\item \textbf{Siloed analytical pipelines.} Price-prediction models, rug-pull detectors and sentiment analysers operate as independent tools. A trader who wishes to combine them is forced to juggle multiple dashboards, API keys and heterogeneous output formats, and must manually synthesise contradictory signals under severe time pressure.
+\item \textbf{Siloed analytical pipelines.} Price-prediction models, rug-pull detectors and sentiment analysers operate as independent tools. A trader who wishes to combine them is forced to juggle multiple dashboards, API keys and heterogeneous output formats, and must manually synthesise contradictory Signals under severe time pressure.
 
 \item \textbf{Absence of memecoin-specific modelling.} Nearly all price-prediction research targets large-cap, liquid coins such as Bitcoin and Ethereum. The extraordinary volatility patterns of memecoins, their sensitivity to social hype cycles, and the prevalence of coordinated manipulation are fundamentally incompatible with assumptions baked into traditional time-series models.
 
@@ -640,7 +640,7 @@ The literature survey in Chapter~\ref{ch:lit} reveals that despite substantial a
 
 \item \textbf{Lack of real-time latency guarantees.} Memecoins can double or halve in price within minutes. Systems that require long retraining cycles, batch inference, or human-in-the-loop annotation cannot operate on the timescales required by live memecoin trading.
 
-\item \textbf{Limited social-data diversity.} Even the strongest sentiment pipelines typically rely on a single data source, most often Twitter. Memecoin hype, however, also originates on Telegram, Discord, Reddit, TikTok and YouTube. Systems tied to one source miss signals from the others.
+\item \textbf{Limited social-data diversity.} Even the strongest sentiment pipelines typically rely on a single data source, most often Twitter. Memecoin hype, however, also originates on Telegram, Discord, Reddit, TikTok and YouTube. Systems tied to one source miss Signals from the others.
 
 \item \textbf{No standardised evaluation environment.} There is no widely accepted, reproducible simulator for memecoin trading. Each research group builds its own ad-hoc back-tester, which makes comparing methods across papers essentially impossible.
 \end{itemize}
@@ -650,11 +650,11 @@ the complete absence of a unified, real-time, and self-improving platform
 engineered specifically for the extreme volatility of modern memecoin markets.
 Current systems lack multi-signal integration and transparent interpretability,
 leaving traders heavily exposed to sudden and unpredictable momentum shifts.
-The remainder of this report details exactly how the HypeScan architecture
+The remainder of this report details exactly how the Signals architecture
 systematically addresses each of these technical and operational gaps in turn.
 The system is designed to remain highly resilient against market anomalies,
 preventing technical mishaps during periods of extreme network congestion.
-HypeScan translates chaotic market noise into actionable, interpretable data,
+Signals translates chaotic market noise into actionable, interpretable data,
 empowering traders and investors to operate with unprecedented efficiency.
 This enables the memecoin community to confidently execute profitable trades
 while rigorously mitigating their exposure to severe downside financial risks.
@@ -672,9 +672,9 @@ The memecoin ecosystem exhibits extreme price volatility, a high prevalence of r
 The objectives of this project are as follows:
 
 \begin{enumerate}[leftmargin=12mm]
-\item To design and implement a multi-agent LLM architecture that simultaneously analyses market signals, on-chain safety metrics and social sentiment for memecoin tokens.
+\item To design and implement a multi-agent LLM architecture that simultaneously analyses market Signals, on-chain safety metrics and social sentiment for memecoin tokens.
 \item To engineer a feature set of twenty-three domain-specific indicators spanning technical (11), on-chain (7) and social (5) dimensions, and to validate these features on live Solana tokens.
-\item To develop a composite scoring framework with weighted signal fusion (40/40/20) and cross-domain safety overrides that prevent favourable market signals from masking catastrophic on-chain risk.
+\item To develop a composite scoring framework with weighted signal fusion (40/40/20) and cross-domain safety overrides that prevent favourable market Signals from masking catastrophic on-chain risk.
 \item To build a ReAct-based orchestration pipeline that autonomously queries external data APIs (DexScreener, GeckoTerminal, RugCheck, GoPlus, Twitter v2) under strict latency and resilience constraints.
 \item To implement a reinforcement-learning agentic trader that executes a THINK-ACT-REFLECT-LEARN loop with dual memory (episodic trading journal + semantic rule base) and learns trading rules expressed in natural language without gradient-based training.
 \item To develop a synthetic market simulator based on Geometric Brownian Motion with regime switching and jump diffusion, providing a controlled and reproducible evaluation environment.
@@ -683,7 +683,7 @@ The objectives of this project are as follows:
 \end{enumerate}
 
 \section{Scope}
-The scope of HypeScan covers the following functional areas:
+The scope of Signals covers the following functional areas:
 
 \begin{itemize}[leftmargin=8mm]
 \item \textbf{Supported blockchains and Network Architecture.} The system fundamentally targets high-throughput, low-latency networks—specifically Solana and Base—which currently serve as the primary epicenters for memecoin liquidity and hyper-volatile trading activity. This is achieved through a proprietary ChainCapabilities abstraction layer, which dynamically evaluates network conditions, standardizes disparate RPC node responses, and dictates the appropriate data sources and routing protocols at runtime without requiring core codebase alterations.
@@ -694,13 +694,13 @@ The scope of HypeScan covers the following functional areas:
 
 \item \textbf{Trading modes.} The agentic trader currently operates exclusively within a secure, zero-risk simulation mode. In this environment, the ReAct-based agent executes and evaluates its strategies against a custom-built synthetic market simulator that mimics slippage, network congestion, and volatile price swings. Fully automated, live trading directly interfacing with decentralized exchange infrastructures (specifically utilizing the Jupiter and Raydium SDKs for Solana) requires advanced transaction signing and slippage tolerance management; consequently, this is architected strictly as a deployment extension and is detailed comprehensively in the future-work chapter.
 
-\item \textbf{User deliverables.} The user receives a structured JSON decision object containing the action, confidence, risk level, reasoning trace, and any triggered learned rules, along with a dashboard view summarising the contributing signals.
+\item \textbf{User deliverables.} The user receives a structured JSON decision object containing the action, confidence, risk level, reasoning trace, and any triggered learned rules, along with a dashboard view summarising the contributing Signals.
 
-\item \textbf{Ethical use.} HypeScan is designed as a decision-support tool for educational and research purposes. It is not an automated trading bot intended for mass deployment without explicit user consent and risk acknowledgement.
+\item \textbf{Ethical use.} Signals is designed as a decision-support tool for educational and research purposes. It is not an automated trading bot intended for mass deployment without explicit user consent and risk acknowledgement.
 
 \item \textbf{Evaluation scope.} Evaluation uses both the synthetic market simulator and a live Solana token case study (MURICA) to validate end-to-end latency and decision quality under real-world conditions.
 
-\item \textbf{Sustainability alignment.} HypeScan's contribution to decent work (SDG~8), industry innovation (SDG~9), and peace and strong institutions through fraud prevention (SDG~16) is discussed in Chapter~\ref{ch:impl}.
+\item \textbf{Sustainability alignment.} Signals's contribution to decent work (SDG~8), industry innovation (SDG~9), and peace and strong institutions through fraud prevention (SDG~16) is discussed in Chapter~\ref{ch:impl}.
 \end{itemize}
 
 % =============================================================================
@@ -709,10 +709,10 @@ The scope of HypeScan covers the following functional areas:
 \chapter{Proposed System}
 \label{ch:proposed}
 
-The proposed HypeScan system is a decentralised multi-agent architecture designed to unify memecoin intelligence across market, on-chain and social domains. At a formal level, the complete system is defined as the triple $\mathcal{S} = \langle \mathcal{D}, \mathcal{A}, \mathcal{T} \rangle$, where $\mathcal{D}$ denotes the Data Acquisition Layer, $\mathcal{A}$ denotes the Multi-Agent Analysis Layer, and $\mathcal{T}$ denotes the Trading Layer. Each layer is designed to be independently replaceable, horizontally scalable, and resilient to failures in any of its sub-components.
+The proposed Signals system is a decentralised multi-agent architecture designed to unify memecoin intelligence across market, on-chain and social domains. At a formal level, the complete system is defined as the triple $\mathcal{S} = \langle \mathcal{D}, \mathcal{A}, \mathcal{T} \rangle$, where $\mathcal{D}$ denotes the Data Acquisition Layer, $\mathcal{A}$ denotes the Multi-Agent Analysis Layer, and $\mathcal{T}$ denotes the Trading Layer. Each layer is designed to be independently replaceable, horizontally scalable, and resilient to failures in any of its sub-components.
 
 \section{Modules}
-HypeScan comprises the following core modules:
+Signals comprises the following core modules:
 
 \begin{enumerate}[leftmargin=12mm]
 \item \textbf{Data Acquisition Module.} Connects to five external APIs in parallel via Python's \texttt{asyncio.gather}, implementing circuit breakers, exponential backoff and fallback strategies.
@@ -722,11 +722,11 @@ HypeScan comprises the following core modules:
 \item \textbf{Agentic Trader Module.} Executes the THINK-ACT-REFLECT-LEARN cycle using a dual memory architecture and autonomously discovers natural-language trading rules.
 \item \textbf{Synthetic Market Simulator.} Provides controlled evaluation through Geometric Brownian Motion with regime switching and jump diffusion.
 \item \textbf{Resilience Manager.} Implements three-tier fault tolerance at the API, retry and orchestration levels, including graceful confidence degradation when data sources are partially unavailable.
-\item \textbf{User Dashboard.} Presents the final trading decision, risk level, confidence and contributing signals in a human-readable format.
+\item \textbf{User Dashboard.} Presents the final trading decision, risk level, confidence and contributing Signals in a human-readable format.
 \end{enumerate}
 
 \section{System Architecture}
-Figure~\ref{fig:arch} shows the overall HypeScan architecture. A token address enters the five-phase ReAct orchestrator, which fetches data from four external API sources in parallel with circuit-breaker protection. Twenty-three features are engineered and analysed by four specialised LLM agents with distinct temperature profiles. The Prediction Agent synthesises a composite score with cross-domain safety overrides, which feeds the agentic trader's THINK-ACT-REFLECT-LEARN loop with dual memory.
+Figure~\ref{fig:arch} shows the overall Signals architecture. A token address enters the five-phase ReAct orchestrator, which fetches data from four external API sources in parallel with circuit-breaker protection. Twenty-three features are engineered and analysed by four specialised LLM agents with distinct temperature profiles. The Prediction Agent synthesises a composite score with cross-domain safety overrides, which feeds the agentic trader's THINK-ACT-REFLECT-LEARN loop with dual memory.
 
 \begin{figure}[H]
     \centering
@@ -740,7 +740,7 @@ Figure~\ref{fig:arch} shows the overall HypeScan architecture. A token address e
 \section{UML Diagrams}
 
 \subsection{Data Flow Diagram -- Level 0}
-Figure~\ref{fig:dfd0} shows the Level 0 Data Flow Diagram of HypeScan. At this highest level of abstraction the system has three external entities: the \emph{User}, the \emph{HypeScan System}, and the \emph{External Data Providers}. The user submits a token address; the system queries external providers, processes the responses, and returns a decision object.
+Figure~\ref{fig:dfd0} shows the Level 0 Data Flow Diagram of Signals. At this highest level of abstraction the system has three external entities: the \emph{User}, the \emph{Signals System}, and the \emph{External Data Providers}. The user submits a token address; the system queries external providers, processes the responses, and returns a decision object.
 
 \begin{figure}[H]
     \centering
@@ -750,9 +750,9 @@ Figure~\ref{fig:dfd0} shows the Level 0 Data Flow Diagram of HypeScan. At this h
 \end{figure}
 
 \subsection{Data Flow Diagram -- Level 1}
-Figure~\ref{fig:dfd1} decomposes the HypeScan System into its three internal layers: Data Acquisition, Multi-Agent Analysis, and Trading. Arrows show how feature vectors flow from acquisition to analysis, how agent outputs flow to the composite scoring engine, and how trading decisions flow back to the user.
+Figure~\ref{fig:dfd1} decomposes the Signals System into its three internal layers: Data Acquisition, Multi-Agent Analysis, and Trading. Arrows show how feature vectors flow from acquisition to analysis, how agent outputs flow to the composite scoring engine, and how trading decisions flow back to the user.
 
-At the Data Acquisition layer, heterogeneous inputs—including market prices, liquidity metrics, on-chain signals, and social sentiment—are collected, normalised, and transformed into structured feature vectors. This layer ensures consistency in data formats and timestamps before forwarding them downstream.
+At the Data Acquisition layer, heterogeneous inputs—including market prices, liquidity metrics, on-chain Signals, and social sentiment—are collected, normalised, and transformed into structured feature vectors. This layer ensures consistency in data formats and timestamps before forwarding them downstream.
 
 Overall, the Level 1 DFD highlights a clear separation of concerns and a unidirectional yet feedback-aware data flow, ensuring modularity, interpretability, and scalability of the system.
 \begin{figure}[H]
@@ -778,12 +778,12 @@ Overall, the Level 2 DFD highlights a modular and decoupled architecture, where 
     \label{fig:dfd2}
 \end{figure}
 \subsection{Class Diagram}
-The class diagram (Figure~\ref{fig:class}) shows the principal Python classes: \texttt{HypeScanOrchestrator}, \texttt{DataAcquisition}, \texttt{FeatureEngineer}, the four \texttt{Agent} subclasses, \texttt{CompositeScorer}, \texttt{AgenticTrader}, \texttt{EpisodicMemory}, \texttt{SemanticRuleStore}, \texttt{WalletManager}, and the \texttt{SyntheticMarketSimulator}. Inheritance relationships, association multiplicities, and key method signatures are annotated.
+The class diagram (Figure~\ref{fig:class}) shows the principal Python classes: \texttt{SignalsOrchestrator}, \texttt{DataAcquisition}, \texttt{FeatureEngineer}, the four \texttt{Agent} subclasses, \texttt{CompositeScorer}, \texttt{AgenticTrader}, \texttt{EpisodicMemory}, \texttt{SemanticRuleStore}, \texttt{WalletManager}, and the \texttt{SyntheticMarketSimulator}. Inheritance relationships, association multiplicities, and key method signatures are annotated.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.68\textwidth]{class.png}
-    \caption{HypeScan class diagram}
+    \caption{Signals class diagram}
     \label{fig:class}
 \end{figure}
 
@@ -798,12 +798,12 @@ Figure~\ref{fig:seq} shows the sequence of messages exchanged between the User, 
 \end{figure}
 
 \subsection{Activity Diagram}
-The activity diagram (Figure~\ref{fig:activity}) visualises the overall workflow of a HypeScan analysis session, from user input through data acquisition, per-agent analysis, cross-domain safety overrides, composite scoring, and agentic trading to final decision delivery.
+The activity diagram (Figure~\ref{fig:activity}) visualises the overall workflow of a Signals analysis session, from user input through data acquisition, per-agent analysis, cross-domain safety overrides, composite scoring, and agentic trading to final decision delivery.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{activity.png}
-    \caption{Activity diagram of the HypeScan pipeline}
+    \caption{Activity diagram of the Signals pipeline}
     \label{fig:activity}
 \end{figure}
 
@@ -908,7 +908,7 @@ c_{\mathrm{adj}} \cdot 0.5 & \text{if rug risk} > \theta_{\mathrm{rug}}\\
 1.0 & \text{otherwise}
 \end{cases}
 \end{equation}
-where $\theta_{\mathrm{rug}} = 70$ is the rug-risk threshold. This ensures that high-risk signals dominate regardless of otherwise favourable market or social indicators. The on-chain risk score itself is computed from multiple binary and continuous indicators:
+where $\theta_{\mathrm{rug}} = 70$ is the rug-risk threshold. This ensures that high-risk Signals dominate regardless of otherwise favourable market or social indicators. The on-chain risk score itself is computed from multiple binary and continuous indicators:
 \begin{equation}
 R_{\mathrm{total}} = \min\left(\sum_{i=1}^{n} w_i \cdot \mathbb{1}[\mathrm{risk}_i],\ 100\right)
 \end{equation}
@@ -966,7 +966,7 @@ Volatile  & $\phantom{+}0.000$   & $0.080$ & $0.15$ \\
 \end{table}
 \subsection{Resilience and Fault Tolerance}
 
-HypeScan adopts a multi-layered resilience architecture designed to ensure stability under unreliable data sources, API failures, and adversarial conditions. The system is structured across three complementary tiers: API-level protection, retry-level recovery, and orchestration-level adaptation.
+Signals adopts a multi-layered resilience architecture designed to ensure stability under unreliable data sources, API failures, and adversarial conditions. The system is structured across three complementary tiers: API-level protection, retry-level recovery, and orchestration-level adaptation.
 
 At the retry level, transient failures such as network timeouts or rate limits are handled through exponential backoff. The delay for the $k$-th retry is given by:
 \begin{equation}
@@ -974,13 +974,13 @@ At the retry level, transient failures such as network timeouts or rate limits a
 \end{equation}
 where $\tau_0 = 1.0$\,s is the initial delay, $b = 2.0$ is the backoff factor, and $\tau_{\max} = 10.0$\,s is the maximum cap. This strategy reduces load on unstable services while increasing the probability of successful recovery without overwhelming external APIs.
 
-At the orchestration level, HypeScan incorporates graceful degradation to maintain functionality under partial system failure. Instead of halting execution when some data sources are unavailable, the system dynamically adjusts prediction confidence based on the proportion of valid inputs:
+At the orchestration level, Signals incorporates graceful degradation to maintain functionality under partial system failure. Instead of halting execution when some data sources are unavailable, the system dynamically adjusts prediction confidence based on the proportion of valid inputs:
 \begin{equation}
 c_{\mathrm{adj}} = \frac{|\text{valid sources}|}{|\text{total sources}|}
 \end{equation}
 
 
-Finally, the system logs all failure events, retry attempts, and circuit breaker transitions, enabling post-hoc analysis and continuous improvement of fault-handling strategies. Together, these mechanisms ensure that HypeScan remains reliable, adaptive, and robust in highly volatile and failure-prone crypto market environments.
+Finally, the system logs all failure events, retry attempts, and circuit breaker transitions, enabling post-hoc analysis and continuous improvement of fault-handling strategies. Together, these mechanisms ensure that Signals remains reliable, adaptive, and robust in highly volatile and failure-prone crypto market environments.
 
 % =============================================================================
 % CHAPTER 6 -- EXPERIMENTAL SETUP
@@ -1027,7 +1027,7 @@ Experiments use two complementary data sources:
 \end{enumerate}
 
 \section{Performance Evaluation Parameters}
-The following metrics are used to evaluate HypeScan:
+The following metrics are used to evaluate Signals:
 
 \begin{itemize}[leftmargin=8mm]
 \item \textbf{Cumulative return (\%)} --- total portfolio growth over an episode.
@@ -1100,7 +1100,7 @@ Overall, this setup balances cost, performance, and scalability for real-time de
 \label{ch:impl}
 
 \section{Implementation Overview}
-The HypeScan reference implementation is written in Python~3.11 on the backend, with a Next.js~14 frontend for the user dashboard. The backend exposes a REST API (\texttt{POST /analyze}) that accepts a token address and an optional chain identifier, and returns a JSON decision object containing the action, confidence, risk level, agent rationales, and triggered rules. The implementation follows the module decomposition described in Chapter~\ref{ch:proposed}; the following sub-sections highlight the most important engineering details.
+The Signals reference implementation is written in Python~3.11 on the backend, with a Next.js~14 frontend for the user dashboard. The backend exposes a REST API (\texttt{POST /analyze}) that accepts a token address and an optional chain identifier, and returns a JSON decision object containing the action, confidence, risk level, agent rationales, and triggered rules. The implementation follows the module decomposition described in Chapter~\ref{ch:proposed}; the following sub-sections highlight the most important engineering details.
 
 \subsection{Data Acquisition Module}
 Each of the five external APIs is wrapped in a dedicated Python connector class that inherits from an abstract \texttt{BaseAPIConnector}. The base class implements circuit-breaker logic using the three-state model (\textsc{closed}, \textsc{open}, \textsc{half-open}), exponential backoff with jitter, and response caching keyed by token address and timestamp bucket. Parallel fetching is achieved through \texttt{asyncio.gather} with a 30-second overall timeout and per-connector timeouts as listed in Table~\ref{tab:api}.
@@ -1123,7 +1123,7 @@ The following placeholder figures illustrate representative screens from the imp
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{dashboard.jpg}
-    \caption{HypeScan landing page}
+    \caption{Signals landing page}
     \label{fig:ss1}
 \end{figure}
 
@@ -1242,7 +1242,7 @@ The full pipeline was validated on a live Solana token (MURICA, contract \texttt
 \begin{itemize}[leftmargin=8mm]
 \item \textbf{Data acquisition.} DexScreener returned \$10.3M 24h volume, $+3{,}576\%$ price change and \$2.1M liquidity. RugCheck reported a rug score of 42/100 with moderate holder concentration (top-10 at 38\%). Twitter returned 847 mentions in 24h with a 72/100 sentiment score.
 \item \textbf{Agent analysis.} The Market Analyser assigned a market-health score of 8/10 citing exceptional momentum. The Safety Analyser flagged \textsc{caution} due to moderate holder concentration. The Social Analyser detected genuine community engagement with high but non-manipulative sentiment.
-\item \textbf{Prediction.} The composite score produced a cautious BUY signal with 62\% confidence, appropriately balanced between strong bullish signals and moderate safety concerns.
+\item \textbf{Prediction.} The composite score produced a cautious BUY signal with 62\% confidence, appropriately balanced between strong bullish Signals and moderate safety concerns.
 \end{itemize}
 
 \begin{figure}[H]
@@ -1255,13 +1255,13 @@ The full pipeline was validated on a live Solana token (MURICA, contract \texttt
 \section{Additional Case Studies}
 
 \subsection{Simulated Rug-Pull Prevention}
-In one synthetic-market episode, the agentic trader encountered a token with positive price momentum ($+15\%$ 24h) but a rug score of 78/100, top-10 holders controlling 72\%, and unlocked liquidity. Despite favourable price signals, the cross-domain safety override reduced confidence by a factor of 0.5, and the learned Rule~2 (rug-score avoidance) triggered an AVOID decision. The token subsequently experienced a 95\% crash within the simulation, validating the safety mechanism end-to-end.
+In one synthetic-market episode, the agentic trader encountered a token with positive price momentum ($+15\%$ 24h) but a rug score of 78/100, top-10 holders controlling 72\%, and unlocked liquidity. Despite favourable price Signals, the cross-domain safety override reduced confidence by a factor of 0.5, and the learned Rule~2 (rug-score avoidance) triggered an AVOID decision. The token subsequently experienced a 95\% crash within the simulation, validating the safety mechanism end-to-end.
 
 \subsection{Regime Transition and Stop-Loss}
 During a bull-to-volatile regime transition in episode~1, the agentic trader held a profitable position with a $+8.2\%$ unrealised gain. When the regime shifted to volatile mode, RSI dropped from 72 to 35 and price declined rapidly. The 10\% stop-loss triggered at a $-10.1\%$ drawdown from the average entry price, automatically exiting the position. The trader then reflected on this experience and incorporated the lesson into future reasoning, noting in its reflection log that ``regime shifts can rapidly erode unrealised gains---consider taking partial profits near resistance levels.''
 
 \section{Ablation Study}
-A planned ablation study (Table~\ref{tab:ablation}) measures the contribution of each signal pillar and memory component to overall trading performance. Removing the on-chain signals is expected to have the largest negative impact, as it disables rug-pull protection. Removing the dual memory is expected to degrade performance across episodes because the agent loses the ability to learn from past trades.
+A planned ablation study (Table~\ref{tab:ablation}) measures the contribution of each signal pillar and memory component to overall trading performance. Removing the on-chain Signals is expected to have the largest negative impact, as it disables rug-pull protection. Removing the dual memory is expected to degrade performance across episodes because the agent loses the ability to learn from past trades.
 
 \begin{table}[H]
 \centering
@@ -1271,10 +1271,10 @@ A planned ablation study (Table~\ref{tab:ablation}) measures the contribution of
 \toprule
 \textbf{Configuration}              & \textbf{Expected Return} & \textbf{Expected Win \%} \\
 \midrule
-Full system (all signals)           & $+9.86\%$   & 40 \\
--- On-chain signals                 & --          & -- \\
--- Social signals                   & --          & -- \\
--- Technical signals                & --          & -- \\
+Full system (all Signals)           & $+9.86\%$   & 40 \\
+-- On-chain Signals                 & --          & -- \\
+-- Social Signals                   & --          & -- \\
+-- Technical Signals                & --          & -- \\
 -- Dual memory (no rules)           & --          & -- \\
 -- Reflection (no REFLECT phase)    & --          & -- \\
 Technical only                      & --          & -- \\
@@ -1282,7 +1282,7 @@ Technical only                      & --          & -- \\
 \end{tabular}
 \end{table}
 \section{Sustainable Development Goals Alignment}
-HypeScan supports key United Nations SDGs in the following ways:
+Signals supports key United Nations SDGs in the following ways:
 
 \begin{itemize}[leftmargin=8mm]
 \item \textbf{SDG 8 -- Decent Work and Economic Growth:} Protects retail investors from scams, reducing financial loss and supporting inclusive growth.
@@ -1297,13 +1297,13 @@ HypeScan supports key United Nations SDGs in the following ways:
 \label{ch:plan}
 \section{Gantt Chart}
 
-A Gantt chart provides a clear and organised visual representation of the project schedule, helping readers understand how the HypeScan project progressed throughout the academic year. It displays all major project activities along a timeline, where each task is shown as a horizontal bar. The placement of the bar on the timeline indicates when the task started, while its length shows the duration required for completion. This makes it easy to identify the sequence of work, task overlaps, and overall project progress at a glance.
+A Gantt chart provides a clear and organised visual representation of the project schedule, helping readers understand how the Signals project progressed throughout the academic year. It displays all major project activities along a timeline, where each task is shown as a horizontal bar. The placement of the bar on the timeline indicates when the task started, while its length shows the duration required for completion. This makes it easy to identify the sequence of work, task overlaps, and overall project progress at a glance.
 
-For the HypeScan project, the Gantt chart highlights how the development process was divided into multiple phases such as topic selection, requirement analysis, literature survey, system design, data collection, model development, frontend and backend implementation, testing, documentation, and final presentation preparation. Each phase was carefully scheduled to ensure steady progress and timely completion of the project objectives.
+For the Signals project, the Gantt chart highlights how the development process was divided into multiple phases such as topic selection, requirement analysis, literature survey, system design, data collection, model development, frontend and backend implementation, testing, documentation, and final presentation preparation. Each phase was carefully scheduled to ensure steady progress and timely completion of the project objectives.
 
 Some activities were carried out sequentially, meaning they depended on the successful completion of previous stages. For example, system design had to be completed before coding could begin, and testing was conducted after implementation. At the same time, certain tasks were performed in parallel to save time and improve efficiency. For instance, documentation work continued alongside development, while literature review and requirement gathering were conducted simultaneously during the early stages.
 
-The chart in Figure ~\ref{fig:gantt} demonstrates the structured planning followed during the HypeScan project. It reflects effective time management, proper task allocation, and balanced execution of technical as well as academic deliverables. By using the Gantt chart, the project team was able to monitor deadlines, track milestones, and ensure that the project remained on schedule throughout the year.
+The chart in Figure ~\ref{fig:gantt} demonstrates the structured planning followed during the Signals project. It reflects effective time management, proper task allocation, and balanced execution of technical as well as academic deliverables. By using the Gantt chart, the project team was able to monitor deadlines, track milestones, and ensure that the project remained on schedule throughout the year.
 
 
 Additionally, the chart provided clear visibility into task dependencies and phase overlaps, enabling better coordination between different components such as data engineering, agent development, and evaluation. This structured approach helped in early identification of potential delays and allowed timely corrective actions. Overall, the use of systematic planning tools contributed significantly to maintaining consistency, improving productivity, and ensuring the successful and timely completion of the project.
@@ -1311,7 +1311,7 @@ Additionally, the chart provided clear visibility into task dependencies and pha
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{ganttchart.jpg}
-    \caption{Gantt chart showing the twelve phases of the HypeScan project timeline.}
+    \caption{Gantt chart showing the twelve phases of the Signals project timeline.}
     \label{fig:gantt}
 \end{figure}
 \section{Phase Descriptions}
@@ -1340,7 +1340,7 @@ Developed core agents—Market, Safety, Social, and Prediction—each responsibl
 Implemented the THINK-ACT-REFLECT-LEARN loop to enable adaptive decision-making. Built episodic memory using SQLite and a semantic rule store using Markdown. Integrated a WalletManager enforcing risk controls such as a 25\% position cap and 10\% stop-loss.
 
 \item \textbf{Synthetic Simulator (Dec 2025)} ---  
-Designed a realistic simulation environment using Geometric Brownian Motion (GBM) with regime switching and jump diffusion. Generated correlated on-chain, price, and social signals to mimic real memecoin market dynamics.
+Designed a realistic simulation environment using Geometric Brownian Motion (GBM) with regime switching and jump diffusion. Generated correlated on-chain, price, and social Signals to mimic real memecoin market dynamics.
 
 \item \textbf{Benchmark \& Case Studies (Jan--Feb 2026)} ---  
 Conducted an LLM benchmark across eight models, compared against a Q-learning baseline. Performed real-world case studies including the MURICA token and a rug-pull prevention scenario to validate system effectiveness.
@@ -1362,11 +1362,11 @@ Completed final evaluation stages including internal and external viva. Submitte
 \chapter{Conclusion}
 \label{ch:conclusion}
 
-HypeScan has been presented as a multi-agent LLM platform that unifies market signals, blockchain-based safety checks and social sentiment analysis into a single real-time decision pipeline for memecoin trading. The system's tri-pillar signal integration---delivered through four specialised LLM agents orchestrated via a five-phase ReAct loop---combined with an agentic autonomous trader employing a THINK-ACT-REFLECT-LEARN cycle backed by dual memory, demonstrates that LLM-based reasoning with natural-language rule learning can achieve substantially better trading performance ($+9.86\%$ vs.\ $-0.02\%$ for the Q-learning baseline).
+Signals has been presented as a multi-agent LLM platform that unifies market Signals, blockchain-based safety checks and social sentiment analysis into a single real-time decision pipeline for memecoin trading. The system's tri-pillar signal integration---delivered through four specialised LLM agents orchestrated via a five-phase ReAct loop---combined with an agentic autonomous trader employing a THINK-ACT-REFLECT-LEARN cycle backed by dual memory, demonstrates that LLM-based reasoning with natural-language rule learning can achieve substantially better trading performance ($+9.86\%$ vs.\ $-0.02\%$ for the Q-learning baseline).
 
 The evaluation of eight LLMs on the synthetic market simulator revealed that open-source models, particularly Grok-4.20 ($+34.59\%$) and DeepSeek-V3.1 ($+7.30\%$), consistently outperform proprietary alternatives, potentially because weaker alignment guardrails enable more assertive trading behaviour. Equally importantly, the agentic trader independently learned key trading rules—avoiding high rug-risk tokens and checking liquidity locks—without explicit programming.
 
-HypeScan demonstrates that interpretable, natural-language rule learning can effectively replace opaque deep reinforcement learning policies in cryptocurrency trading. By releasing both the system architecture and benchmark, this project offers a reproducible foundation for future research. Aligned with SDGs 8, 9, and 16, it also contributes to the broader goal of protecting retail investors in emerging decentralized financial markets.
+Signals demonstrates that interpretable, natural-language rule learning can effectively replace opaque deep reinforcement learning policies in cryptocurrency trading. By releasing both the system architecture and benchmark, this project offers a reproducible foundation for future research. Aligned with SDGs 8, 9, and 16, it also contributes to the broader goal of protecting retail investors in emerging decentralized financial markets.
 
 % =============================================================================
 % CHAPTER 10 -- FUTURE SCOPE
@@ -1374,7 +1374,7 @@ HypeScan demonstrates that interpretable, natural-language rule learning can eff
 \chapter{Future Scope}
 \label{ch:future}
 
-While HypeScan in its current form demonstrates the effectiveness of multi-agent signal fusion and natural-language rule learning, several extensions can significantly enhance its scalability, robustness, and real-world applicability. The following directions outline key opportunities for future work.
+While Signals in its current form demonstrates the effectiveness of multi-agent signal fusion and natural-language rule learning, several extensions can significantly enhance its scalability, robustness, and real-world applicability. The following directions outline key opportunities for future work.
 
 \begin{enumerate}[leftmargin=12mm]
 
@@ -1382,7 +1382,7 @@ While HypeScan in its current form demonstrates the effectiveness of multi-agent
 The current evaluation is primarily based on a synthetic market simulator along with a limited live case study. A comprehensive back-testing framework using historical datasets from ecosystems such as Solana and Base would provide stronger empirical validation. This would also help uncover potential biases introduced by simulation assumptions and improve the reliability of performance claims across different market regimes.
 
 \item \textbf{Live on-chain implementation.}  
-Extending HypeScan into a fully operational trading system requires direct integration with decentralized exchange (DEX) infrastructures such as Jupiter and Raydium. This involves addressing practical challenges including secure wallet management, slippage control, gas optimization, and protection against MEV (Miner Extractable Value) attacks. A production-grade deployment would transform the system from a decision-support tool into an autonomous trading agent.
+Extending Signals into a fully operational trading system requires direct integration with decentralized exchange (DEX) infrastructures such as Jupiter and Raydium. This involves addressing practical challenges including secure wallet management, slippage control, gas optimization, and protection against MEV (Miner Extractable Value) attacks. A production-grade deployment would transform the system from a decision-support tool into an autonomous trading agent.
 
 \item \textbf{Distilled Small Language Model (SLM).}  
 The system’s accumulated rule base and episodic memory logs form a valuable dataset for model distillation. Fine-tuning a smaller, domain-specific language model on this data can significantly reduce inference costs and latency. Such a distilled SLM would enable faster decision-making, improve deployment feasibility on resource-constrained environments, and reduce dependence on large proprietary models.
@@ -1400,11 +1400,11 @@ Given the adversarial nature of memecoin markets, systematic stress-testing agai
 As the semantic rule base grows over time, redundant, outdated, or conflicting rules may emerge. Future work should focus on automated rule management techniques, including pruning, clustering, and contradiction detection. Maintaining a clean and consistent rule set is critical for preserving interpretability and decision reliability.
 
 \item \textbf{Visual meme analysis.}  
-Memecoins are heavily driven by visual culture, including memes, logos, and promotional graphics. Integrating vision-language models would enable the system to extract additional signals from image-based content.
+Memecoins are heavily driven by visual culture, including memes, logos, and promotional graphics. Integrating vision-language models would enable the system to extract additional Signals from image-based content.
 
 \end{enumerate}
 
-Beyond these primary directions, several additional enhancements can further strengthen the system. Integrating alternative data sources such as Telegram, Discord, and Reddit would reduce reliance on a single platform and improve sentiment coverage. Incorporating privacy-preserving techniques, such as differential privacy, would help safeguard sensitive user trading data. Finally, developing a formal security and threat model—along with corresponding mitigation strategies—would provide a more rigorous foundation for deploying HypeScan in real-world financial environments.
+Beyond these primary directions, several additional enhancements can further strengthen the system. Integrating alternative data sources such as Telegram, Discord, and Reddit would reduce reliance on a single platform and improve sentiment coverage. Incorporating privacy-preserving techniques, such as differential privacy, would help safeguard sensitive user trading data. Finally, developing a formal security and threat model—along with corresponding mitigation strategies—would provide a more rigorous foundation for deploying Signals in real-world financial environments.
 % =============================================================================
 % REFERENCES
 % =============================================================================
@@ -1522,7 +1522,7 @@ Beyond these primary directions, several additional enhancements can further str
   {\fontsize{16}{20}\selectfont\bfseries Project Cost Estimation (COCOMO Model)}\\[10mm]
 \end{center}
 
-The Constructive Cost Model (COCOMO) is used to estimate the effort, time, and cost required to develop the HypeScan system. HypeScan falls into the \textit{Semi-Detached} category, because it mixes well-understood components (REST connectors, dashboards) with more experimental components (multi-agent LLM orchestration, agentic trader).
+The Constructive Cost Model (COCOMO) is used to estimate the effort, time, and cost required to develop the Signals system. Signals falls into the \textit{Semi-Detached} category, because it mixes well-understood components (REST connectors, dashboards) with more experimental components (multi-agent LLM orchestration, agentic trader).
 
 \subsection*{Project Category}
 \textbf{Semi-Detached Project.} Coefficients: $a = 3.0$, $b = 1.12$, $c = 2.5$, $d = 0.35$.
@@ -1574,7 +1574,7 @@ P = \frac{E}{T} = \frac{21}{8} \approx 2.6 \approx 3\ \text{Persons}
 \]
 
 \subsection*{Discussion}
-The estimated effort of 21 person-months and cost of approximately Rs.16.55 lakhs reflect HypeScan’s dual role as both a web application and a multi-agent LLM research prototype. High recurring LLM API costs highlight the need to distil a smaller language model from accumulated rules and memory to significantly reduce inference costs.
+The estimated effort of 21 person-months and cost of approximately Rs.16.55 lakhs reflect Signals’s dual role as both a web application and a multi-agent LLM research prototype. High recurring LLM API costs highlight the need to distil a smaller language model from accumulated rules and memory to significantly reduce inference costs.
 
 % =============================================================================
 % PUBLICATION
@@ -1587,10 +1587,10 @@ The estimated effort of 21 person-months and cost of approximately Rs.16.55 lakh
   {\fontsize{18}{22}\selectfont\bfseries Publication}\\[10mm]
 \end{center}
 
-\noindent The project titled \textbf{``HypeScan: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data''} has been prepared as a full research paper and submitted to a Scopus-indexed international conference for peer review.
+\noindent The project titled \textbf{``Signals: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data''} has been prepared as a full research paper and submitted to a Scopus-indexed international conference for peer review.
 
 \begin{description}[leftmargin=4mm,labelindent=4mm]
-\item[\textbf{Title:}] HypeScan: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data
+\item[\textbf{Title:}] Signals: Forecasting Memecoin Prices Based on Market Signals, Rug Checks, and Twitter Sentiment Data
 \item[\textbf{Authors:}] Om Bhojane, Mihir Amin, Sairaj Bokand, Shreyas Bhalekar, Dr.\ Uttam Kolekar, Dr.\ Sachin Malave, Dr.\ Bharati Khemani, Dr.\ Rushikesh Nikam
 \item[\textbf{Affiliation:}] Department of Computer Engineering, A.\ P.\ Shah Institute of Technology, Thane, University of Mumbai
 \item[\textbf{Status:}] Yet to be submitted
@@ -1599,8 +1599,8 @@ The estimated effort of 21 person-months and cost of approximately Rs.16.55 lakh
 
 \medskip
 
-\noindent\textbf{Abstract:} Memecoin markets exhibit extreme price volatility and a high incidence of rug-pull scams and market manipulation. Existing tools are fragmented across market data, on-chain security checks, and social sentiment platforms. This fragmentation limits the ability to perform reliable end-to-end decision-making in highly speculative environments that demand integrated reasoning over heterogeneous signals.
-We propose HypeScan, a memecoin-specific multi-agent large language model (LLM) framework. HypeScan comprises four specialized agents Market Analyzer, Safety Analyzer, Social Analyzer, and Predictor coordinated via ReAct-style orchestration with tool use over DexScreener, GeckoTerminal, RugCheck, GoPlus, and Twitter APIs. The system fuses 23 engineered features into a composite framework with cross-domain safety overrides, enabling them to reason about profitability and security.
+\noindent\textbf{Abstract:} Memecoin markets exhibit extreme price volatility and a high incidence of rug-pull scams and market manipulation. Existing tools are fragmented across market data, on-chain security checks, and social sentiment platforms. This fragmentation limits the ability to perform reliable end-to-end decision-making in highly speculative environments that demand integrated reasoning over heterogeneous Signals.
+We propose Signals, a memecoin-specific multi-agent large language model (LLM) framework. Signals comprises four specialized agents Market Analyzer, Safety Analyzer, Social Analyzer, and Predictor coordinated via ReAct-style orchestration with tool use over DexScreener, GeckoTerminal, RugCheck, GoPlus, and Twitter APIs. The system fuses 23 engineered features into a composite framework with cross-domain safety overrides, enabling them to reason about profitability and security.
 Beyond static prediction, we introduce an autonomous agentic trader that implements THINK–ACT–REFLECT–LEARN loop with dual memory: an episodic trading journal and a semantic rule base, supporting self-improvement through natural-language rule discovery without gradient-based updates.
 Grok-4.20 attains the highest cumulative return of +34.59\%, while DeepSeek-V3.1 achieves +7.30\% with the largest trade volume. The agentic trader achieves an average return of +9.86\%, outperforming a Q-learning baseline at –0.02\%. The pipeline operates in under 30 seconds, and we provide a formal threat model that identifies adversarial attack surfaces.
 

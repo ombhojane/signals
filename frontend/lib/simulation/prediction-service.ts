@@ -30,7 +30,7 @@ export class PredictionService {
     const sentimentSignal = snapshot.sentimentScore > 70 ? 1 : snapshot.sentimentScore < 30 ? -1 : 0;
     const trendingSignal = snapshot.trending ? 0.5 : 0;
     
-    // Combine HypeScan
+    // Combine Signals
     const technicalScore = (rsiSignal + macdSignal + bollingerSignal) / 3;
     const onChainScore = (rugScoreSignal * 0.5 + liquiditySignal * 0.3 + smartMoneySignal * 0.2);
     const socialScore = (sentimentSignal * 0.7 + trendingSignal * 0.3);
@@ -56,7 +56,7 @@ export class PredictionService {
     } else {
       action = 'HOLD';
       confidence = Math.round(Math.abs(overallScore) * 50 + 30);
-      reasoning = 'Market HypeScan are mixed. Waiting for clearer entry/exit HypeScan.';
+      reasoning = 'Market Signals are mixed. Waiting for clearer entry/exit Signals.';
       riskAssessment = 'Moderate risk due to uncertain market conditions.';
     }
     

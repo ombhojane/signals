@@ -29,7 +29,7 @@ class Colors:
 class Logger:
     """Structured terminal logger with colors and timing."""
     
-    def __init__(self, name: str = "HypeScan"):
+    def __init__(self, name: str = "Signals"):
         self.name = name
         self._start_times = {}
     

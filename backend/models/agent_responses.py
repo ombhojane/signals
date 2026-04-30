@@ -8,7 +8,7 @@ from enum import Enum
 
 
 class ActionSignal(str, Enum):
-    """Trading action HypeScan."""
+    """Trading action Signals."""
     STRONG_BUY = "STRONG_BUY"
     BUY = "BUY"
     HOLD = "HOLD"
@@ -59,7 +59,7 @@ class MarketAnalysisResponse(BaseModel):
     )
     red_flags: List[str] = Field(
         default_factory=list,
-        description="Specific concerns or warning HypeScan identified",
+        description="Specific concerns or warning Signals identified",
     )
 
 

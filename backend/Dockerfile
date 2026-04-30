@@ -16,13 +16,13 @@ RUN pip install --no-cache-dir -r requirements.txt gunicorn
 # Copy application code
 COPY . .
 
-# Expose the port Azure will route to
-EXPOSE 8000
+# Cloud Run injects PORT (default 8080); shell-form CMD so $PORT expands at runtime.
+ENV PORT=8080
+EXPOSE 8080
 
-# Production command: Gunicorn with Uvicorn workers
-CMD ["gunicorn", "main:app", \
-     "--worker-class", "uvicorn.workers.UvicornWorker", \
-     "--workers", "2", \
-     "--bind", "0.0.0.0:8000", \
-     "--timeout", "120", \
-     "--access-logfile", "-"]
+CMD exec gunicorn main:app \
+    --worker-class uvicorn.workers.UvicornWorker \
+    --workers 2 \
+    --bind 0.0.0.0:${PORT} \
+    --timeout 120 \
+    --access-logfile -

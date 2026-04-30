@@ -1,4 +1,4 @@
-"""Quick read-only check of the HypeScanVault state on Base Sepolia."""
+"""Quick read-only check of the SignalsVault state on Base Sepolia."""
 from __future__ import annotations
 import os, sys
 from pathlib import Path

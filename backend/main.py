@@ -1,5 +1,5 @@
 """
-HypeScan Backend - FastAPI Application Entry Point
+Signals Backend - FastAPI Application Entry Point
 
 A clean, modular backend for cryptocurrency token analysis.
 """
@@ -26,7 +26,7 @@ from services.x402_middleware import X402Config, X402Middleware
 
 # Create FastAPI application
 app = FastAPI(
-    title="HypeScan API",
+    title="Signals API",
     description="Cryptocurrency token analysis and AI-powered insights",
     version="2.0.0",
 )
@@ -35,6 +35,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
+    allow_origin_regex=r"https://.*\.run\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -77,7 +78,7 @@ async def root():
     """Health check endpoint."""
     return {
         "status": "healthy",
-        "service": "HypeScan API",
+        "service": "Signals API",
         "version": "2.0.0"
     }
 

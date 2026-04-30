@@ -4,12 +4,23 @@ LLM Provider Service - Chat completion using Groq.
 
 import os
 from groq import Groq
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from dotenv import load_dotenv
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+_client: Optional[Groq] = None
+
+
+def _get_client() -> Groq:
+    global _client
+    if _client is None:
+        key = os.getenv("GROQ_API_KEY")
+        if not key:
+            raise RuntimeError("GROQ_API_KEY is not set")
+        _client = Groq(api_key=key)
+    return _client
+
 
 async def get_deepseek_completion(messages: List[Dict[str, str]], temperature: float = 1, max_tokens: int = 1024) -> str:
     """
@@ -23,7 +34,7 @@ async def get_deepseek_completion(messages: List[Dict[str, str]], temperature: f
     Returns:
         str: Generated response text
     """
-    completion = client.chat.completions.create(
+    completion = _get_client().chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=messages,
         temperature=temperature,

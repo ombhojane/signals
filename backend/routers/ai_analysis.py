@@ -11,7 +11,7 @@ from services.token_data_service import get_token_analysis
 from services.token_safety_service import get_safety_report
 from services.crewat import token_agents
 from services.twitter_api_v2 import fetch_token_tweets
-from models.schemas import AIHypeScanResponse, RiskAssessmentResponse, HistoricalResponse
+from models.schemas import AISignalsResponse, RiskAssessmentResponse, HistoricalResponse
 from core.constants import get_chain_id
 from core.logging import logger
 from core.parallel import gather_with_results, run_parallel_agents, make_async
@@ -32,13 +32,13 @@ async def analyze_token_price(token_pair_address: str):
     price_data = get_token_price(token_pair_address)
     if "error" in price_data:
         raise HTTPException(status_code=400, detail=price_data["error"])
-    analysis = await token_agents.market_HypeScan(price_data)
+    analysis = await token_agents.market_Signals(price_data)
     return analysis
 
 
-@router.get("/ai-HypeScan", response_model=AIHypeScanResponse)
-async def get_ai_HypeScan(coinAddress: str, pairAddress: str):
-    """Get AI HypeScan data from real analysis."""
+@router.get("/ai-Signals", response_model=AISignalsResponse)
+async def get_ai_Signals(coinAddress: str, pairAddress: str):
+    """Get AI Signals data from real analysis."""
     try:
         dex_chain = get_chain_id("sol", "dex")
         dex_data = await async_get_dex_data(dex_chain, pairAddress)
@@ -46,7 +46,7 @@ async def get_ai_HypeScan(coinAddress: str, pairAddress: str):
         safety = safety_report.to_dict()
 
         # Run market analysis
-        market_result = await token_agents.market_HypeScan(dex_data)
+        market_result = await token_agents.market_Signals(dex_data)
         market = market_result.get("analysis", {}) if isinstance(market_result, dict) else {}
 
         # Derive signal strength from market health
@@ -88,7 +88,7 @@ async def get_ai_HypeScan(coinAddress: str, pairAddress: str):
             ],
         }
     except Exception as e:
-        logger.error(f"AI HypeScan failed: {str(e)}, returning defaults")
+        logger.error(f"AI Signals failed: {str(e)}, returning defaults")
         return {
             "strength": "Unknown", "confidence": 0, "pattern": "Error", "patternPhase": "N/A",
             "prediction": "Analysis failed", "forecast": "Retry",
@@ -286,13 +286,13 @@ async def comprehensive_ai_analysis(
         skipped_agents = []
         
         if dex_valid.is_valid:
-            agent_tasks["market_analysis"] = token_agents.market_HypeScan(dex_data)
+            agent_tasks["market_analysis"] = token_agents.market_Signals(dex_data)
         else:
             skipped_agents.append(f"market ({dex_valid.reason})")
             logger.warning(f"Skipping market analysis: {dex_valid.reason}")
         
         if gmgn_valid.is_valid:
-            agent_tasks["gmgn_analysis"] = token_agents.gmgn_HypeScan(gmgn_data)
+            agent_tasks["gmgn_analysis"] = token_agents.gmgn_Signals(gmgn_data)
         else:
             skipped_agents.append(f"gmgn ({gmgn_valid.reason})")
             logger.warning(f"Skipping GMGN analysis: {gmgn_valid.reason}")
@@ -367,7 +367,7 @@ async def analyze_dex_with_ai(chain_id: str, pair_address: str):
     
     try:
         dex_data = await async_get_dex_data(chain_id, pair_address)
-        analysis = await token_agents.market_HypeScan(dex_data)
+        analysis = await token_agents.market_Signals(dex_data)
         
         logger.success("DEX analysis complete")
         return {
@@ -395,7 +395,7 @@ async def analyze_gmgn_with_ai(token_address: str, chain: str = "sol"):
         combined = token_data.copy() if isinstance(token_data, dict) else {}
         combined["safety_report"] = safety_report.to_dict() if hasattr(safety_report, 'to_dict') else {}
 
-        analysis = await token_agents.gmgn_HypeScan(combined)
+        analysis = await token_agents.gmgn_Signals(combined)
 
         logger.success("Token safety analysis complete")
         return {
