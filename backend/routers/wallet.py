@@ -5,6 +5,7 @@ Handles wallet connection, detection, and user account management
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+from typing import Optional, List
 import json
 
 wallet_router = APIRouter(prefix="/api/wallet", tags=["wallet"])
@@ -55,7 +56,7 @@ class WalletInfo(BaseModel):
     id: str
     name: str
     icon: str
-    chains: list[str]
+    chains: List[str]
     installed: bool
 
 
@@ -69,7 +70,7 @@ class ConnectWalletResponse(BaseModel):
     """Response after wallet connection"""
     success: bool
     wallet_id: str
-    address: str | None = None
+    address: Optional[str] = None
     chain: str
     message: str
 
