@@ -58,7 +58,7 @@ export function Header() {
         {/* Action icons */}
         <div className="flex items-center gap-2">
           {/* Theme Toggle */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
 
           {/* Notifications (Hidden on mobile) */}
           <button

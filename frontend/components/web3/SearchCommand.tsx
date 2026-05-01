@@ -55,7 +55,16 @@ const PAGES = [
 ];
 
 function isAddress(s: string): boolean {
-  return /^0x[a-fA-F0-9]{40}$/.test(s.trim());
+  const trimmed = s.trim();
+  // Ethereum address (0x + 40 hex chars)
+  if (/^0x[a-fA-F0-9]{40}$/.test(trimmed)) {
+    return true;
+  }
+  // Solana address (base58, 32-44 chars, alphanumeric)
+  if (trimmed.length >= 32 && trimmed.length <= 44 && /^[A-Za-z0-9]+$/.test(trimmed)) {
+    return true;
+  }
+  return false;
 }
 
 function isHash32(s: string): boolean {
@@ -124,8 +133,19 @@ export function SearchCommand() {
 
     const items: Result[] = [];
 
-    // Address → analyze on Explore + BaseScan
+    // Address → analyze on Explore + Scan + BaseScan
     if (isAddress(q)) {
+      items.push({
+        id: "scan-token",
+        kind: "address",
+        icon: "search",
+        title: "Scan this token",
+        description: shortHex(q, 12, 10),
+        onSelect: () => {
+          router.push(`/dashboard/scan?address=${q}`);
+          closeAndReset();
+        },
+      });
       items.push({
         id: "analyze",
         kind: "address",

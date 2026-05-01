@@ -97,18 +97,18 @@ export function PredictionCard({ prediction, currentPrice }: PredictionCardProps
         </div>
 
         {/* Reasoning */}
-        <div className="space-y-2">
+        <div className="space-y-2 overflow-hidden">
           <p className="text-sm font-medium">Reasoning</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">{prediction.reasoning}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed break-all overflow-hidden">{prediction.reasoning}</p>
         </div>
 
         {/* Risk Assessment */}
-        <div className="space-y-2 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+        <div className="space-y-2 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 overflow-hidden">
           <div className="flex items-center gap-2">
-            <AlertTriangle className="size-4 text-yellow-500" />
-            <p className="text-sm font-medium">Risk Assessment</p>
+            <AlertTriangle className="size-4 text-yellow-500 shrink-0" />
+            <p className="text-sm font-medium truncate">Risk Assessment</p>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">{prediction.riskAssessment}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed break-all overflow-hidden">{prediction.riskAssessment}</p>
         </div>
 
         {/* Price Targets */}

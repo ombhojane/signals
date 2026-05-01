@@ -39,12 +39,12 @@ export function SimulationHistory({ onViewSimulation }: SimulationHistoryProps) 
   if (simulations.length === 0) {
     return (
       <Card variant="glass">
-        <CardHeader>
-        <CardTitle>History</CardTitle>
-        <CardDescription>Your past token analyses will appear here</CardDescription>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base">History</CardTitle>
+          <CardDescription className="text-xs">Your past token analyses will appear here</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground text-center py-8">
+          <p className="text-xs text-muted-foreground text-center py-4">
             No analyses yet. Scan a token to see results here.
           </p>
         </CardContent>
@@ -54,21 +54,17 @@ export function SimulationHistory({ onViewSimulation }: SimulationHistoryProps) 
 
   return (
     <Card variant="glass">
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <div>
-          <CardTitle>History</CardTitle>
-          <CardDescription>
-            {stats.total} analyses • {stats.winRate.toFixed(1)}% win rate • Avg P&L:{" "}
-              {stats.averagePnl >= 0 ? "+" : ""}
-              {stats.averagePnl.toFixed(2)}%
-            </CardDescription>
-          </div>
+      <CardHeader className="pb-3">
+        <div className="space-y-2">
+          <CardTitle className="text-base">History</CardTitle>
+          <CardDescription className="text-xs">
+            {stats.total} analyses • {stats.winRate.toFixed(1)}% win rate • Avg {stats.averagePnl >= 0 ? "+" : ""}{stats.averagePnl.toFixed(2)}%
+          </CardDescription>
         </div>
       </CardHeader>
       <CardContent>
-        <div className="space-y-3">
-          {simulations.map((sim) => {
+        <div className="space-y-2 max-h-96 overflow-y-auto">
+          {simulations.slice(0, 10).map((sim) => {
             const pnlFormatted = formatPnlPercent(sim.result.profitLossPercent);
             const statusVariant = getStatusVariant(sim.result.status);
             const isProfit = sim.result.status === "profit";
@@ -79,59 +75,55 @@ export function SimulationHistory({ onViewSimulation }: SimulationHistoryProps) 
               <div
                 key={sim.id}
                 className={cn(
-                  "p-4 rounded-lg border transition-colors",
+                  "p-2.5 sm:p-3 rounded-lg border text-xs sm:text-sm transition-colors",
                   isProfit && "bg-green-500/5 border-green-500/20",
                   isLoss && "bg-red-500/5 border-red-500/20",
                   isEquilized && "bg-yellow-500/5 border-yellow-500/20"
                 )}
               >
-                <div className="flex items-start justify-between gap-4 flex-wrap">
-                  <div className="flex-1 min-w-0 space-y-2">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <code className="text-xs font-mono bg-muted px-2 py-1 rounded">
-                        {sim.coinAddress.slice(0, 8)}...
+                <div className="flex items-start justify-between gap-2 sm:gap-4 flex-wrap">
+                  <div className="flex-1 min-w-0 space-y-1">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <code className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">
+                        {sim.coinAddress.slice(0, 6)}...
                       </code>
-                      <Badge variant={statusVariant} className="text-xs shrink-0">
-                        {isProfit && <TrendingUp className="size-3 mr-1" />}
-                        {isLoss && <TrendingDown className="size-3 mr-1" />}
-                        {isEquilized && <Minus className="size-3 mr-1" />}
+                      <Badge variant={statusVariant} className="text-xs shrink-0 px-1.5 py-0">
+                        {isProfit && <TrendingUp className="size-2.5 mr-0.5" />}
+                        {isLoss && <TrendingDown className="size-2.5 mr-0.5" />}
+                        {isEquilized && <Minus className="size-2.5 mr-0.5" />}
                         {sim.result.action}
                       </Badge>
-                      <Badge variant="outline" className="text-xs shrink-0">
-                        {sim.result.status}
-                      </Badge>
                     </div>
-                    <div className="flex items-center gap-x-4 gap-y-2 text-sm flex-wrap">
+                    <div className="flex items-center gap-2 text-xs flex-wrap">
                       <span className={cn("font-mono font-semibold", pnlFormatted.className)}>
                         {pnlFormatted.value}
                       </span>
-                      <span className="text-muted-foreground whitespace-nowrap">
-                        Accuracy: {sim.result.accuracy.toFixed(1)}%
-                      </span>
-                      <span className="text-muted-foreground whitespace-nowrap">
-                        {sim.duration}m duration
+                      <span className="text-muted-foreground">
+                        {sim.result.accuracy.toFixed(0)}%
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground">
                       {formatDate(sim.completedAt)}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1 shrink-0">
                     {onViewSimulation && (
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => onViewSimulation(sim.id)}
+                        className="h-7 w-7 p-0"
                       >
-                        <Eye className="size-4" />
+                        <Eye className="size-3" />
                       </Button>
                     )}
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => handleDelete(sim.id)}
+                      className="h-7 w-7 p-0"
                     >
-                      <Trash2 className="size-4" />
+                      <Trash2 className="size-3" />
                     </Button>
                   </div>
                 </div>
