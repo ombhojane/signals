@@ -213,16 +213,262 @@ forge build
 
 ## Testing
 
+This project has comprehensive test suites for frontend, backend, and smart contracts.
+
+### Backend Tests (pytest)
+
+Located in `backend/tests/` with markers for different test categories.
+
 ```bash
-# Backend tests
 cd backend
+source venv/bin/activate  # or activate your Python environment
+
+# Run all tests
 pytest
 
-# Frontend lint
+# Run by marker
+pytest -m unit              # Unit tests only
+pytest -m integration       # Integration tests
+pytest -m e2e               # End-to-end tests
+pytest -m api               # API endpoint tests
+pytest -m service           # Service layer tests
+
+# Run specific test file
+pytest tests/test_factbook.py
+pytest tests/test_killswitch.py
+pytest tests/test_scoring.py
+pytest tests/test_services.py
+pytest tests/test_social_preprocessor.py
+pytest tests/test_api.py
+
+# Run with verbose output
+pytest -v
+
+# Run with coverage report
+pytest --cov=. --cov-report=html
+```
+
+### Frontend Tests (Playwright)
+
+Located in `frontend/tests/` with E2E test automation across browsers.
+
+```bash
+cd frontend
+npm install  # Install dependencies
+
+# Install Playwright browsers (first time only)
+npx playwright install chromium
+
+# Run tests (headless)
+npm test
+
+# Run tests with interactive UI
+npm run test:ui
+
+# Run tests with browser visible
+npm run test:headed
+
+# View test report
+npm run test:report
+
+# Run specific test file
+npx playwright test tests/specific-test.spec.ts
+
+# Run tests in specific browser
+npx playwright test --project=chromium
+npx playwright test --project='Mobile Chrome'
+```
+
+Configuration: See `frontend/playwright.config.ts` for test settings, browser options, and web server configuration.
+
+### Smart Contract Tests (Foundry)
+
+Located in `contracts/test/` with Solidity test files.
+
+```bash
+cd contracts
+
+# Install dependencies (first time only)
+forge install
+
+# Run all tests
+forge test
+
+# Run with verbose output
+forge test -v
+
+# Run specific test file
+forge test test/SignalsVault.t.sol
+
+# Run specific test
+forge test test/SignalsVault.t.sol --match testFunctionName
+
+# Run tests with gas reports
+forge test --gas-report
+
+# Run tests in watch mode (re-runs on file changes)
+forge test --watch
+
+# Run all tests (headless)
+npm test
+
+# Run tests with visible browser
+npm run test:headed
+
+# Run tests with Playwright UI
+npm run test:ui
+
+# Generate HTML report
+npm run test:report
+```
+
+#### Available Frontend Tests
+
+- **Landing Page** — Hero, navigation, CTA buttons, stats, sections
+- **Navigation & Routing** — Page transitions, mobile nav
+- **Vault Page** — Deposit/withdraw forms, inputs, wallet connection
+- **Simulation Page** — Controls, analysis panel, search palette
+- **Leaderboard Page** — Rankings, time ranges, trade feed
+- **Portfolio Page** — Tables, tab switching
+- **Settings Page** — Theme, network settings
+- **Search Command Palette** — Keyboard shortcuts, navigation
+- **UI Components** — Buttons, inputs, keyboard navigation
+- **Mobile Responsiveness** — Viewport, bottom nav, touch targets
+- **Accessibility** — Lang attribute, focus order, alt text
+- **Performance** — Load time, network requests
+- **Visual Regression** — Page screenshots
+- **Error Handling** — 404 pages, error recovery
+- **Authentication Flow** — Wallet connection
+- **Data Fetching** — Vault state, charts, tables
+- **Interactions** — Hover, click, scroll effects
+- **Forms** — Input validation
+- **Browser Functions** — Back button, refresh
+
+#### Run Specific Tests
+
+```bash
+# Run only Chromium tests
+npx playwright test --project=chromium
+
+# Run only mobile tests
+npx playwright test --project="Mobile Chrome"
+
+# Run specific test file
+npx playwright test tests/site.spec.ts
+
+# Run tests matching pattern
+npx playwright test -g "Landing Page"
+
+# Run with retries (CI mode)
+CI=true npm test
+```
+
+---
+
+### Backend Tests (Pytest)
+
+Tests are located in `backend/tests/` and use pytest.
+
+```bash
+# From backend directory
+cd backend
+
+# Install test dependencies (if needed)
+pip install pytest pytest-asyncio httpx
+
+# Run all tests
+pytest
+
+# Run with verbose output
+pytest -v
+
+# Run only unit tests
+pytest -m unit
+
+# Run only integration tests
+pytest -m integration
+
+# Run only API tests
+pytest -m api
+
+# Run only service tests
+pytest -m service
+
+# Run with coverage
+pytest --cov=. --cov-report=html
+
+# Run fast tests only (skip slow)
+pytest -m "not slow"
+```
+
+#### Available Backend Test Markers
+
+- `unit` — Isolated unit tests with no external dependencies
+- `integration` — Integration tests exercising multiple modules
+- `api` — API endpoint tests
+- `service` — Service layer tests
+- `e2e` — End-to-end tests hitting real services
+
+#### Backend Test Files
+
+| File | Tests |
+|------|-------|
+| `test_scoring.py` | Signal scoring algorithm, weights, action thresholds |
+| `test_killswitch.py` | Kill switch triggers, safety checks |
+| `test_factbook.py` | Token data caching, factbook |
+| `test_social_preprocessor.py` | Tweet cleaning, filtering |
+| `test_api.py` | API endpoints, validation, error handling |
+| `test_services.py` | Token safety, rate limiting, cache, validators |
+
+---
+
+### Smart Contract Tests (Foundry)
+
+```bash
+cd contracts
+
+# Run all tests
+forge test
+
+# Run specific test
+forge test --match-test testName
+
+# Run with verbose output
+forge test -vv
+
+# Check coverage
+forge coverage
+```
+
+---
+
+### Pre-commit Testing (Run Before Push)
+
+Before pushing to production, run all tests:
+
+```bash
+# Frontend
 cd frontend
 npm run lint
+npm test
 
-# Contract tests
+# Backend
+cd backend
+pytest -m "unit or api or service"
+pytest -m integration --ignore=tests/test_api.py  # Only if backend running
+
+# Smart Contracts
 cd contracts
 forge test
 ```
+
+#### Quick Test Alias (add to `.bashrc` or `.zshrc`)
+
+```bash
+# Run all tests
+export function test-all {
+    cd ~/Documents/coding/signals/frontend && npm run lint && npm test
+    cd ~/Documents/coding/signals/backend && pytest -m unit
+    cd ~/Documents/coding/signals/contracts && forge test
+}
+
