@@ -34,6 +34,7 @@ import { SimulationEngine } from "@/lib/simulation/simulation-engine";
 import { SimulationStorage } from "@/lib/simulation/storage";
 import { compressChartData } from "@/lib/utils/simulation-helpers";
 import { generateId } from "@/lib/utils";
+import { useSimulationState } from "@/lib/contexts/SimulationContext";
 
 // ─── Regime toast messages ─────────────────────────────────────────────────────
 const REGIME_LABELS: Record<string, string> = {
@@ -64,6 +65,21 @@ function SimulationContent() {
   const searchParams = useSearchParams();
   const urlAddress = searchParams.get("address") || "";
 
+  // Get simulation state from context
+  let persistedState = null;
+  let saveState = null;
+  let clearState = null;
+  
+  try {
+    const contextData = useSimulationState();
+    persistedState = contextData.persistedState;
+    saveState = contextData.saveState;
+    clearState = contextData.clearState;
+  } catch (e) {
+    // Context might not be available, fall back to no persistence
+    console.warn("SimulationContext not available:", e);
+  }
+
   const [state, setState] = useState<SimulationState>({
     phase: "idle",
     coinAddress: "",
@@ -71,6 +87,16 @@ function SimulationContent() {
     marketData: [],
     isPaused: false,
   });
+
+  // Restore persisted state on mount if same token
+  useEffect(() => {
+    if (persistedState && persistedState.coinAddress && !urlAddress) {
+      setState(persistedState.state);
+      setLiveSnapshot(persistedState.liveSnapshot);
+      setLivePrice(persistedState.livePrice);
+      setInitialChartData(persistedState.initialChartData);
+    }
+  }, [persistedState, urlAddress]);
 
   // Historical + live points stored for final save. Chart is updated imperatively.
   const tickHistoryRef = useRef<Array<{ time: number; value: number }>>([]);
@@ -105,6 +131,13 @@ function SimulationContent() {
     return () => { engineRef.current?.stop(); };
   }, []);
 
+  // ── Save state to localStorage whenever it changes ──────────────────────────
+  useEffect(() => {
+    if (state.phase !== "idle" && state.phase !== "error" && saveState) {
+      saveState(state, liveSnapshot, livePrice, initialChartData, state.coinAddress);
+    }
+  }, [state, liveSnapshot, livePrice, initialChartData, saveState]);
+
   // ── Show regime toast ────────────────────────────────────────────────────────
   const showRegimeToast = useCallback((regime: string) => {
     if (regime === lastRegimeRef.current) return;
@@ -118,6 +151,9 @@ function SimulationContent() {
 
   // ── Fetch & analyse ──────────────────────────────────────────────────────────
   const handleStart = useCallback(async (coinAddress: string) => {
+    // Clear persisted state when new token is searched
+    if (clearState) clearState();
+    
     setState((p) => ({ ...p, phase: "fetching", coinAddress, marketData: [], fetchProgress: [], error: undefined }));
     setInitialChartData([]);
     tickHistoryRef.current = [];
@@ -317,12 +353,39 @@ function SimulationContent() {
     switch (state.phase) {
       case "idle":
         return (
-          <div className="grid gap-6 lg:grid-cols-3">
-            <div className="lg:col-span-2 space-y-6">
-              <SimulationInput onStart={handleStart} defaultAddress={urlAddress} />
-              <SimulationHistory />
+          <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
+            <div className="lg:col-span-2 space-y-6 min-w-0">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-end gap-3">
+                <div className="flex-1 min-w-0">
+                  <SimulationInput onStart={handleStart} defaultAddress={urlAddress} />
+                </div>
+                {persistedState && (
+                  <button
+                    onClick={() => {
+                      if (clearState) clearState();
+                      setState({
+                        phase: "idle",
+                        coinAddress: "",
+                        duration: 15,
+                        marketData: [],
+                        isPaused: false,
+                      });
+                      setInitialChartData([]);
+                      setLiveSnapshot(null);
+                      setLivePrice(null);
+                    }}
+                    className="px-4 py-2.5 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 text-sm font-medium border border-red-500/20 transition-colors shrink-0 whitespace-nowrap h-fit"
+                  >
+                    Clear Results
+                  </button>
+                )}
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold">History</h3>
+                <SimulationHistory />
+              </div>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-6 min-w-0">
               <TrendingTokens />
             </div>
           </div>
@@ -348,14 +411,14 @@ function SimulationContent() {
 
       case "predicted":
         return (
-          <div className="grid gap-6 lg:grid-cols-3">
-            <div className="lg:col-span-2 space-y-6">
+          <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
+            <div className="lg:col-span-2 space-y-6 min-w-0">
               {(liveSnapshot ?? state.marketData[0]) && (
                 <AnalysisPanel snapshot={liveSnapshot ?? state.marketData[0]} />
               )}
               {chartElement(false)}
             </div>
-            <div className="space-y-6">
+            <div className="space-y-6 min-w-0">
               {state.prediction && state.marketData[0] && (
                 <PredictionCard
                   prediction={state.prediction}
@@ -378,8 +441,8 @@ function SimulationContent() {
 
       case "simulating":
         return (
-          <div className="grid gap-6 lg:grid-cols-3">
-            <div className="lg:col-span-2 space-y-6">
+          <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
+            <div className="lg:col-span-2 space-y-6 min-w-0">
               {chartElement(true)}
               {state.marketData[0] && state.prediction && (
                 <SimulationMetrics
@@ -392,7 +455,7 @@ function SimulationContent() {
                 />
               )}
             </div>
-            <div className="space-y-6">
+            <div className="space-y-6 min-w-0">
               {state.prediction && state.marketData[0] && (
                 <PredictionCard
                   prediction={state.prediction}
@@ -416,12 +479,12 @@ function SimulationContent() {
       case "completed":
         return (
           <div className="space-y-6">
-            <div className="grid gap-6 lg:grid-cols-3">
-              <div className="lg:col-span-2 space-y-6">
+            <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
+              <div className="lg:col-span-2 space-y-6 min-w-0">
                 {chartElement(true)}
                 {state.result && <ResultSummary result={state.result} />}
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 min-w-0">
                 {state.prediction && state.marketData[0] && (
                   <PredictionCard
                     prediction={state.prediction}
@@ -469,8 +532,44 @@ function SimulationContent() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
         <h2 className="text-2xl font-bold tracking-tight">Token Scan</h2>
+        
+        {/* Quick Search/Clear Controls - Always Visible */}
+        {state.phase !== "idle" && (
+          <div className="flex items-center gap-2 shrink-0">
+            <input
+              type="text"
+              placeholder="Search another token..."
+              value={state.coinAddress}
+              onChange={(e) => {
+                // Only allow search when not actively analyzing
+              }}
+              disabled
+              className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-muted-foreground min-w-0 max-w-xs"
+            />
+            {persistedState && (
+              <button
+                onClick={() => {
+                  if (clearState) clearState();
+                  setState({
+                    phase: "idle",
+                    coinAddress: "",
+                    duration: 15,
+                    marketData: [],
+                    isPaused: false,
+                  });
+                  setInitialChartData([]);
+                  setLiveSnapshot(null);
+                  setLivePrice(null);
+                }}
+                className="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 text-xs font-medium border border-red-500/20 transition-colors whitespace-nowrap"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       {renderPhase()}
@@ -492,7 +591,11 @@ function SimulationContent() {
 export default function SimulationPage() {
   return (
     <Suspense fallback={<div className="flex items-center justify-center p-12">Loading...</div>}>
-      <SimulationContent />
+      <SimulationPageContent />
     </Suspense>
   );
+}
+
+function SimulationPageContent() {
+  return <SimulationContent />;
 }

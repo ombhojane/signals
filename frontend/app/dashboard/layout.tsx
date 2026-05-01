@@ -5,6 +5,8 @@ import { Header } from "@/components/layout/Header";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { SidebarProvider } from "@/lib/sidebar-context";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ScanProvider } from "@/lib/contexts/ScanContext";
+import { SimulationProvider } from "@/lib/contexts/SimulationContext";
 
 export default function DashboardLayout({
   children,
@@ -13,21 +15,25 @@ export default function DashboardLayout({
 }) {
   return (
     <SidebarProvider>
-      <TooltipProvider>
-        <div className="flex h-screen w-full overflow-hidden bg-background">
-          <Sidebar />
-          <main className="flex-1 flex flex-col relative overflow-hidden h-screen min-w-0">
-            <Header />
-            <div className="flex-1 overflow-y-auto px-4 md:px-8 pb-24 md:pb-12 pt-4 min-w-0" style={{ scrollbarWidth: 'none' }}>
-              <div className="max-w-7xl mx-auto w-full">
-                <PageTransition delay={800}>
-                  {children}
-                </PageTransition>
-              </div>
+      <ScanProvider>
+        <SimulationProvider>
+          <TooltipProvider>
+            <div className="flex h-screen w-full overflow-hidden bg-background">
+              <Sidebar />
+              <main className="flex-1 flex flex-col relative overflow-hidden h-screen min-w-0">
+                <Header />
+                <div className="flex-1 overflow-y-auto px-4 md:px-8 pb-24 md:pb-12 pt-4 min-w-0" style={{ scrollbarWidth: 'none' }}>
+                  <div className="max-w-7xl mx-auto w-full">
+                    <PageTransition delay={800}>
+                      {children}
+                    </PageTransition>
+                  </div>
+                </div>
+              </main>
             </div>
-          </main>
-        </div>
-      </TooltipProvider>
+          </TooltipProvider>
+        </SimulationProvider>
+      </ScanProvider>
     </SidebarProvider>
   );
 }
