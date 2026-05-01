@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { useScanState } from "@/lib/contexts/ScanContext";
+import { TokenSkeleton, FilterSkeleton, StatsPillarSkeleton } from "@/components/ui/skeleton";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -331,7 +333,7 @@ function AgentCard({
       {state.red_flags && state.red_flags.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {state.red_flags.map((f, i) => (
-            <Badge key={i} variant="outline" className="text-[10px] border-white/10 bg-white/[0.03]">
+            <Badge key={i} variant="outline" className="text-[10px] border-white/10 bg-white/[0.03] truncate max-w-full">
               {f}
             </Badge>
           ))}
@@ -339,7 +341,7 @@ function AgentCard({
       )}
 
       {state.error && (
-        <div className="text-[10.5px] leading-snug text-rose-300/80 line-clamp-3 font-mono">
+        <div className="text-[10.5px] leading-snug text-rose-300/80 line-clamp-3 font-mono overflow-hidden break-all">
           {truncateError(state.error)}
         </div>
       )}
@@ -354,11 +356,11 @@ function AgentCard({
 function AnalysisPeek({ data }: { data: Record<string, unknown> }) {
   const keys = Object.keys(data).slice(0, 3);
   return (
-    <div className="text-[10.5px] leading-snug text-neutral-400 font-mono">
+    <div className="text-[10.5px] leading-snug text-neutral-400 font-mono overflow-hidden">
       {keys.map(k => (
         <div key={k} className="truncate">
           <span className="text-neutral-500">{k}:</span>{" "}
-          <span className="text-neutral-200">{stringifyShort((data as any)[k])}</span>
+          <span className="text-neutral-200 truncate inline-block max-w-[calc(100%-3rem)]">{stringifyShort((data as any)[k])}</span>
         </div>
       ))}
     </div>
@@ -413,8 +415,8 @@ function ActionBadge({ hint }: { hint: string }) {
 // --- Main page -------------------------------------------------------------
 
 export default function ScanPage() {
+  const { state, dispatch, clearState } = useScanState();
   const [maxTokens, setMaxTokens] = useState(3);
-  const [state, setState] = useState<ScanState>({ running: false, filters: [], tokens: [], warnings: [] });
   const [rawEvents, setRawEvents] = useState<ScanEvent[]>([]);
   const esRef = useRef<EventSource | null>(null);
 
@@ -424,7 +426,8 @@ export default function ScanPage() {
 
   const start = useCallback(() => {
     if (esRef.current) esRef.current.close();
-    setState({ running: true, filters: [], tokens: [], warnings: [] });
+    clearState();
+    dispatch({ type: "SET_RUNNING", payload: true });
     setRawEvents([]);
 
     const params = new URLSearchParams({
@@ -437,10 +440,11 @@ export default function ScanPage() {
       try {
         const ev = JSON.parse(msg.data) as ScanEvent;
         setRawEvents(prev => [...prev, ev]);
-        setState(prev => applyEvent(prev, ev));
+        dispatch({ type: "ADD_EVENT", payload: ev });
         if (ev.type === "scan.done" || ev.type === "error") {
           es.close();
           esRef.current = null;
+          dispatch({ type: "SET_RUNNING", payload: false });
         }
       } catch (err) {
         console.error("bad sse event", err, msg.data);
@@ -449,15 +453,15 @@ export default function ScanPage() {
     es.onerror = () => {
       es.close();
       esRef.current = null;
-      setState(prev => ({ ...prev, running: false }));
+      dispatch({ type: "SET_RUNNING", payload: false });
     };
-  }, [maxTokens]);
+  }, [maxTokens, dispatch]);
 
   const stop = useCallback(() => {
     esRef.current?.close();
     esRef.current = null;
-    setState(prev => ({ ...prev, running: false }));
-  }, []);
+    dispatch({ type: "SET_RUNNING", payload: false });
+  }, [dispatch]);
 
   const passedCount = useMemo(
     () => state.filters.filter(f => f.passed).length,
@@ -529,10 +533,18 @@ export default function ScanPage() {
               Stop
             </Button>
           ) : (
-            <Button onClick={start} className="gap-2">
-              <span className="material-symbols-outlined text-[18px]">play_arrow</span>
-              Run scan
-            </Button>
+            <div className="flex gap-2">
+              <Button onClick={start} className="gap-2">
+                <span className="material-symbols-outlined text-[18px]">play_arrow</span>
+                Run scan
+              </Button>
+              {state.tokens.length > 0 && (
+                <Button onClick={clearState} variant="outline" className="gap-2">
+                  <span className="material-symbols-outlined text-[18px]">delete</span>
+                  Clear results
+                </Button>
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -578,7 +590,11 @@ export default function ScanPage() {
         </div>
         {state.filters.length === 0 ? (
           <div className="text-sm text-neutral-500 py-4">
-            {state.running ? "Discovering tokens…" : "Click Run scan to discover trending tokens."}
+            {state.running ? (
+              <FilterSkeleton />
+            ) : (
+              "Click Run scan to discover trending tokens."
+            )}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -612,6 +628,13 @@ export default function ScanPage() {
         {state.tokens.map((t) => (
           <TokenCard key={t.address} token={t} />
         ))}
+        {state.running && state.tokens.length < (state.analyzed ?? 0) + 2 && (
+          <>
+            {Array.from({ length: Math.min(2, (state.analyzed ?? 0) + 2 - state.tokens.length) }).map((_, i) => (
+              <TokenSkeleton key={`skeleton-${i}`} />
+            ))}
+          </>
+        )}
         {state.tokens.length === 0 && !state.running && state.filters.length > 0 && (
           <div className="text-center py-8 text-sm text-neutral-500">
             No survivors — all candidates filtered out.
@@ -657,15 +680,15 @@ function TokenCard({ token }: { token: TokenState }) {
       {/* token header */}
       <div className="flex flex-wrap items-start gap-4 justify-between">
         <div className="flex flex-col gap-1 min-w-0 flex-1">
-          <div className="flex items-center gap-3">
-            <span className="text-lg font-semibold text-white" style={{ fontFamily: "var(--font-space)" }}>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-lg font-semibold text-white truncate" style={{ fontFamily: "var(--font-space)" }}>
               {token.symbol}
             </span>
             {token.name && token.name !== token.symbol && (
-              <span className="text-sm text-neutral-500">{token.name}</span>
+              <span className="text-sm text-neutral-500 truncate">{token.name}</span>
             )}
             {ks?.triggered && (
-              <Badge variant="destructive" className="gap-1">
+              <Badge variant="destructive" className="gap-1 shrink-0">
                 <span className="material-symbols-outlined text-[14px]">warning</span>
                 Kill-switch: {ks.rule}
               </Badge>
@@ -679,10 +702,10 @@ function TokenCard({ token }: { token: TokenState }) {
             <span>Mcap ${numfmt(token.market_cap, 0)}</span>
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <ActionBadge hint={actionHint} />
           {confidence > 0 && (
-            <span className="text-[11px] text-neutral-500 tabular-nums">conf {(confidence * 100).toFixed(0)}%</span>
+            <span className="text-[11px] text-neutral-500 tabular-nums">{(confidence * 100).toFixed(0)}%</span>
           )}
         </div>
       </div>
@@ -714,7 +737,7 @@ function TokenCard({ token }: { token: TokenState }) {
             {Array.isArray(sv.warnings) && sv.warnings.length > 0 && (
               <div className="flex flex-wrap gap-1 justify-end">
                 {(sv.warnings as string[]).map((w, i) => (
-                  <Badge key={i} variant="outline" className="text-[10px] border-amber-400/20 bg-amber-500/5 text-amber-300">
+                  <Badge key={i} variant="outline" className="text-[10px] border-amber-400/20 bg-amber-500/5 text-amber-300 truncate max-w-full">
                     {w}
                   </Badge>
                 ))}
@@ -745,14 +768,14 @@ function ResultPanel({ result }: { result: Record<string, unknown> }) {
       {keyFactors.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {keyFactors.map((f, i) => (
-            <Badge key={i} variant="outline" className="text-[10.5px] border-white/10">{f}</Badge>
+            <Badge key={i} variant="outline" className="text-[10.5px] border-white/10 truncate max-w-full">{f}</Badge>
           ))}
         </div>
       )}
       {redFlags.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {redFlags.map((f, i) => (
-            <Badge key={i} variant="outline" className="text-[10.5px] border-rose-400/20 bg-rose-500/5 text-rose-300">
+            <Badge key={i} variant="outline" className="text-[10.5px] border-rose-400/20 bg-rose-500/5 text-rose-300 truncate max-w-full">
               {f}
             </Badge>
           ))}

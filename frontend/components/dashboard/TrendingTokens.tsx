@@ -80,26 +80,26 @@ export function TrendingTokens() {
         )}
 
         {!loading && tokens.length > 0 && (
-          <div className="space-y-1.5">
-            {tokens.map((token, i) => (
+          <div className="space-y-1.5 max-h-96 overflow-y-auto">
+            {tokens.slice(0, 8).map((token, i) => (
               <div
                 key={token.tokenAddress || i}
-                className="flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-muted/50 transition-colors group"
+                className="flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-muted/50 transition-colors group text-[11px]"
               >
-                <span className="text-[10px] text-muted-foreground font-mono w-4">{i + 1}</span>
+                <span className="text-[10px] text-muted-foreground font-mono shrink-0">{i + 1}</span>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs font-medium truncate">
                     {token.name || 'Unknown'}
                   </div>
-                  <code className="text-[10px] text-muted-foreground font-mono">
+                  <code className="text-[10px] text-muted-foreground font-mono block truncate">
                     {truncateAddress(token.tokenAddress)}
                   </code>
                 </div>
                 <Link
                   href={`/dashboard/simulation?address=${encodeURIComponent(token.tokenAddress)}`}
-                  className="text-[10px] font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 cursor-pointer"
+                  className="text-[10px] font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 cursor-pointer shrink-0"
                 >
-                  Scan <ExternalLink className="size-2.5" />
+                  <ExternalLink className="size-3" />
                 </Link>
               </div>
             ))}

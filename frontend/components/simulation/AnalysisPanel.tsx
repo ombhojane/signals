@@ -60,29 +60,29 @@ export function AnalysisPanel({ snapshot }: AnalysisPanelProps) {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3 overflow-hidden">
           {/* Technical Indicators */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <BarChart3 className="size-4 text-primary" />
-              <h3 className="font-semibold text-sm">Technical</h3>
+          <div className="space-y-3 overflow-hidden">
+            <div className="flex items-center gap-2 min-w-0">
+              <BarChart3 className="size-4 text-primary shrink-0" />
+              <h3 className="font-semibold text-sm truncate">Technical</h3>
             </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">RSI (14)</span>
-                <span className={cn("font-mono font-medium", getRSIColor(snapshot.rsi))}>
+            <div className="space-y-2 text-sm overflow-hidden">
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">RSI (14)</span>
+                <span className={cn("font-mono font-medium shrink-0", getRSIColor(snapshot.rsi))}>
                   {snapshot.rsi.toFixed(1)}
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">MACD</span>
-                <span className={cn("font-mono", snapshot.macd > snapshot.macdSignal ? "text-green-500" : "text-red-500")}>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">MACD</span>
+                <span className={cn("font-mono shrink-0", snapshot.macd > snapshot.macdSignal ? "text-green-500" : "text-red-500")}>
                   {snapshot.macd > snapshot.macdSignal ? "↑ Bullish" : "↓ Bearish"}
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Bollinger</span>
-                <span className="font-mono text-xs">
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Bollinger</span>
+                <span className="font-mono text-xs shrink-0">
                   {snapshot.bollingerPosition > 0.8
                     ? "Upper Band"
                     : snapshot.bollingerPosition < -0.8
@@ -90,28 +90,28 @@ export function AnalysisPanel({ snapshot }: AnalysisPanelProps) {
                     : "Mid Range"}
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Volatility</span>
-                <span className="font-mono">{(snapshot.volatility * 100).toFixed(2)}%</span>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Volatility</span>
+                <span className="font-mono shrink-0">{(snapshot.volatility * 100).toFixed(2)}%</span>
               </div>
             </div>
           </div>
 
           {/* On-Chain Safety */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Shield className="size-4 text-primary" />
-              <h3 className="font-semibold text-sm">On-Chain</h3>
+          <div className="space-y-3 overflow-hidden">
+            <div className="flex items-center gap-2 min-w-0">
+              <Shield className="size-4 text-primary shrink-0" />
+              <h3 className="font-semibold text-sm truncate">On-Chain</h3>
             </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Rug Score</span>
-                <span className={cn("font-mono font-medium", getRugScoreColor(snapshot.rugScore))}>
+            <div className="space-y-2 text-sm overflow-hidden">
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Rug Score</span>
+                <span className={cn("font-mono font-medium shrink-0", getRugScoreColor(snapshot.rugScore))}>
                   {snapshot.rugScore}/100
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Smart Money</span>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Smart Money</span>
                 <Badge
                   variant={
                     snapshot.smartMoneyFlow === "buying"
@@ -120,67 +120,67 @@ export function AnalysisPanel({ snapshot }: AnalysisPanelProps) {
                       ? "destructive"
                       : "secondary"
                   }
-                  className="text-xs"
+                  className="text-xs shrink-0"
                 >
                   {snapshot.smartMoneyFlow}
                 </Badge>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Liquidity Lock</span>
-                <Badge variant={snapshot.liquidityLocked ? "default" : "destructive"} className="text-xs">
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Liquidity Lock</span>
+                <Badge variant={snapshot.liquidityLocked ? "default" : "destructive"} className="text-xs shrink-0">
                   {snapshot.liquidityLocked ? "Locked" : "Unlocked"}
                 </Badge>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Holders</span>
-                <span className="font-mono">{snapshot.holderCount.toLocaleString()}</span>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Holders</span>
+                <span className="font-mono shrink-0">{snapshot.holderCount.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Top 10%</span>
-                <span className="font-mono">{snapshot.top10HolderPct.toFixed(1)}%</span>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Top 10%</span>
+                <span className="font-mono shrink-0">{snapshot.top10HolderPct.toFixed(1)}%</span>
               </div>
             </div>
           </div>
 
           {/* Social Sentiment */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <MessageSquare className="size-4 text-primary" />
-              <h3 className="font-semibold text-sm">Social</h3>
+          <div className="space-y-3 overflow-hidden">
+            <div className="flex items-center gap-2 min-w-0">
+              <MessageSquare className="size-4 text-primary shrink-0" />
+              <h3 className="font-semibold text-sm truncate">Social</h3>
             </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Sentiment</span>
-                <span className={cn("font-mono font-medium", getSentimentColor(snapshot.sentimentScore))}>
+            <div className="space-y-2 text-sm overflow-hidden">
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Sentiment</span>
+                <span className={cn("font-mono font-medium shrink-0", getSentimentColor(snapshot.sentimentScore))}>
                   {snapshot.sentimentScore}/100
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Mentions (24h)</span>
-                <span className="font-mono">{snapshot.mentions24h.toLocaleString()}</span>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Mentions (24h)</span>
+                <span className="font-mono shrink-0">{snapshot.mentions24h.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Influencers</span>
-                <span className="font-mono">{snapshot.influencerMentions}</span>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Influencers</span>
+                <span className="font-mono shrink-0">{snapshot.influencerMentions}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Trending</span>
-                <Badge variant={snapshot.trending ? "default" : "secondary"} className="text-xs">
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Trending</span>
+                <Badge variant={snapshot.trending ? "default" : "secondary"} className="text-xs shrink-0">
                   {snapshot.trending ? "Yes" : "No"}
                 </Badge>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Community</span>
-                <span className="font-mono">{snapshot.communitySize.toLocaleString()}</span>
+              <div className="flex justify-between min-w-0">
+                <span className="text-muted-foreground truncate">Community</span>
+                <span className="font-mono shrink-0">{snapshot.communitySize.toLocaleString()}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Overall Risk Assessment */}
-        <div className="mt-6 pt-4 border-t">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-medium">Overall Risk Assessment</span>
+        <div className="mt-6 pt-4 border-t overflow-hidden">
+          <div className="flex items-center justify-between gap-2 min-w-0">
+            <span className="text-sm font-medium truncate">Overall Risk Assessment</span>
             <Badge
               variant={
                 snapshot.rugScore < 30 && snapshot.liquidityLocked
@@ -189,6 +189,7 @@ export function AnalysisPanel({ snapshot }: AnalysisPanelProps) {
                   ? "destructive"
                   : "secondary"
               }
+              className="shrink-0"
             >
               {snapshot.rugScore < 30 && snapshot.liquidityLocked
                 ? "Low Risk"
