@@ -35,15 +35,14 @@ jobs:
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }}
-          _dockerfilePathKey_: _dockerfilePath_
-          _targetLabelKey_: _targetLabel_
+          dockerfilePath: frontend/Dockerfile
           registryUrl: signalsacr0533.azurecr.io
           registryUsername: ${{ secrets.SIGNALSFRONTEND_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.SIGNALSFRONTEND_REGISTRY_PASSWORD }}
           containerAppName: signals-frontend
           resourceGroup: signals-rg
           imageToBuild: signalsacr0533.azurecr.io/signals-frontend:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
+          buildArguments: |
+            NEXT_PUBLIC_API_URL=https://signals-backend.azurecontainerapps.io
 
 
