@@ -6,14 +6,14 @@ FROM node:20-alpine AS deps
 # Install python and build tools needed for native web3 modules (like bufferutil and usb)
 RUN apk add --no-cache python3 make g++ linux-headers eudev-dev libusb-dev
 WORKDIR /app
-COPY package.json package-lock.json* ./
+COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm ci --legacy-peer-deps
 
 # Stage 2: Build the application
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY frontend/ ./
 
 # Build-time env vars (will be baked into the bundle)
 ARG NEXT_PUBLIC_API_URL
