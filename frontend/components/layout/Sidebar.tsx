@@ -27,11 +27,10 @@ export function Sidebar() {
 		<>
 			<aside
 				className={cn(
-					"hidden md:flex h-screen flex-col py-10 gap-8 shrink-0 relative z-50 border-r border-[rgba(255,255,255,0.02)] transition-all",
+					"hidden md:flex h-screen flex-col py-10 gap-8 shrink-0 relative z-50 border-r border-border/50 bg-background transition-all",
 					isOpen ? "w-72 px-6" : "w-18 px-3 items-center"
 				)}
 				style={{
-					backgroundColor: "#0a0a0a",
 					transition:
 						"width 300ms cubic-bezier(0.4, 0, 0.2, 1), padding 300ms cubic-bezier(0.4, 0, 0.2, 1)",
 				}}
@@ -75,12 +74,12 @@ export function Sidebar() {
 						)}
 					>
 						<h1
-							className="text-[1.35rem] font-bold text-white tracking-tighter"
+							className="text-[1.35rem] font-bold text-foreground tracking-tighter"
 							style={{ fontFamily: "var(--font-space)" }}
 						>
 							Signals
 						</h1>
-						<p className="text-[9px] uppercase tracking-[0.2em] font-semibold text-neutral-500 mt-0.5 group-hover:text-neutral-400 transition-colors">
+						<p className="text-[9px] uppercase tracking-[0.2em] font-semibold text-muted-foreground mt-0.5 group-hover:text-foreground/80 transition-colors">
 							Web3 Intelligence
 						</p>
 					</div>
@@ -101,7 +100,7 @@ export function Sidebar() {
 									isOpen ? "px-4 gap-4" : "justify-center w-12 h-12",
 									isActive
 										? "text-primary"
-										: "text-neutral-500 hover:text-white hover:bg-white/3"
+										: "text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5"
 								)}
 							>
 								{isActive && (
@@ -158,14 +157,14 @@ export function Sidebar() {
 						<ConnectWalletButton />
 					</div>
 
-					<div className="w-full h-px bg-linear-to-r from-white/5 to-transparent mb-2" />
+					<div className="w-full h-px bg-border/50 mb-2" />
 
 					{!isOpen ? (
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<Link
 									href="/dashboard/settings"
-									className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer justify-center w-12 h-12"
+									className="text-muted-foreground hover:text-foreground rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer justify-center w-12 h-12"
 								>
 									<span
 										className="material-symbols-outlined group-hover:rotate-45 transition-transform duration-500 shrink-0"
@@ -182,7 +181,7 @@ export function Sidebar() {
 					) : (
 						<Link
 							href="/dashboard/settings"
-							className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer px-4 gap-4 w-full"
+							className="text-muted-foreground hover:text-foreground rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer px-4 gap-4 w-full"
 						>
 							<span
 								className="material-symbols-outlined group-hover:rotate-45 transition-transform duration-500 shrink-0"
@@ -200,7 +199,7 @@ export function Sidebar() {
 							<TooltipTrigger asChild>
 								<Link
 									href="#"
-									className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer justify-center w-12 h-12"
+									className="text-muted-foreground hover:text-foreground rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer justify-center w-12 h-12"
 								>
 									<span
 										className="material-symbols-outlined group-hover:scale-110 transition-transform duration-300 shrink-0"
@@ -217,7 +216,7 @@ export function Sidebar() {
 					) : (
 						<Link
 							href="#"
-							className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer px-4 gap-4 w-full"
+							className="text-muted-foreground hover:text-foreground rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer px-4 gap-4 w-full"
 						>
 							<span
 								className="material-symbols-outlined group-hover:scale-110 transition-transform duration-300 shrink-0"
@@ -235,12 +234,7 @@ export function Sidebar() {
 
 			{/* Mobile bottom nav */}
 			<nav
-				className="md:hidden fixed bottom-0 left-0 right-0 h-[4.5rem] flex justify-around items-center px-4 border-t border-[rgba(255,255,255,0.05)]"
-				style={{
-					backgroundColor: "rgba(10,10,10,0.85)",
-					backdropFilter: "blur(20px)",
-					zIndex: 100,
-				}}
+				className="md:hidden fixed bottom-0 left-0 right-0 h-[4.5rem] flex justify-around items-center px-4 border-t border-border/50 bg-background/85 backdrop-blur-xl z-[100]"
 			>
 				{NAV_ITEMS.map((item) => {
 					const isActive =

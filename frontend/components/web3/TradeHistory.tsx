@@ -68,31 +68,24 @@ function TradeRow({ event }: { event: TradeEvent }) {
     }
   };
 
-  const actionColor = buy ? "#a7cbeb" : "#ee7d77";
+  const actionIconClass = buy ? "text-primary bg-primary/20 border-primary/40" : "text-destructive bg-destructive/20 border-destructive/40";
+  const actionBadgeClass = buy ? "text-primary bg-primary/15 border-primary/30" : "text-destructive bg-destructive/15 border-destructive/30";
   const actionLabel = buy ? "BUY" : "SELL";
 
   return (
     <div
-      className="rounded-2xl overflow-hidden transition-colors"
-      style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
-      }}
+      className="rounded-2xl overflow-hidden transition-colors bg-card border border-border"
     >
       <button
         onClick={toggle}
-        className="w-full p-5 flex items-start gap-4 text-left hover:bg-[#161616] transition-colors"
+        className="w-full p-5 flex items-start gap-4 text-left hover:bg-accent transition-colors"
       >
         <div
-          className="mt-0.5 rounded-full h-8 w-8 flex items-center justify-center shrink-0"
-          style={{
-            backgroundColor: `${actionColor}20`,
-            border: `1px solid ${actionColor}40`,
-          }}
+          className={`mt-0.5 rounded-full h-8 w-8 flex items-center justify-center shrink-0 border ${actionIconClass}`}
         >
           <span
             className="material-symbols-outlined"
-            style={{ fontSize: "1rem", color: actionColor }}
+            style={{ fontSize: "1rem" }}
           >
             {buy ? "trending_up" : "trending_down"}
           </span>
@@ -101,25 +94,20 @@ function TradeRow({ event }: { event: TradeEvent }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 flex-wrap">
             <span
-              className="text-[10px] font-bold tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
-              style={{
-                backgroundColor: `${actionColor}15`,
-                color: actionColor,
-                border: `1px solid ${actionColor}30`,
-              }}
+              className={`text-[10px] font-bold tracking-[0.15em] uppercase px-2 py-0.5 rounded-full border ${actionBadgeClass}`}
             >
               {actionLabel}
             </span>
-            <span className="text-sm font-mono tracking-tight" style={{ color: "#e7e5e5" }}>
+            <span className="text-sm font-mono tracking-tight text-foreground">
               {formatAmount(event.amountIn, inIsUsdc)}{" "}
-              <span style={{ color: "#acabaa" }}>{inIsUsdc ? "USDC" : "WETH"}</span>
-              <span className="mx-2" style={{ color: "#737373" }}>→</span>
+              <span className="text-muted-foreground">{inIsUsdc ? "USDC" : "WETH"}</span>
+              <span className="mx-2 text-muted-foreground/50">→</span>
               {formatAmount(event.amountOut, outIsUsdc)}{" "}
-              <span style={{ color: "#acabaa" }}>{outIsUsdc ? "USDC" : "WETH"}</span>
+              <span className="text-muted-foreground">{outIsUsdc ? "USDC" : "WETH"}</span>
             </span>
           </div>
 
-          <div className="mt-2 flex items-center gap-4 text-[11px]" style={{ color: "#acabaa" }}>
+          <div className="mt-2 flex items-center gap-4 text-[11px] text-muted-foreground">
             <span className="flex items-center gap-1">
               <span className="material-symbols-outlined" style={{ fontSize: "0.85rem" }}>
                 psychology
@@ -134,10 +122,9 @@ function TradeRow({ event }: { event: TradeEvent }) {
         </div>
 
         <span
-          className="material-symbols-outlined transition-transform shrink-0"
+          className="material-symbols-outlined transition-transform shrink-0 text-muted-foreground/50"
           style={{
             fontSize: "1.1rem",
-            color: "#737373",
             transform: expanded ? "rotate(180deg)" : "rotate(0)",
           }}
         >
@@ -147,30 +134,27 @@ function TradeRow({ event }: { event: TradeEvent }) {
 
       {expanded && (
         <div
-          className="px-5 pb-5 pt-1 flex flex-col gap-3"
-          style={{ borderTop: "1px solid rgba(72,72,72,0.2)" }}
+          className="px-5 pb-5 pt-1 flex flex-col gap-3 border-t border-border/50"
         >
           <div className="pt-4">
             <p
-              className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-2"
-              style={{ color: "#acabaa" }}
+              className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-2 text-muted-foreground"
             >
               AI Reasoning
             </p>
             {loading && (
-              <p className="text-xs italic" style={{ color: "#737373" }}>
+              <p className="text-xs italic text-muted-foreground/50">
                 Loading from backend…
               </p>
             )}
             {error && (
-              <p className="text-xs" style={{ color: "#ee7d77" }}>
+              <p className="text-xs text-destructive">
                 {error}
               </p>
             )}
             {reasoning && (
               <p
-                className="text-xs leading-relaxed whitespace-pre-line"
-                style={{ color: "#e7e5e5" }}
+                className="text-xs leading-relaxed whitespace-pre-line text-foreground"
               >
                 {reasoning.text}
               </p>
@@ -182,8 +166,7 @@ function TradeRow({ event }: { event: TradeEvent }) {
               href={explorerTx(event.txHash)}
               target="_blank"
               rel="noreferrer"
-              className="text-xs flex items-center gap-1.5 transition-colors hover:underline font-mono"
-              style={{ color: "#a7cbeb" }}
+              className="text-xs flex items-center gap-1.5 transition-colors hover:underline font-mono text-primary"
             >
               <span className="material-symbols-outlined" style={{ fontSize: "0.9rem" }}>
                 open_in_new
@@ -195,8 +178,7 @@ function TradeRow({ event }: { event: TradeEvent }) {
                 e.stopPropagation();
                 navigator.clipboard.writeText(event.reasoningHash);
               }}
-              className="text-xs flex items-center gap-1.5 transition-colors hover:underline font-mono"
-              style={{ color: "#acabaa" }}
+              className="text-xs flex items-center gap-1.5 transition-colors hover:underline font-mono text-muted-foreground"
             >
               <span className="material-symbols-outlined" style={{ fontSize: "0.9rem" }}>
                 content_copy
@@ -218,24 +200,18 @@ export function TradeHistory() {
       <div className="flex items-center justify-between">
         <div>
           <h2
-            className="text-sm font-bold tracking-[0.2em] uppercase"
-            style={{ color: "#e7e5e5" }}
+            className="text-sm font-bold tracking-[0.2em] uppercase text-foreground"
           >
             Recent Trades
           </h2>
-          <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+          <p className="text-xs mt-1 text-muted-foreground">
             Every trade committed on-chain with its AI reasoning hash
           </p>
         </div>
         <button
           onClick={refetch}
           disabled={isLoading}
-          className="text-[10px] font-bold tracking-widest uppercase px-4 py-2 rounded-full transition-colors disabled:opacity-40"
-          style={{
-            backgroundColor: "#191a1a",
-            color: "#a7cbeb",
-            border: "1px solid rgba(167,203,235,0.2)",
-          }}
+          className="text-[10px] font-bold tracking-widest uppercase px-4 py-2 rounded-full transition-colors disabled:opacity-40 bg-accent text-primary border border-primary/20 hover:bg-muted"
         >
           {isLoading ? "Loading…" : "Refresh"}
         </button>
@@ -243,28 +219,25 @@ export function TradeHistory() {
 
       {isLoading ? (
         <div
-          className="rounded-2xl p-8 text-center"
-          style={{ backgroundColor: "#131313", border: "1px solid rgba(72,72,72,0.25)" }}
+          className="rounded-2xl p-8 text-center bg-card border border-border"
         >
-          <p className="text-sm" style={{ color: "#737373" }}>
+          <p className="text-sm text-muted-foreground/50">
             Fetching trade events from Base Sepolia…
           </p>
         </div>
       ) : events.length === 0 ? (
         <div
-          className="rounded-2xl p-8 text-center"
-          style={{ backgroundColor: "#131313", border: "1px solid rgba(72,72,72,0.25)" }}
+          className="rounded-2xl p-8 text-center bg-card border border-border"
         >
           <span
-            className="material-symbols-outlined block mb-3"
-            style={{ fontSize: "2rem", color: "#a7cbeb" }}
+            className="material-symbols-outlined block mb-3 text-[2rem] text-primary"
           >
             hourglass_empty
           </span>
-          <p className="text-sm" style={{ color: "#e7e5e5" }}>
+          <p className="text-sm text-foreground">
             No trades yet
           </p>
-          <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+          <p className="text-xs mt-1 text-muted-foreground">
             The agent hasn&apos;t executed any trades in this window. Check back after the next signal.
           </p>
         </div>

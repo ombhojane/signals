@@ -22,8 +22,7 @@ export function Loader({ fullScreen = false }: { fullScreen?: boolean }) {
             />
           </div>
           <p
-            className="text-sm font-medium tracking-wide"
-            style={{ color: "#a7cbeb" }}
+            className="text-sm font-medium tracking-wide text-primary"
           >
             Loading...
           </p>

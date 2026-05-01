@@ -14,7 +14,7 @@ export default function DashboardLayout({
   return (
     <SidebarProvider>
       <TooltipProvider>
-        <div className="flex h-screen w-full overflow-hidden" style={{ backgroundColor: '#0e0e0e' }}>
+        <div className="flex h-screen w-full overflow-hidden bg-background">
           <Sidebar />
           <main className="flex-1 flex flex-col relative overflow-hidden h-screen min-w-0">
             <Header />

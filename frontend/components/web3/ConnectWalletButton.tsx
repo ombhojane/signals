@@ -52,8 +52,7 @@ export function ConnectWalletButton() {
   if (!mounted) {
     return (
       <div
-        className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight text-center"
-        style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+        className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight text-center bg-primary text-primary-foreground"
       >
         Connect Wallet
       </div>
@@ -81,17 +80,14 @@ export function ConnectWalletButton() {
               setPickerOpen((v) => !v);
             }
           }}
-          disabled={isPending}
-          className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight active:scale-95 duration-300 transition-all disabled:opacity-60 cursor-pointer"
-          style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+          className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight active:scale-95 duration-300 transition-all disabled:opacity-60 cursor-pointer bg-primary text-primary-foreground"
         >
           {isPending ? "Connecting…" : "Connect Wallet"}
         </button>
 
         {errorMessage && !pickerOpen && (
           <p
-            className="mt-2 text-[11px] leading-snug px-2 text-center"
-            style={{ color: "#ee7d77" }}
+            className="mt-2 text-[11px] leading-snug px-2 text-center text-destructive"
           >
             {errorMessage}
           </p>
@@ -99,11 +95,7 @@ export function ConnectWalletButton() {
 
         {pickerOpen && displayConnectors.length > 1 && (
           <div
-            className="absolute bottom-full left-0 right-0 mb-2 rounded-2xl p-2 flex flex-col gap-1 card-shadow"
-            style={{
-              backgroundColor: "#191a1a",
-              border: "1px solid rgba(72,72,72,0.3)",
-            }}
+            className="absolute bottom-full left-0 right-0 mb-2 rounded-2xl p-2 flex flex-col gap-1 card-shadow bg-popover border border-border"
           >
             {displayConnectors.map((c) => {
               const pendingThis =
@@ -119,15 +111,14 @@ export function ConnectWalletButton() {
                     setPickerOpen(false);
                   }}
                   disabled={isPending}
-                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-left transition-colors hover:bg-[#252626] disabled:opacity-50"
-                  style={{ color: "#e7e5e5" }}
+                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-left transition-colors hover:bg-accent text-foreground disabled:opacity-50"
                 >
-                  <span className="material-symbols-outlined" style={{ fontSize: "1.1rem", color: "#a7cbeb" }}>
+                  <span className="material-symbols-outlined text-primary" style={{ fontSize: "1.1rem" }}>
                     extension
                   </span>
                   <span className="flex-1">{labelFor(c.id, c.name)}</span>
                   {pendingThis ? (
-                    <span className="text-[10px] tracking-widest uppercase" style={{ color: "#acabaa" }}>
+                    <span className="text-[10px] tracking-widest uppercase text-muted-foreground">
                       connecting…
                     </span>
                   ) : null}
@@ -144,8 +135,7 @@ export function ConnectWalletButton() {
     return (
       <button
         onClick={() => switchChain({ chainId: CHAIN.id })}
-        className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight active:scale-95 duration-300 transition-all"
-        style={{ backgroundColor: "#ee7d77", color: "#2a0f0e" }}
+        className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight active:scale-95 duration-300 transition-all bg-destructive text-destructive-foreground"
       >
         Switch to Base Sepolia
       </button>
@@ -156,39 +146,33 @@ export function ConnectWalletButton() {
     <div ref={menuRef} className="relative">
       <button
         onClick={() => setMenuOpen((v) => !v)}
-        className="w-full rounded-full px-6 py-4 flex items-center gap-3 transition-colors"
-        style={{ backgroundColor: "#131313", border: "1px solid rgba(167,203,235,0.2)" }}
+        className="w-full rounded-full px-6 py-4 flex items-center gap-3 transition-colors bg-card border border-primary/20 hover:bg-accent"
       >
         <span className="zen-pulse shrink-0" />
         <span className="flex-1 text-left">
-          <span className="block text-xs tracking-widest uppercase" style={{ color: "#acabaa" }}>
+          <span className="block text-xs tracking-widest uppercase text-muted-foreground">
             Connected
           </span>
-          <span className="block text-sm font-mono tracking-tight" style={{ color: "#e7e5e5" }}>
+          <span className="block text-sm font-mono tracking-tight text-foreground">
             {shortAddr(address)}
           </span>
         </span>
-        <span className="material-symbols-outlined" style={{ fontSize: "1.1rem", color: "#acabaa" }}>
+        <span className="material-symbols-outlined text-muted-foreground" style={{ fontSize: "1.1rem" }}>
           {menuOpen ? "expand_more" : "expand_less"}
         </span>
       </button>
 
       {menuOpen && (
         <div
-          className="absolute bottom-full left-0 right-0 mb-2 rounded-2xl p-2 flex flex-col gap-1 card-shadow"
-          style={{
-            backgroundColor: "#191a1a",
-            border: "1px solid rgba(72,72,72,0.3)",
-          }}
+          className="absolute bottom-full left-0 right-0 mb-2 rounded-2xl p-2 flex flex-col gap-1 card-shadow bg-popover border border-border"
         >
           <a
             href={address ? explorerAddress(address) : "#"}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors hover:bg-[#252626]"
-            style={{ color: "#e7e5e5" }}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors hover:bg-accent text-foreground"
           >
-            <span className="material-symbols-outlined" style={{ fontSize: "1.1rem", color: "#a7cbeb" }}>
+            <span className="material-symbols-outlined text-primary" style={{ fontSize: "1.1rem" }}>
               open_in_new
             </span>
             View on BaseScan
@@ -198,10 +182,9 @@ export function ConnectWalletButton() {
               if (address) navigator.clipboard.writeText(address);
               setMenuOpen(false);
             }}
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-left transition-colors hover:bg-[#252626]"
-            style={{ color: "#e7e5e5" }}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-left transition-colors hover:bg-accent text-foreground"
           >
-            <span className="material-symbols-outlined" style={{ fontSize: "1.1rem", color: "#a7cbeb" }}>
+            <span className="material-symbols-outlined text-primary" style={{ fontSize: "1.1rem" }}>
               content_copy
             </span>
             Copy address
@@ -211,8 +194,7 @@ export function ConnectWalletButton() {
               disconnect();
               setMenuOpen(false);
             }}
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-left transition-colors hover:bg-[#252626]"
-            style={{ color: "#ee7d77" }}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-left transition-colors hover:bg-accent text-destructive"
           >
             <span className="material-symbols-outlined" style={{ fontSize: "1.1rem" }}>
               logout

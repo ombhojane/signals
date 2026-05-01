@@ -55,26 +55,26 @@ function Navbar() {
               className="object-cover"
             />
           </div>
-          <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: 'var(--font-space)' }}>Signals</span>
+          <span className="text-xl font-bold tracking-tighter text-foreground" style={{ fontFamily: 'var(--font-space)' }}>Signals</span>
         </button>
         <div className="hidden md:flex gap-8 text-[11px] font-semibold tracking-[0.15em] uppercase">
           <button 
             onClick={() => goToSection("how")}
-            className="text-neutral-400 hover:text-white transition-colors duration-300 relative group overflow-hidden"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 relative group overflow-hidden"
           >
             How it works
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
           </button>
           <button 
             onClick={() => goToSection("why")}
-            className="text-neutral-400 hover:text-white transition-colors duration-300 relative group overflow-hidden"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 relative group overflow-hidden"
           >
             Why Signals
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
           </button>
           <Link
             href="/dashboard/leaderboard"
-            className="text-neutral-400 hover:text-white transition-colors duration-300 relative group overflow-hidden"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300 relative group overflow-hidden"
           >
             Proof
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
@@ -85,9 +85,9 @@ function Navbar() {
         href="/dashboard/vault"
         className="px-6 py-2.5 rounded-full font-bold text-[11px] tracking-widest uppercase transition-all duration-300 active:scale-95 group relative overflow-hidden"
         style={{ 
-          backgroundColor: scrolled ? "#a7cbeb" : "rgba(255,255,255,0.1)", 
-          color: scrolled ? "#1e435e" : "#ffffff",
-          border: scrolled ? "1px solid transparent" : "1px solid rgba(255,255,255,0.2)"
+          backgroundColor: scrolled ? "var(--primary)" : "var(--primary-dim)", 
+          color: scrolled ? "var(--primary-foreground)" : "var(--foreground)",
+          border: scrolled ? "1px solid transparent" : "1px solid var(--border)"
         }}
       >
         <span className="relative z-10">Launch App</span>
@@ -125,7 +125,7 @@ function HeroSection() {
       </div>
 
       <h1
-        className="font-bold text-white mb-8 max-w-5xl tracking-tighter"
+        className="font-bold text-foreground mb-8 max-w-5xl tracking-tighter"
         style={{
           fontSize: "clamp(3.5rem, 9vw, 7.5rem)",
           lineHeight: "0.9",
@@ -135,13 +135,13 @@ function HeroSection() {
       >
         Intelligent Signals.
         <br />
-        <span style={{ color: "#a7cbeb" }}>Autonomous trading.</span>
+        <span style={{ color: "var(--primary)" }}>Autonomous trading.</span>
         <br />
-        <span className="opacity-40 text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500">Unified vaults.</span>
+        <span className="opacity-40 text-transparent bg-clip-text bg-gradient-to-b from-foreground to-muted-foreground">Unified vaults.</span>
       </h1>
 
       <p 
-        className="text-lg md:text-xl text-neutral-400 max-w-2xl font-light leading-relaxed mb-16 mx-auto"
+        className="text-lg md:text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-16 mx-auto"
         style={{ animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both" }}
       >
         Multi-source signal analysis powered by Gemma and Langchain. RL-based autonomous trading with real-time 
@@ -154,22 +154,16 @@ function HeroSection() {
       >
         <Link
           href="/dashboard/vault"
-          className="px-10 py-4 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 hover:shadow-[0_0_30px_rgba(167,203,235,0.25)] flex items-center gap-2 group"
-          style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+          className="px-10 py-4 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 shadow-primary/20 hover:shadow-primary/40 flex items-center gap-2 group bg-primary text-primary-foreground"
         >
           Launch Signals
           <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </Link>
         <Link
           href="/dashboard/leaderboard"
-          className="px-10 py-4 rounded-full font-semibold text-sm tracking-wide transition-all active:scale-95 flex items-center gap-2 group"
-          style={{
-            background: "transparent",
-            border: "1px solid rgba(255,255,255,0.15)",
-            color: "rgba(255,255,255,0.8)",
-          }}
+          className="px-10 py-4 rounded-full font-semibold text-sm tracking-wide transition-all active:scale-95 flex items-center gap-2 group border border-border bg-transparent text-muted-foreground hover:text-foreground"
         >
-          <span className="group-hover:text-white transition-colors">See Proof of Alpha</span>
+          <span className="transition-colors">See Proof of Alpha</span>
         </Link>
       </div>
 
@@ -309,12 +303,12 @@ function HowItWorksSection() {
             How it works
           </span>
           <h2
-            className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
+            className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground"
             style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
           >
             Three pillars.
             <br />
-            <span className="text-neutral-500">On-chain execution.</span>
+            <span className="text-muted-foreground">On-chain execution.</span>
           </h2>
         </div>
         <Link
@@ -341,7 +335,7 @@ function HowItWorksSection() {
               backgroundColor: "var(--surface-container-low)"
             }}
           >
-            <div className="absolute inset-0 rounded-[24px] ring-1 ring-white/5 group-hover:ring-white/10 transition-all duration-500 pointer-events-none" />
+            <div className="absolute inset-0 rounded-[24px] ring-1 ring-border group-hover:ring-border/80 transition-all duration-500 pointer-events-none" />
             <span
               className="text-6xl font-black font-mono tracking-tighter"
               style={{ color: "var(--primary)", opacity: 0.2 }}
@@ -400,7 +394,7 @@ function ValuePropsSection() {
             Why Signals
           </span>
           <h2
-            className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
+            className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground"
             style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
           >
             Built for
@@ -453,7 +447,7 @@ function CTASection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.02] pointer-events-none blur-[80px]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }} />
         
         <h2
-          className="font-bold tracking-tighter text-white mb-8 relative z-10"
+          className="font-bold tracking-tighter text-foreground mb-8 relative z-10"
           style={{
             fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
             lineHeight: "0.93",
@@ -462,16 +456,15 @@ function CTASection() {
         >
           Cut through the noise.
           <br />
-          <span className="text-neutral-500">Trade with confidence.</span>
+          <span className="text-muted-foreground">Trade with confidence.</span>
         </h2>
-        <p className="text-lg text-neutral-400 font-light leading-relaxed mb-16 max-w-xl mx-auto relative z-10">
+        <p className="text-lg text-muted-foreground font-light leading-relaxed mb-16 max-w-xl mx-auto relative z-10">
           Intelligent Signals meet autonomous trading. Multi-protocol vault management with safety mechanisms 
           built-in. Everything on-chain, fully auditable.
         </p>
         <Link
           href="/dashboard/vault"
-          className="inline-block px-12 py-5 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 hover:shadow-[0_0_40px_rgba(167,203,235,0.3)] relative z-10"
-          style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
+          className="inline-block px-12 py-5 rounded-full font-bold text-sm tracking-wide transition-all active:scale-95 hover:brightness-110 shadow-primary/20 hover:shadow-primary/40 relative z-10 bg-primary text-primary-foreground"
         >
           Launch Signals
         </Link>
@@ -483,7 +476,7 @@ function CTASection() {
 // ─── Footer ──────────────────────────────────────────────────────────────
 function Footer() {
   return (
-    <footer style={{ backgroundColor: "#000", borderTop: "1px solid var(--border)" }}>
+    <footer style={{ backgroundColor: "var(--surface)", borderTop: "1px solid var(--border)" }}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
@@ -495,7 +488,7 @@ function Footer() {
                 className="object-cover"
               />
             </div>
-            <span className="text-xl font-bold tracking-tighter text-white" style={{ fontFamily: "var(--font-space)" }}>Signals</span>
+            <span className="text-xl font-bold tracking-tighter text-foreground" style={{ fontFamily: "var(--font-space)" }}>Signals</span>
           </div>
           <p
             className="text-[11px] uppercase tracking-[0.2em] font-medium"
@@ -510,17 +503,17 @@ function Footer() {
             href={explorerAddress(VAULT_ADDRESS)}
             target="_blank"
             rel="noreferrer"
-            className="text-neutral-500 hover:text-white transition-colors"
+            className="text-muted-foreground hover:text-foreground transition-colors"
           >
             Contract
           </a>
-          <Link href="/dashboard/leaderboard" className="text-neutral-500 hover:text-white transition-colors">
+          <Link href="/dashboard/leaderboard" className="text-muted-foreground hover:text-foreground transition-colors">
             Proof
           </Link>
-          <Link href="/dashboard/simulation" className="text-neutral-500 hover:text-white transition-colors">
+          <Link href="/dashboard/simulation" className="text-muted-foreground hover:text-foreground transition-colors">
             Signal API
           </Link>
-          <Link href="/dashboard/vault" className="text-primary hover:text-white transition-colors">
+          <Link href="/dashboard/vault" className="text-primary hover:text-foreground transition-colors">
             Vault App
           </Link>
         </div>

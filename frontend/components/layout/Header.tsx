@@ -5,6 +5,7 @@ import { useApiStatus } from "@/lib/contexts/ApiStatusContext";
 import { WalletConnectionButton } from "@/components/wallet/WalletConnectionButton";
 import { SearchCommand } from "@/components/web3/SearchCommand";
 import { useSidebar } from "@/lib/sidebar-context";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
@@ -24,7 +25,7 @@ export function Header() {
   return (
     <header
       className={`flex justify-between items-center px-4 md:px-8 w-full sticky top-0 transition-all duration-300 z-50 backdrop-blur-xl ${
-        scrolled ? "bg-[rgba(10,10,10,0.7)] shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-[rgba(255,255,255,0.02)]" : "bg-transparent"
+        scrolled ? "bg-background/70 shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-border/50" : "bg-transparent"
       }`}
       style={{
         height: '5.5rem',
@@ -36,7 +37,7 @@ export function Header() {
         {/* Sidebar Toggle */}
         <button
           onClick={toggleSidebar}
-          className="hidden md:flex items-center justify-center w-10 h-10 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800/80 transition-all active:scale-95 cursor-pointer"
+          className="hidden md:flex items-center justify-center w-10 h-10 rounded-full text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 transition-all active:scale-95 cursor-pointer"
         >
           <span className="material-symbols-outlined text-[1.3rem]">
             {sidebarOpen ? "menu_open" : "menu"}
@@ -56,16 +57,19 @@ export function Header() {
       <div className="flex items-center gap-3 md:gap-6 shrink-0">
         {/* Action icons */}
         <div className="flex items-center gap-2">
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
           {/* Notifications (Hidden on mobile) */}
           <button
-            className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800/80 transition-all active:scale-95 group cursor-pointer"
+            className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-full text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 transition-all active:scale-95 group cursor-pointer"
           >
             <span className="material-symbols-outlined text-[1.3rem] group-hover:scale-110 transition-transform">notifications</span>
             {/* Notification Dot indicator */}
-            <span className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary ring-2 ring-[#0e0e0e]"></span>
+            <span className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary ring-2 ring-background"></span>
           </button>
           
-          <div className="hidden md:block w-[1px] h-6 bg-neutral-800 mx-2" />
+          <div className="hidden md:block w-[1px] h-6 bg-border mx-2" />
 
           {/* Wallet Connection Button */}
           <div className="hover:scale-[1.02] active:scale-95 transition-transform duration-200">

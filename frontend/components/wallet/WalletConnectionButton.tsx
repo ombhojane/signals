@@ -33,10 +33,10 @@ function EVMWalletButton() {
         </button>
 
         {open && (
-          <div className="absolute right-0 mt-2 w-52 bg-neutral-900 border border-neutral-700 rounded-xl shadow-2xl z-50 overflow-hidden">
+          <div className="absolute right-0 mt-2 w-52 bg-popover border border-border rounded-xl shadow-2xl z-50 overflow-hidden">
             {/* Chain switcher */}
-            <div className="px-3 py-2 border-b border-neutral-800">
-              <p className="text-xs text-neutral-400 mb-1 font-medium">Switch chain</p>
+            <div className="px-3 py-2 border-b border-border">
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Switch chain</p>
               <div className="flex flex-col gap-1">
                 {chains.map((c) => (
                   <button
@@ -45,7 +45,7 @@ function EVMWalletButton() {
                     className={`text-left text-xs px-2 py-1 rounded-lg transition-colors cursor-pointer ${
                       c.id === chainId
                         ? "bg-violet-600/30 text-violet-300"
-                        : "text-neutral-300 hover:bg-neutral-800"
+                        : "text-foreground hover:bg-black/5 dark:hover:bg-white/10"
                     }`}
                   >
                     {c.id === chainId ? "✓ " : ""}{c.name}
@@ -56,7 +56,7 @@ function EVMWalletButton() {
             {/* Disconnect */}
             <button
               onClick={() => { disconnect(); setOpen(false); }}
-              className="w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-red-500/10 transition-colors cursor-pointer"
+              className="w-full text-left px-4 py-3 text-sm text-destructive hover:bg-destructive/10 transition-colors cursor-pointer"
             >
               Disconnect
             </button>
@@ -78,15 +78,15 @@ function EVMWalletButton() {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-56 bg-neutral-900 border border-neutral-700 rounded-xl shadow-2xl z-50 overflow-hidden">
-          <p className="px-4 pt-3 pb-1 text-xs text-neutral-400 font-medium uppercase tracking-wide">
+        <div className="absolute right-0 mt-2 w-56 bg-popover border border-border rounded-xl shadow-2xl z-50 overflow-hidden">
+          <p className="px-4 pt-3 pb-1 text-xs text-muted-foreground font-medium uppercase tracking-wide">
             Choose wallet
           </p>
           {connectors.map((connector) => (
             <button
               key={connector.uid}
               onClick={() => { connect({ connector }); setOpen(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-neutral-200 hover:bg-neutral-800 transition-colors cursor-pointer"
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-foreground hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer"
             >
               {/* Wallet icon if available */}
               {connector.icon && (
@@ -118,13 +118,13 @@ export function WalletConnectionButton() {
   return (
     <div className="flex items-center gap-3">
       {/* Chain Selector Desktop */}
-      <div className="hidden sm:flex gap-1 bg-neutral-800 p-1 rounded-full">
+      <div className="hidden sm:flex gap-1 bg-secondary p-1 rounded-full border border-border">
         <button
           onClick={() => setChainType("solana")}
           className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
             chainType === "solana"
               ? "bg-blue-500 text-white shadow"
-              : "text-neutral-400 hover:text-white"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           Solana
@@ -134,7 +134,7 @@ export function WalletConnectionButton() {
           className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
             chainType === "evm"
               ? "bg-violet-500 text-white shadow"
-              : "text-neutral-400 hover:text-white"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           EVM

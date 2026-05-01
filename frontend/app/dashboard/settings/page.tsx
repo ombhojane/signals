@@ -23,33 +23,18 @@ function SettingsSection({
   children: React.ReactNode;
 }) {
   return (
-    <section
-      className="rounded-3xl p-8 flex flex-col gap-6"
-      style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
-      }}
-    >
+    <section className="rounded-3xl p-8 flex flex-col gap-6 bg-card border border-border">
       <div className="flex items-start gap-4">
-        <div
-          className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
-          style={{
-            backgroundColor: "rgba(167,203,235,0.1)",
-            border: "1px solid rgba(167,203,235,0.2)",
-          }}
-        >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontSize: "1.1rem", color: "#a7cbeb" }}
-          >
+        <div className="h-10 w-10 rounded-full flex items-center justify-center shrink-0 bg-primary/10 border border-primary/20">
+          <span className="material-symbols-outlined text-primary" style={{ fontSize: "1.1rem" }}>
             {icon}
           </span>
         </div>
         <div>
-          <h3 className="text-sm font-bold tracking-[0.2em] uppercase" style={{ color: "#e7e5e5" }}>
+          <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-foreground">
             {title}
           </h3>
-          <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+          <p className="text-xs mt-1 text-muted-foreground">
             {description}
           </p>
         </div>
@@ -70,29 +55,23 @@ function InfoRow({
   mono?: boolean;
   href?: string;
 }) {
-  const valueClass = `text-sm ${mono ? "font-mono" : ""}`;
+  const valueClass = `text-sm ${mono ? "font-mono" : ""} ${href ? "text-primary" : "text-foreground"}`;
 
   const content = (
-    <span
-      className={valueClass}
-      style={{ color: href ? "#a7cbeb" : "#e7e5e5" }}
-    >
+    <span className={valueClass}>
       {value}
     </span>
   );
 
   return (
-    <div
-      className="flex items-center justify-between py-3"
-      style={{ borderBottom: "1px solid rgba(72,72,72,0.2)" }}
-    >
-      <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "#acabaa" }}>
+    <div className="flex items-center justify-between py-3 border-b border-border/50">
+      <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
         {label}
       </span>
       {href ? (
         <a href={href} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:underline">
           {content}
-          <span className="material-symbols-outlined" style={{ fontSize: "0.9rem", color: "#a7cbeb" }}>
+          <span className="material-symbols-outlined text-primary" style={{ fontSize: "0.9rem" }}>
             open_in_new
           </span>
         </a>
@@ -116,19 +95,13 @@ export default function SettingsPage() {
   return (
     <div className="flex flex-col gap-8 p-8 max-w-4xl">
       <div>
-        <span
-          className="text-[10px] font-bold tracking-[0.2em] uppercase"
-          style={{ color: "#acabaa" }}
-        >
+        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground">
           Preferences
         </span>
-        <h1
-          className="text-5xl font-black tracking-[-0.03em] mt-2"
-          style={{ color: "#e7e5e5" }}
-        >
+        <h1 className="text-5xl font-black tracking-[-0.03em] mt-2 text-foreground">
           Settings
         </h1>
-        <p className="mt-3 text-sm max-w-xl" style={{ color: "#acabaa" }}>
+        <p className="mt-3 text-sm max-w-xl text-muted-foreground">
           Appearance, wallet info, and vault contract details.
         </p>
       </div>
@@ -150,17 +123,14 @@ export default function SettingsPage() {
               <button
                 key={id}
                 onClick={() => setTheme(id)}
-                className="flex-1 rounded-2xl p-4 flex flex-col items-center gap-2 transition-colors"
-                style={{
-                  backgroundColor: active ? "#252626" : "#0e0e0e",
-                  border: `1px solid ${active ? "rgba(167,203,235,0.4)" : "rgba(72,72,72,0.25)"}`,
-                }}
+                className={`flex-1 rounded-2xl p-4 flex flex-col items-center gap-2 transition-colors border ${
+                  active
+                    ? "bg-accent border-primary/40"
+                    : "bg-background border-border hover:bg-accent/50"
+                }`}
               >
-                <Icon className="size-4" style={{ color: active ? "#a7cbeb" : "#acabaa" }} />
-                <span
-                  className="text-[10px] tracking-widest uppercase font-bold"
-                  style={{ color: active ? "#a7cbeb" : "#acabaa" }}
-                >
+                <Icon className={`size-4 ${active ? "text-primary" : "text-muted-foreground"}`} />
+                <span className={`text-[10px] tracking-widest uppercase font-bold ${active ? "text-primary" : "text-muted-foreground"}`}>
                   {label}
                 </span>
               </button>
@@ -176,16 +146,8 @@ export default function SettingsPage() {
         icon="account_balance_wallet"
       >
         {!isConnected ? (
-          <div
-            className="rounded-2xl p-6 text-center"
-            style={{
-              backgroundColor: "#0e0e0e",
-              border: "1px dashed rgba(72,72,72,0.3)",
-            }}
-          >
-            <p className="text-sm" style={{ color: "#acabaa" }}>
-              No wallet connected
-            </p>
+          <div className="rounded-2xl p-6 text-center bg-background border border-dashed border-border">
+            <p className="text-sm text-muted-foreground">No wallet connected</p>
           </div>
         ) : (
           <div>
@@ -195,7 +157,7 @@ export default function SettingsPage() {
               value={chainMatch ? CHAIN.name : `Wrong chain (${chainId})`}
             />
             {!chainMatch && (
-              <p className="mt-2 text-xs" style={{ color: "#ee7d77" }}>
+              <p className="mt-2 text-xs text-destructive">
                 Switch to {CHAIN.name} using the sidebar button.
               </p>
             )}

@@ -205,11 +205,7 @@ export function SearchCommand() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center justify-center md:justify-start gap-2 rounded-full py-2 w-11 h-11 md:h-auto md:w-64 md:px-4 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-800 shrink-0 cursor-pointer"
-        style={{
-          backgroundColor: "#252626",
-          color: "#acabaa",
-        }}
+        className="flex items-center justify-center md:justify-start gap-2 rounded-full py-2 w-11 h-11 md:h-auto md:w-64 md:px-4 text-sm transition-all duration-300 ease-in-out bg-input text-muted-foreground hover:bg-accent shrink-0 cursor-pointer border border-border"
         title="Search (Cmd+K)"
       >
         <span className="material-symbols-outlined shrink-0" style={{ fontSize: "1.2rem" }}>
@@ -217,12 +213,7 @@ export function SearchCommand() {
         </span>
         <span className="hidden md:inline flex-1 text-left truncate">Search tokens, txs, pages…</span>
         <kbd
-          className="hidden md:flex items-center gap-1 text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded pointer-events-none"
-          style={{
-            backgroundColor: "#131313",
-            color: "#acabaa",
-            border: "1px solid rgba(72,72,72,0.4)",
-          }}
+          className="hidden md:flex items-center gap-1 text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded pointer-events-none bg-background text-muted-foreground border border-border"
         >
           ⌘K
         </kbd>
@@ -231,12 +222,12 @@ export function SearchCommand() {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent 
           showCloseButton={false}
-          className="p-0 overflow-hidden bg-[#191a1a] border-[#484848]/30 w-[92vw] max-w-[400px] sm:max-w-[600px] gap-0 translate-y-[-40%] mx-auto"
+          className="p-0 overflow-hidden bg-popover border-border w-[92vw] max-w-[400px] sm:max-w-[600px] gap-0 translate-y-[-40%] mx-auto"
         >
           <DialogTitle className="sr-only">Search</DialogTitle>
           <div className="flex flex-col">
-            <div className="flex items-center border-b border-[#484848]/30 px-4">
-               <span className="material-symbols-outlined text-[#a7cbeb] shrink-0" style={{ fontSize: "1.3rem" }}>
+            <div className="flex items-center border-b border-border px-4">
+               <span className="material-symbols-outlined text-primary shrink-0" style={{ fontSize: "1.3rem" }}>
                  search
                </span>
                <input
@@ -249,15 +240,10 @@ export function SearchCommand() {
                  }}
                  onKeyDown={handleKeyDown}
                  placeholder="Search token address, tx hash, or jump to page…"
-                 className="flex-1 bg-transparent border-none py-5 px-4 text-sm outline-none text-[#e7e5e5] placeholder:text-neutral-500 font-medium"
+                 className="flex-1 bg-transparent border-none py-5 px-4 text-sm outline-none text-foreground placeholder:text-muted-foreground font-medium"
                />
                <kbd
-                 className="hidden sm:inline-flex text-[9px] font-bold tracking-widest uppercase px-2 py-1 rounded pointer-events-none"
-                 style={{
-                   backgroundColor: "#131313",
-                   color: "#acabaa",
-                   border: "1px solid rgba(72,72,72,0.4)",
-                 }}
+                 className="hidden sm:inline-flex text-[9px] font-bold tracking-widest uppercase px-2 py-1 rounded pointer-events-none bg-background text-muted-foreground border border-border"
                >
                  ESC
                </kbd>
@@ -265,12 +251,12 @@ export function SearchCommand() {
             
             <div className="max-h-[60vh] overflow-y-auto py-2" style={{ scrollbarWidth: 'none' }}>
               {results.length === 0 ? (
-                <div className="p-8 text-center text-sm text-[#737373]">
+                <div className="p-8 text-center text-sm text-muted-foreground">
                   No results found for &quot;{query}&quot;
                 </div>
               ) : (
                 <div className="flex flex-col">
-                  <div className="px-5 py-2 text-[10px] font-bold tracking-[0.15em] uppercase text-[#737373]">
+                  <div className="px-5 py-2 text-[10px] font-bold tracking-[0.15em] uppercase text-muted-foreground">
                     {query.trim() === "" ? "Jump To" : "Results"}
                   </div>
                   {results.map((r, i) => {
@@ -283,32 +269,27 @@ export function SearchCommand() {
                           r.onSelect();
                         }}
                         onMouseEnter={() => setActiveIndex(i)}
-                        className="flex items-center gap-4 px-5 py-3.5 text-left transition-colors w-full group"
-                        style={{
-                          backgroundColor: active ? "#252626" : "transparent",
-                          color: "#e7e5e5",
-                        }}
+                        className={`flex items-center gap-4 px-5 py-3.5 text-left transition-colors w-full group ${active ? 'bg-accent text-accent-foreground' : 'bg-transparent text-foreground'}`}
                       >
                         <span
-                          className={`material-symbols-outlined shrink-0 ${active ? 'text-[#a7cbeb]' : 'text-neutral-500'}`}
+                          className={`material-symbols-outlined shrink-0 ${active ? 'text-primary' : 'text-muted-foreground'}`}
                           style={{ fontSize: "1.2rem", transition: "color 0.2s" }}
                         >
                           {r.icon}
                         </span>
                         <div className="flex-1 min-w-0 flex flex-col">
-                          <div className={`text-sm font-semibold truncate ${active ? 'text-white' : 'text-neutral-200'}`}>
+                          <div className={`text-sm font-semibold truncate ${active ? 'text-foreground' : 'text-muted-foreground/80'}`}>
                             {r.title}
                           </div>
                           <div
-                            className="text-[11px] truncate font-mono mt-0.5"
-                            style={{ color: "#acabaa" }}
+                            className="text-[11px] truncate font-mono mt-0.5 text-muted-foreground"
                           >
                             {r.description}
                           </div>
                         </div>
                         {active && (
                           <span
-                            className="text-[10px] uppercase tracking-widest font-bold text-[#a7cbeb]"
+                            className="text-[10px] uppercase tracking-widest font-bold text-primary"
                           >
                             ↵
                           </span>
@@ -321,7 +302,7 @@ export function SearchCommand() {
             </div>
             
             <div
-              className="px-5 py-3 flex items-center gap-5 text-[9px] tracking-[0.15em] uppercase font-bold bg-[#0e0e0e] border-t border-[#484848]/20 text-[#737373]"
+              className="px-5 py-3 flex items-center gap-5 text-[9px] tracking-[0.15em] uppercase font-bold bg-background border-t border-border text-muted-foreground"
             >
               <span className="flex items-center gap-1.5"><span className="text-[12px]">↑↓</span> navigate</span>
               <span className="flex items-center gap-1.5"><span className="text-[12px]">↵</span> select</span>
