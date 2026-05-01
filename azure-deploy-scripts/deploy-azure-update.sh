@@ -11,7 +11,7 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/Library/Python/3.9/bin:$PATH
 # ─── Configuration ────────────────────────────────────────────────
 RESOURCE_GROUP="signals-rg"
 LOCATION="centralindia"
-ACR_NAME="signalsacr9755"  # Use existing ACR (change if different)
+ACR_NAME="signalsacr0533"  # Use existing ACR (change if different)
 ENVIRONMENT="signals-env"
 BACKEND_APP="signals-backend"
 FRONTEND_APP="signals-frontend"
@@ -80,9 +80,12 @@ log "Logging into ACR: $ACR_LOGIN_SERVER..."
 echo "$ACR_PASSWORD" | docker login --username "$ACR_NAME" --password-stdin "$ACR_LOGIN_SERVER" >/dev/null 2>&1
 ok "ACR login successful"
 
+# ─── Change to repo root ──────────────────────────────────────────
+cd "$(dirname "$0")/.." || fail "Cannot change to repo root"
+
 # ─── Step 1: Rebuild & Push Backend Image ────────────────────────
 log "Building backend Docker image..."
-docker build --platform linux/amd64 -t "$ACR_LOGIN_SERVER/$BACKEND_APP:latest" ./backend || fail "Backend build failed"
+docker build --platform linux/amd64 -f backend/Dockerfile -t "$ACR_LOGIN_SERVER/$BACKEND_APP:latest" . || fail "Backend build failed"
 log "Pushing backend image to ACR..."
 docker push "$ACR_LOGIN_SERVER/$BACKEND_APP:latest" || fail "Backend push failed"
 ok "Backend image updated"
@@ -106,8 +109,9 @@ log "Building frontend Docker image with backend URL: $BACKEND_URL..."
 docker build \
   --platform linux/amd64 \
   --build-arg NEXT_PUBLIC_API_URL="$BACKEND_URL" \
+  -f frontend/Dockerfile \
   -t "$ACR_LOGIN_SERVER/$FRONTEND_APP:latest" \
-  ./frontend || fail "Frontend build failed"
+  . || fail "Frontend build failed"
 
 log "Pushing frontend image to ACR..."
 docker push "$ACR_LOGIN_SERVER/$FRONTEND_APP:latest" || fail "Frontend push failed"

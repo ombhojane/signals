@@ -9,7 +9,7 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/Library/Python/3.9/bin:$PATH
 
 # ─── Configuration ────────────────────────────────────────────────
 RESOURCE_GROUP="signals-rg"
-ACR_NAME="signalsacr9755"  # Update if different
+ACR_NAME="signalsacr0533"  # Update if different
 BACKEND_APP="signals-backend"
 FRONTEND_APP="signals-frontend"
 ENVIRONMENT="signals-env"

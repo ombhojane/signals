@@ -64,7 +64,7 @@ ok "ACR login successful."
 
 # ─── Step 3: Build & Push Backend Image ──────────────────────────
 log "Building backend Docker image..."
-docker build --platform linux/amd64 -t "$ACR_LOGIN_SERVER/$BACKEND_APP:latest" ./backend
+docker build --platform linux/amd64 -f backend/Dockerfile -t "$ACR_LOGIN_SERVER/$BACKEND_APP:latest" .
 docker push "$ACR_LOGIN_SERVER/$BACKEND_APP:latest"
 ok "Backend image pushed."
 
@@ -75,8 +75,9 @@ log "Building frontend Docker image..."
 docker build \
   --platform linux/amd64 \
   --build-arg NEXT_PUBLIC_API_URL="https://$BACKEND_APP.placeholder.azurecontainerapps.io" \
+  -f frontend/Dockerfile \
   -t "$ACR_LOGIN_SERVER/$FRONTEND_APP:latest" \
-  ./frontend
+  .
 
 docker push "$ACR_LOGIN_SERVER/$FRONTEND_APP:latest"
 ok "Frontend image pushed."
