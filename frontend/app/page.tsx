@@ -39,7 +39,7 @@ function Navbar() {
     <nav 
       className={cn(
         "fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 transition-all duration-500",
-        scrolled ? "h-16 nav-glass shadow-lg shadow-black/20" : "h-24 bg-transparent border-transparent"
+        scrolled ? "h-16 nav-glass backdrop-blur-xs shadow-lg shadow-black/20" : "h-24 bg-transparent border-transparent"
       )}
     >
       <div className="flex items-center gap-4 md:gap-12">
@@ -375,7 +375,7 @@ function ValuePropsSection() {
       desc: "Reinforcement learning agent trained on market simulations. Real-time adaptation, portfolio optimization, risk management, and intelligent rebalancing—fully autonomous execution.",
     },
     {
-      icon: "shield_verified",
+      icon: "shield",
       title: "Safety-First Design",
       desc: "Token risk assessment framework with kill-switch emergency stops. Rate limiting, resilience mechanisms, comprehensive audit trails, and multi-protocol vault support.",
     },

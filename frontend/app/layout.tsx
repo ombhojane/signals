@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { SettingsProvider } from "@/lib/settings-context";
@@ -25,6 +25,13 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "Signals | Web3 Intelligence",

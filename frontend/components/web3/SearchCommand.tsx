@@ -205,7 +205,7 @@ export function SearchCommand() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center justify-center md:justify-start gap-2 rounded-full py-2 w-11 h-11 md:h-auto md:w-64 md:px-4 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-800 shrink-0"
+        className="flex items-center justify-center md:justify-start gap-2 rounded-full py-2 w-11 h-11 md:h-auto md:w-64 md:px-4 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-800 shrink-0 cursor-pointer"
         style={{
           backgroundColor: "#252626",
           color: "#acabaa",

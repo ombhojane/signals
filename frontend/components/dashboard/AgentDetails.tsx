@@ -83,7 +83,7 @@ export function AgentDetails({
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-150 ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-150 cursor-pointer ${
                 activeTab === tab.id
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/30"

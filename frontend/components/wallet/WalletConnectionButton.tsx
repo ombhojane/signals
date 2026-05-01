@@ -23,7 +23,7 @@ function EVMWalletButton() {
       <div className="relative">
         <button
           onClick={() => setOpen((o) => !o)}
-          className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold px-4 py-2 rounded-full transition-all"
+          className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold px-4 py-2 rounded-full transition-all cursor-pointer"
         >
           <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
           {shortAddr}
@@ -42,7 +42,7 @@ function EVMWalletButton() {
                   <button
                     key={c.id}
                     onClick={() => { switchChain({ chainId: c.id }); setOpen(false); }}
-                    className={`text-left text-xs px-2 py-1 rounded-lg transition-colors ${
+                    className={`text-left text-xs px-2 py-1 rounded-lg transition-colors cursor-pointer ${
                       c.id === chainId
                         ? "bg-violet-600/30 text-violet-300"
                         : "text-neutral-300 hover:bg-neutral-800"
@@ -56,7 +56,7 @@ function EVMWalletButton() {
             {/* Disconnect */}
             <button
               onClick={() => { disconnect(); setOpen(false); }}
-              className="w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-red-500/10 transition-colors"
+              className="w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-red-500/10 transition-colors cursor-pointer"
             >
               Disconnect
             </button>
@@ -72,7 +72,7 @@ function EVMWalletButton() {
       <button
         onClick={() => setOpen((o) => !o)}
         disabled={isPending}
-        className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 disabled:opacity-50 text-white text-sm font-semibold px-4 py-2 rounded-full transition-all"
+        className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 disabled:opacity-50 text-white text-sm font-semibold px-4 py-2 rounded-full transition-all cursor-pointer"
       >
         {isPending ? "Connecting…" : "Connect EVM Wallet"}
       </button>
@@ -86,7 +86,7 @@ function EVMWalletButton() {
             <button
               key={connector.uid}
               onClick={() => { connect({ connector }); setOpen(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-neutral-200 hover:bg-neutral-800 transition-colors"
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-neutral-200 hover:bg-neutral-800 transition-colors cursor-pointer"
             >
               {/* Wallet icon if available */}
               {connector.icon && (
@@ -121,7 +121,7 @@ export function WalletConnectionButton() {
       <div className="hidden sm:flex gap-1 bg-neutral-800 p-1 rounded-full">
         <button
           onClick={() => setChainType("solana")}
-          className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
+          className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
             chainType === "solana"
               ? "bg-blue-500 text-white shadow"
               : "text-neutral-400 hover:text-white"
@@ -131,7 +131,7 @@ export function WalletConnectionButton() {
         </button>
         <button
           onClick={() => setChainType("evm")}
-          className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
+          className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
             chainType === "evm"
               ? "bg-violet-500 text-white shadow"
               : "text-neutral-400 hover:text-white"
@@ -145,7 +145,7 @@ export function WalletConnectionButton() {
       <div className="flex sm:hidden">
         <button
           onClick={() => setChainType(chainType === "solana" ? "evm" : "solana")}
-          className={`flex items-center gap-1.5 min-w-[54px] px-2.5 py-1.5 rounded-full text-[10px] font-bold tracking-wider transition-all active:scale-95 ${
+          className={`flex items-center gap-1.5 min-w-[54px] px-2.5 py-1.5 rounded-full text-[10px] font-bold tracking-wider transition-all active:scale-95 cursor-pointer ${
             chainType === "solana" ? "bg-blue-500 text-white" : "bg-violet-500 text-white"
           }`}
         >

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ConnectWalletButton } from "@/components/web3/ConnectWalletButton";
+import { useSidebar } from "@/lib/sidebar-context";
 
 const NAV_ITEMS = [
   { title: "Vault", href: "/dashboard/vault", icon: "savings" },
@@ -17,10 +18,17 @@ const NAV_ITEMS = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const { isOpen } = useSidebar();
 
   return (
     <>
-      <aside className="hidden md:flex h-screen w-72 flex-col py-10 px-6 gap-8 shrink-0 relative z-50 border-r border-[rgba(255,255,255,0.02)]" style={{ backgroundColor: '#0a0a0a' }}>
+      <aside className={cn(
+        "hidden md:flex h-screen flex-col py-10 px-6 gap-8 shrink-0 relative z-50 border-r border-[rgba(255,255,255,0.02)]",
+        isOpen ? "w-72 opacity-100" : "w-0 opacity-0 pointer-events-none"
+      )} style={{ 
+        backgroundColor: '#0a0a0a',
+        transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease-out 50ms'
+      }}>
         {/* Ambient lighting */}
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
 
@@ -50,7 +58,7 @@ export function Sidebar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative rounded-xl px-4 py-3.5 flex items-center gap-4 text-[13px] font-medium tracking-wide transition-all ease-out duration-300 group overflow-hidden",
+                  "relative rounded-xl px-4 py-3.5 flex items-center gap-4 text-[13px] font-medium tracking-wide transition-all ease-out duration-300 group overflow-hidden cursor-pointer",
                   isActive
                     ? "text-primary"
                     : "text-neutral-500 hover:text-white hover:bg-white/[0.03]"
@@ -85,14 +93,14 @@ export function Sidebar() {
 
           <Link
             href="/dashboard/settings"
-            className="text-neutral-500 hover:text-white rounded-xl px-4 py-3 flex items-center gap-4 text-xs font-medium tracking-wide transition-colors group"
+            className="text-neutral-500 hover:text-white rounded-xl px-4 py-3 flex items-center gap-4 text-xs font-medium tracking-wide transition-colors group cursor-pointer"
           >
             <span className="material-symbols-outlined group-hover:rotate-45 transition-transform duration-500" style={{ fontSize: '1.2rem' }}>settings</span>
             Settings
           </Link>
           <Link
             href="#"
-            className="text-neutral-500 hover:text-white rounded-xl px-4 py-3 flex items-center gap-4 text-xs font-medium tracking-wide transition-colors group"
+            className="text-neutral-500 hover:text-white rounded-xl px-4 py-3 flex items-center gap-4 text-xs font-medium tracking-wide transition-colors group cursor-pointer"
           >
             <span className="material-symbols-outlined group-hover:scale-110 transition-transform duration-300" style={{ fontSize: '1.2rem' }}>help_outline</span>
             Support
@@ -105,7 +113,7 @@ export function Sidebar() {
         {NAV_ITEMS.map((item) => {
           const isActive = pathname === item.href || (pathname?.startsWith(item.href) ?? false);
           return (
-            <Link key={item.href} href={item.href} className="flex flex-col items-center gap-1.5 p-2 rounded-xl active:scale-95 transition-transform">
+            <Link key={item.href} href={item.href} className="flex flex-col items-center gap-1.5 p-2 rounded-xl active:scale-95 transition-transform cursor-pointer">
               <span
                 className="material-symbols-outlined transition-colors duration-300"
                 style={{

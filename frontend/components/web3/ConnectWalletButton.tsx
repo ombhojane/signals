@@ -82,7 +82,7 @@ export function ConnectWalletButton() {
             }
           }}
           disabled={isPending}
-          className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight active:scale-95 duration-300 transition-all disabled:opacity-60"
+          className="w-full rounded-full px-6 py-4 font-bold text-sm tracking-tight active:scale-95 duration-300 transition-all disabled:opacity-60 cursor-pointer"
           style={{ backgroundColor: "#a7cbeb", color: "#1e435e" }}
         >
           {isPending ? "Connecting…" : "Connect Wallet"}
