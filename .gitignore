@@ -176,3 +176,8 @@ cython_debug/
 
 results
 /results
+
+#playwright test report
+frontend/playwright-report/
+frontend/test-results/
+
