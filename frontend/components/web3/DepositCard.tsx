@@ -155,7 +155,7 @@ export function DepositCard() {
           type="button"
           onClick={setMax}
           disabled={!isConnected || usdcBalance === 0n}
-          className="text-[10px] font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full transition-colors disabled:opacity-40"
+          className="text-[10px] font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full transition-colors disabled:opacity-40 cursor-pointer"
           style={{
             backgroundColor: "#191a1a",
             color: "#a7cbeb",

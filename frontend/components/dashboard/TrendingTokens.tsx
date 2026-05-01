@@ -97,7 +97,7 @@ export function TrendingTokens() {
                 </div>
                 <Link
                   href={`/dashboard/simulation?address=${encodeURIComponent(token.tokenAddress)}`}
-                  className="text-[10px] font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5"
+                  className="text-[10px] font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 cursor-pointer"
                 >
                   Scan <ExternalLink className="size-2.5" />
                 </Link>

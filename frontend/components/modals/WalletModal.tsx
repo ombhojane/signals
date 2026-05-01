@@ -68,7 +68,7 @@ export function WalletModal({
             <h2 className="text-2xl font-bold text-white">Connect Wallet</h2>
             <button
               onClick={onClose}
-              className="text-neutral-400 hover:text-white transition-colors text-2xl leading-none"
+              className="text-neutral-400 hover:text-white transition-colors text-2xl leading-none cursor-pointer"
             >
               ×
             </button>
@@ -99,7 +99,7 @@ export function WalletModal({
               <span>{error}</span>
               <button
                 onClick={clearError}
-                className="text-red-300 hover:text-red-200 text-lg leading-none"
+                className="text-neutral-400 hover:text-red-200 text-lg leading-none cursor-pointer"
               >
                 ×
               </button>
@@ -123,7 +123,7 @@ export function WalletModal({
                   key={wallet.id}
                   onClick={() => handleConnectWallet(wallet.id)}
                   disabled={connecting !== null}
-                  className="w-full flex items-center gap-4 p-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed border border-neutral-700 hover:border-neutral-600"
+                  className="w-full flex items-center gap-4 p-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed border border-neutral-700 hover:border-neutral-600 cursor-pointer"
                 >
                   {/* Icon */}
                   <span className="text-3xl">{wallet.icon}</span>
@@ -155,7 +155,7 @@ export function WalletModal({
           {/* Footer Info */}
           <div className="text-center text-xs text-neutral-500">
             <p>Don't have a wallet?</p>
-            <button className="text-blue-400 hover:text-blue-300 transition-colors font-medium mt-1">
+            <button className="text-blue-400 hover:text-blue-300 transition-colors font-medium mt-1 cursor-pointer">
               Learn more about wallets
             </button>
           </div>
