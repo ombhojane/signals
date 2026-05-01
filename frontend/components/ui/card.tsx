@@ -13,14 +13,10 @@ function Card({ className, variant = "default", ...props }: CardProps) {
       data-variant={variant}
       className={cn(
         "text-card-foreground flex flex-col gap-6 rounded-xl py-6",
-        variant === "default" && "border border-[rgba(72,72,72,0.18)]",
-        variant === "glass" && "border border-[rgba(255,255,255,0.04)]",
+        variant === "default" && "border border-border bg-card",
+        variant === "glass" && "border border-border/20 zen-glass-light",
         className
       )}
-      style={{
-        backgroundColor: variant === "glass" ? "rgba(25,26,26,0.6)" : "#131313",
-        ...(variant === "glass" ? { backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)" } : {}),
-      }}
       {...props}
     />
   )

@@ -67,17 +67,15 @@ function PortfolioSummary({ agents }: { agents: Agent[] }) {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="rounded-xl p-6 transition-all duration-200 hover:scale-[1.02]"
-          style={{ backgroundColor: "#131313" }}
+          className="rounded-xl p-6 transition-all duration-200 hover:scale-[1.02] bg-card border border-border"
         >
           <span
-            className="text-[10px] uppercase tracking-widest font-medium"
-            style={{ color: "#acabaa" }}
+            className="text-[10px] uppercase tracking-widest font-medium text-muted-foreground"
           >
             {stat.label}
           </span>
           <div className="mt-3 flex items-baseline gap-3">
-            <span className="text-2xl font-semibold tracking-tight" style={{ color: "#e7e5e5" }}>
+            <span className="text-2xl font-semibold tracking-tight text-foreground">
               {stat.value}
             </span>
           </div>
@@ -85,7 +83,7 @@ function PortfolioSummary({ agents }: { agents: Agent[] }) {
             <span className="text-xs font-medium" style={{ color: stat.changeColor }}>
               {stat.change}
             </span>
-            <span className="text-[10px]" style={{ color: "#525252" }}>
+            <span className="text-[10px] text-muted-foreground/50">
               {stat.subtext}
             </span>
           </div>
@@ -101,17 +99,15 @@ function AgentAllocation({ agents }: { agents: Agent[] }) {
 
   return (
     <div
-      className="rounded-xl p-6 flex flex-col"
-      style={{ backgroundColor: "#131313", minHeight: "320px" }}
+      className="rounded-xl p-6 flex flex-col bg-card border border-border min-h-[320px]"
     >
       <div className="flex items-center justify-between mb-6">
         <h3
-          className="text-sm font-bold uppercase"
-          style={{ letterSpacing: "0.2em", color: "#acabaa" }}
+          className="text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground"
         >
           Capital Allocation
         </h3>
-        <span className="material-symbols-outlined" style={{ color: "#a7cbeb", fontSize: "1.25rem" }}>
+        <span className="material-symbols-outlined text-primary text-xl">
           pie_chart
         </span>
       </div>
@@ -126,21 +122,21 @@ function AgentAllocation({ agents }: { agents: Agent[] }) {
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm font-medium" style={{ color: "#e7e5e5" }}>
+                  <span className="text-sm font-medium text-foreground">
                     {agent.name}
                   </span>
-                  <span className="text-sm font-mono" style={{ color: "#acabaa" }}>
+                  <span className="text-sm font-mono text-muted-foreground">
                     {percentage.toFixed(1)}%
                   </span>
                 </div>
-                <div className="h-1.5 w-full rounded-full overflow-hidden" style={{ backgroundColor: "#252626" }}>
+                <div className="h-1.5 w-full rounded-full overflow-hidden bg-accent">
                   <div
                     className="h-full rounded-full transition-all duration-500"
                     style={{ width: `${percentage}%`, backgroundColor: agent.color }}
                   />
                 </div>
               </div>
-              <span className="text-sm font-mono tabular-nums" style={{ color: "#e7e5e5", minWidth: "100px", textAlign: "right" }}>
+              <span className="text-sm font-mono tabular-nums text-foreground min-w-[100px] text-right">
                 {formatCurrency(agent.accountValue)}
               </span>
             </div>
@@ -158,34 +154,32 @@ function PerformanceMetrics({ trades }: { trades: Trade[] }) {
 
   const metrics = [
     { label: "Total P&L", value: pnl.text, className: pnl.className },
-    { label: "Win Rate", value: `${stats.holdTimes.long}%`, className: "text-[#a7cbeb]" },
-    { label: "Avg Confidence", value: `${stats.averageConfidence.toFixed(1)}%`, className: "text-[#e7e5e5]" },
-    { label: "Biggest Win", value: formatCurrency(stats.biggestWin), className: "text-[#a7cbeb]" },
-    { label: "Biggest Loss", value: formatCurrency(stats.biggestLoss), className: "text-[#ee7d77]" },
-    { label: "Total Fees", value: formatCurrency(stats.totalFees), className: "text-[#acabaa]" },
+    { label: "Win Rate", value: `${stats.holdTimes.long}%`, className: "text-primary" },
+    { label: "Avg Confidence", value: `${stats.averageConfidence.toFixed(1)}%`, className: "text-foreground" },
+    { label: "Biggest Win", value: formatCurrency(stats.biggestWin), className: "text-primary" },
+    { label: "Biggest Loss", value: formatCurrency(stats.biggestLoss), className: "text-destructive" },
+    { label: "Total Fees", value: formatCurrency(stats.totalFees), className: "text-muted-foreground" },
   ];
 
   return (
     <div
-      className="rounded-xl p-6"
-      style={{ backgroundColor: "#131313" }}
+      className="rounded-xl p-6 bg-card border border-border"
     >
       <div className="flex items-center justify-between mb-6">
         <h3
-          className="text-sm font-bold uppercase"
-          style={{ letterSpacing: "0.2em", color: "#acabaa" }}
+          className="text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground"
         >
           Performance Metrics
         </h3>
-        <span className="material-symbols-outlined" style={{ color: "#a7cbeb", fontSize: "1.25rem" }}>
+        <span className="material-symbols-outlined text-primary text-xl">
           monitoring
         </span>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         {metrics.map((metric) => (
-          <div key={metric.label} className="p-4 rounded-lg" style={{ backgroundColor: "#191a1a" }}>
-            <span className="text-[10px] uppercase tracking-widest" style={{ color: "#525252" }}>
+          <div key={metric.label} className="p-4 rounded-lg bg-background border border-border/50">
+            <span className="text-[10px] uppercase tracking-widest text-muted-foreground/50">
               {metric.label}
             </span>
             <div className={`text-lg font-semibold mt-1 font-mono tabular-nums ${metric.className}`}>
@@ -224,17 +218,7 @@ function TabButton({
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-200 rounded-lg"
-      style={{
-        backgroundColor: isActive ? "#252626" : "transparent",
-        color: isActive ? "#a7cbeb" : "#acabaa",
-      }}
-      onMouseEnter={(e) => {
-        if (!isActive) e.currentTarget.style.backgroundColor = "#1a1a1a";
-      }}
-      onMouseLeave={(e) => {
-        if (!isActive) e.currentTarget.style.backgroundColor = "transparent";
-      }}
+      className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-200 rounded-lg ${isActive ? 'bg-accent text-primary' : 'bg-transparent text-muted-foreground hover:bg-muted'}`}
     >
       <span className="material-symbols-outlined" style={{ fontSize: "1.1rem" }}>
         {icon}
@@ -302,13 +286,12 @@ function PortfolioContent() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <span
-            className="text-xs uppercase font-medium"
-            style={{ color: "#a7cbeb", letterSpacing: "0.3em" }}
+            className="text-xs uppercase font-medium text-primary tracking-[0.3em]"
           >
             Portfolio Overview
           </span>
-          <h2 className="text-4xl font-bold tracking-tight mt-2" style={{ color: "#e7e5e5" }}>
-            Your <span style={{ color: "#acabaa" }}>Positions</span>
+          <h2 className="text-4xl font-bold tracking-tight mt-2 text-foreground">
+            Your <span className="text-muted-foreground">Positions</span>
           </h2>
         </div>
         <TimeRangeSelector value={timeRange} />
@@ -321,17 +304,15 @@ function PortfolioContent() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Performance Chart */}
         <div
-          className="lg:col-span-2 rounded-xl p-6 flex flex-col"
-          style={{ backgroundColor: "#191a1a", minHeight: "400px" }}
+          className="lg:col-span-2 rounded-xl p-6 flex flex-col bg-card border border-border min-h-[400px]"
         >
           <div className="flex items-center justify-between mb-4">
             <h3
-              className="text-sm font-bold uppercase"
-              style={{ letterSpacing: "0.2em", color: "#e7e5e5" }}
+              className="text-sm font-bold uppercase tracking-[0.2em] text-foreground"
             >
               Performance History
             </h3>
-            <span className="material-symbols-outlined" style={{ color: "#a7cbeb" }}>
+            <span className="material-symbols-outlined text-primary">
               timeline
             </span>
           </div>
@@ -349,7 +330,7 @@ function PortfolioContent() {
 
       {/* Tabbed Content */}
       <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-2 p-1 rounded-xl" style={{ backgroundColor: "#131313" }}>
+        <div className="flex items-center gap-2 p-1 rounded-xl bg-card border border-border">
           {TABS.map((tab) => (
             <TabButton
               key={tab.id}
@@ -361,8 +342,7 @@ function PortfolioContent() {
         </div>
 
         <div
-          className="rounded-xl p-6"
-          style={{ backgroundColor: "#131313", minHeight: "300px" }}
+          className="rounded-xl p-6 bg-card border border-border min-h-[300px]"
         >
           {renderTabContent()}
         </div>
@@ -378,21 +358,21 @@ function PortfolioSkeleton() {
       {/* Header Skeleton */}
       <div className="flex items-center justify-between">
         <div>
-          <div className="h-4 w-32 rounded" style={{ backgroundColor: "#252626" }} />
-          <div className="h-10 w-64 rounded mt-2" style={{ backgroundColor: "#252626" }} />
+          <div className="h-4 w-32 rounded bg-accent" />
+          <div className="h-10 w-64 rounded mt-2 bg-accent" />
         </div>
-        <div className="h-8 w-32 rounded" style={{ backgroundColor: "#252626" }} />
+        <div className="h-8 w-32 rounded bg-accent" />
       </div>
 
       {/* Stats Skeleton */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {[...Array(4)].map((_, i) => (
-          <div key={i} className="h-28 rounded-xl" style={{ backgroundColor: "#191a1a" }} />
+          <div key={i} className="h-28 rounded-xl bg-card border border-border" />
         ))}
       </div>
 
       {/* Chart Skeleton */}
-      <div className="h-96 rounded-xl" style={{ backgroundColor: "#191a1a" }} />
+      <div className="h-96 rounded-xl bg-card border border-border" />
     </div>
   );
 }

@@ -23,37 +23,22 @@ function StatCard({
   accent?: boolean;
   tone?: "neutral" | "positive" | "negative";
 }) {
-  const color = accent
-    ? "#a7cbeb"
-    : tone === "positive"
-    ? "#a7cbeb"
+  const colorClass = accent || tone === "positive"
+    ? "text-primary"
     : tone === "negative"
-    ? "#ee7d77"
-    : "#e7e5e5";
+    ? "text-destructive"
+    : "text-foreground";
+
   return (
-    <div
-      className="rounded-2xl p-6 flex flex-col gap-2"
-      style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
-      }}
-    >
-      <span
-        className="text-[10px] font-semibold tracking-[0.2em] uppercase"
-        style={{ color: "#acabaa" }}
-      >
+    <div className="rounded-2xl p-6 flex flex-col gap-2 bg-card border border-border">
+      <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">
         {label}
       </span>
-      <span
-        className="text-3xl font-black font-mono tracking-tight"
-        style={{ color }}
-      >
+      <span className={`text-3xl font-black font-mono tracking-tight ${colorClass}`}>
         {value}
       </span>
       {sub ? (
-        <span className="text-xs tracking-wide" style={{ color: "#acabaa" }}>
-          {sub}
-        </span>
+        <span className="text-xs tracking-wide text-muted-foreground">{sub}</span>
       ) : null}
     </div>
   );
@@ -64,69 +49,42 @@ function shortHash(hash: string, head = 8, tail = 6): string {
   return `${hash.slice(0, head)}…${hash.slice(-tail)}`;
 }
 
-function EventRow({
-  event,
-  kind,
-}: {
-  event: UserDepositEvent;
-  kind: "deposit" | "withdraw";
-}) {
-  const color = kind === "deposit" ? "#a7cbeb" : "#ee7d77";
-  const label = kind === "deposit" ? "DEPOSIT" : "WITHDRAW";
-  const symbol = kind === "deposit" ? "south_east" : "north_east";
+function EventRow({ event, kind }: { event: UserDepositEvent; kind: "deposit" | "withdraw" }) {
+  const isDeposit = kind === "deposit";
+  const iconClass = isDeposit ? "text-primary bg-primary/20 border-primary/40" : "text-destructive bg-destructive/20 border-destructive/40";
+  const badgeClass = isDeposit ? "text-primary bg-primary/15 border-primary/30" : "text-destructive bg-destructive/15 border-destructive/30";
+  const label = isDeposit ? "DEPOSIT" : "WITHDRAW";
+  const symbol = isDeposit ? "south_east" : "north_east";
 
   return (
     <a
       href={explorerTx(event.txHash)}
       target="_blank"
       rel="noreferrer"
-      className="flex items-center gap-4 rounded-2xl p-4 transition-colors hover:bg-[#161616]"
-      style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
-      }}
+      className="flex items-center gap-4 rounded-2xl p-4 transition-colors hover:bg-accent bg-card border border-border"
     >
-      <div
-        className="rounded-full h-8 w-8 flex items-center justify-center shrink-0"
-        style={{
-          backgroundColor: `${color}20`,
-          border: `1px solid ${color}40`,
-        }}
-      >
-        <span
-          className="material-symbols-outlined"
-          style={{ fontSize: "1rem", color }}
-        >
+      <div className={`rounded-full h-8 w-8 flex items-center justify-center shrink-0 border ${iconClass}`}>
+        <span className="material-symbols-outlined" style={{ fontSize: "1rem" }}>
           {symbol}
         </span>
       </div>
 
       <div className="flex-1 min-w-0 flex items-center gap-3 flex-wrap">
-        <span
-          className="text-[10px] font-bold tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
-          style={{
-            backgroundColor: `${color}15`,
-            color,
-            border: `1px solid ${color}30`,
-          }}
-        >
+        <span className={`text-[10px] font-bold tracking-[0.15em] uppercase px-2 py-0.5 rounded-full border ${badgeClass}`}>
           {label}
         </span>
-        <span className="text-sm font-mono font-bold" style={{ color: "#e7e5e5" }}>
+        <span className="text-sm font-mono font-bold text-foreground">
           {formatUsdc(event.assets, 4)} USDC
         </span>
-        <span className="text-xs font-mono" style={{ color: "#acabaa" }}>
+        <span className="text-xs font-mono text-muted-foreground">
           · {formatUsdc(event.shares, 4)} sVAULT
         </span>
       </div>
 
-      <span className="text-[10px] font-mono tracking-tight" style={{ color: "#737373" }}>
+      <span className="text-[10px] font-mono tracking-tight text-muted-foreground/50">
         {shortHash(event.txHash)}
       </span>
-      <span
-        className="material-symbols-outlined shrink-0"
-        style={{ fontSize: "1rem", color: "#737373" }}
-      >
+      <span className="material-symbols-outlined shrink-0 text-muted-foreground/50" style={{ fontSize: "1rem" }}>
         open_in_new
       </span>
     </a>
@@ -136,16 +94,8 @@ function EventRow({
 export default function ActivityPage() {
   const { isConnected } = useAccount();
   const { shares, shareValueAssets } = useUserPosition();
-  const {
-    deposits,
-    withdrawals,
-    totalDeposited,
-    totalWithdrawn,
-    isLoading,
-    refetch,
-  } = useUserActivity();
+  const { deposits, withdrawals, totalDeposited, totalWithdrawn, isLoading, refetch } = useUserActivity();
 
-  // Realised P&L from closed flows + current unrealised from open shares
   const netValue = shareValueAssets + totalWithdrawn;
   const pnl = totalDeposited === 0n ? 0n : netValue - totalDeposited;
   const pnlPositive = pnl >= 0n;
@@ -154,13 +104,10 @@ export default function ActivityPage() {
     <div className="flex flex-col gap-8 max-w-6xl">
       <div className="flex items-start justify-between gap-6 flex-wrap">
         <div>
-          <h1
-            className="text-5xl font-black tracking-[-0.03em] mt-2"
-            style={{ color: "#e7e5e5" }}
-          >
+          <h1 className="text-5xl font-black tracking-[-0.03em] mt-2 text-foreground">
             Your Activity
           </h1>
-          <p className="mt-3 text-sm max-w-xl" style={{ color: "#acabaa" }}>
+          <p className="mt-3 text-sm max-w-xl text-muted-foreground">
             Your personal vault history — every deposit, every withdrawal, and
             your current share position. All read straight from Base Sepolia.
           </p>
@@ -170,38 +117,22 @@ export default function ActivityPage() {
           href={explorerAddress(VAULT_ADDRESS)}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-2 text-xs font-mono tracking-tight px-4 py-2.5 rounded-full transition-colors shrink-0"
-          style={{
-            backgroundColor: "#131313",
-            color: "#a7cbeb",
-            border: "1px solid rgba(167,203,235,0.2)",
-          }}
+          className="flex items-center gap-2 text-xs font-mono tracking-tight px-4 py-2.5 rounded-full transition-colors shrink-0 bg-card text-primary border border-primary/20 hover:bg-accent"
         >
-          <span className="material-symbols-outlined" style={{ fontSize: "0.9rem" }}>
-            open_in_new
-          </span>
+          <span className="material-symbols-outlined" style={{ fontSize: "0.9rem" }}>open_in_new</span>
           Vault contract
         </a>
       </div>
 
       {!isConnected ? (
-        <div
-          className="rounded-3xl p-10 text-center"
-          style={{
-            backgroundColor: "#131313",
-            border: "1px solid rgba(72,72,72,0.25)",
-          }}
-        >
-          <span
-            className="material-symbols-outlined block mb-3"
-            style={{ fontSize: "2rem", color: "#a7cbeb" }}
-          >
+        <div className="rounded-3xl p-10 text-center bg-card border border-border">
+          <span className="material-symbols-outlined block mb-3 text-[2rem] text-primary">
             account_balance_wallet
           </span>
-          <h3 className="text-base font-semibold mb-1" style={{ color: "#e7e5e5" }}>
+          <h3 className="text-base font-semibold mb-1 text-foreground">
             Connect your wallet to see your activity
           </h3>
-          <p className="text-sm" style={{ color: "#acabaa" }}>
+          <p className="text-sm text-muted-foreground">
             Use the Connect Wallet button in the sidebar.
           </p>
         </div>
@@ -226,10 +157,7 @@ export default function ActivityPage() {
             />
             <StatCard
               label="Net P&L"
-              value={`${pnlPositive ? "+" : ""}${formatUsdc(
-                pnlPositive ? pnl : -pnl,
-                4
-              )} USDC`}
+              value={`${pnlPositive ? "+" : ""}${formatUsdc(pnlPositive ? pnl : -pnl, 4)} USDC`}
               sub="Withdrawn + current − deposited"
               tone={pnlPositive ? "positive" : "negative"}
             />
@@ -238,60 +166,33 @@ export default function ActivityPage() {
           <section className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <div>
-                <h2
-                  className="text-sm font-bold tracking-[0.2em] uppercase"
-                  style={{ color: "#e7e5e5" }}
-                >
+                <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-foreground">
                   Your Deposits & Withdrawals
                 </h2>
-                <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+                <p className="text-xs mt-1 text-muted-foreground">
                   Live from the vault&apos;s Deposit / Withdraw events
                 </p>
               </div>
               <button
                 onClick={refetch}
                 disabled={isLoading}
-                className="text-[10px] font-bold tracking-widest uppercase px-4 py-2 rounded-full transition-colors disabled:opacity-40"
-                style={{
-                  backgroundColor: "#191a1a",
-                  color: "#a7cbeb",
-                  border: "1px solid rgba(167,203,235,0.2)",
-                }}
+                className="text-[10px] font-bold tracking-widest uppercase px-4 py-2 rounded-full transition-colors disabled:opacity-40 bg-accent text-primary border border-primary/20 hover:bg-muted"
               >
                 {isLoading ? "Loading…" : "Refresh"}
               </button>
             </div>
 
             {isLoading ? (
-              <div
-                className="rounded-2xl p-8 text-center"
-                style={{
-                  backgroundColor: "#131313",
-                  border: "1px solid rgba(72,72,72,0.25)",
-                }}
-              >
-                <p className="text-sm" style={{ color: "#737373" }}>
-                  Fetching your events from Base Sepolia…
-                </p>
+              <div className="rounded-2xl p-8 text-center bg-card border border-border">
+                <p className="text-sm text-muted-foreground/50">Fetching your events from Base Sepolia…</p>
               </div>
             ) : deposits.length === 0 && withdrawals.length === 0 ? (
-              <div
-                className="rounded-2xl p-8 text-center"
-                style={{
-                  backgroundColor: "#131313",
-                  border: "1px solid rgba(72,72,72,0.25)",
-                }}
-              >
-                <span
-                  className="material-symbols-outlined block mb-3"
-                  style={{ fontSize: "2rem", color: "#a7cbeb" }}
-                >
+              <div className="rounded-2xl p-8 text-center bg-card border border-border">
+                <span className="material-symbols-outlined block mb-3 text-[2rem] text-primary">
                   hourglass_empty
                 </span>
-                <p className="text-sm" style={{ color: "#e7e5e5" }}>
-                  No activity yet
-                </p>
-                <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+                <p className="text-sm text-foreground">No activity yet</p>
+                <p className="text-xs mt-1 text-muted-foreground">
                   Head to the Vault page and make your first deposit.
                 </p>
               </div>

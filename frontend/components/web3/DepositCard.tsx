@@ -122,24 +122,19 @@ export function DepositCard() {
 
   return (
     <div
-      className="rounded-3xl p-6 flex flex-col gap-4"
-      style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
-      }}
+      className="rounded-3xl p-6 flex flex-col gap-4 bg-card border border-border"
     >
       <div className="flex items-center justify-between">
-        <h3 className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "#e7e5e5" }}>
+        <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground">
           Deposit
         </h3>
-        <span className="text-[10px] tracking-widest uppercase" style={{ color: "#acabaa" }}>
+        <span className="text-[10px] tracking-widest uppercase text-muted-foreground">
           USDC → sVAULT
         </span>
       </div>
 
       <div
-        className="rounded-2xl p-4 flex items-center gap-3"
-        style={{ backgroundColor: "#0e0e0e", border: "1px solid rgba(72,72,72,0.2)" }}
+        className="rounded-2xl p-4 flex items-center gap-3 bg-background border border-border/50"
       >
         <input
           type="text"
@@ -147,31 +142,25 @@ export function DepositCard() {
           placeholder="0.00"
           value={amount}
           onChange={(e) => setAmount(e.target.value.replace(/[^0-9.]/g, ""))}
-          className="bg-transparent flex-1 text-2xl font-mono font-bold outline-none placeholder:text-neutral-700"
-          style={{ color: "#e7e5e5" }}
+          className="bg-transparent flex-1 text-2xl font-mono font-bold outline-none text-foreground placeholder:text-muted-foreground"
           disabled={busy || !isConnected}
         />
         <button
           type="button"
           onClick={setMax}
           disabled={!isConnected || usdcBalance === 0n}
-          className="text-[10px] font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full transition-colors disabled:opacity-40 cursor-pointer"
-          style={{
-            backgroundColor: "#191a1a",
-            color: "#a7cbeb",
-            border: "1px solid rgba(167,203,235,0.2)",
-          }}
+          className="text-[10px] font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full transition-colors disabled:opacity-40 cursor-pointer bg-accent text-primary border border-primary/20"
         >
           Max
         </button>
       </div>
 
-      <div className="flex items-center justify-between text-xs" style={{ color: "#acabaa" }}>
+      <div className="flex items-center justify-between text-xs text-muted-foreground">
         <span className="tracking-wide">
           Wallet: <span className="font-mono">{formatUsdc(usdcBalance, 4)}</span> USDC
         </span>
         {!needsApprove && amountWei > 0n && (
-          <span style={{ color: "#a7cbeb" }}>Approved ✓</span>
+          <span className="text-primary">Approved ✓</span>
         )}
       </div>
 
@@ -185,7 +174,7 @@ export function DepositCard() {
       </Button>
 
       {error && (
-        <p className="text-xs" style={{ color: "#ee7d77" }}>
+        <p className="text-xs text-destructive">
           {error}
         </p>
       )}
@@ -195,8 +184,7 @@ export function DepositCard() {
           href={explorerTx(lastTxHash)}
           target="_blank"
           rel="noreferrer"
-          className="text-xs font-mono tracking-tight flex items-center gap-1.5 transition-colors hover:underline"
-          style={{ color: "#a7cbeb" }}
+          className="text-xs font-mono tracking-tight flex items-center gap-1.5 transition-colors hover:underline text-primary"
         >
           <span className="material-symbols-outlined" style={{ fontSize: "0.9rem" }}>
             open_in_new

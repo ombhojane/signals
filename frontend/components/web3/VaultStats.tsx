@@ -16,29 +16,21 @@ function StatCard({
 }) {
   return (
     <div
-      className="rounded-2xl p-6 flex flex-col gap-2"
-      style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
-      }}
+      className="rounded-2xl p-6 flex flex-col gap-2 bg-card border border-border"
     >
       <span
-        className="text-[10px] font-semibold tracking-[0.2em] uppercase"
-        style={{ color: "#acabaa" }}
+        className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground"
       >
         {label}
       </span>
       <span
-        className="text-3xl font-black font-mono tracking-tight"
-        style={{ color: accent ? "#a7cbeb" : "#e7e5e5" }}
+        className={`text-3xl font-black font-mono tracking-tight ${accent ? 'text-primary' : 'text-foreground'}`}
       >
         {value}
       </span>
-      {sub ? (
-        <span className="text-xs tracking-wide" style={{ color: "#acabaa" }}>
+        <span className="text-xs tracking-wide text-muted-foreground">
           {sub}
         </span>
-      ) : null}
     </div>
   );
 }
@@ -49,7 +41,7 @@ export function VaultStats() {
   const { shares, shareValueAssets } = useUserPosition();
 
   const statusLabel = positionOpen ? "Trading" : "Idle";
-  const statusDot = positionOpen ? "#f5c14b" : "#a7cbeb";
+  const statusDot = positionOpen ? "var(--error)" : "var(--primary)";
   const statusSub = positionOpen
     ? "Position open — deposits locked"
     : "Ready for deposits & withdrawals";
@@ -72,15 +64,10 @@ export function VaultStats() {
         accent={isConnected && shares > 0n}
       />
       <div
-        className="rounded-2xl p-6 flex flex-col gap-2"
-        style={{
-          backgroundColor: "#131313",
-          border: "1px solid rgba(72,72,72,0.25)",
-        }}
+        className="rounded-2xl p-6 flex flex-col gap-2 bg-card border border-border"
       >
         <span
-          className="text-[10px] font-semibold tracking-[0.2em] uppercase"
-          style={{ color: "#acabaa" }}
+          className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground"
         >
           Vault Status
         </span>
@@ -90,13 +77,12 @@ export function VaultStats() {
             style={{ backgroundColor: statusDot, boxShadow: `0 0 12px ${statusDot}` }}
           />
           <span
-            className="text-3xl font-black tracking-tight"
-            style={{ color: "#e7e5e5" }}
+            className="text-3xl font-black tracking-tight text-foreground"
           >
             {statusLabel}
           </span>
         </div>
-        <span className="text-xs tracking-wide" style={{ color: "#acabaa" }}>
+        <span className="text-xs tracking-wide text-muted-foreground">
           {statusSub}
         </span>
       </div>

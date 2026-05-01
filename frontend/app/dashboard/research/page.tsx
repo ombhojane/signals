@@ -234,26 +234,21 @@ function StatCard({
 }) {
   return (
     <div
-      className="rounded-2xl p-6 flex flex-col gap-2"
-      style={{
-        backgroundColor: "#131313",
-        border: "1px solid rgba(72,72,72,0.25)",
-      }}
+      className="rounded-2xl p-6 flex flex-col gap-2 bg-card border border-border"
     >
       <span
-        className="text-[10px] font-semibold tracking-[0.2em] uppercase"
-        style={{ color: "#acabaa" }}
+        className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground"
       >
         {label}
       </span>
       <span
-        className="text-3xl font-black font-mono tracking-tight"
-        style={{ color: accent ?? "#e7e5e5" }}
+        className={`text-3xl font-black font-mono tracking-tight ${accent ? "" : "text-foreground"}`}
+        style={{ color: accent ?? undefined }}
       >
         {value}
       </span>
       {sub ? (
-        <span className="text-xs tracking-wide" style={{ color: "#acabaa" }}>
+        <span className="text-xs tracking-wide text-muted-foreground">
           {sub}
         </span>
       ) : null}
@@ -316,20 +311,18 @@ export default function ResearchPage() {
       {/* Hero */}
       <div className="flex flex-col gap-4">
         <span
-          className="text-[10px] font-bold tracking-[0.25em] uppercase"
-          style={{ color: "#a7cbeb" }}
+          className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary"
         >
           Research · Field study #001
         </span>
         <h1
-          className="text-5xl font-black tracking-[-0.03em]"
-          style={{ color: "#e7e5e5" }}
+          className="text-5xl font-black tracking-[-0.03em] text-foreground"
         >
           Can frontier LLMs trade memecoins?
         </h1>
-        <p className="text-sm max-w-2xl leading-relaxed" style={{ color: "#acabaa" }}>
+        <p className="text-sm max-w-2xl leading-relaxed text-muted-foreground">
           Six top models — Claude, GPT-5, Gemini, Grok, DeepSeek, Qwen — were
-          handed <span style={{ color: "#e7e5e5" }}>$10,000 each</span> and turned
+          handed <span className="text-foreground">$10,000 each</span> and turned
           loose on perpetual futures for 17 days. Same prompts, same market
           feed, no human intervention. Below: the full leaderboard, behavioral
           fingerprints, and what it means for trading the most volatile corner
@@ -345,15 +338,10 @@ export default function ResearchPage() {
           ].map((t) => (
             <span
               key={t.k}
-              className="text-[10px] font-mono tracking-wider px-3 py-1.5 rounded-full"
-              style={{
-                backgroundColor: "#131313",
-                border: "1px solid rgba(72,72,72,0.3)",
-                color: "#acabaa",
-              }}
+              className="text-[10px] font-mono tracking-wider px-3 py-1.5 rounded-full bg-card border border-border text-muted-foreground"
             >
-              <span style={{ color: "#737373" }}>{t.k.toUpperCase()} · </span>
-              <span style={{ color: "#e7e5e5" }}>{t.v}</span>
+              <span className="text-muted-foreground/50">{t.k.toUpperCase()} · </span>
+              <span className="text-foreground">{t.v}</span>
             </span>
           ))}
         </div>
@@ -388,25 +376,20 @@ export default function ResearchPage() {
 
       {/* Standings */}
       <section
-        className="rounded-3xl p-6 md:p-8 flex flex-col gap-6"
-        style={{
-          backgroundColor: "#131313",
-          border: "1px solid rgba(72,72,72,0.25)",
-        }}
+        className="rounded-3xl p-6 md:p-8 flex flex-col gap-6 bg-card border border-border"
       >
         <div className="flex items-end justify-between flex-wrap gap-4">
           <div>
             <h2
-              className="text-sm font-bold tracking-[0.2em] uppercase"
-              style={{ color: "#e7e5e5" }}
+              className="text-sm font-bold tracking-[0.2em] uppercase text-foreground"
             >
               Final standings
             </h2>
-            <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+            <p className="text-xs mt-1 text-muted-foreground">
               Sortable. Click any column header to re-rank.
             </p>
           </div>
-          <span className="text-[10px] tracking-widest uppercase" style={{ color: "#737373" }}>
+          <span className="text-[10px] tracking-widest uppercase text-muted-foreground/50">
             Closed Nov 3, 2025
           </span>
         </div>
@@ -414,7 +397,7 @@ export default function ResearchPage() {
         <div className="overflow-x-auto -mx-2 px-2">
           <table className="w-full text-sm font-mono">
             <thead>
-              <tr className="text-left" style={{ color: "#737373" }}>
+              <tr className="text-left text-muted-foreground/50">
                 <th className="py-3 pr-4 text-[10px] font-bold tracking-widest uppercase">#</th>
                 <th className="py-3 pr-4 text-[10px] font-bold tracking-widest uppercase">Model</th>
                 <Th label="P&L %" k="pnlPct" sortKey={sortKey} sortDir={sortDir} onClick={onSort} />
@@ -430,10 +413,9 @@ export default function ResearchPage() {
               {sortedModels.map((m, idx) => (
                 <tr
                   key={m.key}
-                  className="border-t"
-                  style={{ borderColor: "rgba(72,72,72,0.2)" }}
+                  className="border-t border-t border-border/50"
                 >
-                  <td className="py-4 pr-4 text-xs" style={{ color: "#737373" }}>
+                  <td className="py-4 pr-4 text-xs text-muted-foreground/50">
                     {String(idx + 1).padStart(2, "0")}
                   </td>
                   <td className="py-4 pr-4">
@@ -443,34 +425,34 @@ export default function ResearchPage() {
                         style={{ backgroundColor: m.color }}
                       />
                       <div className="flex flex-col">
-                        <span className="text-sm font-bold" style={{ color: "#e7e5e5" }}>
+                        <span className="text-sm font-bold text-foreground">
                           {m.name}
                         </span>
-                        <span className="text-[10px] tracking-wider uppercase" style={{ color: "#737373" }}>
+                        <span className="text-[10px] tracking-wider uppercase text-muted-foreground/50">
                           {m.org}
                         </span>
                       </div>
                     </div>
                   </td>
-                  <td className="py-4 pr-4 font-bold" style={{ color: m.pnlPct >= 0 ? "#7ee787" : "#ff7d8b" }}>
+                  <td className={`py-4 pr-4 font-bold ${m.pnlPct >= 0 ? "text-green-400" : "text-red-400"}`}>
                     {fmtPct(m.pnlPct)}
                   </td>
-                  <td className="py-4 pr-4" style={{ color: "#e7e5e5" }}>
+                  <td className="py-4 pr-4 text-foreground">
                     {fmtUSD(m.finalValue)}
                   </td>
-                  <td className="py-4 pr-4" style={{ color: "#acabaa" }}>
+                  <td className="py-4 pr-4 text-muted-foreground">
                     {m.trades ?? "—"}
                   </td>
-                  <td className="py-4 pr-4" style={{ color: "#acabaa" }}>
+                  <td className="py-4 pr-4 text-muted-foreground">
                     {m.winRate != null ? `${m.winRate.toFixed(1)}%` : "—"}
                   </td>
-                  <td className="py-4 pr-4" style={{ color: "#acabaa" }}>
+                  <td className="py-4 pr-4 text-muted-foreground">
                     {m.leverage.toFixed(1)}×
                   </td>
-                  <td className="py-4 pr-4" style={{ color: "#acabaa" }}>
+                  <td className="py-4 pr-4 text-muted-foreground">
                     {fmtUSD(m.fees)}
                   </td>
-                  <td className="py-4 pr-4 text-xs" style={{ color: "#acabaa" }}>
+                  <td className="py-4 pr-4 text-xs text-muted-foreground">
                     {m.longBias}
                   </td>
                 </tr>
@@ -482,25 +464,20 @@ export default function ResearchPage() {
 
       {/* P&L over time */}
       <section
-        className="rounded-3xl p-6 md:p-8 flex flex-col gap-5"
-        style={{
-          backgroundColor: "#131313",
-          border: "1px solid rgba(72,72,72,0.25)",
-        }}
+        className="rounded-3xl p-6 md:p-8 flex flex-col gap-5 bg-card border border-border"
       >
         <div className="flex items-end justify-between flex-wrap gap-3">
           <div>
             <h2
-              className="text-sm font-bold tracking-[0.2em] uppercase"
-              style={{ color: "#e7e5e5" }}
+              className="text-sm font-bold tracking-[0.2em] uppercase text-foreground"
             >
               Account value over time
             </h2>
-            <p className="text-xs mt-1" style={{ color: "#acabaa" }}>
+            <p className="text-xs mt-1 text-muted-foreground">
               Click a model below to isolate or hide its curve.
             </p>
           </div>
-          <span className="text-[10px] tracking-widest uppercase" style={{ color: "#737373" }}>
+          <span className="text-[10px] tracking-widest uppercase text-muted-foreground/50">
             17-day window · daily marks
           </span>
         </div>
@@ -512,17 +489,17 @@ export default function ResearchPage() {
               <button
                 key={m.key}
                 onClick={() => toggleSeries(m.key)}
-                className="text-xs font-mono tracking-tight px-3 py-1.5 rounded-full transition-opacity"
+                className={`text-xs font-mono tracking-tight px-3 py-1.5 rounded-full transition-opacity ${active ? "" : "bg-muted text-muted-foreground"}`}
                 style={{
-                  backgroundColor: active ? `${m.color}1f` : "#1a1a1a",
-                  border: `1px solid ${active ? m.color : "rgba(72,72,72,0.3)"}`,
-                  color: active ? m.color : "#737373",
+                  backgroundColor: active ? `${m.color}1f` : undefined,
+                  border: `1px solid ${active ? m.color : "rgba(0,0,0,0.15)"}`,
+                  color: active ? m.color : undefined,
                   opacity: active ? 1 : 0.55,
                 }}
               >
                 <span
-                  className="inline-block h-2 w-2 rounded-sm mr-2 align-middle"
-                  style={{ backgroundColor: active ? m.color : "#3f3f46" }}
+                  className={`inline-block h-2 w-2 rounded-sm mr-2 align-middle ${active ? "" : "bg-muted-foreground/30"}`}
+                  style={{ backgroundColor: active ? m.color : undefined }}
                 />
                 {m.name}
               </button>
@@ -537,13 +514,12 @@ export default function ResearchPage() {
       <section className="flex flex-col gap-5">
         <div>
           <h2
-            className="text-sm font-bold tracking-[0.2em] uppercase"
-            style={{ color: "#e7e5e5" }}
+            className="text-sm font-bold tracking-[0.2em] uppercase text-foreground"
           >
             Behavioral fingerprints
           </h2>
-          <p className="text-xs mt-1 max-w-xl" style={{ color: "#acabaa" }}>
-            What each model actually <span style={{ color: "#e7e5e5" }}>did</span> with $10,000 — distilled from its trade log.
+          <p className="text-xs mt-1 max-w-xl text-muted-foreground">
+            What each model actually <span className="text-foreground">did</span> with $10,000 — distilled from its trade log.
           </p>
         </div>
 
@@ -551,11 +527,7 @@ export default function ResearchPage() {
           {[...MODELS].sort((a, b) => b.pnlPct - a.pnlPct).map((m) => (
             <div
               key={m.key}
-              className="rounded-2xl p-6 flex flex-col gap-3 relative overflow-hidden"
-              style={{
-                backgroundColor: "#131313",
-                border: "1px solid rgba(72,72,72,0.25)",
-              }}
+              className="rounded-2xl p-6 flex flex-col gap-3 relative overflow-hidden bg-card border border-border"
             >
               <div
                 className="absolute top-0 left-0 h-[2px] w-full"
@@ -566,25 +538,24 @@ export default function ResearchPage() {
                   <span className="text-[10px] tracking-[0.2em] uppercase font-bold" style={{ color: m.color }}>
                     {m.archetype}
                   </span>
-                  <span className="text-xl font-black tracking-tight mt-1" style={{ color: "#e7e5e5" }}>
+                  <span className="text-xl font-black tracking-tight mt-1 text-foreground">
                     {m.name}
                   </span>
-                  <span className="text-[10px] tracking-wider uppercase" style={{ color: "#737373" }}>
+                  <span className="text-[10px] tracking-wider uppercase text-muted-foreground/50">
                     {m.org}
                   </span>
                 </div>
                 <div
-                  className="text-2xl font-black font-mono tracking-tight shrink-0"
-                  style={{ color: m.pnlPct >= 0 ? "#7ee787" : "#ff7d8b" }}
+                  className={`text-2xl font-black font-mono tracking-tight shrink-0 ${m.pnlPct >= 0 ? "text-green-400" : "text-red-400"}`}
                 >
                   {fmtPct(m.pnlPct)}
                 </div>
               </div>
 
-              <p className="text-sm font-medium" style={{ color: "#e7e5e5" }}>
+              <p className="text-sm font-medium text-foreground">
                 {m.oneLiner}
               </p>
-              <p className="text-xs leading-relaxed" style={{ color: "#acabaa" }}>
+              <p className="text-xs leading-relaxed text-muted-foreground">
                 {m.observation}
               </p>
 
@@ -601,18 +572,14 @@ export default function ResearchPage() {
 
       {/* Asset universe */}
       <section
-        className="rounded-3xl p-6 md:p-8 flex flex-col gap-5"
-        style={{
-          backgroundColor: "#131313",
-          border: "1px solid rgba(72,72,72,0.25)",
-        }}
+        className="rounded-3xl p-6 md:p-8 flex flex-col gap-5 bg-card border border-border"
       >
         <div className="flex items-end justify-between flex-wrap gap-3">
           <div>
-            <h2 className="text-sm font-bold tracking-[0.2em] uppercase" style={{ color: "#e7e5e5" }}>
+            <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-foreground">
               The asset universe
             </h2>
-            <p className="text-xs mt-1 max-w-xl" style={{ color: "#acabaa" }}>
+            <p className="text-xs mt-1 max-w-xl text-muted-foreground">
               All six models could open perps on the same six tickers. The most
               memecoin-like one is highlighted.
             </p>
@@ -624,19 +591,14 @@ export default function ResearchPage() {
             return (
               <div
                 key={a}
-                className="rounded-2xl py-6 flex flex-col items-center justify-center gap-1"
-                style={{
-                  backgroundColor: isMeme ? "rgba(255,193,7,0.06)" : "#0e0e0e",
-                  border: `1px solid ${isMeme ? "rgba(255,193,7,0.35)" : "rgba(72,72,72,0.25)"}`,
-                }}
+                className={`rounded-2xl py-6 flex flex-col items-center justify-center gap-1 ${isMeme ? "bg-amber-500/5 border border-amber-400/35" : "bg-background border border-border"}`}
               >
                 <span
-                  className="text-2xl font-black tracking-tight"
-                  style={{ color: isMeme ? "#ffc107" : "#e7e5e5" }}
+                  className={`text-2xl font-black tracking-tight ${isMeme ? "text-amber-400" : "text-foreground"}`}
                 >
                   {a}
                 </span>
-                <span className="text-[9px] tracking-widest uppercase" style={{ color: isMeme ? "#ffc107" : "#737373" }}>
+                <span className={`text-[9px] tracking-widest uppercase ${isMeme ? "text-amber-400" : "text-muted-foreground/50"}`}>
                   {isMeme ? "memecoin" : "majors"}
                 </span>
               </div>
@@ -644,25 +606,20 @@ export default function ResearchPage() {
           })}
         </div>
         <div
-          className="text-xs leading-relaxed rounded-2xl p-4"
-          style={{
-            backgroundColor: "#0e0e0e",
-            border: "1px solid rgba(72,72,72,0.25)",
-            color: "#acabaa",
-          }}
+          className="text-xs leading-relaxed rounded-2xl p-4 bg-background border border-border text-muted-foreground"
         >
-          <span style={{ color: "#ffc107" }}>The memecoin signal:</span>{" "}
+          <span className="text-amber-400">The memecoin signal:</span>{" "}
           DOGE was the only true sentiment-driven asset in the universe — and
           still, the model built around social signal (Grok) finished
           second-to-last. It&apos;s the cleanest evidence in the dataset that{" "}
-          <span style={{ color: "#e7e5e5" }}>reading the crowd is not the same as fading it</span>. A pure-memecoin re-run is the natural next experiment.
+          <span className="text-foreground">reading the crowd is not the same as fading it</span>. A pure-memecoin re-run is the natural next experiment.
         </div>
       </section>
 
       {/* Findings */}
       <section className="flex flex-col gap-5">
         <div>
-          <h2 className="text-sm font-bold tracking-[0.2em] uppercase" style={{ color: "#e7e5e5" }}>
+          <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-foreground">
             Six things this dataset proved
           </h2>
         </div>
@@ -670,19 +627,15 @@ export default function ResearchPage() {
           {FINDINGS.map((f, i) => (
             <div
               key={f.title}
-              className="rounded-2xl p-6 flex flex-col gap-2"
-              style={{
-                backgroundColor: "#131313",
-                border: "1px solid rgba(72,72,72,0.25)",
-              }}
+              className="rounded-2xl p-6 flex flex-col gap-2 bg-card border border-border"
             >
-              <span className="text-[10px] font-mono tracking-widest" style={{ color: "#737373" }}>
+              <span className="text-[10px] font-mono tracking-widest text-muted-foreground/50">
                 FINDING {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-base font-bold tracking-tight" style={{ color: "#e7e5e5" }}>
+              <h3 className="text-base font-bold tracking-tight text-foreground">
                 {f.title}
               </h3>
-              <p className="text-xs leading-relaxed" style={{ color: "#acabaa" }}>
+              <p className="text-xs leading-relaxed text-muted-foreground">
                 {f.body}
               </p>
             </div>
@@ -693,10 +646,10 @@ export default function ResearchPage() {
       {/* Next experiments */}
       <section className="flex flex-col gap-5">
         <div>
-          <h2 className="text-sm font-bold tracking-[0.2em] uppercase" style={{ color: "#e7e5e5" }}>
+          <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-foreground">
             What we&apos;d run next
           </h2>
-          <p className="text-xs mt-1 max-w-xl" style={{ color: "#acabaa" }}>
+          <p className="text-xs mt-1 max-w-xl text-muted-foreground">
             Lateral extensions of the same harness — designed to break the
             assumption that crypto majors and memecoins are the same problem.
           </p>
@@ -705,24 +658,19 @@ export default function ResearchPage() {
           {NEXT_EXPERIMENTS.map((e) => (
             <div
               key={e.title}
-              className="rounded-2xl p-6 flex flex-col gap-3"
-              style={{
-                backgroundColor: "#131313",
-                border: "1px solid rgba(72,72,72,0.25)",
-              }}
+              className="rounded-2xl p-6 flex flex-col gap-3 bg-card border border-border"
             >
               <div className="flex items-center gap-3">
                 <span
-                  className="material-symbols-outlined"
-                  style={{ color: "#a7cbeb", fontSize: "1.4rem" }}
+                  className="material-symbols-outlined text-primary" style={{ fontSize: "1.4rem" }}
                 >
                   {e.icon}
                 </span>
-                <h3 className="text-base font-bold tracking-tight" style={{ color: "#e7e5e5" }}>
+                <h3 className="text-base font-bold tracking-tight text-foreground">
                   {e.title}
                 </h3>
               </div>
-              <p className="text-xs leading-relaxed" style={{ color: "#acabaa" }}>
+              <p className="text-xs leading-relaxed text-muted-foreground">
                 {e.body}
               </p>
             </div>
@@ -732,16 +680,12 @@ export default function ResearchPage() {
 
       {/* Methodology */}
       <section
-        className="rounded-3xl p-6 flex flex-col gap-3"
-        style={{
-          backgroundColor: "#0e0e0e",
-          border: "1px dashed rgba(72,72,72,0.4)",
-        }}
+        className="rounded-3xl p-6 flex flex-col gap-3 bg-background border border-dashed border-border"
       >
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: "#737373" }}>
+        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground/50">
           Methodology · Caveats
         </span>
-        <p className="text-xs leading-relaxed" style={{ color: "#acabaa" }}>
+        <p className="text-xs leading-relaxed text-muted-foreground">
           Each model received the same system prompt, the same OHLCV + funding
           + open-interest snapshots on a 2–3 minute cadence, and could open or
           close any leveraged perpetual position on the venue. Final P&L,
@@ -776,8 +720,7 @@ function Th({
     <th className="py-3 pr-4 text-[10px] font-bold tracking-widest uppercase">
       <button
         onClick={() => onClick(k)}
-        className="transition-colors"
-        style={{ color: active ? "#a7cbeb" : "#737373" }}
+        className={`transition-colors ${active ? "text-primary" : "text-muted-foreground/50"}`}
       >
         {label}
         {active ? (sortDir === "desc" ? " ↓" : " ↑") : ""}
@@ -789,15 +732,10 @@ function Th({
 function Pill({ k, v }: { k: string; v: string }) {
   return (
     <span
-      className="text-[10px] font-mono tracking-wider px-2.5 py-1 rounded-full"
-      style={{
-        backgroundColor: "#0e0e0e",
-        border: "1px solid rgba(72,72,72,0.3)",
-        color: "#acabaa",
-      }}
+      className="text-[10px] font-mono tracking-wider px-2.5 py-1 rounded-full bg-background border border-border text-muted-foreground"
     >
-      <span style={{ color: "#737373" }}>{k} </span>
-      <span style={{ color: "#e7e5e5" }}>{v}</span>
+      <span className="text-muted-foreground/50">{k} </span>
+      <span className="text-foreground">{v}</span>
     </span>
   );
 }
