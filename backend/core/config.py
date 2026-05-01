@@ -43,6 +43,9 @@ class Settings:
             os.getenv("FRONTEND_URL", ""),
         ] if origin
     ]
+    
+    # CORS allowed origin patterns (regexes for dynamic domains like Cloud Run and Azure Container Apps)
+    CORS_ALLOW_ORIGIN_REGEX: str = r"https://.*\.(run\.app|azurecontainerapps\.io)"
 
     @classmethod
     def validate(cls) -> list[str]:

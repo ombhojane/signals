@@ -6,131 +6,275 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ConnectWalletButton } from "@/components/web3/ConnectWalletButton";
 import { useSidebar } from "@/lib/sidebar-context";
+import { useBackendStatus } from "@/hooks/useBackendStatus";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const NAV_ITEMS = [
-  { title: "Vault", href: "/dashboard/vault", icon: "savings" },
-  { title: "Scan", href: "/dashboard/scan", icon: "radar" },
-  { title: "Activity", href: "/dashboard/portfolio", icon: "history" },
-  { title: "Explore", href: "/dashboard/simulation", icon: "travel_explore" },
-  { title: "Research", href: "/dashboard/research", icon: "science" },
-  { title: "Proof", href: "/dashboard/leaderboard", icon: "verified" },
+	{ title: "Vault", href: "/dashboard/vault", icon: "savings" },
+	{ title: "Scan", href: "/dashboard/scan", icon: "radar" },
+	{ title: "Activity", href: "/dashboard/portfolio", icon: "history" },
+	{ title: "Explore", href: "/dashboard/simulation", icon: "travel_explore" },
+	{ title: "Research", href: "/dashboard/research", icon: "science" },
+	{ title: "Proof", href: "/dashboard/leaderboard", icon: "verified" },
 ];
 
 export function Sidebar() {
-  const pathname = usePathname();
-  const { isOpen } = useSidebar();
+	const pathname = usePathname();
+	const { isOpen } = useSidebar();
+	const backendStatus = useBackendStatus();
 
-  return (
-    <>
-      <aside className={cn(
-        "hidden md:flex h-screen flex-col py-10 px-6 gap-8 shrink-0 relative z-50 border-r border-[rgba(255,255,255,0.02)]",
-        isOpen ? "w-72 opacity-100" : "w-0 opacity-0 pointer-events-none"
-      )} style={{ 
-        backgroundColor: '#0a0a0a',
-        transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease-out 50ms'
-      }}>
-        {/* Ambient lighting */}
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+	return (
+		<>
+			<aside
+				className={cn(
+					"hidden md:flex h-screen flex-col py-10 gap-8 shrink-0 relative z-50 border-r border-[rgba(255,255,255,0.02)] transition-all",
+					isOpen ? "w-72 px-6" : "w-18 px-3 items-center"
+				)}
+				style={{
+					backgroundColor: "#0a0a0a",
+					transition:
+						"width 300ms cubic-bezier(0.4, 0, 0.2, 1), padding 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+				}}
+			>
+				{/* Backend Status Gradient Indicator - Top Bar */}
+				<div
+					className="absolute top-0 left-0 right-0 h-1 transition-all duration-500"
+					style={{
+						background:
+							backendStatus === "online"
+								? "linear-gradient(90deg, rgba(34,197,94,0.6) 0%, rgba(34,197,94,0.3) 100%)"
+								: backendStatus === "offline"
+								? "linear-gradient(90deg, rgba(239,68,68,0.6) 0%, rgba(239,68,68,0.3) 100%)"
+								: "linear-gradient(90deg, rgba(156,163,175,0.4) 0%, rgba(156,163,175,0.2) 100%)",
+					}}
+				/>
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-4 px-2 group">
-          <div className="relative w-10 h-10 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-            <Image 
-              src="/signal_logo.svg" 
-              alt="Signals Logo" 
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <h1 className="text-[1.35rem] font-bold text-white tracking-tighter" style={{ fontFamily: 'var(--font-space)' }}>Signals</h1>
-            <p className="text-[9px] uppercase tracking-[0.2em] font-semibold text-neutral-500 mt-0.5 group-hover:text-neutral-400 transition-colors">Web3 Intelligence</p>
-          </div>
-        </Link>
+				{/* Ambient lighting */}
+				<div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
 
-        {/* Main nav */}
-        <nav className="flex flex-col gap-2 mt-6">
-          {NAV_ITEMS.map((item) => {
-            const isActive = pathname === item.href || (item.href !== "/dashboard" && pathname?.startsWith(item.href));
+				{/* Logo */}
+				<Link
+					href="/"
+					className={cn(
+						"flex items-center group",
+						isOpen ? "gap-4 px-2" : "justify-center"
+					)}
+				>
+					<div className="relative w-10 h-10 shrink-0 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+						<Image
+							src="/signal_logo.svg"
+							alt="Signals Logo"
+							fill
+							className="object-cover"
+						/>
+					</div>
+					<div
+						className={cn(
+							"transition-all duration-300 overflow-hidden whitespace-nowrap",
+							!isOpen && "w-0 opacity-0"
+						)}
+					>
+						<h1
+							className="text-[1.35rem] font-bold text-white tracking-tighter"
+							style={{ fontFamily: "var(--font-space)" }}
+						>
+							Signals
+						</h1>
+						<p className="text-[9px] uppercase tracking-[0.2em] font-semibold text-neutral-500 mt-0.5 group-hover:text-neutral-400 transition-colors">
+							Web3 Intelligence
+						</p>
+					</div>
+				</Link>
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative rounded-xl px-4 py-3.5 flex items-center gap-4 text-[13px] font-medium tracking-wide transition-all ease-out duration-300 group overflow-hidden cursor-pointer",
-                  isActive
-                    ? "text-primary"
-                    : "text-neutral-500 hover:text-white hover:bg-white/[0.03]"
-                )}
-              >
-                {isActive && (
-                  <div className="absolute inset-0 bg-primary/10 transition-transform" />
-                )}
-                {isActive && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-1/2 rounded-r-full bg-primary" />
-                )}
-                <span className={cn(
-                  "material-symbols-outlined relative z-10 transition-transform duration-300",
-                  !isActive && "group-hover:scale-110",
-                  isActive && "[font-variation-settings:'FILL'1]"
-                )} style={{ fontSize: '1.3rem' }}>
-                  {item.icon}
-                </span>
-                <span className="relative z-10" style={{ fontFamily: isActive ? 'var(--font-space)' : 'inherit' }}>{item.title}</span>
-              </Link>
-            );
-          })}
-        </nav>
+				{/* Main nav */}
+				<nav className="flex flex-col gap-2 mt-6">
+					{NAV_ITEMS.map((item) => {
+						const isActive =
+							pathname === item.href ||
+							(item.href !== "/dashboard" && pathname?.startsWith(item.href));
 
-        {/* Bottom section */}
-        <div className="mt-auto flex flex-col gap-2 relative z-10">
-          <div className="mb-6 hover:scale-[1.02] transition-transform duration-300">
-            <ConnectWalletButton />
-          </div>
-          
-          <div className="w-full h-[1px] bg-gradient-to-r from-white/[0.05] to-transparent mb-2" />
+						const navLink = (
+							<Link
+								href={item.href}
+								className={cn(
+									"relative rounded-xl py-3.5 flex items-center text-[13px] font-medium tracking-wide transition-all ease-out duration-300 group overflow-hidden cursor-pointer",
+									isOpen ? "px-4 gap-4" : "justify-center w-12 h-12",
+									isActive
+										? "text-primary"
+										: "text-neutral-500 hover:text-white hover:bg-white/3"
+								)}
+							>
+								{isActive && (
+									<div className="absolute inset-0 bg-primary/10 transition-transform" />
+								)}
+								{isActive && isOpen && (
+									<div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.75 h-1/2 rounded-r-full bg-primary" />
+								)}
+								<span
+									className={cn(
+										"material-symbols-outlined relative z-10 transition-transform duration-300",
+										!isActive && "group-hover:scale-110",
+										isActive && "[font-variation-settings:'FILL'1]"
+									)}
+									style={{ fontSize: "1.3rem" }}
+								>
+									{item.icon}
+								</span>
+								<span
+									className={cn(
+										"relative z-10 transition-all duration-300 whitespace-nowrap",
+										!isOpen && "hidden"
+									)}
+									style={{
+										fontFamily: isActive ? "var(--font-space)" : "inherit",
+									}}
+								>
+									{item.title}
+								</span>
+							</Link>
+						);
 
-          <Link
-            href="/dashboard/settings"
-            className="text-neutral-500 hover:text-white rounded-xl px-4 py-3 flex items-center gap-4 text-xs font-medium tracking-wide transition-colors group cursor-pointer"
-          >
-            <span className="material-symbols-outlined group-hover:rotate-45 transition-transform duration-500" style={{ fontSize: '1.2rem' }}>settings</span>
-            Settings
-          </Link>
-          <Link
-            href="#"
-            className="text-neutral-500 hover:text-white rounded-xl px-4 py-3 flex items-center gap-4 text-xs font-medium tracking-wide transition-colors group cursor-pointer"
-          >
-            <span className="material-symbols-outlined group-hover:scale-110 transition-transform duration-300" style={{ fontSize: '1.2rem' }}>help_outline</span>
-            Support
-          </Link>
-        </div>
-      </aside>
+						return !isOpen ? (
+							<Tooltip key={item.href}>
+								<TooltipTrigger asChild>{navLink}</TooltipTrigger>
+								<TooltipContent side="right" className="text-xs font-medium">
+									{item.title}
+								</TooltipContent>
+							</Tooltip>
+						) : (
+							<div key={item.href}>{navLink}</div>
+						);
+					})}
+				</nav>
 
-      {/* Mobile bottom nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 h-[4.5rem] flex justify-around items-center px-4 border-t border-[rgba(255,255,255,0.05)]" style={{ backgroundColor: 'rgba(10,10,10,0.85)', backdropFilter: 'blur(20px)', zIndex: 100 }}>
-        {NAV_ITEMS.map((item) => {
-          const isActive = pathname === item.href || (pathname?.startsWith(item.href) ?? false);
-          return (
-            <Link key={item.href} href={item.href} className="flex flex-col items-center gap-1.5 p-2 rounded-xl active:scale-95 transition-transform cursor-pointer">
-              <span
-                className="material-symbols-outlined transition-colors duration-300"
-                style={{
-                  fontSize: '1.4rem',
-                  color: isActive ? 'var(--primary)' : '#737373',
-                  fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0",
-                }}
-              >
-                {item.icon}
-              </span>
-              <span className="text-[9px] font-bold uppercase tracking-wider" style={{ color: isActive ? 'var(--primary)' : '#737373', fontFamily: 'var(--font-space)' }}>
-                {item.title}
-              </span>
-            </Link>
-          );
-        })}
-      </nav>
-    </>
-  );
+				{/* Bottom section */}
+				<div className="mt-auto flex flex-col gap-2 relative z-10 w-full items-center">
+					<div
+						className={cn(
+							"mb-6 hover:scale-[1.02] transition-transform duration-300",
+							!isOpen && "!h-0 !mb-0 overflow-hidden p-0"
+						)}
+					>
+						<ConnectWalletButton />
+					</div>
+
+					<div className="w-full h-px bg-linear-to-r from-white/5 to-transparent mb-2" />
+
+					{!isOpen ? (
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Link
+									href="/dashboard/settings"
+									className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer justify-center w-12 h-12"
+								>
+									<span
+										className="material-symbols-outlined group-hover:rotate-45 transition-transform duration-500 shrink-0"
+										style={{ fontSize: "1.2rem" }}
+									>
+										settings
+									</span>
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent side="right" className="text-xs font-medium">
+								Settings
+							</TooltipContent>
+						</Tooltip>
+					) : (
+						<Link
+							href="/dashboard/settings"
+							className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer px-4 gap-4 w-full"
+						>
+							<span
+								className="material-symbols-outlined group-hover:rotate-45 transition-transform duration-500 shrink-0"
+								style={{ fontSize: "1.2rem" }}
+							>
+								settings
+							</span>
+							<span className="transition-all duration-300 whitespace-nowrap">
+								Settings
+							</span>
+						</Link>
+					)}
+					{!isOpen ? (
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Link
+									href="#"
+									className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer justify-center w-12 h-12"
+								>
+									<span
+										className="material-symbols-outlined group-hover:scale-110 transition-transform duration-300 shrink-0"
+										style={{ fontSize: "1.2rem" }}
+									>
+										help_outline
+									</span>
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent side="right" className="text-xs font-medium">
+								Support
+							</TooltipContent>
+						</Tooltip>
+					) : (
+						<Link
+							href="#"
+							className="text-neutral-500 hover:text-white rounded-xl py-3 flex items-center text-xs font-medium tracking-wide transition-colors group cursor-pointer px-4 gap-4 w-full"
+						>
+							<span
+								className="material-symbols-outlined group-hover:scale-110 transition-transform duration-300 shrink-0"
+								style={{ fontSize: "1.2rem" }}
+							>
+								help_outline
+							</span>
+							<span className="transition-all duration-300 whitespace-nowrap">
+								Support
+							</span>
+						</Link>
+					)}
+				</div>
+			</aside>
+
+			{/* Mobile bottom nav */}
+			<nav
+				className="md:hidden fixed bottom-0 left-0 right-0 h-[4.5rem] flex justify-around items-center px-4 border-t border-[rgba(255,255,255,0.05)]"
+				style={{
+					backgroundColor: "rgba(10,10,10,0.85)",
+					backdropFilter: "blur(20px)",
+					zIndex: 100,
+				}}
+			>
+				{NAV_ITEMS.map((item) => {
+					const isActive =
+						pathname === item.href ||
+						(pathname?.startsWith(item.href) ?? false);
+					return (
+						<Link
+							key={item.href}
+							href={item.href}
+							className="flex flex-col items-center gap-1.5 p-2 rounded-xl active:scale-95 transition-transform cursor-pointer"
+						>
+							<span
+								className="material-symbols-outlined transition-colors duration-300"
+								style={{
+									fontSize: "1.4rem",
+									color: isActive ? "var(--primary)" : "#737373",
+									fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0",
+								}}
+							>
+								{item.icon}
+							</span>
+							<span
+								className="text-[9px] font-bold uppercase tracking-wider"
+								style={{
+									color: isActive ? "var(--primary)" : "#737373",
+									fontFamily: "var(--font-space)",
+								}}
+							>
+								{item.title}
+							</span>
+						</Link>
+					);
+				})}
+			</nav>
+		</>
+	);
 }

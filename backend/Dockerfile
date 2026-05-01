@@ -16,9 +16,9 @@ RUN pip install --no-cache-dir -r requirements.txt gunicorn
 # Copy application code
 COPY . .
 
-# Cloud Run injects PORT (default 8080); shell-form CMD so $PORT expands at runtime.
-ENV PORT=8080
-EXPOSE 8080
+# Container Apps expects port 8000
+ENV PORT=8000
+EXPOSE 8000
 
 CMD exec gunicorn main:app \
     --worker-class uvicorn.workers.UvicornWorker \

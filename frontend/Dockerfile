@@ -27,19 +27,21 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV HOSTNAME="0.0.0.0"
-# Cloud Run injects PORT at runtime (default 8080); Next standalone respects it.
-ENV PORT=8080
+# Azure Container Apps uses port 3000
+ENV PORT=3000
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
-# Copy standalone output
+# Copy standalone output from builder (includes everything needed including node_modules)
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
-EXPOSE 8080
+EXPOSE 3000
 
+# Start the Next.js server  
+# The PORT environment variable tells Next.js which port to listen on
 CMD ["node", "server.js"]
