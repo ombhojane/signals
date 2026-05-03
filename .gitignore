@@ -181,3 +181,6 @@ results
 frontend/playwright-report/
 frontend/test-results/
 
+
+# Research artefacts (paper drafts, figures, harness) — never push
+research/
