@@ -51,7 +51,7 @@ export function PositionsTable({ positions }: { positions: Position[] }) {
                 <TableCell>
                   <Badge 
                     variant={position.side === "LONG" ? "default" : "destructive"}
-                    className={position.side === "LONG" ? "border-[rgba(167,203,235,0.3)] text-[#a7cbeb] bg-[rgba(167,203,235,0.1)] hover:bg-[rgba(167,203,235,0.15)]" : "border-[rgba(238,125,119,0.3)] text-[#ee7d77] bg-[rgba(238,125,119,0.1)] hover:bg-[rgba(238,125,119,0.15)]"}
+                    className={position.side === "LONG" ? "border-primary/30 text-primary bg-primary/10 hover:bg-primary/15" : "border-[rgba(238,125,119,0.3)] text-[#ee7d77] bg-[rgba(238,125,119,0.1)] hover:bg-[rgba(238,125,119,0.15)]"}
                   >
                     {position.side}
                   </Badge>

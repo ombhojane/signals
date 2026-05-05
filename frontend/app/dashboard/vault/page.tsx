@@ -44,11 +44,11 @@ export default function VaultPage() {
             </span>
           </div>
           <h1
-            className="text-5xl font-black tracking-[-0.03em] text-foreground"
+            className="text-4xl md:text-5xl font-bold tracking-tight text-foreground"
           >
             Signals Vault
           </h1>
-          <p className="mt-3 text-sm max-w-xl text-muted-foreground">
+          <p className="mt-3 text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl">
             Deposit USDC, the AI agent trades it on Uniswap V3, and every decision
             is committed on-chain with its reasoning hash. Proof-of-alpha, built in.
           </p>

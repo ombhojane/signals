@@ -316,11 +316,11 @@ export default function ResearchPage() {
           Research · Field study #001
         </span>
         <h1
-          className="text-5xl font-black tracking-[-0.03em] text-foreground"
+          className="text-4xl md:text-5xl font-bold tracking-tight text-foreground"
         >
           Can frontier LLMs trade memecoins?
         </h1>
-        <p className="text-sm max-w-2xl leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl">
           Six top models — Claude, GPT-5, Gemini, Grok, DeepSeek, Qwen — were
           handed <span className="text-foreground">$10,000 each</span> and turned
           loose on perpetual futures for 17 days. Same prompts, same market
@@ -353,7 +353,7 @@ export default function ResearchPage() {
           label="Models tested"
           value={MODELS.length.toString()}
           sub="6 frontier LLMs, identical harness"
-          accent="#a7cbeb"
+          accent="var(--primary)"
         />
         <StatCard
           label="Best return"

@@ -98,10 +98,10 @@ export default function SettingsPage() {
         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground">
           Preferences
         </span>
-        <h1 className="text-5xl font-black tracking-[-0.03em] mt-2 text-foreground">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mt-2 text-foreground">
           Settings
         </h1>
-        <p className="mt-3 text-sm max-w-xl text-muted-foreground">
+        <p className="mt-3 text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl">
           Appearance, wallet info, and vault contract details.
         </p>
       </div>

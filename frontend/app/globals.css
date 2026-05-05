@@ -296,7 +296,7 @@
 .zen-pulse {
   width: 6px;
   height: 6px;
-  background-color: #a7cbeb;
+  background-color: var(--primary);
   border-radius: 9999px;
   animation: zenPulse 3s infinite ease-in-out;
 }
@@ -318,7 +318,7 @@
 
 /* Primary gradient for CTAs */
 .gradient-primary {
-  background: linear-gradient(135deg, #a7cbeb 0%, #254a65 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
 }
 
 /* Ambient card shadow */
@@ -338,5 +338,9 @@
 
 /* Primary sapphire glow for active states */
 .primary-glow {
-  box-shadow: 0 0 20px rgba(167, 203, 235, 0.1);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+#tv-attr-logo{
+  display: none;
 }

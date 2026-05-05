@@ -78,10 +78,10 @@ function DashboardContent() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold tracking-tighter">
-            Welcome back, <span style={{ color: '#a7cbeb' }}>Curator Alpha</span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            Welcome back, <span className="text-primary">Curator Alpha</span>
           </h2>
-          <p className="text-sm text-muted-foreground mt-1" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+          <p className="text-lg md:text-xl text-muted-foreground mt-2 font-light leading-relaxed">
             Your personalized intelligence dashboard
           </p>
         </div>

@@ -31,7 +31,7 @@ export function formatPercent(value: number): string {
 export function formatPnl(value: number): { text: string; className: string } {
   const formatted = formatCurrency(Math.abs(value));
   if (value >= 0) {
-    return { text: `+${formatted}`, className: "text-[#a7cbeb]" };
+    return { text: `+${formatted}`, className: "text-primary" };
   }
   return { text: `-${formatted}`, className: "text-[#ee7d77]" };
 }

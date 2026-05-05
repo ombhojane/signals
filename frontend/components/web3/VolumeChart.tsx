@@ -23,6 +23,22 @@ export function VolumeChart({ data, height = 260 }: { data: VolumePoint[]; heigh
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Helper to get computed CSS variable
+    const getCssVar = (name: string) => {
+      if (typeof window === 'undefined') return '';
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    };
+
+    const primaryHex = getCssVar('--primary') || '#a7cbeb';
+    
+    // Parse hex to rgb for rgba usage
+    const hexToRgb = (hex: string) => {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : '167, 203, 235';
+    };
+    
+    const primaryRgb = hexToRgb(primaryHex);
+
     const chart = createChart(containerRef.current, {
       layout: {
         background: { type: ColorType.Solid, color: "#131313" },
@@ -41,17 +57,17 @@ export function VolumeChart({ data, height = 260 }: { data: VolumePoint[]; heigh
         borderColor: "rgba(72,72,72,0.3)",
       },
       crosshair: {
-        vertLine: { color: "rgba(167,203,235,0.3)", labelBackgroundColor: "#a7cbeb" },
-        horzLine: { color: "rgba(167,203,235,0.3)", labelBackgroundColor: "#a7cbeb" },
+        vertLine: { color: `rgba(${primaryRgb}, 0.3)`, labelBackgroundColor: primaryHex },
+        horzLine: { color: `rgba(${primaryRgb}, 0.3)`, labelBackgroundColor: primaryHex },
       },
       width: containerRef.current.clientWidth,
       height,
     });
 
     const series = chart.addSeries(AreaSeries, {
-      lineColor: "#a7cbeb",
-      topColor: "rgba(167,203,235,0.35)",
-      bottomColor: "rgba(167,203,235,0.0)",
+      lineColor: primaryHex,
+      topColor: `rgba(${primaryRgb}, 0.35)`,
+      bottomColor: `rgba(${primaryRgb}, 0.0)`,
       lineWidth: 2,
       priceFormat: {
         type: "price",

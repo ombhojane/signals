@@ -128,10 +128,10 @@ export default function ProofPage() {
     <div className="flex flex-col gap-8 max-w-6xl">
       <div className="flex items-start justify-between gap-6 flex-wrap">
         <div>
-          <h1 className="text-5xl font-black tracking-[-0.03em] mt-2 text-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mt-2 text-foreground">
             Proof of Alpha
           </h1>
-          <p className="mt-3 text-sm max-w-xl text-muted-foreground">
+          <p className="mt-3 text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl">
             Every trade the Signals vault has ever made, live from Base Sepolia.
             Each one is linked to the AI reasoning that produced it via an
             on-chain hash. No edits, no cherry-picking, no retroactive spin.

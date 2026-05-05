@@ -108,7 +108,7 @@ function HeroSection() {
       style={{ paddingTop: "6rem", paddingBottom: "4rem" }}
     >
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.03] pointer-events-none blur-[100px]" style={{ background: "radial-gradient(circle, #a7cbeb 0%, transparent 70%)" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.03] pointer-events-none blur-[100px]" style={{ background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)" }} />
 
       <div
         className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-12 animate-fade-in zen-glass-light"
@@ -125,9 +125,8 @@ function HeroSection() {
       </div>
 
       <h1
-        className="font-bold text-foreground mb-8 max-w-5xl tracking-tighter"
+        className="font-bold text-foreground mb-8 max-w-5xl tracking-tighter text-5xl md:text-7xl"
         style={{
-          fontSize: "clamp(3.5rem, 9vw, 7.5rem)",
           lineHeight: "0.9",
           animation: "fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both",
           fontFamily: "var(--font-space)"
@@ -243,7 +242,7 @@ function LiveStatsStrip() {
         >
           Live Vault State
         </span>
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-[rgba(167,203,235,0.2)] to-transparent ml-4" />
+        <div className="flex-1 h-[1px] bg-gradient-to-r from-primary/20 to-transparent ml-4" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
@@ -303,7 +302,7 @@ function HowItWorksSection() {
             How it works
           </span>
           <h2
-            className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground"
+            className="text-4xl md:text-5xl font-bold tracking-tight text-foreground"
             style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
           >
             Three pillars.
@@ -394,7 +393,7 @@ function ValuePropsSection() {
             Why Signals
           </span>
           <h2
-            className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground"
+            className="text-4xl md:text-5xl font-bold tracking-tight text-foreground"
             style={{ lineHeight: "0.95", fontFamily: "var(--font-space)" }}
           >
             Built for
@@ -412,8 +411,8 @@ function ValuePropsSection() {
               <div
                 className="h-16 w-16 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 style={{
-                  backgroundColor: "rgba(167,203,235,0.05)",
-                  border: "1px solid rgba(167,203,235,0.15)",
+                  backgroundColor: "color-mix(in srgb, var(--primary) 5%, transparent)",
+                  border: "1px solid color-mix(in srgb, var(--primary) 15%, transparent)",
                 }}
               >
                 <span
@@ -447,9 +446,8 @@ function CTASection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.02] pointer-events-none blur-[80px]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }} />
         
         <h2
-          className="font-bold tracking-tighter text-foreground mb-8 relative z-10"
+          className="font-bold tracking-tight text-foreground mb-8 relative z-10 text-4xl md:text-5xl"
           style={{
-            fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
             lineHeight: "0.93",
             fontFamily: "var(--font-space)"
           }}
@@ -458,7 +456,7 @@ function CTASection() {
           <br />
           <span className="text-muted-foreground">Trade with confidence.</span>
         </h2>
-        <p className="text-lg text-muted-foreground font-light leading-relaxed mb-16 max-w-xl mx-auto relative z-10">
+        <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-16 max-w-xl mx-auto relative z-10">
           Intelligent Signals meet autonomous trading. Multi-protocol vault management with safety mechanisms 
           built-in. Everything on-chain, fully auditable.
         </p>

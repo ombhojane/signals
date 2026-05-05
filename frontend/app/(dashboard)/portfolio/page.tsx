@@ -36,7 +36,7 @@ function PortfolioSummary({ agents }: { agents: Agent[] }) {
       label: "Total Portfolio Value",
       value: formatCurrency(totalValue),
       change: "+12.4%",
-      changeColor: "#a7cbeb",
+      changeColor: "var(--primary)",
       subtext: "All time",
     },
     {
@@ -57,7 +57,7 @@ function PortfolioSummary({ agents }: { agents: Agent[] }) {
       label: "Avg. Agent Performance",
       value: `${avgPerformance > 0 ? "+" : ""}${avgPerformance.toFixed(2)}%`,
       change: "+5.2%",
-      changeColor: "#a7cbeb",
+      changeColor: "var(--primary)",
       subtext: "vs benchmark",
     },
   ];
@@ -290,7 +290,7 @@ function PortfolioContent() {
           >
             Portfolio Overview
           </span>
-          <h2 className="text-4xl font-bold tracking-tight mt-2 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-2 text-foreground">
             Your <span className="text-muted-foreground">Positions</span>
           </h2>
         </div>

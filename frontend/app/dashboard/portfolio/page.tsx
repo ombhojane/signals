@@ -104,10 +104,10 @@ export default function ActivityPage() {
     <div className="flex flex-col gap-8 max-w-6xl">
       <div className="flex items-start justify-between gap-6 flex-wrap">
         <div>
-          <h1 className="text-5xl font-black tracking-[-0.03em] mt-2 text-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mt-2 text-foreground">
             Your Activity
           </h1>
-          <p className="mt-3 text-sm max-w-xl text-muted-foreground">
+          <p className="mt-3 text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl">
             Your personal vault history — every deposit, every withdrawal, and
             your current share position. All read straight from Base Sepolia.
           </p>
